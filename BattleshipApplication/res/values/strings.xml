@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BattleshipAndroidClient</string>
+    <string name="username">Username</string>
+    <string name="register">Register</string>
+    <string name="password">Your password</string>
+    <string name="passwordretype">Retype your password</string>
+    <string name="login">Login</string>
+    <string name="registerNew">Register as new user</string>
+
+</resources>

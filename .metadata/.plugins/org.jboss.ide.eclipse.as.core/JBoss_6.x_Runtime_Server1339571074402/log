@@ -1,0 +1,471 @@
+!SESSION 2012-06-13 09:36:32.377 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_31
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2012-06-13 10:30:58.985
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2012-06-13 10:32:00.013
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 10:32:14.697
+!MESSAGE Module BattleshipSystemEAR published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 10:32:14.789
+!MESSAGE Module BattleshipSystem published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2012-06-13 11:22:34.965
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2012-06-13 11:22:58.447
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2012-06-13 11:27:16.292
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 11:44:20.696
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 11:44:20.824
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 16842768 2012-06-13 11:44:20.829
+!MESSAGE Poll Thread Aborted: null
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2012-06-13 11:44:41.183
+!MESSAGE Server processes have been terminated.
+!SESSION 2012-06-13 12:03:12.676 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_31
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:04:48.943
+!MESSAGE Module BattleshipSystemEAR published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:04:49.077
+!MESSAGE Module BattleshipSystem published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2012-06-13 12:04:50.404
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2012-06-13 12:06:19.259
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:06:24.495
+!MESSAGE 2 files modified in module BattleshipSystem
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:06:35.642
+!MESSAGE 1 files modified in module BattleshipSystem
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 12:07:32.788
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 12:07:32.840
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 16842768 2012-06-13 12:07:32.893
+!MESSAGE Poll Thread Aborted: null
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2012-06-13 12:07:43.692
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2012-06-13 12:07:43.805
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2012-06-13 12:08:20.121
+!MESSAGE Server Startup Succeeded
+
+!ENTRY unknown 0 0 2012-06-13 12:09:41.929
+!MESSAGE OK
+
+!ENTRY unknown 0 0 2012-06-13 12:09:41.938
+!MESSAGE OK
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:12:29.630
+!MESSAGE Module BattleshipSystemEAR published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:12:29.693
+!MESSAGE Module BattleshipSystem published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:13:23.253
+!MESSAGE 1 files modified in module BattleshipSystem
+
+!ENTRY unknown 0 0 2012-06-13 12:13:35.865
+!MESSAGE OK
+
+!ENTRY unknown 0 0 2012-06-13 12:13:35.873
+!MESSAGE OK
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:14:18.430
+!MESSAGE Module BattleshipSystemEAR published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:14:18.458
+!MESSAGE Module BattleshipSystem published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 12:15:36.461
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 12:15:36.507
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 16842768 2012-06-13 12:15:36.562
+!MESSAGE Poll Thread Aborted: null
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2012-06-13 12:15:43.646
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2012-06-13 12:15:43.697
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 16842768 2012-06-13 12:15:43.727
+!MESSAGE Poll Thread Aborted: null
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2012-06-13 12:16:03.168
+!MESSAGE Server processes have been terminated.
+
+!ENTRY unknown 0 0 2012-06-13 12:17:23.141
+!MESSAGE OK
+
+!ENTRY unknown 0 0 2012-06-13 12:17:23.143
+!MESSAGE OK
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2012-06-13 12:17:23.233
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2012-06-13 12:17:58.268
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:18:48.471
+!MESSAGE Module BattleshipSystemEAR published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:18:48.499
+!MESSAGE Module BattleshipSystem published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:20:12.383
+!MESSAGE 1 files modified in module BattleshipSystem
+
+!ENTRY unknown 0 0 2012-06-13 12:20:55.606
+!MESSAGE OK
+
+!ENTRY unknown 0 0 2012-06-13 12:20:55.616
+!MESSAGE OK
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 12:21:00.483
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 12:21:00.503
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 16842768 2012-06-13 12:21:00.590
+!MESSAGE Poll Thread Aborted: null
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2012-06-13 12:21:08.555
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2012-06-13 12:21:38.501
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2012-06-13 12:22:09.844
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:23:02.187
+!MESSAGE Module BattleshipSystemEAR published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:23:02.230
+!MESSAGE Module BattleshipSystem published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:25:58.419
+!MESSAGE 1 files modified in module BattleshipSystem
+
+!ENTRY unknown 0 0 2012-06-13 12:28:02.697
+!MESSAGE OK
+
+!ENTRY unknown 0 0 2012-06-13 12:28:02.699
+!MESSAGE OK
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:28:13.161
+!MESSAGE Module BattleshipSystemEAR published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:28:13.211
+!MESSAGE Module BattleshipSystem published without error.
+
+!ENTRY unknown 0 0 2012-06-13 12:28:37.687
+!MESSAGE OK
+
+!ENTRY unknown 0 0 2012-06-13 12:28:37.694
+!MESSAGE OK
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 12:28:39.615
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 12:28:39.649
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 16842768 2012-06-13 12:28:39.733
+!MESSAGE Poll Thread Aborted: null
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2012-06-13 12:28:48.102
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2012-06-13 12:29:02.101
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2012-06-13 12:29:39.232
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:29:48.160
+!MESSAGE Module BattleshipSystemEAR published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:29:48.209
+!MESSAGE Module BattleshipSystem published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:33:16.750
+!MESSAGE 1 files modified in module BattleshipSystem
+
+!ENTRY unknown 0 0 2012-06-13 12:33:38.103
+!MESSAGE OK
+
+!ENTRY unknown 0 0 2012-06-13 12:33:38.111
+!MESSAGE OK
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:34:05.580
+!MESSAGE Module BattleshipSystemEAR published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:34:05.618
+!MESSAGE Module BattleshipSystem published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:36:01.677
+!MESSAGE 1 files modified in module BattleshipSystem
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:36:19.386
+!MESSAGE 1 files modified in module BattleshipSystem
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:36:38.023
+!MESSAGE 1 files modified in module BattleshipSystem
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:37:14.708
+!MESSAGE 1 files modified in module BattleshipSystem
+
+!ENTRY unknown 0 0 2012-06-13 12:37:31.979
+!MESSAGE OK
+
+!ENTRY unknown 0 0 2012-06-13 12:37:31.988
+!MESSAGE OK
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 12:37:33.850
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 12:37:33.867
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 16842768 2012-06-13 12:37:33.951
+!MESSAGE Poll Thread Aborted: null
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2012-06-13 12:37:39.908
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2012-06-13 12:37:39.993
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2012-06-13 12:38:18.306
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:38:27.746
+!MESSAGE Module BattleshipSystemEAR published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:38:27.792
+!MESSAGE Module BattleshipSystem published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:40:36.259
+!MESSAGE 1 files modified in module BattleshipSystem
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 12:42:37.855
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 12:42:37.900
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 16842768 2012-06-13 12:42:37.956
+!MESSAGE Poll Thread Aborted: null
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2012-06-13 12:42:46.199
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 12:52:00.027
+!MESSAGE 1 files modified in module BattleshipSystem
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2012-06-13 12:52:00.205
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2012-06-13 12:53:32.471
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 12:54:16.541
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 12:54:16.623
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 16842768 2012-06-13 12:54:16.680
+!MESSAGE Poll Thread Aborted: null
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2012-06-13 12:54:49.214
+!MESSAGE Server processes have been terminated.
+!SESSION 2012-06-13 13:28:57.917 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_31
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.jee.product -data /home/joe/workspaces/Battleship -product org.eclipse.epp.package.jee.product
+
+!ENTRY unknown 0 0 2012-06-13 13:32:25.704
+!MESSAGE OK
+
+!ENTRY unknown 0 0 2012-06-13 13:32:25.717
+!MESSAGE OK
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2012-06-13 13:32:26.895
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2012-06-13 13:33:16.847
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 13:34:25.453
+!MESSAGE Module BattleshipSystemEAR published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 13:34:25.502
+!MESSAGE Module BattleshipSystem published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 13:43:38.508
+!MESSAGE 1 files modified in module BattleshipSystem
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 13:47:55.270
+!MESSAGE 6 files modified in module BattleshipSystem
+
+!ENTRY unknown 0 0 2012-06-13 13:49:05.980
+!MESSAGE OK
+
+!ENTRY unknown 0 0 2012-06-13 13:49:05.997
+!MESSAGE OK
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 13:49:19.780
+!MESSAGE Module BattleshipSystemEAR published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 13:49:19.814
+!MESSAGE Module BattleshipSystem published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 13:49:46.445
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 13:49:46.468
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 16842768 2012-06-13 13:49:46.552
+!MESSAGE Poll Thread Aborted: null
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2012-06-13 13:49:54.265
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2012-06-13 13:49:54.393
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2012-06-13 13:50:41.080
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 13:54:13.033
+!MESSAGE Module BattleshipSystemEAR published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 13:54:13.104
+!MESSAGE Module BattleshipSystem published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 13:54:17.262
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 13:54:17.301
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 16842768 2012-06-13 13:54:17.367
+!MESSAGE Poll Thread Aborted: null
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2012-06-13 13:54:25.637
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 13:54:36.205
+!MESSAGE Module BattleshipSystemEAR published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 13:54:36.268
+!MESSAGE Module BattleshipSystem published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2012-06-13 13:54:39.800
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2012-06-13 13:55:28.612
+!MESSAGE Server Startup Succeeded
+
+!ENTRY unknown 0 0 2012-06-13 14:12:27.917
+!MESSAGE OK
+
+!ENTRY unknown 0 0 2012-06-13 14:12:27.920
+!MESSAGE OK
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 14:12:54.728
+!MESSAGE Module BattleshipSystemEAR published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 14:12:54.798
+!MESSAGE Module BattleshipSystem published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 14:17:10.091
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 14:17:10.115
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 16842768 2012-06-13 14:17:10.193
+!MESSAGE Poll Thread Aborted: null
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2012-06-13 14:17:18.017
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 14:17:25.037
+!MESSAGE Module BattleshipSystemEAR published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 14:17:25.100
+!MESSAGE Module BattleshipSystem published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2012-06-13 14:17:30.651
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2012-06-13 14:18:16.518
+!MESSAGE Server Startup Succeeded
+
+!ENTRY unknown 0 0 2012-06-13 14:18:42.744
+!MESSAGE OK
+
+!ENTRY unknown 0 0 2012-06-13 14:18:42.758
+!MESSAGE OK
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 14:19:27.560
+!MESSAGE Module BattleshipSystemEAR published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 14:19:27.595
+!MESSAGE Module BattleshipSystem published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 14:20:17.123
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-13 14:20:17.155
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 16842768 2012-06-13 14:20:17.225
+!MESSAGE Poll Thread Aborted: null
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2012-06-13 14:20:22.932
+!MESSAGE Server processes have been terminated.

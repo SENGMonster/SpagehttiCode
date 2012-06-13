@@ -1,0 +1,58 @@
+package battleship.server;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
+import javax.ejb.Singleton;
+import javax.ejb.Startup;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import battleship.common.User;
+
+/**
+ * Session Bean implementation class DataBuilder
+ */
+@Startup
+@Singleton
+public class DataBuilder {
+	
+	private Logger logger;
+	
+	@PersistenceContext
+	EntityManager entitymanager;
+	
+	@Resource private String name1, name2, name3, password1, password2, password3;
+	
+	@SuppressWarnings("unused")
+	@PostConstruct
+	private void init(){
+		logger = Logger.getLogger(DataBuilder.class.getPackage().getName());
+		
+		User user1 = entitymanager.find(User.class, name1);
+		if(user1 != null){
+			user1 = new User(name1, password1);
+			entitymanager.persist(user1);
+			logger.log(Level.INFO, "Neu angelegt: "+ user1);
+		}
+		
+		User user2 = entitymanager.find(User.class, name2);
+		if(user2 != null){
+			user2 = new User(name2, password2);
+			entitymanager.persist(user2);
+			logger.log(Level.INFO, "Neu angelegt: "+ user2);
+		}
+		
+		User user3 = entitymanager.find(User.class, name3); 
+		if(user3 != null){
+			user3 = new User(name3, password3);
+			entitymanager.persist(user3);
+			logger.log(Level.INFO, name3);
+		}
+		
+	}
+   
+
+}
