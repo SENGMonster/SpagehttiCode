@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:ejb="http://java.sun.com/xml/ns/javaee/ejb-jar_3_0.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd" version="3.1">
+  <display-name>BattleshipSystem</display-name>
+  <enterprise-beans>
+    <session>
+      <ejb-name>DataBuilder</ejb-name>
+      <ejb-class>de.wifhm.se1.server.DataBuilder</ejb-class>
+      <env-entry>
+        <env-entry-name>de.wifhm.se1.server.DataBuilder/name1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>test</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.wifhm.se1.server.DataBuilder/password1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>test</env-entry-value>
+      </env-entry>
+    </session>
+   </enterprise-beans>
+</ejb-jar>
+     

@@ -26,7 +26,7 @@ import de.wifhm.se1.battleship.common.BattleshipSystem;
 import de.wifhm.se1.battleship.common.BattleshipSystemLocal;
 import de.wifhm.se1.battleship.common.ClientSystemSettings;
 import de.wifhm.se1.battleship.common.Highscore;
-import de.wifhm.se1.battleship.common.Player;
+import de.wifhm.se1.battleship.common.User;
 import de.wifhm.se1.battleship.server.exceptions.InvalidPasswordException;
 import de.wifhm.se1.battleship.server.exceptions.InvalidUsernameException;
 import de.wifhm.se1.battleship.server.exceptions.NotLoggedInException;
@@ -90,7 +90,7 @@ public class BattleshipSystemWebservice implements BattleshipSystem {
      */
 	@Override
 	@WebMethod
-	public Player login(String username, String password) throws InvalidUsernameException, InvalidPasswordException {
+	public User login(String username, String password) throws InvalidUsernameException, InvalidPasswordException {
 		return this.getSession().login(username, password);
     }
 	/**

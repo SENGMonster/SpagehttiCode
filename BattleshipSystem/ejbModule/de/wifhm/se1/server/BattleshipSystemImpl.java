@@ -18,7 +18,7 @@ import de.wifhm.se1.battleship.common.BattleshipSystem;
 import de.wifhm.se1.battleship.common.BattleshipSystemLocal;
 import de.wifhm.se1.battleship.common.ClientSystemSettings;
 import de.wifhm.se1.battleship.common.Highscore;
-import de.wifhm.se1.battleship.common.Player;
+import de.wifhm.se1.battleship.common.User;
 import de.wifhm.se1.battleship.server.exceptions.InvalidPasswordException;
 import de.wifhm.se1.battleship.server.exceptions.InvalidUsernameException;
 import de.wifhm.se1.battleship.server.exceptions.NotLoggedInException;
@@ -60,8 +60,8 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
      */
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public Player login(String username, String password) throws InvalidUsernameException, InvalidPasswordException {
-       Player user = entitymanager.find(Player.class, username);
+	public User login(String username, String password) throws InvalidUsernameException, InvalidPasswordException {
+       User user = entitymanager.find(User.class, username);
        if(user != null){
     	   if(user.getPassword().equals(password)){
     		   this.loggedUser = username;
@@ -73,8 +73,8 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
     	   }
        }
        else{
-    	   logger.log(Level.INFO, "Login failed, Player doesn't exsist");
-    	   throw new InvalidUsernameException("Login failed, Player doesn't exsist");
+    	   logger.log(Level.INFO, "Login failed, User doesn't exsist");
+    	   throw new InvalidUsernameException("Login failed, User doesn't exsist");
        }
        return user;
     }
@@ -99,10 +99,10 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void register(String username, String password) throws InvalidUsernameException {
     	if(this.loggedUser != null){
-    		if(entitymanager.find(Player.class, username) == null){
-    			Player user = new Player(username, password);
+    		if(entitymanager.find(User.class, username) == null){
+    			User user = new User(username, password);
     			entitymanager.persist(user);
-    			logger.log(Level.INFO, "New Player created");
+    			logger.log(Level.INFO, "New User created");
     		}
     		else{
     			throw new InvalidUsernameException("Username already exsists");
@@ -120,7 +120,7 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 	@TransactionAttribute(TransactionAttributeType.SUPPORTS)
     public ClientSystemSettings getClientSystemSettings() throws NotLoggedInException {
     	if(this.loggedUser != null ){
-    		Player user = entitymanager.find(Player.class, this.loggedUser);
+    		User user = entitymanager.find(User.class, this.loggedUser);
     		return user.getSettings();
     	}
     	else{
@@ -139,7 +139,7 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 	@TransactionAttribute(TransactionAttributeType.SUPPORTS)
     public void setClientSystemSettings(boolean savePasswordUsername, int boardlength) throws NotLoggedInException {
     	if(loggedUser != null){
-    		Player user = entitymanager.find(Player.class, loggedUser);
+    		User user = entitymanager.find(User.class, loggedUser);
         	user.setSettings(new ClientSystemSettings(savePasswordUsername, boardlength));
         	entitymanager.persist(user);
         	logger.log(Level.INFO, "ClientSystemSettings have been changed savemode is "+ savePasswordUsername + " and boardlength "+boardlength);	
@@ -158,7 +158,7 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 	@TransactionAttribute(TransactionAttributeType.SUPPORTS)
     public void setClientSystemSetting(ClientSystemSettings settings) throws NotLoggedInException {
     	if(loggedUser != null){
-        	Player user = entitymanager.find(Player.class, loggedUser);
+        	User user = entitymanager.find(User.class, loggedUser);
         	user.setSettings(settings);
         	entitymanager.persist(user);
         	logger.log(Level.INFO, "ClientSystemSettings have been changed savemode is "+ settings.isSavePasswordUsername() + " and boardlength "+settings.getBoardlength());
@@ -172,7 +172,7 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 	@Override
 	public void setHighscore(int points) throws NotLoggedInException {
 		if(loggedUser != null){
-			Player user = entitymanager.find(Player.class, loggedUser);
+			User user = entitymanager.find(User.class, loggedUser);
 			Highscore highscore = user.getHighscore();
 			highscore.setHighscore(points);
 			user.setHighscore(highscore);
@@ -189,7 +189,7 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 	@Override
 	public Highscore getHighscore() throws NotLoggedInException {
 		if(this.loggedUser != null){
-			Player user = entitymanager.find(Player.class, loggedUser);
+			User user = entitymanager.find(User.class, loggedUser);
 			return user.getHighscore();
 		}
 		else{

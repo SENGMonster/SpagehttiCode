@@ -469,3 +469,40 @@ Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.pa
 
 !ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2012-06-13 14:20:22.932
 !MESSAGE Server processes have been terminated.
+!SESSION 2012-06-13 15:04:06.751 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_31
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.jee.product
+
+!ENTRY unknown 0 0 2012-06-13 15:19:06.275
+!MESSAGE OK
+
+!ENTRY unknown 0 0 2012-06-13 15:19:06.292
+!MESSAGE OK
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2012-06-13 15:48:35.643
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2012-06-13 15:49:18.904
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 15:49:33.029
+!MESSAGE Module BattleshipSystemEAR published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 15:49:33.120
+!MESSAGE Module BattleshipSystem published without error.
+
+!ENTRY unknown 0 0 2012-06-13 15:51:23.377
+!MESSAGE OK
+
+!ENTRY unknown 0 0 2012-06-13 15:51:23.395
+!MESSAGE OK
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 15:53:36.825
+!MESSAGE Module BattleshipSystemEAR published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 15:53:36.904
+!MESSAGE Module BattleshipSystem published without error.

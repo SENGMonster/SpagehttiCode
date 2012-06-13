@@ -15,7 +15,7 @@ public interface BattleshipSystem {
 	 * @throws InvalidUsernameException
 	 * @throws InvalidPasswordException
 	 */
-	public Player login(String username, String password) throws InvalidUsernameException, InvalidPasswordException;
+	public User login(String username, String password) throws InvalidUsernameException, InvalidPasswordException;
 	/**
 	 * 
 	 */

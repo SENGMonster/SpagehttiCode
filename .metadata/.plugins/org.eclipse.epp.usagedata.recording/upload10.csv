@@ -1,0 +1,251 @@
+what,kind,bundleId,bundleVersion,description,time
+started,bundle,org.jboss.tools.project.examples,1.2.1.v20120320-2046-H78-Beta2,"org.jboss.tools.project.examples",1339592804031
+started,bundle,org.jboss.tools.runtime.ui,1.3.0.v20120307-2045-H73-Beta1,"org.jboss.tools.runtime.ui",1339592804033
+started,bundle,org.jboss.tools.seam.core,3.3.0.v20120302-2019-H81-Beta1,"org.jboss.tools.seam.core",1339592804035
+started,bundle,org.jboss.tools.seam.ui,3.3.0.v20120302-2019-H81-Beta1,"org.jboss.tools.seam.ui",1339592804036
+started,bundle,org.maven.ide.eclipse.wtp,0.15.2.20120306-2040,"org.maven.ide.eclipse.wtp",1339592804059
+started,bundle,org.maven.ide.eclipse.wtp.overlay,0.15.2.20120306-2040,"org.maven.ide.eclipse.wtp.overlay",1339592804060
+started,bundle,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.adt",1339592804061
+os,sysinfo,,,"linux",1339592804071
+arch,sysinfo,,,"x86",1339592804071
+ws,sysinfo,,,"gtk",1339592804071
+locale,sysinfo,,,"en_US",1339592804071
+processors,sysinfo,,,"1",1339592804071
+java.runtime.name,sysinfo,,,"Java(TM) SE Runtime Environment",1339592804071
+java.runtime.version,sysinfo,,,"1.6.0_31-b04",1339592804071
+java.specification.name,sysinfo,,,"Java Platform API Specification",1339592804071
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1339592804071
+java.specification.version,sysinfo,,,"1.6",1339592804071
+java.vendor,sysinfo,,,"Sun Microsystems Inc.",1339592804071
+java.version,sysinfo,,,"1.6.0_31",1339592804071
+java.vm.info,sysinfo,,,"mixed mode, sharing",1339592804071
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1339592804071
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1339592804071
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1339592804071
+java.vm.specification.version,sysinfo,,,"1.0",1339592804071
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1339592804071
+java.vm.version,sysinfo,,,"20.6-b01",1339592804071
+started,bundle,org.eclipse.m2e.usagedata,1.0.200.20111228-1245,"org.eclipse.m2e.usagedata",1339592804115
+started,bundle,org.eclipse.jsch.core,1.1.300.I20110514-0800,"org.eclipse.jsch.core",1339592806308
+started,bundle,org.eclipse.team.cvs.core,3.3.400.I20110510-0800,"org.eclipse.team.cvs.core",1339592806451
+started,bundle,org.eclipse.jgit,1.3.0.201202151440-r,"org.eclipse.jgit",1339592806453
+started,bundle,org.eclipse.team.ui,3.6.101.R37x_v20111109-0800,"org.eclipse.team.ui",1339592806722
+started,bundle,org.eclipse.egit.core,1.3.0.201202151440-r,"org.eclipse.egit.core",1339592806752
+started,bundle,org.eclipse.egit.ui,1.3.0.201202151440-r,"org.eclipse.egit.ui",1339592808126
+started,bundle,org.eclipse.team.cvs.ui,3.3.401.v20120126-1227,"org.eclipse.team.cvs.ui",1339592808186
+started,bundle,org.jboss.tools.jmx.core,1.2.0.v20120302-0157-H43-Beta1,"org.jboss.tools.jmx.core",1339592808187
+started,bundle,org.jboss.ide.eclipse.as.jmx.integration,2.3.0.v20120321-1339-H91-Beta2,"org.jboss.ide.eclipse.as.jmx.integration",1339592808190
+started,bundle,org.jboss.ide.eclipse.as.ui,2.3.0.v20120321-1339-H91-Beta2,"org.jboss.ide.eclipse.as.ui",1339592808191
+started,bundle,org.jboss.tools.openshift.express.ui,2.3.0.v20120322-1632-H66-Beta2,"org.jboss.tools.openshift.express.ui",1339592808753
+started,bundle,org.eclipse.uml2.diagram.common,0.9.2.201103290533,"org.eclipse.uml2.diagram.common",1339592809061
+started,bundle,org.eclipse.emf.validation,1.4.0.v20100428-2315,"org.eclipse.emf.validation",1339592809650
+started,bundle,org.eclipse.jst.servlet.ui,1.1.502.v201202011054,"org.eclipse.jst.servlet.ui",1339592809781
+started,bundle,org.jboss.tools.central,1.0.0.v20120307-1926-H67-Beta1,"org.jboss.tools.central",1339592810077
+started,bundle,org.jboss.tools.common.model,3.3.0.v20120302-0132-H47-Beta1,"org.jboss.tools.common.model",1339592810941
+started,bundle,org.jboss.tools.forge.core,1.0.0.v20120328-1255-H60-Beta2,"org.jboss.tools.forge.core",1339592810949
+started,bundle,org.jboss.tools.usage,1.1.0.v20120302-0148-H44-Beta1,"org.jboss.tools.usage",1339592811272
+started,bundle,com.google.gdt.eclipse.core,2.5.2.v201203300216-rel-r37,"com.google.gdt.eclipse.core",1339592812285
+started,bundle,com.google.gdt.eclipse.platform.shared,2.5.2.v201203300216-rel-r37,"com.google.gdt.eclipse.platform.shared",1339592812529
+started,bundle,com.google.gdt.eclipse.platform.e37,2.5.2.v201203300216-rel-r37,"com.google.gdt.eclipse.platform.e37",1339592812532
+started,bundle,com.google.gwt.eclipse.core,2.5.2.v201203300216-rel-r37,"com.google.gwt.eclipse.core",1339592816587
+started,bundle,org.hibernate.eclipse.jdt.ui,3.4.0.v20120307-2104-H60-Beta1,"org.hibernate.eclipse.jdt.ui",1339592816623
+started,bundle,org.hibernate.eclipse.libs,3.4.0.v20120307-2104-H60-Beta1,"org.hibernate.eclipse.libs",1339592820352
+started,bundle,org.hibernate.eclipse,3.4.0.v20120307-2104-H60-Beta1,"org.hibernate.eclipse",1339592821647
+started,bundle,org.hibernate.eclipse.console,3.4.0.v20120307-2104-H60-Beta1,"org.hibernate.eclipse.console",1339592824235
+started,bundle,org.eclipse.jdt.apt.core,3.3.500.v20110420-1015,"org.eclipse.jdt.apt.core",1339592824808
+started,bundle,org.eclipse.jdt.apt.pluggable.core,1.0.400.v20110305-1450,"org.eclipse.jdt.apt.pluggable.core",1339592824830
+started,bundle,org.eclipse.equinox.p2.garbagecollector,1.0.200.v20110815-1419,"org.eclipse.equinox.p2.garbagecollector",1339593105696
+activated,view,org.eclipse.wst.server.ui,1.3.0.v20120210_1439,"org.eclipse.wst.server.ui.ServersView",1339593536500
+started,bundle,org.jboss.tools.common.verification.ui,3.3.0.v20120302-0132-H47-Beta1,"org.jboss.tools.common.verification.ui",1339593536558
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339593538526
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339593541966
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339593544741
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339593546184
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1339593708327
+activated,view,org.eclipse.ui.navigator.resources,3.4.300.v20110928-1505,"org.eclipse.ui.navigator.ProjectExplorer",1339593710346
+started,bundle,org.jboss.tools.jst.web.ui,3.3.0.v20120302-0221-H55-Beta1,"org.jboss.tools.jst.web.ui",1339593710461
+started,bundle,org.jboss.tools.common.model.ui,3.3.0.v20120302-0132-H47-Beta1,"org.jboss.tools.common.model.ui",1339593710647
+started,bundle,org.eclipse.jst.ws.jaxws.dom.integration,1.0.101.v201201031437,"org.eclipse.jst.ws.jaxws.dom.integration",1339593710664
+started,bundle,org.eclipse.jst.ws.jaxws.dom.ui,1.0.0.v201004171919,"org.eclipse.jst.ws.jaxws.dom.ui",1339593710705
+started,bundle,org.jboss.ide.eclipse.archives.ui,3.2.1.v20120302-0154-H54-Beta1,"org.jboss.ide.eclipse.archives.ui",1339593710806
+started,bundle,org.eclipse.compare,3.5.202.R37x_v20111109-0800,"org.eclipse.compare",1339593716912
+error,log,,,"Plug-in 'com.google.gwt.eclipse.core' contributed an invalid Menu Extension (Path: 'com.google.gdt.eclipse.suite.popupMenu.file' is invalid): com.google.gwt.eclipse.core.actions.AddResourcesToClientBundleAction",1339593717087
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339593724166
+started,bundle,org.eclipse.jpt.common.core,1.0.2.v201111103010,"org.eclipse.jpt.common.core",1339593733870
+started,bundle,org.eclipse.jpt.jpa.core,3.0.2.v201201243020,"org.eclipse.jpt.jpa.core",1339593733899
+started,bundle,org.eclipse.wst.sse.core,1.1.602.v201112071516,"org.eclipse.wst.sse.core",1339593733962
+started,bundle,org.jboss.tools.struts,3.3.0.v20120302-0304-H64-Beta1,"org.jboss.tools.struts",1339593734830
+started,bundle,org.jboss.tools.jsf,3.3.0.v20120302-0331-H69-Beta1,"org.jboss.tools.jsf",1339593734846
+started,bundle,org.jboss.tools.common.projecttemplates,3.3.0.v20120302-0132-H47-Beta1,"org.jboss.tools.common.projecttemplates",1339593736361
+started,bundle,org.jboss.tools.jst.web,3.3.0.v20120302-0221-H55-Beta1,"org.jboss.tools.jst.web",1339593736373
+started,bundle,org.jboss.tools.jst.web.tiles,3.3.0.v20120302-0221-H55-Beta1,"org.jboss.tools.jst.web.tiles",1339593736375
+started,bundle,org.jboss.tools.hibernate.xml,3.4.0.v20120307-2104-H60-Beta1,"org.jboss.tools.hibernate.xml",1339593736400
+started,bundle,org.jboss.tools.seam.xml,3.3.0.v20120302-2019-H81-Beta1,"org.jboss.tools.seam.xml",1339593736422
+started,bundle,org.jboss.tools.seam.pages.xml,3.3.0.v20120302-2019-H81-Beta1,"org.jboss.tools.seam.pages.xml",1339593736446
+started,bundle,org.jboss.tools.cdi.xml,1.2.0.v20120302-0255-H54-Beta1,"org.jboss.tools.cdi.xml",1339593736455
+started,bundle,org.eclipse.jdt.debug,3.7.1.v20111006_r372,"org.eclipse.jdt.debug",1339593736660
+started,bundle,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui",1339593736835
+started,bundle,org.eclipse.jdt.debug.ui,3.6.1.v20111006_r372,"org.eclipse.jdt.debug.ui",1339593737009
+started,bundle,org.eclipse.jst.jsp.ui,1.1.602.v201112071516,"org.eclipse.jst.jsp.ui",1339593737476
+started,bundle,org.eclipse.pde.launching,3.6.0.v20110506,"org.eclipse.pde.launching",1339593737540
+started,bundle,org.eclipse.ui.views.log,1.0.200.v20110404,"org.eclipse.ui.views.log",1339593737561
+started,bundle,org.eclipse.pde.ui,3.6.100.v20120103_r372,"org.eclipse.pde.ui",1339593737585
+started,bundle,org.eclipse.ant.ui,3.5.101.v20120110-1739,"org.eclipse.ant.ui",1339593737645
+started,bundle,org.eclipse.wst.jsdt.debug.rhino.ui,1.0.1.v201201112313,"org.eclipse.wst.jsdt.debug.rhino.ui",1339593737663
+started,bundle,org.jboss.tools.jsf.ui,3.3.0.v20120302-0331-H69-Beta1,"org.jboss.tools.jsf.ui",1339593737711
+started,bundle,org.eclipse.jst.jsp.core,1.2.402.v201112071853,"org.eclipse.jst.jsp.core",1339593737992
+started,bundle,org.eclipse.wst.jsdt.manipulation,1.0.300.v201104272153,"org.eclipse.wst.jsdt.manipulation",1339593745409
+started,bundle,org.eclipse.wst.jsdt.core,1.1.102.v201111090634,"org.eclipse.wst.jsdt.core",1339593746322
+started,bundle,org.eclipse.wst.jsdt.ui,1.1.102.v201201131900,"org.eclipse.wst.jsdt.ui",1339593746477
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1339593748852
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339593748934
+started,bundle,org.jboss.tools.portlet.core,1.2.0.v20120302-2132-H56-Beta1,"org.jboss.tools.portlet.core",1339593749848
+started,bundle,org.eclipse.wst.dtd.core,1.1.501.v201107252021,"org.eclipse.wst.dtd.core",1339593750043
+started,bundle,org.jboss.tools.jst.web.kb,3.3.0.v20120302-0221-H55-Beta1,"org.jboss.tools.jst.web.kb",1339593750142
+started,bundle,org.jboss.tools.cdi.core,1.2.0.v20120302-0255-H54-Beta1,"org.jboss.tools.cdi.core",1339593750147
+started,bundle,org.eclipse.wst.sse.ui,1.3.2.v201201041522,"org.eclipse.wst.sse.ui",1339593750209
+started,bundle,org.eclipse.wst.html.ui,1.0.602.v201202091936,"org.eclipse.wst.html.ui",1339593750212
+started,bundle,org.eclipse.jst.jsf.common,1.2.3.v201104061039,"org.eclipse.jst.jsf.common",1339593750316
+started,bundle,org.eclipse.jst.jsf.core,1.3.105.v201108261005,"org.eclipse.jst.jsf.core",1339593750336
+started,bundle,org.eclipse.wst.wsdl.validation,1.1.502.v201104071820,"org.eclipse.wst.wsdl.validation",1339593750559
+started,bundle,org.eclipse.wst.xsd.core,1.1.600.v201104070312,"org.eclipse.wst.xsd.core",1339593750623
+started,bundle,org.eclipse.wst.xsl.core,1.1.100.v201102270516,"org.eclipse.wst.xsl.core",1339593750678
+started,bundle,org.eclipse.wst.wsi.ui,1.0.502.v201104071820,"org.eclipse.wst.wsi.ui",1339593750731
+started,bundle,org.jboss.tools.common.text.ext,3.3.0.v20120302-0132-H47-Beta1,"org.jboss.tools.common.text.ext",1339593750809
+started,bundle,org.jboss.tools.cdi.seam.core,1.2.0.v20120302-0255-H54-Beta1,"org.jboss.tools.cdi.seam.core",1339593751470
+started,bundle,org.eclipse.wst.css.core,1.1.501.v201111292150,"org.eclipse.wst.css.core",1339593751676
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339593777976
+started,bundle,org.jboss.tools.cdi.ui,1.2.0.v20120302-0255-H54-Beta1,"org.jboss.tools.cdi.ui",1339593805669
+started,bundle,org.eclipse.wst.common.uriresolver,1.1.401.v201004280700,"org.eclipse.wst.common.uriresolver",1339593827152
+started,bundle,org.eclipse.wst.xsl.exslt.core,1.0.0.v201005240426,"org.eclipse.wst.xsl.exslt.core",1339593827248
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.newWizard",1339593827718
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339593827836
+started,bundle,org.eclipse.wst.internet.cache,1.0.400.v201004280700,"org.eclipse.wst.internet.cache",1339593827959
+started,bundle,org.jboss.tools.jmx.ui,1.2.0.v20120302-0157-H43-Beta1,"org.jboss.tools.jmx.ui",1339593828179
+started,bundle,org.eclipse.wst.xml.ui,1.1.202.v201112071516,"org.eclipse.wst.xml.ui",1339593830725
+started,bundle,org.hibernate.eclipse.mapper,3.4.0.v20120307-2104-H60-Beta1,"org.hibernate.eclipse.mapper",1339593830891
+started,bundle,org.eclipse.xsd,2.7.1.v20120130-0943,"org.eclipse.xsd",1339593831049
+started,bundle,org.eclipse.wst.dtd.ui,1.0.600.v201103171359,"org.eclipse.wst.dtd.ui",1339593831540
+started,bundle,org.eclipse.wst.xsl.ui,1.1.200.v201103082057,"org.eclipse.wst.xsl.ui",1339593831686
+error,log,,,"Failed to load properties file for project 'BattleshipSystem'",1339593831759
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1339593833084
+started,bundle,org.jboss.tools.jst.jsp,3.3.0.v20120302-0221-H55-Beta1,"org.jboss.tools.jst.jsp",1339593833104
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1339593833317
+activated,view,org.eclipse.ui.navigator.resources,3.4.300.v20110928-1505,"org.eclipse.ui.navigator.ProjectExplorer",1339593833352
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1339593834334
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1339593856501
+error,log,,,"Failed to load properties file for project 'BattleshipSystem'",1339593891054
+error,log,,,"null",1339593891056
+started,bundle,org.jboss.tools.cdi.seam.config.core,1.2.0.v20120302-0255-H54-Beta1,"org.jboss.tools.cdi.seam.config.core",1339593891300
+started,bundle,org.jboss.tools.cdi.seam.config.ui,1.2.0.v20120302-0255-H54-Beta1,"org.jboss.tools.cdi.seam.config.ui",1339593891303
+error,log,,,"Failed to load properties file for project 'BattleshipSystem'",1339593893932
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.text.contentAssist.proposals",1339593893952
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1339594002818
+started,bundle,org.eclipse.wst.html.core,1.1.502.v201202091936,"org.eclipse.wst.html.core",1339594318271
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.text.contentAssist.proposals",1339594318325
+error,log,,,"Failed to load properties file for project 'BattleshipSystem'",1339594326779
+started,bundle,org.eclipse.mylyn.java.tasks,3.6.0.v20110608-1400,"org.eclipse.mylyn.java.tasks",1339594467768
+started,bundle,org.jboss.tools.jst.text.ext,3.3.0.v20120302-0221-H55-Beta1,"org.jboss.tools.jst.text.ext",1339594467802
+started,bundle,org.jboss.tools.cdi.text.ext,1.2.0.v20120302-0255-H54-Beta1,"org.jboss.tools.cdi.text.ext",1339594468107
+started,bundle,org.jboss.tools.cdi.seam.text.ext,1.2.0.v20120302-0255-H54-Beta1,"org.jboss.tools.cdi.seam.text.ext",1339594468109
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1339594468171
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1339594502554
+activated,view,org.eclipse.ui.navigator.resources,3.4.300.v20110928-1505,"org.eclipse.ui.navigator.ProjectExplorer",1339594511169
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339594561675
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339594575110
+started,bundle,org.jboss.tools.common.ui,3.3.0.v20120302-0132-H47-Beta1,"org.jboss.tools.common.ui",1339594580418
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339594580803
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339594601322
+started,bundle,org.eclipse.jst.ejb.ui,1.1.601.v201201261600,"org.eclipse.jst.ejb.ui",1339594618219
+started,bundle,org.eclipse.wst.common.environment,1.0.400.v200912181832,"org.eclipse.wst.common.environment",1339594618221
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339594619517
+started,bundle,org.eclipse.emf.codegen,2.6.0.v20120130-0943,"org.eclipse.emf.codegen",1339594647484
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339594648425
+opened,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1339594648820
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1339594649210
+activated,view,org.eclipse.ui.navigator.resources,3.4.300.v20110928-1505,"org.eclipse.ui.navigator.ProjectExplorer",1339594661115
+error,log,,,"Plug-in 'com.google.gwt.eclipse.core' contributed an invalid Menu Extension (Path: 'com.google.gdt.eclipse.suite.popupMenu.file' is invalid): com.google.gwt.eclipse.core.actions.AddResourcesToClientBundleAction",1339594661830
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339594668505
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1339594673412
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339594673511
+closed,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1339594673978
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339594683413
+started,bundle,org.eclipse.mylyn.ide.ui,3.6.0.v20110608-1400,"org.eclipse.mylyn.ide.ui",1339594696360
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339594697392
+started,bundle,org.eclipse.mylyn.resources.ui,3.6.0.v20110608-1400,"org.eclipse.mylyn.resources.ui",1339594697716
+opened,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1339594697935
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1339594698192
+started,bundle,org.eclipse.jdt.junit,3.7.0.v20110928-1453,"org.eclipse.jdt.junit",1339594704569
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339594726782
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.organize.imports",1339594734518
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339594734607
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339594763580
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339594763950
+started,bundle,org.jboss.tools.ws.jaxrs.ui,1.2.2.v20120323-1522-H83-Beta2,"org.jboss.tools.ws.jaxrs.ui",1339594771526
+started,bundle,org.jboss.tools.ws.jaxrs.core,1.2.2.v20120323-1522-H83-Beta2,"org.jboss.tools.ws.jaxrs.core",1339594771572
+started,bundle,org.eclipse.jpt.jaxb.ui,1.1.2.v201201260000,"org.eclipse.jpt.jaxb.ui",1339594771607
+started,bundle,org.eclipse.jpt.jpa.ui,3.0.2.v201201243020,"org.eclipse.jpt.jpa.ui",1339594771637
+started,bundle,org.eclipse.jst.ws.jaxws.ui,1.0.100.v201104032053,"org.eclipse.jst.ws.jaxws.ui",1339594771709
+started,bundle,org.eclipse.mylyn.java.ui,3.6.0.v20110608-1400,"org.eclipse.mylyn.java.ui",1339594771725
+started,bundle,org.eclipse.pde.api.tools,1.0.301.v20111129-2053,"org.eclipse.pde.api.tools",1339594771854
+started,bundle,org.eclipse.pde.api.tools.ui,1.0.301.v20110803_r371,"org.eclipse.pde.api.tools.ui",1339594771860
+started,bundle,org.jboss.tools.common.el.ui,3.3.0.v20120302-0132-H47-Beta1,"org.jboss.tools.common.el.ui",1339594771903
+started,bundle,org.eclipse.jpt.jaxb.core,1.0.2.v201111103010,"org.eclipse.jpt.jaxb.core",1339594772392
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.text.contentAssist.proposals",1339594772563
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339594812905
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339594813278
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1339594834032
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339594841659
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339594842025
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.text.contentAssist.proposals",1339594907349
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339594934883
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339594935276
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1339594937917
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.organize.imports",1339594940647
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339594946423
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339594946818
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1339594948246
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.text.contentAssist.proposals",1339594982497
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1339595050689
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1339595068241
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339595076364
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339595076722
+started,bundle,org.jboss.tools.seam.text.ext,3.3.0.v20120302-2019-H81-Beta1,"org.jboss.tools.seam.text.ext",1339595080898
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1339595081264
+activated,view,org.eclipse.ui.navigator.resources,3.4.300.v20110928-1505,"org.eclipse.ui.navigator.ProjectExplorer",1339595090086
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339595098078
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1339595137678
+error,log,,,"An exception occurred invoking extension: org.eclipse.jst.jee.ui.ejb for object P/BattleshipSystem",1339595137680
+error,log,,,"EJB 3.x Validator finished validating: file:/home/joe/workspaces/Battleship/BattleshipSystem",1339595137760
+error,log,,,"",1339595137761
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1339595137928
+error,log,,,"An exception occurred invoking extension: org.eclipse.jst.jee.ui.ejb for object P/BattleshipSystem",1339595137929
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1339595137933
+error,log,,,"An exception occurred invoking extension: org.eclipse.jst.jee.ui.ejb for object P/BattleshipSystem",1339595137935
+error,log,,,"Failed to load properties file for project 'BattleshipSystem'",1339595138396
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1339595138592
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1339595138713
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.newWizard",1339595139116
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1339595139187
+error,log,,,"EJB 3.x Validator finished validating: file:/home/joe/workspaces/Battleship/BattleshipSystem",1339595139217
+error,log,,,"org.xml.sax.SAXParseException: Premature end of file.",1339595139219
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1339595139471
+error,log,,,"An exception occurred invoking extension: org.eclipse.jst.jee.ui.ejb for object P/BattleshipSystem",1339595139477
+started,bundle,org.eclipse.m2e.editor.xml,1.0.200.20111228-1245,"org.eclipse.m2e.editor.xml",1339595141325
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1339595163173
+error,log,,,"Failed to load properties file for project 'BattleshipSystem'",1339595225129
+error,log,,,"null",1339595225131
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.text.contentAssist.proposals",1339595225164
+error,log,,,"Failed to load properties file for project 'BattleshipSystem'",1339595226080
+error,log,,,"null",1339595226081
+error,log,,,"The resource tree is locked for modifications.",1339595253945
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1339595254294
+error,log,,,"The resource tree is locked for modifications.",1339595260331
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1339595260694
+error,log,,,"The resource tree is locked for modifications.",1339595272303
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1339595272619
+activated,view,org.eclipse.wst.server.ui,1.3.0.v20120210_1439,"org.eclipse.wst.server.ui.ServersView",1339595310520
+executed,command,org.eclipse.wst.server.ui,1.3.0.v20120210_1439,"org.eclipse.wst.server.run",1339595313839
+started,bundle,org.jboss.ide.eclipse.as.rse.core,2.3.0.v20120321-1339-H91-Beta2,"org.jboss.ide.eclipse.as.rse.core",1339595313912
+started,bundle,org.eclipse.rse.services,3.2.101.R33x_v201109141647,"org.eclipse.rse.services",1339595313982
+started,bundle,org.eclipse.m2e.launching,1.0.200.20111228-1245,"org.eclipse.m2e.launching",1339595316003
