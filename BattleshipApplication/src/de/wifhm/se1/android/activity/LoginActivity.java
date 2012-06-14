@@ -37,6 +37,8 @@ public class LoginActivity extends Activity {
 			
 			public void onClick(View v) {
 					try {
+						Log.i(TAG, "username: "+username.getText().toString());
+						Log.i(TAG, "password: "+password.getText().toString());
 						bsStub.getBsStub().login(username.getText().toString(), password.getText().toString());
 						LoginActivity.this.setContentView(R.layout.succregister);
 					} catch (SoapFault e) {

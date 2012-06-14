@@ -506,3 +506,58 @@ Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.pa
 
 !ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-13 15:53:36.904
 !MESSAGE Module BattleshipSystem published without error.
+!SESSION 2012-06-14 07:27:48.448 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_31
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-14 08:01:33.055
+!MESSAGE Module BattleshipSystemEAR published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 4 1644298244 2012-06-14 08:01:33.636
+!MESSAGE Incremental publish failed for module BattleshipSystem
+!SUBENTRY 1 org.eclipse.wst.server.core 4 1644298251 2012-06-14 08:01:33.636
+!MESSAGE Could not delete /de/wifhm/se1/server. May be locked by another process.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2012-06-14 08:01:40.329
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2012-06-14 08:06:21.443
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-14 08:21:53.339
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 16842768 2012-06-14 08:21:53.807
+!MESSAGE Poll Thread Aborted: null
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-14 08:21:53.849
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2012-06-14 08:22:32.295
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2012-06-14 08:22:32.579
+!MESSAGE Server Starting
+!SESSION 2012-06-14 08:27:38.242 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_31
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-14 08:29:02.177
+!MESSAGE Module BattleshipSystemEAR published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-14 08:29:02.396
+!MESSAGE Module BattleshipSystem published without error.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2012-06-14 08:29:08.445
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2012-06-14 08:30:05.403
+!MESSAGE Server Startup Succeeded

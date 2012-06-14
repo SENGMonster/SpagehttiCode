@@ -17,7 +17,7 @@ public class BattleshipSystemStub implements BattleshipSystem {
 
 	private static final String NAMESPACE = "http://server.se1.wifhm.de/";
 	
-	private static final String url = "http://10.0.2.2:8080/BattleshipSystem/BattleshipSystemWebservice";
+	private static final String URL = "http://10.0.2.2:8080/BattleshipSystem/BattleshipSystemWebservice";
 	
 	private static final String TAG = BattleshipSystemStub.class.getName();
 	
@@ -133,7 +133,7 @@ public class BattleshipSystemStub implements BattleshipSystem {
 		
 		envelope.setOutputSoapObject(result);
 		
-		HttpTransportSE androidHttpTransport = new HttpTransportSE(url);
+		HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
 		
 		List<HeaderProperty> reqHeaders = null;
 		if(this.sessionId != null){
