@@ -1,6 +1,5 @@
 package de.wifhm.se1.android.common;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +9,6 @@ import org.ksoap2.SoapFault;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
-import org.xmlpull.v1.XmlPullParserException;
 
 import android.util.Log;
 import de.wifhm.se1.android.util.HttpHelper;
@@ -166,10 +164,9 @@ public class BattleshipSystemStub implements BattleshipSystem {
 		}
 		catch(SoapFault e){
 			throw e;
-		} catch (IOException e) {
-			Log.e(TAG,"IOException: "+ e.toString());
-		} catch (XmlPullParserException e) {
-			Log.e(TAG,"XmlPullParserException: "+ e.toString());
+		}
+		catch(Exception e){
+			Log.e(TAG, ""+e.toString());
 		}
 		return result;
 		

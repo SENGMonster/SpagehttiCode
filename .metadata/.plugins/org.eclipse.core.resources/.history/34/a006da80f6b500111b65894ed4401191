@@ -1,6 +1,5 @@
 package de.wifhm.se1.android.common;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +9,6 @@ import org.ksoap2.SoapFault;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
-import org.xmlpull.v1.XmlPullParserException;
 
 import android.util.Log;
 import de.wifhm.se1.android.util.HttpHelper;
@@ -130,7 +128,7 @@ public class BattleshipSystemStub implements BattleshipSystem {
 		SoapObject request = new SoapObject(NAMESPACE, methodName);
 		
 		for(int i = 0; i < args.length; i++){
-			Log.i(TAG, ""+args[i].toString());
+			Log.i(TAG, args[i].toString());
 			request.addPropertyIfValue("arg" + i, args[i]);
 		}
 		
@@ -150,14 +148,9 @@ public class BattleshipSystemStub implements BattleshipSystem {
 		try{
 			@SuppressWarnings("unchecked")
 			List<HeaderProperty> respHeaders = androidHttpTransport.call(NAMESPACE + methodName, envelope, reqHeaders);
-			Log.i(TAG, ""+respHeaders.size());
-			for(HeaderProperty p : respHeaders){
-				Log.i(TAG, ""+p.toString());
-				Log.i(TAG, ""+p.getKey());
-				Log.i(TAG, ""+p.getValue());
-			}
-			String httpSession = HttpHelper.readJSessionId(respHeaders);
 			
+			String httpSession = HttpHelper.readJSessionId(respHeaders);
+			Log.i(TAG, httpSession);
 			if(httpSession != null){
 				this.sessionId = httpSession;
 			}
@@ -166,10 +159,9 @@ public class BattleshipSystemStub implements BattleshipSystem {
 		}
 		catch(SoapFault e){
 			throw e;
-		} catch (IOException e) {
-			Log.e(TAG,"IOException: "+ e.toString());
-		} catch (XmlPullParserException e) {
-			Log.e(TAG,"XmlPullParserException: "+ e.toString());
+		}
+		catch(Exception e){
+			Log.e(TAG, e.toString());
 		}
 		return result;
 		

@@ -30,7 +30,7 @@ public class HttpHelper {
 				}
 			}
 		}
-		Log.i("HTTP-Helper", ""+result);
+		Log.i("HTTP-Helper", result);
 		return result;
 	}
 	
