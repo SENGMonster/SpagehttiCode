@@ -70,7 +70,7 @@ public class BattleshipSystemWebservice implements BattleshipSystem {
 	    if (result == null) {
 	    	//Neue Referenz auf Stateful Session Bean per Lookup besorgen und in der Session speichern:
 	    	try {
-		    	result = (BattleshipSystem) new InitialContext().lookup("java:comp/env/ejb/OnlineBanking/local");
+		    	result = (BattleshipSystem) new InitialContext().lookup("java:comp/env/ejb/Battleship/local");
 	    	}
 	    	catch (NamingException e) {
 	    		throw new WebServiceException("Anlegen einer neuen Session gescheitert.");

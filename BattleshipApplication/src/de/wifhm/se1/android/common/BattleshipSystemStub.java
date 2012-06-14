@@ -1,5 +1,6 @@
 package de.wifhm.se1.android.common;
 
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ import de.wifhm.se1.android.util.HttpHelper;
 
 public class BattleshipSystemStub implements BattleshipSystem {
 
-	private static final String NAMESPACE = "http://server.se1.wifhm.de/";
+	private static final String NAMESPACE = "http://server.battleship.se1.wifhm.de/";
 	
 	private static final String URL = "http://10.0.2.2:8080/BattleshipSystem/BattleshipSystemWebservice";
 	
@@ -136,7 +137,7 @@ public class BattleshipSystemStub implements BattleshipSystem {
 		
 		SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
 		
-		envelope.setOutputSoapObject(result);
+		envelope.setOutputSoapObject(request);
 		
 		HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
 		

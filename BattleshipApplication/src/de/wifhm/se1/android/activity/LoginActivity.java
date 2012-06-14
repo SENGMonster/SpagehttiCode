@@ -44,6 +44,7 @@ public class LoginActivity extends Activity {
 					} catch (SoapFault e) {
 						Toast.makeText(LoginActivity.this, "Login failed, username already exsits", Toast.LENGTH_LONG);
 						Log.e(TAG, "Login failed");
+						Log.e(TAG, e.toString());
 					}
 				}
 		});
