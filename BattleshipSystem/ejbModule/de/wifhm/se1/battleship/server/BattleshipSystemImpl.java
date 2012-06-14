@@ -5,12 +5,14 @@ import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.annotation.Resource;
 import javax.ejb.Remove;
 import javax.ejb.Stateful;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
+import javax.jms.ConnectionFactory;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -30,6 +32,9 @@ import de.wifhm.se1.battleship.server.exceptions.NotLoggedInException;
 @Stateful
 @TransactionManagement(TransactionManagementType.CONTAINER)
 public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemLocal{
+	
+	@Resource(mappedName = "java:JmsXA")
+	private ConnectionFactory jmsFactory;
 	
 	@PersistenceContext
 	EntityManager entitymanager;

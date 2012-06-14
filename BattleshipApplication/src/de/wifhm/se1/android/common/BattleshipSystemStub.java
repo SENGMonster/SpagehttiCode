@@ -1,5 +1,7 @@
 package de.wifhm.se1.android.common;
 
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,13 +11,14 @@ import org.ksoap2.SoapFault;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
+import org.xmlpull.v1.XmlPullParserException;
 
 import android.util.Log;
 import de.wifhm.se1.android.util.HttpHelper;
 
 public class BattleshipSystemStub implements BattleshipSystem {
 
-	private static final String NAMESPACE = "http://server.se1.wifhm.de/";
+	private static final String NAMESPACE = "http://server.battleship.se1.wifhm.de/";
 	
 	private static final String URL = "http://10.0.2.2:8080/BattleshipSystem/BattleshipSystemWebservice";
 	
@@ -28,8 +31,10 @@ public class BattleshipSystemStub implements BattleshipSystem {
 	 * @see battleship.common.BattleshipSystem#login(java.lang.String, java.lang.String)
 	 */
 	public User login(String username, String password) throws SoapFault {
+		Log.i(TAG, username + " " + password);
 		User result = null;
 		String METHOD_NAME = "login";
+		Log.i(TAG, "executeSoap");
 		Object response = executeSoapAction(METHOD_NAME, username, password);
 		Log.d(TAG, response.getClass().getName());
 		Log.d(TAG, response.toString());
@@ -126,17 +131,19 @@ public class BattleshipSystemStub implements BattleshipSystem {
 		SoapObject request = new SoapObject(NAMESPACE, methodName);
 		
 		for(int i = 0; i < args.length; i++){
+			Log.i(TAG, ""+args[i].toString());
 			request.addPropertyIfValue("arg" + i, args[i]);
 		}
 		
 		SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
 		
-		envelope.setOutputSoapObject(result);
+		envelope.setOutputSoapObject(request);
 		
 		HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
 		
 		List<HeaderProperty> reqHeaders = null;
 		if(this.sessionId != null){
+			
 			reqHeaders = new ArrayList<HeaderProperty>();
 			reqHeaders.add(HttpHelper.getSessionIdHeader(this.sessionId));			
 		}
@@ -144,8 +151,14 @@ public class BattleshipSystemStub implements BattleshipSystem {
 		try{
 			@SuppressWarnings("unchecked")
 			List<HeaderProperty> respHeaders = androidHttpTransport.call(NAMESPACE + methodName, envelope, reqHeaders);
-			
+			Log.i(TAG, ""+respHeaders.size());
+			for(HeaderProperty p : respHeaders){
+				Log.i(TAG, ""+p.toString());
+				Log.i(TAG, ""+p.getKey());
+				Log.i(TAG, ""+p.getValue());
+			}
 			String httpSession = HttpHelper.readJSessionId(respHeaders);
+			
 			if(httpSession != null){
 				this.sessionId = httpSession;
 			}
@@ -154,9 +167,10 @@ public class BattleshipSystemStub implements BattleshipSystem {
 		}
 		catch(SoapFault e){
 			throw e;
-		}
-		catch(Exception e){
-			Log.e(TAG, e.toString());
+		} catch (IOException e) {
+			Log.e(TAG,"IOException: "+ e.toString());
+		} catch (XmlPullParserException e) {
+			Log.e(TAG,"XmlPullParserException: "+ e.toString());
 		}
 		return result;
 		
