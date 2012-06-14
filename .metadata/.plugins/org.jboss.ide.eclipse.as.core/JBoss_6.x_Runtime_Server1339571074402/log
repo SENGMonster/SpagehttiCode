@@ -689,3 +689,42 @@ Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.pa
 
 !ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2012-06-14 14:39:24.139
 !MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2012-06-14 14:41:51.012
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-14 15:27:34.751
+!MESSAGE 1 files modified in module BattleshipSystem
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-14 15:29:20.667
+!MESSAGE 1 files modified in module BattleshipSystem
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-14 15:55:34.177
+!MESSAGE 1 files modified in module BattleshipSystem
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-14 15:56:20.391
+!MESSAGE 1 files modified in module BattleshipSystem
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-14 15:56:30.567
+!MESSAGE 1 files modified in module BattleshipSystem
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-14 15:57:02.815
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2012-06-14 15:57:02.895
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 16842768 2012-06-14 15:57:02.935
+!MESSAGE Poll Thread Aborted: null
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16973825 2012-06-14 15:57:23.087
+!MESSAGE Server processes have been terminated.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2012-06-14 15:57:57.683
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2012-06-14 16:00:42.876
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 0 33685505 2012-06-14 16:17:48.077
+!MESSAGE 1 files modified in module BattleshipSystem
