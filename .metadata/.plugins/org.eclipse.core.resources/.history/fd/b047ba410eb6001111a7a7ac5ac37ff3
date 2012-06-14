@@ -16,6 +16,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.xml.ws.WebServiceContext;
 import javax.xml.ws.WebServiceException;
@@ -57,27 +58,27 @@ public class BattleshipSystemWebservice implements BattleshipSystem {
 	private void destroy(){
 		logger.log(Level.INFO, this + "will be destroyed");
 	}
-	private BattleshipSystem getSession() {
+	private BattleshipSystem getSession(){
 		BattleshipSystem result = null;
 		
-		// Finde die HttpSession aus dem WebServiceContext
-	    MessageContext mc = wsContext.getMessageContext();
-	    HttpSession session = ((javax.servlet.http.HttpServletRequest)mc.get(MessageContext.SERVLET_REQUEST)).getSession();
-	    if (session == null) {
-	       throw new WebServiceException("No HTTP Session found");
-	    }
-	    result = (BattleshipSystem) session.getAttribute(KEY_SESSION);
-	    if (result == null) {
-	    	//Neue Referenz auf Stateful Session Bean per Lookup besorgen und in der Session speichern:
-	    	try {
-		    	result = (BattleshipSystem) new InitialContext().lookup("java:comp/env/ejb/OnlineBanking/local");
-	    	}
-	    	catch (NamingException e) {
-	    		throw new WebServiceException("Anlegen einer neuen Session gescheitert.");
-	    	}
-	    	session.setAttribute(KEY_SESSION, result);
-	    }
-	    return result;
+		MessageContext mc = wsContext.getMessageContext();
+		HttpSession session = ((HttpServletRequest)mc.get(MessageContext.SERVLET_REQUEST)).getSession();
+		if(session == null){
+			throw new WebServiceException("No HTTP Session found");
+		}
+		
+		result = (BattleshipSystem) session.getAttribute(KEY_SESSION);
+		
+		if(result == null){
+			try{
+				result = (BattleshipSystem) new InitialContext().lookup("java:comp/env/ejb/Battleship/local");
+			}
+			catch(NamingException e){
+				throw new WebServiceException("Creating a new Session has failed");
+			}
+			session.setAttribute(KEY_SESSION, result);
+		}
+		return result;
 	}
 	
 	private void invalidateSession() {
@@ -110,7 +111,6 @@ public class BattleshipSystemWebservice implements BattleshipSystem {
 	@WebMethod
     public void logout() {
 		this.getSession().logout();
-		this.invalidateSession();
     }
 
 	/**

@@ -9,7 +9,6 @@ import android.util.Log;
 public class HttpHelper {
 	
 	private static final String TAG = "HTTP-Helper";
-	
 	private static final String JSESSIONID = "JSESSIONID=";
 
 	/**

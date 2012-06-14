@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <servers>
-  <server auto-publish-time="1" hostname="localhost" id="JBoss 6.x Runtime Server1339571074402" name="JBoss 6.x Runtime Server" org.jboss.ide.eclipse.as.core.server.deployDirectoryType="metadata" org.jboss.ide.eclipse.as.core.server.userName="admin" runtime-id="JBoss 6.x Runtime" server-type="org.jboss.ide.eclipse.as.60" server-type-id="org.jboss.ide.eclipse.as.60" start-timeout="450" stop-timeout="450" timestamp="29">
+  <server auto-publish-time="1" hostname="localhost" id="JBoss 6.x Runtime Server1339571074402" name="JBoss 6.x Runtime Server" org.jboss.ide.eclipse.as.core.server.deployDirectoryType="metadata" org.jboss.ide.eclipse.as.core.server.userName="admin" runtime-id="JBoss 6.x Runtime" server-type="org.jboss.ide.eclipse.as.60" server-type-id="org.jboss.ide.eclipse.as.60" start-timeout="450" stop-timeout="450" timestamp="31">
     <list key="modules" value0="BattleshipSystemEAR::org.eclipse.jst.jee.server:BattleshipSystemEAR::jst.ear::6.0"/>
   </server>
 </servers>

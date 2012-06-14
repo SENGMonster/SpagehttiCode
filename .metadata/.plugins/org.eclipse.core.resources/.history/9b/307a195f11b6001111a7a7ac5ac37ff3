@@ -16,6 +16,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.xml.ws.WebServiceContext;
 import javax.xml.ws.WebServiceException;
@@ -66,11 +67,11 @@ public class BattleshipSystemWebservice implements BattleshipSystem {
 	    if (session == null) {
 	       throw new WebServiceException("No HTTP Session found");
 	    }
-	    result = (BattleshipSystem) session.getAttribute(KEY_SESSION);
+	    result = (OnlineBankingSystem) session.getAttribute(KEY_SESSION);
 	    if (result == null) {
 	    	//Neue Referenz auf Stateful Session Bean per Lookup besorgen und in der Session speichern:
 	    	try {
-		    	result = (BattleshipSystem) new InitialContext().lookup("java:comp/env/ejb/OnlineBanking/local");
+		    	result = (OnlineBankingSystem) new InitialContext().lookup("java:comp/env/ejb/OnlineBanking/local");
 	    	}
 	    	catch (NamingException e) {
 	    		throw new WebServiceException("Anlegen einer neuen Session gescheitert.");
