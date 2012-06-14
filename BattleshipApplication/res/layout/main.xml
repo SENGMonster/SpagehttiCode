@@ -15,5 +15,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="register" />
+    <Button
+        android:id="@+id/btnspielfeld"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Spielfeld" />
 
+        <Button
+        android:id="@+id/btnpositionship"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Schiffe positionieren" />
+    
 </LinearLayout>

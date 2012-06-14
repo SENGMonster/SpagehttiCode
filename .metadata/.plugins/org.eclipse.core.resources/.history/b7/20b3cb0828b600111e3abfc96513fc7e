@@ -1,0 +1,29 @@
+package de.wifhm.se1.android.activity;
+
+import de.wifhm.se1.android.battleship.manager.PositionShipImageAdapter;
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Gallery;
+import android.widget.Toast;
+
+
+public class PositionShipActivity extends Activity {
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+	    super.onCreate(savedInstanceState);
+	    setContentView(R.layout.positionships);
+
+	    Gallery gallery = (Gallery) findViewById(R.id.gallery);
+	    gallery.setAdapter(new PositionShipImageAdapter(this));
+
+	    gallery.setOnItemClickListener(new OnItemClickListener() {
+	        public void onItemClick(AdapterView parent, View v, int position, long id) {
+	            Toast.makeText(BattleshipStartActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+	        }
+	    });
+
+}

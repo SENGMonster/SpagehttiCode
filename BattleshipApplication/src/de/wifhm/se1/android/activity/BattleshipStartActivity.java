@@ -10,13 +10,16 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class BattleshipStartActivity extends Activity {
+public class BattleshipStartActivity extends Activity
+{
 	
     private static final String TAG = "BattleshipStartActivity";
     
     BattleshipApplication bsstub;
         
-	public void onCreate(Bundle savedInstanceState){
+	public void onCreate(Bundle savedInstanceState)
+	{
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		
@@ -25,6 +28,9 @@ public class BattleshipStartActivity extends Activity {
 		
 		Button login = (Button)findViewById(R.id.log);
 		Button register = (Button)findViewById(R.id.reg);
+		Button spielfeld = (Button)findViewById(R.id.btnspielfeld);
+		Button schiffePo = (Button) findViewById(R.id.btnpositionship);
+		
 		
 		login.setOnClickListener(new OnClickListener(){
 
@@ -39,6 +45,23 @@ public class BattleshipStartActivity extends Activity {
 			public void onClick(View v) {
 				startActivity(new Intent(BattleshipStartActivity.this, RegisterActivity.class));
 				Log.i(TAG, "register-click");
+			}
+		});
+		
+		
+		spielfeld.setOnClickListener(new OnClickListener(){
+
+			public void onClick(View v) {
+				startActivity(new Intent(BattleshipStartActivity.this, GridViewActivity.class));
+				Log.i(TAG, "spielfeld-click");
+			}
+		});
+		
+		schiffePo.setOnClickListener(new OnClickListener(){
+
+			public void onClick(View v) {
+				startActivity(new Intent(BattleshipStartActivity.this, PositionShipActivity.class));
+				Log.i(TAG, "schiffepoonsiti-click");
 			}
 		});
 	}

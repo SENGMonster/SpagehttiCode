@@ -2,6 +2,10 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="javax.xml.ws.WebServiceContext"/>
 <fullyQualifiedTypeName name="de.wifhm.se1.battleship.common.Player"/>
+<<<<<<< HEAD
+<fullyQualifiedTypeName name="de.wifhm.se1.android.activity.R"/>
+=======
 <fullyQualifiedTypeName name="de.wifhm.se1.android.common.BattleshipSystemStub"/>
 <fullyQualifiedTypeName name="android.util.Log"/>
+>>>>>>> 7cfbe9695c00159dfd668f278a3a628b213a71bf
 </qualifiedTypeNameHistroy>

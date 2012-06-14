@@ -1,0 +1,6 @@
+package de.wifhm.se1.android.battleship.manager;
+
+
+public class PositionShipImageAdapter {
+
+}
