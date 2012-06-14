@@ -29,6 +29,14 @@
             android:name=".RegisterActivity"
             android:label="@string/app_name">
         </activity>
+        <activity 
+            android:name=".GridViewActivity"
+            android:label="@string/app_name">
+        </activity>
+                <activity 
+            android:name=".PositionShipActivity"
+            android:label="@string/app_name">
+        </activity>
     </application>
 
 </manifest>

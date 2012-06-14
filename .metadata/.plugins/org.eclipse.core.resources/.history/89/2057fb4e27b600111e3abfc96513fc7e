@@ -1,0 +1,8 @@
+package de.wifhm.se1.android.activity;
+
+import android.app.Activity;
+
+
+public class PositionShipActivity extends Activity {
+
+}

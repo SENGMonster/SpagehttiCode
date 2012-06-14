@@ -1,0 +1,62 @@
+package de.wifhm.se1.android.battleship.manager;
+
+import de.wifhm.se1.android.activity.R;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.Gallery;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+
+public class PositionShipImageAdapter extends BaseAdapter {
+    int mGalleryItemBackground;
+    private Context mContext;
+    private ImageView shipImage;
+    private TextView shipLength;
+    private TextView shipName;
+
+    private Integer[] mImageIds = {
+            R.drawable.sample_1,
+            R.drawable.sample_2,
+            R.drawable.sample_3,
+            R.drawable.sample_4,
+            R.drawable.sample_5,
+            R.drawable.sample_6,
+            R.drawable.sample_7
+    };
+
+    public PositionShipImageAdapter(Context c, ImageView img, TextView txtShipLength, TextView txtShipName) {
+        mContext = c;
+
+        shipImage = img;
+        shipLength= txtShipLength;
+        shipName = txtShipName;
+    }
+
+    public int getCount() {
+        return mImageIds.length;
+    }
+
+    public Object getItem(int position) {
+        return position;
+    }
+
+    public long getItemId(int position) {
+        return position;
+    }
+
+    public View getView(int position, View convertView, ViewGroup parent) {
+        ImageView imageView = new ImageView(mContext);
+
+        imageView.setImageResource(mImageIds[position]);
+        imageView.setLayoutParams(new Gallery.LayoutParams(150, 100));
+        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        imageView.setBackgroundResource(mGalleryItemBackground);
+
+        //shipImage.setImageBitmap()
+        
+        return imageView;
+    }
+}
