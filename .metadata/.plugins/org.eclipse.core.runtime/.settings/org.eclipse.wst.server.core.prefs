@@ -1,3 +1,0 @@
-eclipse.preferences.version=1
-module-start-timeout=300000
-runtimes=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<runtimes>\n  <runtime PROPERTY_EXEC_ENVIRONMENT\="JavaSE-1.6" id\="JBoss 6.x Runtime" location\="/home/joe/jboss-6.1.0.Final" name\="JBoss 6.x Runtime" org.jboss.ide.eclipse.as.core.runtime.configurationLocation\="server" org.jboss.ide.eclipse.as.core.runtime.configurationName\="default" runtime-type-id\="org.jboss.ide.eclipse.as.runtime.60" timestamp\="0"/>\n</runtimes>\n

@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup.MarginLayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -34,8 +35,10 @@ public class PositionShipActivity extends Activity {
 	private Button btnOK;
 	private Button btnCancel;
 	private PositionShipBattleFieldImageAdapter gvPositionView;
+	private ImageView currSelectedShip;
 	
 	private Schiff currShip;
+	
 	
     private int StartPosition=-1;
     private int EndPosition=-1;
@@ -44,21 +47,74 @@ public class PositionShipActivity extends Activity {
     
     public void Reset()
     {
-    	if (StartPosition==-1)
-    	{
-    		gvPositionView.getView(StartPosition, null, null);
-    	}
-    	if (EndPosition==-1)
-    	{
-    		gvPositionView.getView(StartPosition, null, null);
-    	}
-    	
     	StartPosition=-1;
     	EndPosition=-1;
     	ClickCounter=0;
+    	possibleEndPositions=null;
+    }
+    
+    public void RemoveAllItems()
+    {
+    	if(StartPosition!=-1)
+    	{
+    		gvPositionView.addNewImgToPosition(StartPosition, R.drawable.wasser);
+    		
+    		if(possibleEndPositions!=null)
+    		{
+    			for(int i=0; i<4; i++){
+       			 gvPositionView.addNewImgToPosition(possibleEndPositions[i], R.drawable.wasser);
+       		 	}
+    		}
+    	}
+    	if(EndPosition!=-1)
+    	{    		
+    		SchiffeMalen(R.drawable.wasser);
+    		
+    	}
     	
     }
 	
+    
+    private void SchiffeMalen(int img){
+    	int differenz= EndPosition-StartPosition;
+		int differenzbetrag= Math.abs(differenz);
+		if (differenzbetrag>9) //vertikale Anordnung
+		{
+			if (differenz>0) //nach unten
+			{
+    			for(int i=0; i<=differenzbetrag; i+=numOfRowsCols)
+    			{
+    				gvPositionView.addNewImgToPosition(StartPosition+i, img);
+    			}
+			}
+			else{ //nach oben
+				for(int i=0; i<=differenzbetrag; i+=numOfRowsCols)
+    			{
+    				gvPositionView.addNewImgToPosition(StartPosition-i, img);
+    			}
+			}
+		}
+		else { //horizontale Anordnung
+			
+			if(differenz>0)//nach rechts
+			{
+				for(int i=0; i<=differenzbetrag; i++)
+    			{
+    				gvPositionView.addNewImgToPosition(StartPosition+i, img);
+    			}
+			}
+			else{ //nach links
+				for(int i=0; i<=differenzbetrag; i++)
+    			{
+    				gvPositionView.addNewImgToPosition(StartPosition-i, img);
+    			}
+			}
+			
+			
+		}
+		
+    }
+    
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
@@ -97,9 +153,9 @@ public class PositionShipActivity extends Activity {
 	        public void onItemClick(AdapterView parent, View v, int position, long id) {
 	            Toast.makeText(PositionShipActivity.this, "" + position, Toast.LENGTH_SHORT).show();
 	            
-	            v.setVisibility(0);
 	            Schiff item = v1.getSchiffsliste().get(position);
 	            currShip = item;
+	            currSelectedShip =(ImageView) v;
 	            shipimg.setImageResource(item.getImage());
 	            txtShipName.setText(item.getSchiffsname());
 	            txtShipLength.setText(String.valueOf(item.getShipLength()));
@@ -193,45 +249,9 @@ public class PositionShipActivity extends Activity {
 		            		}
 		            		EndPosition = position;
 		            		
-		            		int differenz= EndPosition-StartPosition;
-		            		int differenzbetrag= Math.abs(differenz);
-		            		if (differenzbetrag>9) //vertikale Anordnung
-		            		{
-		            			if (differenz>0) //nach unten
-		            			{
-			            			for(int i=0; i<=differenzbetrag; i+=numOfRowsCols)
-			            			{
-			            				gvPositionView.addNewImgToPosition(StartPosition+i, currShip.getImage());
-			            			}
-		            			}
-		            			else{ //nach oben
-		            				for(int i=0; i<=differenzbetrag; i+=numOfRowsCols)
-			            			{
-			            				gvPositionView.addNewImgToPosition(StartPosition-i, currShip.getImage());
-			            			}
-		            			}
-		            		}
-		            		else { //horizontale Anordnung
-		            			
-		            			if(differenz>0)//nach rechts
-		            			{
-		            				for(int i=0; i<=differenzbetrag; i++)
-			            			{
-			            				gvPositionView.addNewImgToPosition(StartPosition+i, currShip.getImage());
-			            			}
-		            			}
-		            			else{ //nach links
-		            				for(int i=0; i<=differenzbetrag; i++)
-			            			{
-			            				gvPositionView.addNewImgToPosition(StartPosition-i, currShip.getImage());
-			            			}
-		            			}
-		            			
-		            			
-		            		}
+		            		SchiffeMalen(currShip.getImage());
 		            		
-		            		
-
+		            		btnOK.setVisibility(0);
 		            		
 		            	}//end if ClickCounter==0
 		            	
@@ -245,6 +265,29 @@ public class PositionShipActivity extends Activity {
 	}//end Intern OnClickListener
 	
 	}); //end OnClickListener
+        
+        
+        
+       // ----------- BUTTON STUFF 
+        btnCancel.setOnClickListener(new OnClickListener(){
+
+			public void onClick(View v) {
+				RemoveAllItems();
+				Reset();
+			}
+		});
+        
+        btnOK.setOnClickListener(new OnClickListener(){
+
+			public void onClick(View v) {
+				Reset();
+				currSelectedShip.setVisibility(2);
+				btnOK.setVisibility(1);
+							
+			}
+		});
+        
+        
 
 	} //end onCreate
 
