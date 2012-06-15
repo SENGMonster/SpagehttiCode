@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-<<<<<<< HEAD
-	<item value="0" key="org.eclipse.jdt.uiformatter_page.white_space_tab_page.node"/>
-	<item value="true" key="org.eclipse.jdt.ui.codeformatter.create_profile_dialog.open_edit"/>
-	<item value="0" key="org.eclipse.jdt.uiformatter_page.white_space.java_view.inner"/>
-	<item value="-1" key="org.eclipse.jdt.uiformatter_page.modify_dialog_tab_page.last_focus_index"/>
-	<item value="952" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_height"/>
-	<item value="623" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_x"/>
-	<item value="1" key="org.eclipse.jdt.uiformatter_page.line_wrapping_tab_page.last_category_index"/>
-	<item value="6" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.last_focus"/>
-	<item value="1171" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_width"/>
-	<item value="24" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_y"/>
-	<section name="OptionalMessageDialog.hide.">
-	</section>
-=======
 	<item value="filter_imports;" key="filters_last_used"/>
->>>>>>> 7cfbe9695c00159dfd668f278a3a628b213a71bf
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item value="true" key="group_libraries"/>
 		<item value="false" key="linkWithEditor"/>
@@ -39,7 +24,7 @@
 	<section name="quick_assist_proposal_size">
 	</section>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
-		<item value="true" key="renameSubpackages"/>
+		<item value="false" key="renameSubpackages"/>
 		<item value="true" key="updateQualifiedNames"/>
 		<item value="*" key="patterns"/>
 		<item value="1" key="updateSimilarElementsMatchStrategy"/>

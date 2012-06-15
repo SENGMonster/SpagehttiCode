@@ -40,7 +40,7 @@ public class BattleFieldImageAdapter extends BaseAdapter {
             imageView = new ImageView(mContext);
             imageView.setLayoutParams(new GridView.LayoutParams(50, 50));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            //imageView.setPadding(8, 8, 8, 8);
+            imageView.setPadding(1, 1, 1, 1);
         } else {
             imageView = (ImageView) convertView;
         }

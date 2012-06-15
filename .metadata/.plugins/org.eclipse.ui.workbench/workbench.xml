@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<workbench progressCount="63" version="2.0">
-=======
 <workbench progressCount="33" version="2.0">
->>>>>>> 7cfbe9695c00159dfd668f278a3a628b213a71bf
 <workbenchAdvisor/>
 <window height="714" maximized="true" width="1020" x="0" y="30">
 <fastViewData fastViewLocation="1024"/>
@@ -26,19 +22,18 @@
 <coolItem id="org.jboss.tools.jst.web.ui.server.actionSet" itemType="typeToolBarContribution" x="166" y="30"/>
 <coolItem id="org.jboss.tools.maven.ui.toolbars.selectMavenProfilesToolbar" itemType="typeToolBarContribution" x="77" y="30"/>
 <coolItem id="org.jboss.tools.jst.jsp.toolbars.sampleToolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="104" y="30"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="132" y="30"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="com.android.ide.eclipse.editors.CommonXmlEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="UserSeparator" itemType="typeSeparator"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="184" y="30"/>
-<coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="40" y="30"/>
 </coolbarLayout>
 <page aggregateWorkingSetId="Aggregate for window 1339654430787" focus="true" label="Workspace - Java EE">
 <editors>
@@ -50,50 +45,10 @@
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
-<<<<<<< HEAD
-<part id="4"/>
-<part id="5"/>
-<part id="6"/>
-=======
->>>>>>> 7cfbe9695c00159dfd668f278a3a628b213a71bf
 </presentation>
 </folder>
 </info>
 </editorArea>
-<<<<<<< HEAD
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tester.java" partName="Tester.java" path="/home/joe/Seng/Seng/BattleshipApplication/src/de/wifhm/se1/android/battleship/agent/Tester.java" title="Tester.java" tooltip="BattleshipApplication/src/de/wifhm/se1/android/battleship/agent/Tester.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/agent/Tester.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="45" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Battlefieldmanager.java" partName="Battlefieldmanager.java" path="/home/joe/Seng/Seng/BattleshipApplication/src/de/wifhm/se1/android/battleship/manager/Battlefieldmanager.java" title="Battlefieldmanager.java" tooltip="BattleshipApplication/src/de/wifhm/se1/android/battleship/manager/Battlefieldmanager.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/manager/Battlefieldmanager.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="38" selectionOffset="322" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FieldState.java" partName="FieldState.java" path="/home/joe/Seng/Seng/BattleshipApplication/src/de/wifhm/se1/android/battleship/manager/FieldState.java" title="FieldState.java" tooltip="BattleshipApplication/src/de/wifhm/se1/android/battleship/manager/FieldState.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/manager/FieldState.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="106" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GridViewActivity.java" partName="GridViewActivity.java" path="/home/joe/Seng/Seng/BattleshipApplication/src/de/wifhm/se1/android/activity/GridViewActivity.java" title="GridViewActivity.java" tooltip="BattleshipApplication/src/de/wifhm/se1/android/activity/GridViewActivity.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BattleshipApplication/src/de/wifhm/se1/android/activity/GridViewActivity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1168" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Minensuchboot.java" partName="Minensuchboot.java" path="/home/joe/Seng/Seng/BattleshipApplication/src/de/wifhm/se1/android/battleship/shiptypes/Minensuchboot.java" title="Minensuchboot.java" tooltip="BattleshipApplication/src/de/wifhm/se1/android/battleship/shiptypes/Minensuchboot.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/shiptypes/Minensuchboot.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="385" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="main.xml" partName="main.xml" path="/home/joe/Seng/Seng/BattleshipApplication/res/layout/main.xml" title="main.xml" tooltip="BattleshipApplication/res/layout/main.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BattleshipApplication/res/layout/main.xml"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LoginActivity.java" partName="LoginActivity.java" path="/home/joe/Seng/Seng/BattleshipApplication/src/de/wifhm/se1/android/activity/LoginActivity.java" title="LoginActivity.java" tooltip="BattleshipApplication/src/de/wifhm/se1/android/activity/LoginActivity.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BattleshipApplication/src/de/wifhm/se1/android/activity/LoginActivity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-</editors>
-<views>
-<view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
-<viewState CommonNavigator.LINKING_ENABLED="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
-</view>
-=======
 <editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BattleshipSystemStub.java" partName="BattleshipSystemStub.java" path="/home/joe/workspaces/Battleship/BattleshipApplication/src/de/wifhm/se1/android/common/BattleshipSystemStub.java" title="BattleshipSystemStub.java" tooltip="BattleshipApplication/src/de/wifhm/se1/android/common/BattleshipSystemStub.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BattleshipApplication/src/de/wifhm/se1/android/common/BattleshipSystemStub.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="698" selectionTopPixel="0"/>
@@ -130,9 +85,10 @@
 <view id="com.android.ide.eclipse.ddms.views.LogCatView" partName="LogCat">
 <viewState/>
 </view>
->>>>>>> 7cfbe9695c00159dfd668f278a3a628b213a71bf
 <view id="org.eclipse.ui.views.AllMarkersView" partName="Markers">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.allSeverityField" categoryGroup="org.eclipse.ui.ide.type" markerContentGenerator="org.eclipse.ui.ide.allMarkersGenerator" partName="Markers">
+<expanded>&#x0A;<category IMemento.internal.id="Java Task (12 items)"/>
+</expanded>
 <columnWidths org.eclipse.ui.ide.allSeverityField="350" org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="397" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.resourceField="105"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.allSeverityField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -144,12 +100,9 @@
 <view id="org.eclipse.wst.common.snippets.internal.ui.SnippetsView" partName="Snippets"/>
 <view id="com.android.ide.eclipse.ddms.views.FileExplorerView" partName="File Explorer"/>
 <view id="org.eclipse.ui.views.PropertySheet" partName="Properties"/>
-<<<<<<< HEAD
-=======
 <view id="com.android.ide.eclipse.ddms.views.NetworkStatsView" partName="Network Statistics">
 <viewState/>
 </view>
->>>>>>> 7cfbe9695c00159dfd668f278a3a628b213a71bf
 <view id="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator" partName="Data Source Explorer"/>
 <view id="org.eclipse.ui.console.ConsoleView" partName="Console">
 <viewState/>
@@ -169,14 +122,10 @@
 <filteredTreeFindHistory/>
 </viewState>
 </view>
-<<<<<<< HEAD
-<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
-=======
 <view id="com.android.ide.eclipse.ddms.views.EmulatorControlView" partName="Emulator Control">
 <viewState/>
 </view>
 <view id="com.android.ide.eclipse.ddms.views.AllocTrackerView" partName="Allocation Tracker">
->>>>>>> 7cfbe9695c00159dfd668f278a3a628b213a71bf
 <viewState/>
 </view>
 <view id="org.eclipse.wst.server.ui.ServersView" partName="Servers">
@@ -184,9 +133,6 @@
 </view>
 </views>
 <perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jst.j2ee.J2EEPerspective">
-<<<<<<< HEAD
-<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
-=======
 <perspective editorAreaTrimState="2" editorAreaVisible="0" fixed="0" version="0.016">
 <descriptor class="com.android.ide.eclipse.ddms.Perspective" id="com.android.ide.eclipse.ddms.Perspective" label="DDMS"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
@@ -283,7 +229,6 @@
 </layout>
 </perspective>
 <perspective editorAreaTrimState="1" editorAreaVisible="1" fixed="0" version="0.016">
->>>>>>> 7cfbe9695c00159dfd668f278a3a628b213a71bf
 <descriptor class="org.eclipse.jst.j2ee.internal.perspective.J2EEPerspective" id="org.eclipse.jst.j2ee.J2EEPerspective" label="Java EE"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.doc.actionSet"/>
@@ -297,6 +242,15 @@
 <alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
 <alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
 <alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="com.google.gdt.eclipse.core.actionSet"/>
+<alwaysOnActionSet id="org.jboss.ide.eclipse.archives.ui.actions.Archives"/>
+<alwaysOnActionSet id="org.jboss.tools.jst.web.ui.server.actionSet"/>
+<alwaysOnActionSet id="org.jboss.tools.central"/>
+<alwaysOnActionSet id="org.jboss.tools.common.model.ui.actionSet"/>
+<alwaysOnActionSet id="adt.actionSet.wizards"/>
+<alwaysOnActionSet id="adt.actionSet.refactorings"/>
+<alwaysOnActionSet id="adt.actionSet.avdManager"/>
+<alwaysOnActionSet id="adt.actionSet.lint"/>
 <alwaysOnActionSet id="org.eclipse.jst.j2ee.J2eeMainActionSet"/>
 <alwaysOnActionSet id="org.eclipse.jdt.ui.JavaActionSet"/>
 <alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
@@ -305,6 +259,7 @@
 <alwaysOnActionSet id="org.eclipse.wst.server.ui.internal.webbrowser.actionSet"/>
 <alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
 <alwaysOnActionSet id="org.eclipse.wst.ws.explorer.explorer"/>
+<alwaysOnActionSet id="org.jboss.tools.cdi.ui.actionSet"/>
 <show_view_action id="org.eclipse.ui.navigator.ProjectExplorer"/>
 <show_view_action id="org.eclipse.wst.server.ui.ServersView"/>
 <show_view_action id="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator"/>
@@ -396,17 +351,6 @@
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<<<<<<< HEAD
-<info part="org.eclipse.ui.editorss" ratio="0.21320063" ratioLeft="407" ratioRight="1502" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottomRight" ratio="0.84652865" ratioLeft="695" ratioRight="126" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.AllMarkersView" label="Markers"/>
-<page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
-<page content="org.eclipse.wst.server.ui.ServersView" label="Servers"/>
-<page content="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator" label="Data Source Explorer"/>
-<page content="org.eclipse.wst.common.snippets.internal.ui.SnippetsView" label="Snippets"/>
-<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
-=======
 <info part="org.eclipse.ui.editorss" ratio="0.24950495" ratioLeft="252" ratioRight="758" relationship="2" relative="topLeft"/>
 <info folder="true" part="bottomRight" ratio="0.6984668" ratioLeft="410" ratioRight="177" relationship="4" relative="org.eclipse.ui.editorss">
 <folder appearance="2" expanded="0">
@@ -417,7 +361,6 @@
 <page content="org.eclipse.wst.common.snippets.internal.ui.SnippetsView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
 <page content="com.android.ide.eclipse.ddms.views.LogCatView" label="LabelNotFound"/>
->>>>>>> 7cfbe9695c00159dfd668f278a3a628b213a71bf
 <page content="org.eclipse.ui.views.ProblemView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.TaskList" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
@@ -514,18 +457,10 @@
 <perspective_action id="org.jboss.tools.jst.web.ui.WebDevelopmentPerspective"/>
 <hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
-<<<<<<< HEAD
-<fastViewBars>&#x0A;<fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@1e68f3e" orientation="512" selectedTabId="org.eclipse.mylyn.tasks.ui.views.tasks" style="0">&#x0A;<fastViews>&#x0A;<view id="org.eclipse.mylyn.tasks.ui.views.tasks" ratio="0.3"/>
-</fastViews>
-</fastViewBar>
-<fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@853013" orientation="256" selectedTabId="com.android.ide.eclipse.ddms.views.DeviceView" style="0">&#x0A;<fastViews>&#x0A;<view id="com.android.ide.eclipse.ddms.views.DeviceView" ratio="0.2983725"/>
-<view id="com.android.ide.eclipse.ddms.views.LogCatView" ratio="0.2983725"/>
-=======
 <fastViewBars>&#x0A;<fastViewBar fastViewLocation="128" id="org.eclipse.ui.internal.ViewStack@11f7bf4" orientation="256" selectedTabId="com.android.ide.eclipse.ddms.views.LogCatView" style="0">&#x0A;<fastViews>&#x0A;<view id="com.android.ide.eclipse.ddms.views.LogCatView" ratio="0.5858951"/>
 </fastViews>
 </fastViewBar>
 <fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@1e68f3e" orientation="512" selectedTabId="org.eclipse.mylyn.tasks.ui.views.tasks" style="0">&#x0A;<fastViews>&#x0A;<view id="org.eclipse.mylyn.tasks.ui.views.tasks" ratio="0.3"/>
->>>>>>> 7cfbe9695c00159dfd668f278a3a628b213a71bf
 </fastViews>
 </fastViewBar>
 <fastViewBar fastViewLocation="1024" id="bottom" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="0">&#x0A;<fastViews>&#x0A;<view id="org.eclipse.ui.views.ProblemView" ratio="0.3"/>
@@ -534,18 +469,12 @@
 <view id="org.eclipse.ui.console.ConsoleView" ratio="0.2983725"/>
 </fastViews>
 </fastViewBar>
-<<<<<<< HEAD
-<fastViewBar fastViewLocation="16384" id="left" orientation="512" selectedTabId="org.eclipse.jdt.ui.PackageExplorer" style="0">&#x0A;<fastViews>&#x0A;<view id="org.eclipse.jdt.ui.PackageExplorer" ratio="0.3"/>
-</fastViews>
-</fastViewBar>
-=======
 <fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@853013" orientation="256" selectedTabId="com.android.ide.eclipse.ddms.views.LogCatView" style="0">&#x0A;<fastViews>&#x0A;<view id="com.android.ide.eclipse.ddms.views.DeviceView" ratio="0.2983725"/>
 </fastViews>
 </fastViewBar>
 <fastViewBar fastViewLocation="16384" id="left" orientation="512" selectedTabId="org.eclipse.jdt.ui.PackageExplorer" style="0">&#x0A;<fastViews>&#x0A;<view id="org.eclipse.jdt.ui.PackageExplorer" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
->>>>>>> 7cfbe9695c00159dfd668f278a3a628b213a71bf
 <fastViewBar fastViewLocation="131072" id="right" orientation="256" selectedTabId="org.eclipse.ui.views.ContentOutline" style="0">&#x0A;<fastViews>&#x0A;<view id="org.eclipse.ui.views.ContentOutline" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
@@ -558,13 +487,10 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<<<<<<< HEAD
-=======
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@11f7bf4" ratio="0.74864376" ratioLeft="414" ratioRight="139" relationship="4" relative="left">&#x0A;<folder appearance="2" expanded="0">&#x0A;<page content="com.android.ide.eclipse.ddms.views.LogCatView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
->>>>>>> 7cfbe9695c00159dfd668f278a3a628b213a71bf
 <info folder="true" part="stickyFolderRight" ratio="0.7496318" ratioLeft="1018" ratioRight="340" relationship="2" relative="left">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
@@ -592,10 +518,6 @@
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@853013" ratio="0.5" ratioLeft="645" ratioRight="645" relationship="2" relative="org.eclipse.ui.editorss">&#x0A;<folder appearance="2" expanded="0">&#x0A;<page content="com.android.ide.eclipse.ddms.views.DeviceView" label="LabelNotFound"/>
-<<<<<<< HEAD
-<page content="com.android.ide.eclipse.ddms.views.LogCatView" label="LabelNotFound"/>
-=======
->>>>>>> 7cfbe9695c00159dfd668f278a3a628b213a71bf
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
@@ -607,176 +529,6 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<<<<<<< HEAD
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/agent/Agent.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/agent/AgentManager.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/agent/Coordinate.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/agent/Destroy.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/agent/Directions.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/agent/Tester.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/shiptypes/Flugzeugtraeger.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/shiptypes/Minensuchboot.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/shiptypes/Schlachtschiff.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/shiptypes/Schnellboote.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/shiptypes/Spielvorlage1.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/shiptypes/Tankschiff.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/manager/Battlefieldmanager.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/manager/FieldState.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/manager/GridViewActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/BattleshipApplication/res/layout/main.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/BattleshipApplication/src/de/wifhm/se1/android/activity/GridViewActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/BattleshipApplication/src/de/wifhm/se1/android/activity/LoginActivity.java"/>
-</editors>
-<item historyLabel="AgentManager.java" index="1">
-<position info="not_deleted" x="1723" y="0"/>
-</item>
-<item historyLabel="Coordinate.java" index="2">
-<position info="not_deleted" x="48" y="0"/>
-</item>
-<item historyLabel="Destroy.java" index="3">
-<position info="not_deleted" x="45" y="0"/>
-</item>
-<item historyLabel="AgentManager.java" index="1">
-<position info="not_deleted" x="1325" y="0"/>
-</item>
-<item historyLabel="Destroy.java" index="3">
-<position info="not_deleted" x="71" y="0"/>
-</item>
-<item historyLabel="Directions.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Destroy.java" index="3">
-<position info="not_deleted" x="71" y="0"/>
-</item>
-<item historyLabel="Directions.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Tester.java" index="5">
-<position info="not_deleted" x="45" y="0"/>
-</item>
-<item historyLabel="Flugzeugtraeger.java" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Flugzeugtraeger.java" index="6">
-<position info="not_deleted" x="308" y="0"/>
-</item>
-<item historyLabel="Minensuchboot.java" index="7">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Minensuchboot.java" index="7">
-<position info="not_deleted" x="54" y="97"/>
-</item>
-<item historyLabel="Schlachtschiff.java" index="8">
-<position info="not_deleted" x="21" y="0"/>
-</item>
-<item historyLabel="Schnellboote.java" index="9">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Schnellboote.java" index="9">
-<position info="not_deleted" x="8" y="41"/>
-</item>
-<item historyLabel="Spielvorlage1.java" index="10">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Spielvorlage1.java" index="10">
-<position info="not_deleted" x="245" y="0"/>
-</item>
-<item historyLabel="Tankschiff.java" index="11">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Tankschiff.java" index="11">
-<position info="not_deleted" x="196" y="0"/>
-</item>
-<item historyLabel="Spielvorlage1.java" index="10">
-<position info="not_deleted" x="245" y="0"/>
-</item>
-<item historyLabel="Schnellboote.java" index="9">
-<position info="not_deleted" x="8" y="41"/>
-</item>
-<item historyLabel="Schlachtschiff.java" index="8">
-<position info="not_deleted" x="21" y="0"/>
-</item>
-<item historyLabel="Minensuchboot.java" index="7">
-<position info="not_deleted" x="54" y="97"/>
-</item>
-<item historyLabel="Flugzeugtraeger.java" index="6">
-<position info="not_deleted" x="308" y="0"/>
-</item>
-<item historyLabel="Tester.java" index="5">
-<position info="not_deleted" x="45" y="0"/>
-</item>
-<item historyLabel="Directions.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Agent.java" index="0">
-<position info="not_deleted" x="236" y="0"/>
-</item>
-<item historyLabel="Directions.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="AgentManager.java" index="1">
-<position info="not_deleted" x="1325" y="0"/>
-</item>
-<item historyLabel="Directions.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Coordinate.java" index="2">
-<position info="not_deleted" x="48" y="0"/>
-</item>
-<item historyLabel="Directions.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Destroy.java" index="3">
-<position info="not_deleted" x="71" y="0"/>
-</item>
-<item historyLabel="Directions.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Tester.java" index="5">
-<position info="not_deleted" x="45" y="0"/>
-</item>
-<item historyLabel="Battlefieldmanager.java" index="12">
-<position info="not_deleted" x="322" y="38"/>
-</item>
-<item historyLabel="FieldState.java" index="13">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="FieldState.java" index="13">
-<position info="not_deleted" x="134" y="0"/>
-</item>
-<item historyLabel="FieldState.java" index="13">
-<position info="not_deleted" x="106" y="0"/>
-</item>
-<item historyLabel="GridViewActivity.java" index="14">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="GridViewActivity.java" index="14">
-<position info="not_deleted" x="8" y="39"/>
-</item>
-<item historyLabel="GridViewActivity.java" index="14">
-<position info="not_deleted" x="753" y="0"/>
-</item>
-<item historyLabel="GridViewActivity.java" index="14">
-<position info="not_deleted" x="839" y="60"/>
-</item>
-<item historyLabel="Minensuchboot.java" index="7">
-<position info="not_deleted" x="385" y="0"/>
-</item>
-<item historyLabel="GridViewActivity.java" index="14">
-<position info="not_deleted" x="975" y="0"/>
-</item>
-<item historyLabel="main.xml" index="15">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="GridViewActivity.java" index="16">
-<position info="not_deleted" x="1221" y="0"/>
-</item>
-<item historyLabel="GridViewActivity.java" index="16">
-<position info="not_deleted" x="1168" y="0"/>
-</item>
-<item active="true" historyLabel="LoginActivity.java" index="17">
-<position info="not_deleted" x="0" y="0"/>
-=======
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/BattleshipApplication/src/de/wifhm/se1/android/activity/LoginActivity.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/BattleshipApplication/src/de/wifhm/se1/android/common/BattleshipSystemStub.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/BattleshipApplication/src/de/wifhm/se1/android/util/HttpHelper.java"/>
@@ -933,7 +685,6 @@
 </item>
 <item active="true" historyLabel="BattleshipSystemStub.java" index="3">
 <position info="not_deleted" x="5066" y="0"/>
->>>>>>> 7cfbe9695c00159dfd668f278a3a628b213a71bf
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -945,6 +696,7 @@
 <trimItem IMemento.internal.id="topLeft"/>
 </trimArea>
 <trimArea IMemento.internal.id="131072">
+<trimItem IMemento.internal.id="org.eclipse.ui.editorss"/>
 <trimItem IMemento.internal.id="topRight"/>
 </trimArea>
 <trimArea IMemento.internal.id="128">
@@ -960,25 +712,6 @@
 </trimLayout>
 </window>
 <mruList>
-<<<<<<< HEAD
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LoginActivity.java" tooltip="BattleshipApplication/src/de/wifhm/se1/android/activity/LoginActivity.java">
-<persistable path="/BattleshipApplication/src/de/wifhm/se1/android/activity/LoginActivity.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="main.xml" tooltip="BattleshipApplication/res/layout/main.xml">
-<persistable path="/BattleshipApplication/res/layout/main.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Minensuchboot.java" tooltip="BattleshipApplication/src/de/wifhm/se1/android/battleship/shiptypes/Minensuchboot.java">
-<persistable path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/shiptypes/Minensuchboot.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GridViewActivity.java" tooltip="BattleshipApplication/src/de/wifhm/se1/android/battleship/manager/GridViewActivity.java">
-<persistable path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/manager/GridViewActivity.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FieldState.java" tooltip="BattleshipApplication/src/de/wifhm/se1/android/battleship/manager/FieldState.java">
-<persistable path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/manager/FieldState.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Battlefieldmanager.java" tooltip="BattleshipApplication/src/de/wifhm/se1/android/battleship/manager/Battlefieldmanager.java">
-<persistable path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/manager/Battlefieldmanager.java"/>
-=======
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="HttpHelper.java" tooltip="BattleshipApplication/src/de/wifhm/se1/android/util/HttpHelper.java">
 <persistable path="/BattleshipApplication/src/de/wifhm/se1/android/util/HttpHelper.java"/>
 </file>
@@ -999,39 +732,30 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" tooltip="BattleshipApplication/AndroidManifest.xml">
 <persistable path="/BattleshipApplication/AndroidManifest.xml"/>
->>>>>>> 7cfbe9695c00159dfd668f278a3a628b213a71bf
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tankschiff.java" tooltip="BattleshipApplication/src/de/wifhm/se1/android/battleship/shiptypes/Tankschiff.java">
-<persistable path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/shiptypes/Tankschiff.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BattleshipSystemStub.java" tooltip="BattleshipApplication/src/de/wifhm/se1/android/common/BattleshipSystemStub.java">
+<persistable path="/BattleshipApplication/src/de/wifhm/se1/android/common/BattleshipSystemStub.java"/>
 </file>
-<<<<<<< HEAD
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Spielvorlage1.java" tooltip="BattleshipApplication/src/de/wifhm/se1/android/battleship/shiptypes/Spielvorlage1.java">
-<persistable path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/shiptypes/Spielvorlage1.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Schnellboote.java" tooltip="BattleshipApplication/src/de/wifhm/se1/android/battleship/shiptypes/Schnellboote.java">
-<persistable path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/shiptypes/Schnellboote.java"/>
-=======
 <file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="ScheduledThreadPoolExecutor.class" tooltip="java.util.concurrent.ScheduledThreadPoolExecutor">
 <persistable org.eclipse.jdt.ui.ClassFileIdentifier="=BattleshipSystem/\/usr\/local\/jdk1.6.0_31\/jre\/lib\/rt.jar&lt;java.util.concurrent(ScheduledThreadPoolExecutor.class"/>
->>>>>>> 7cfbe9695c00159dfd668f278a3a628b213a71bf
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Schlachtschiff.java" tooltip="BattleshipApplication/src/de/wifhm/se1/android/battleship/shiptypes/Schlachtschiff.java">
-<persistable path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/shiptypes/Schlachtschiff.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="persistance.xml" tooltip="BattleshipSystem/ejbModule/META-INF/persistance.xml">
+<persistable path="/BattleshipSystem/ejbModule/META-INF/persistance.xml"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Flugzeugtraeger.java" tooltip="BattleshipApplication/src/de/wifhm/se1/android/battleship/shiptypes/Flugzeugtraeger.java">
-<persistable path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/shiptypes/Flugzeugtraeger.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BattleshipSystemWebservice.java" tooltip="BattleshipSystem/ejbModule/de/wifhm/se1/server/BattleshipSystemWebservice.java">
+<persistable path="/BattleshipSystem/ejbModule/de/wifhm/se1/server/BattleshipSystemWebservice.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tester.java" tooltip="BattleshipApplication/src/de/wifhm/se1/android/battleship/agent/Tester.java">
-<persistable path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/agent/Tester.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="ejb-jar.xml" tooltip="BattleshipSystem/ejbModule/META-INF/ejb-jar.xml">
+<persistable path="/BattleshipSystem/ejbModule/META-INF/ejb-jar.xml"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Directions.java" tooltip="BattleshipApplication/src/de/wifhm/se1/android/battleship/agent/Directions.java">
-<persistable path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/agent/Directions.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DataBuilder.java" tooltip="BattleshipSystem/ejbModule/de/wifhm/se1/server/DataBuilder.java">
+<persistable path="/BattleshipSystem/ejbModule/de/wifhm/se1/server/DataBuilder.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Destroy.java" tooltip="BattleshipApplication/src/de/wifhm/se1/android/battleship/agent/Destroy.java">
-<persistable path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/agent/Destroy.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BattleshipSystemImpl.java" tooltip="BattleshipSystem/ejbModule/de/wifhm/se1/server/BattleshipSystemImpl.java">
+<persistable path="/BattleshipSystem/ejbModule/de/wifhm/se1/server/BattleshipSystemImpl.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Coordinate.java" tooltip="BattleshipApplication/src/de/wifhm/se1/android/battleship/agent/Coordinate.java">
-<persistable path="/BattleshipApplication/src/de/wifhm/se1/android/battleship/agent/Coordinate.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="User.java" tooltip="BattleshipSystem/ejbModule/de/wifhm/se1/battleship/common/User.java">
+<persistable path="/BattleshipSystem/ejbModule/de/wifhm/se1/battleship/common/User.java"/>
 </file>
 </mruList>
 </workbench>

@@ -25,24 +25,27 @@ public final class R {
         public static final int wasser=0x7f02000b;
     }
     public static final class id {
+        public static final int btnPosShipsCancel=0x7f05000e;
+        public static final int btnPosShipsOK=0x7f05000d;
         public static final int btnpositionship=0x7f050008;
         public static final int btnspielfeld=0x7f050007;
         public static final int gallery=0x7f050009;
         public static final int gridview=0x7f050000;
+        public static final int gvPosShips=0x7f05000f;
         public static final int log=0x7f050005;
         public static final int login=0x7f050003;
         public static final int loginPassword=0x7f050002;
         public static final int loginUsername=0x7f050001;
         public static final int reg=0x7f050006;
         public static final int registerNew=0x7f050004;
-        public static final int registerPassword=0x7f05000e;
-        public static final int registerPasswordRetype=0x7f05000f;
-        public static final int registerUsername=0x7f05000d;
-        public static final int send=0x7f050010;
+        public static final int registerPassword=0x7f050011;
+        public static final int registerPasswordRetype=0x7f050012;
+        public static final int registerUsername=0x7f050010;
+        public static final int send=0x7f050013;
         public static final int ship_image=0x7f05000a;
         public static final int shiplength=0x7f05000b;
         public static final int shipname=0x7f05000c;
-        public static final int textView1=0x7f050011;
+        public static final int textView1=0x7f050014;
     }
     public static final class layout {
         public static final int gridview=0x7f030000;
@@ -62,4 +65,25 @@ public final class R {
         public static final int registerNew=0x7f040006;
         public static final int username=0x7f040001;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a galleryBorder.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #galleryBorder_android_galleryItemBackground de.wifhm.se1.android.activity:android_galleryItemBackground}</code></td><td></td></tr>
+           </table>
+           @see #galleryBorder_android_galleryItemBackground
+         */
+        public static final int[] galleryBorder = {
+            0x0101004c
+        };
+        /**
+          <p>This symbol is the offset where the {@link de.wifhm.se1.android.activity.R.attr#android_galleryItemBackground}
+          attribute's value can be found in the {@link #galleryBorder} array.
+          @attr name android:android_galleryItemBackground
+        */
+        public static final int galleryBorder_android_galleryItemBackground = 0;
+    };
 }

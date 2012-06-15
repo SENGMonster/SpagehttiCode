@@ -39,10 +39,7 @@ public class GridViewActivity extends Activity {
             public void onItemClick(AdapterView<?> arg0, View v, int position,
   					long id) {
             	
-            	mBattlefieldmanager.hasHitAShip(position,v);
-  				//Toast.makeText(GridViewActivity.this, ""+ position, Toast.LENGTH_SHORT).show();
-  			
-  				
+            	mBattlefieldmanager.hasHitAShip(position,v); 			
   				
   			}
           	
