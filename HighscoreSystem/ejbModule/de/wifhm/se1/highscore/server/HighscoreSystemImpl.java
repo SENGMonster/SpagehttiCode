@@ -6,6 +6,8 @@ import javax.jms.Message;
 import javax.jms.MessageListener;
 
 import de.wifhm.se1.highscore.common.HighscoreSystem;
+import de.wifhm.se1.highscore.server.exceptions.InvalidPasswordException;
+import de.wifhm.se1.highscore.server.exceptions.InvalidUsernameException;
 
 /**
  * Message-Driven Bean implementation class for: HighscoreSystemImpl
@@ -16,11 +18,6 @@ import de.wifhm.se1.highscore.common.HighscoreSystem;
 				propertyName = "destinationType", propertyValue = "javax.jms.Queue"
 		) })
 public class HighscoreSystemImpl implements HighscoreSystem, MessageListener {
-
-    /**
-     * Default constructor. 
-     */
-   
 	
 	/**
      * @see MessageListener#onMessage(Message)
@@ -29,5 +26,18 @@ public class HighscoreSystemImpl implements HighscoreSystem, MessageListener {
         // TODO Auto-generated method stub
         
     }
+
+	@Override
+	public void setHighscore(String username, String password, int points)
+			throws InvalidPasswordException, InvalidUsernameException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void getHighscore(String username) throws InvalidUsernameException {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
