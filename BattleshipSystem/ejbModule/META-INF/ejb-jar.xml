@@ -16,6 +16,5 @@
         <env-entry-value>test</env-entry-value>
       </env-entry>
     </session>
-   </enterprise-beans>
+  </enterprise-beans>
 </ejb-jar>
-     
