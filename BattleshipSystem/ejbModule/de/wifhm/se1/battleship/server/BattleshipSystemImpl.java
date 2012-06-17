@@ -17,7 +17,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import de.wifhm.se1.battleship.common.BattleshipSystem;
-import de.wifhm.se1.battleship.common.BattleshipSystemLocal;
 import de.wifhm.se1.battleship.common.ClientSystemSettings;
 import de.wifhm.se1.battleship.common.Highscore;
 import de.wifhm.se1.battleship.common.User;

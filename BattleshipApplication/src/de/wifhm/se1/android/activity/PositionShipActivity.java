@@ -38,7 +38,7 @@ public class PositionShipActivity extends Activity {
 	private ImageView currSelectedShip;
 	
 	private Schiff currShip;
-	
+	private int ShipPositionedCounter=0;
 	
     private int StartPosition=-1;
     private int EndPosition=-1;
@@ -53,29 +53,43 @@ public class PositionShipActivity extends Activity {
     	possibleEndPositions=null;
     }
     
-    public void RemoveAllItems()
+    public void RemoveAllGarbageItems()
     {
     	if(StartPosition!=-1)
     	{
     		gvPositionView.addNewImgToPosition(StartPosition, R.drawable.wasser);
     		
-    		if(possibleEndPositions!=null)
-    		{
-    			for(int i=0; i<4; i++){
-       			 gvPositionView.addNewImgToPosition(possibleEndPositions[i], R.drawable.wasser);
-       		 	}
-    		}
+    		RemovePossibleEndPositions(true);
     	}
     	if(EndPosition!=-1)
     	{    		
-    		SchiffeMalen(R.drawable.wasser);
+    		FulfillShip(R.drawable.wasser);
     		
     	}
     	
     }
+    
+    private void RemovePossibleEndPositions(boolean includingEndPo)
+    {
+    	if(possibleEndPositions!=null)
+		{
+			for(int i=0; i<4; i++){
+				if (!includingEndPo)
+				{
+					if(possibleEndPositions[i]!=EndPosition) 
+					{
+						gvPositionView.addNewImgToPosition(possibleEndPositions[i], R.drawable.wasser);
+					}
+				}
+				else{
+					gvPositionView.addNewImgToPosition(possibleEndPositions[i], R.drawable.wasser);		
+				}
+   		 	}
+		}
+    }
 	
     
-    private void SchiffeMalen(int img){
+    private void FulfillShip(int img){
     	int differenz= EndPosition-StartPosition;
 		int differenzbetrag= Math.abs(differenz);
 		if (differenzbetrag>9) //vertikale Anordnung
@@ -151,16 +165,15 @@ public class PositionShipActivity extends Activity {
 
 	    gallery.setOnItemClickListener(new OnItemClickListener() {
 	        public void onItemClick(AdapterView parent, View v, int position, long id) {
-	            Toast.makeText(PositionShipActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+	           // Toast.makeText(PositionShipActivity.this, "" + position, Toast.LENGTH_SHORT).show();
 	            
 	            Schiff item = v1.getSchiffsliste().get(position);
 	            currShip = item;
 	            currSelectedShip =(ImageView) v;
 	            shipimg.setImageResource(item.getImage());
+	            shipimg.setVisibility(View.VISIBLE);
 	            txtShipName.setText(item.getSchiffsname());
 	            txtShipLength.setText(String.valueOf(item.getShipLength()));
-	            //btnOK.setVisibility(1);
-	            btnCancel.setVisibility(1);
 	            
 	           
 	        }
@@ -190,14 +203,30 @@ public class PositionShipActivity extends Activity {
 		            	if (ClickCounter==0)
 		            	{
 		            		StartPosition = position;
+		            		gvPositionView.addNewImgToPosition(StartPosition, currShip.getImage());
+		            		
+		            		if(currShip.getShipLength()==1){
+		            			EndPosition=StartPosition;
+		            			btnOK.setVisibility(View.VISIBLE);
+		            			 gvPositionView.notifyDataSetChanged();
+		            			 return;
+		            		}
+		            		
 		            		possibleEndPositions =  new int[4];
 		            		
 		            	    int value=-1;
 		            	    boolean correct=true;
 		            	    
 		            	    String number = String.valueOf(StartPosition);
-		            	    String subStrNumber = number.substring(0,number.length()-1);		            	   
+		            	    String subStrNumber=number;
+		            	    if (number.length()>1)
+		            	    {
+		            	    	 subStrNumber = number.substring(0,number.length()-1);
+		            		}
+
 		            	    int gerundet=Integer.valueOf(subStrNumber)*numOfRowsCols;
+		            	    
+		            	    
 		            	    
 		            	    //Alle 4 Richtungen überprüfen und mögliche Felder setzen
 		            	    for(int i=0; i<4; i++){
@@ -234,12 +263,13 @@ public class PositionShipActivity extends Activity {
 	            	    		}
 		            	    }
 		            		
-		            		gvPositionView.addNewImgToPosition(StartPosition, currShip.getImage());
+		            		
 		            		
 		            		 for(int i=0; i<4; i++){
 		            			 gvPositionView.addNewImgToPosition(possibleEndPositions[i], R.drawable.rot);
 		            		 }
 		            		
+		            		 btnCancel.setVisibility(View.VISIBLE);
 		            	}
 		            	else{
 		            		if(EndPosition!=-1)
@@ -247,11 +277,12 @@ public class PositionShipActivity extends Activity {
 		            			//gvPositionView.addNewImgToPosition(EndPosition, currShip.getImage());
 		            		
 		            		}
-		            		EndPosition = position;
-		            		
-		            		SchiffeMalen(currShip.getImage());
-		            		
-		            		btnOK.setVisibility(0);
+		            		if(position!=StartPosition)
+		            		{
+			            		EndPosition = position;
+			            		FulfillShip(currShip.getImage());
+			            		btnOK.setVisibility(View.VISIBLE);
+		            		}
 		            		
 		            	}//end if ClickCounter==0
 		            	
@@ -269,26 +300,53 @@ public class PositionShipActivity extends Activity {
         
         
        // ----------- BUTTON STUFF 
+        
+       //---- CANCEL
         btnCancel.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
-				RemoveAllItems();
+				RemoveAllGarbageItems();
 				Reset();
+				gvPositionView.notifyDataSetChanged();
+				HideAllButtonStuff();
 			}
 		});
         
+        //---- OK
         btnOK.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
+				RemovePossibleEndPositions(false);
+				gvPositionView.notifyDataSetChanged();
+				
 				Reset();
-				currSelectedShip.setVisibility(2);
-				btnOK.setVisibility(1);
-							
+			    HideAllButtonStuff();
+				HideAllShipStuff();
+				
+				ShipPositionedCounter+=1;
+				Toast.makeText(PositionShipActivity.this, "Schiffe positioniert: "+String.valueOf(ShipPositionedCounter) + " von: " + String.valueOf(v1.getSchiffsliste().size()), Toast.LENGTH_LONG).show();
+				
+				if (ShipPositionedCounter==v1.getSchiffsliste().size())
+				{
+					 Toast.makeText(PositionShipActivity.this, "Spielfeld fertigestellt", Toast.LENGTH_LONG).show();
+				}
 			}
 		});
         
         
 
 	} //end onCreate
+	
+	private void HideAllButtonStuff(){
+		btnOK.setVisibility(View.INVISIBLE);
+		btnCancel.setVisibility(View.INVISIBLE);
+	}
+	
+	private void HideAllShipStuff(){
+		currSelectedShip.setVisibility(View.GONE);
+		shipimg.setVisibility(View.INVISIBLE);
+        txtShipName.setText("");
+        txtShipLength.setText("");
+	}
 
 } //end Class

@@ -25,6 +25,8 @@ public abstract class Spielvorlage {
 	public void initializeSchiffsliste()
 	{
 		
+		SchiffstypenAnzahlListe=null;
+		Schiffsliste.clear();
 		
 		//Vorlagen Schiffe holen
 		SchiffstypenAnzahlListe= setSchiffstypenAnzahlListe();
