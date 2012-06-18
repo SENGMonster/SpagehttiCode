@@ -2,25 +2,35 @@ package de.wifhm.se1.android.battleship.agent;
 
 import java.util.ArrayList;
 
+import de.wifhm.se1.android.battleship.manager.FieldState;
+import de.wifhm.se1.android.battleship.manager.GlobalHolder;
 import de.wifhm.se1.android.battleship.manager.Spielvorlage;
 import de.wifhm.se1.android.battleship.shiptypes.Spielvorlage1;
 
 public class Tester {
 
+	Agent a;
 		
-	public static void main(String[] args){
+	public Tester(){
 		
-		Spielvorlage S1 = new Spielvorlage1();
+		Spielvorlage S1 = GlobalHolder.getInstance().getUserShips();
 		ArrayList<Coordinate> coordinates = new ArrayList<Coordinate>(); 
 		
-		for(int i=1; i<=100; i++)
+		int limit=GlobalHolder.getInstance().getNumOfRowsCols() *GlobalHolder.getInstance().getNumOfRowsCols() ; 
+		
+		for(int i=0; i<limit; i++)
 		{
-			
+			coordinates.add(new Coordinate(FieldState.UNKNOWN, i));
 		}
 		
 		
-		Agent a = new Agent(S1, coordinates);
+		 a = new Agent(S1, coordinates);
 		
+	}
+	
+	public int getNextChoice()
+	{
+		return a.nextTurn().getCoordinateNr();
 	}
 	
 	

@@ -24,10 +24,10 @@ public class GlobalHolder {
            
             
             //Manager für das Userspielfeld 
-            instance.UserField = new Battlefieldmanager(instance.UserShips, new GridViewActivity() );
+            instance.UserField = new Battlefieldmanager(instance.UserShips );
             
             //Manager für das Computerspielfeld
-            instance.ComputerField = new Battlefieldmanager(instance.ComputerShips, new GridViewActivity());
+            instance.ComputerField = new Battlefieldmanager(instance.ComputerShips);
             
         }
         return instance;

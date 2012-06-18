@@ -13,15 +13,13 @@ public class Battlefieldmanager {
 
 	//private BattleFieldImageAdapter mImageAdapter;
 	private Spielvorlage mSpielvorlage;
-	private Activity mActivity;
 	
-	public Battlefieldmanager(Spielvorlage spiel, Activity act){
+	public Battlefieldmanager(Spielvorlage spiel){
 		
 		mSpielvorlage= spiel;
-		mActivity = act;
 	}
 	
-	public boolean hasHitAShip(int position, View v)
+	public boolean hasHitAShip(int position, View v, Activity a)
 	{
 		
 		for(Schiff s:mSpielvorlage.getSchiffsliste()){
@@ -31,7 +29,7 @@ public class Battlefieldmanager {
 					ImageView imageview = (ImageView) v;
 					imageview.setImageResource(R.drawable.rot);
 					
-					MakeToast("Treffer: " + s.getName()+ " auf " + String.valueOf(position));
+					MakeToast("Treffer: " + s.getName()+ " auf " + String.valueOf(position), a);
 					
 					return true;
 				}
@@ -42,14 +40,14 @@ public class Battlefieldmanager {
 		ImageView imageview = (ImageView) v;
 		imageview.setImageResource(R.drawable.keintreffer);
 		
-		MakeToast("Wasser: " + String.valueOf(position));
+		MakeToast("Wasser: " + String.valueOf(position), a);
 		return false;
 	}
 	
 	
-	public void MakeToast(String text)
+	public void MakeToast(String text, Activity a)
 	{
-		Toast.makeText(mActivity, text, Toast.LENGTH_SHORT).show();
+		Toast.makeText(a, text, Toast.LENGTH_SHORT).show();
 	}
 	
 	

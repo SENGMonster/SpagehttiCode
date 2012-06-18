@@ -8,6 +8,12 @@ public class Coordinate {
 	public int getCoordinateNr() {
 		return CoordinateNr;
 	}
+	
+	public Coordinate(FieldState fs, int nr){
+			setStateField(fs);
+			setCoordinateNr(nr);
+	}
+	
 	public void setCoordinateNr(int coordinateNr) {
 		CoordinateNr = coordinateNr;
 	}

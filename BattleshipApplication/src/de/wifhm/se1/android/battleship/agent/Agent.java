@@ -1,14 +1,13 @@
 package de.wifhm.se1.android.battleship.agent;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Random;
 
 import de.wifhm.se1.android.battleship.manager.*;;
 
 
 public class Agent {
-	private Collection<Schiff>shiplist;
+	private ArrayList<Schiff>shiplist;
 	
 	public Agent(Spielvorlage s, ArrayList<Coordinate> coordinates)
 	{
@@ -25,7 +24,7 @@ public class Agent {
 	}
 
 	private int turnCounter = 0;
-	private int initialTurnCounter =0;
+	private int initialTurnCounter =1;
 	
 	public Coordinate nextTurn(){
 		
@@ -79,29 +78,40 @@ public class Agent {
 				{
 					case 1:
 						field = 22;
+						break;
 					case 2:
 						field=  37;
+						break;
 					case 3:
 						field = 53;
+						break;
 					case 4:
 						field = 66;
+						break;
 					case 5:
 						field = 81;
+						break;
 					case 6:
 						field = 98;
+						break;
 					case 7:
 						field = 41;
+						break;
 					case 8:
 						field = 94;
+						break;
 					case 9:
 						field = 59;
+						break;
 					case 10:
 						field = 30;
+						break;
 				}
 				
 				initialTurnCounter +=1;
 				
-				return AgentManager.getInstance().getCoordinateForNr(field);
+				bestCoordinate = AgentManager.getInstance().getCoordinateForNr(field);
+				return bestCoordinate;
 			}
 			
 			ArrayList<Coordinate> UnknownList = AgentManager.getInstance().getAllUnknown();
