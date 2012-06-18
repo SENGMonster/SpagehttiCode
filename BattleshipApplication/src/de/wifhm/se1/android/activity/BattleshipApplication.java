@@ -1,6 +1,9 @@
 package de.wifhm.se1.android.activity;
 
 import android.app.Application;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import de.wifhm.se1.android.common.BattleshipSystemStub;
 import de.wifhm.se1.android.common.User;
 
@@ -8,6 +11,21 @@ public class BattleshipApplication extends Application {
 	
 	private User angemeldeterUser;
 	private BattleshipSystemStub bsStub;
+	
+	
+	
+	public boolean isOnline(){
+		ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE); 
+		NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+		
+		if(networkInfo != null && networkInfo.isConnected()){
+			return true;
+		}
+		else{
+			return false;
+		}
+		
+	}
 	
 	/**
 	 * @return the angemeldeterUser

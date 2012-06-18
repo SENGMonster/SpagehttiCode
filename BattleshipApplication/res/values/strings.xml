@@ -7,6 +7,31 @@
     <string name="passwordretype">Retype your password</string>
     <string name="login">Login</string>
     <string name="registerNew">Register as new user</string>
-    <color name="failurebackground">#FF0000</color>
+    <string name="logout">Logout</string>
+    <string name="preferences">Preferences</string>
+    <string name="exit">Exit</string>
+    <string name="savepu">Would you like to save your password and username?</string>
+    <string name="boardsize">Which boardsize do you want?</string>
+    <string name="save">Save</string>
+    <string name="choose">Choose boardsize</string>
+    <string-array name="boardsizes">
+        <item >7 x 7</item>
+        <item >8 x 8</item>
+        <item >9 x 9</item>
+        <item >10 x 10</item>
+        <item >11 x 11</item>
+        <item >12 x 12</item>
+        <item >13 x 13</item>
+    </string-array>
+    <integer-array name="sizeint">
+        <item >7</item>
+        <item >8</item>
+        <item >9</item>
+        <item >10</item>
+        <item >11</item>
+        <item >12</item>
+        <item >13</item>
+    </integer-array>
+    
 
 </resources>
