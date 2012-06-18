@@ -16,10 +16,9 @@ public class PositionShipBattleFieldImageAdapter extends BaseAdapter {
   
 	private static final int count = 100;
 	
-	private Context mContext;    
-    private int background;
+	private Context mContext;        
 	
-    public PositionShipBattleFieldImageAdapter(Context c, int background) { 
+    public PositionShipBattleFieldImageAdapter(Context c) { 
         mContext = c;
        
         
@@ -56,7 +55,7 @@ public class PositionShipBattleFieldImageAdapter extends BaseAdapter {
             imageView.setLayoutParams(new GridView.LayoutParams(45, 45));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(1, 1, 1, 1);
-            imageView.setBackgroundResource(background);  
+            //imageView.setBackgroundResource(GlobalHolder.getInstance().getGridViewBackground());  
             
         } else {
             imageView = (ImageView) convertView;

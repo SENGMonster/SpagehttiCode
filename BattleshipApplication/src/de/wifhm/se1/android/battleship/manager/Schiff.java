@@ -1,13 +1,13 @@
 package de.wifhm.se1.android.battleship.manager;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public abstract class Schiff {
 
-	private static Random r = new Random();
-	public static int counter =0;
+	private static int numOfRowsCols = GlobalHolder.getInstance().getNumOfRowsCols();
+	protected ArrayList<Integer> Positions;
 	
-	protected int[] Positions;
 	
 	public Schiff(){
 		initialize();
@@ -16,38 +16,58 @@ public abstract class Schiff {
 	public void initialize()
 	{
 		Image = getImage();
-		int[] temp = {1,2,3,4};
-		setSchiffspositions(temp);
+			
 	}
 	
-	public void setSchiffspositions(int[] pos)
+	public ArrayList<Integer> setSchiffspositions(int StartPosition, int EndPosition)
 	{
-		
-		
-//		if (pos.length != getNumberOfPositions())
-//		{
-//			//TODO: Exception schmei�en
-//		} 
-		
-		//Zum Debugging das Schiff Random setzen
-		
-			int[] array = new int[getShipLength()];
-			int start = counter * 10 + r.nextInt(5);
+		setEndposition(EndPosition);
+		setStartposition(StartPosition);
+		ArrayList<Integer> array = new ArrayList<Integer>();		
 			
-			
-			for(int i=0; i<getShipLength(); i++)
+			int differenz= EndPosition-StartPosition;
+			int differenzbetrag= Math.abs(differenz);
+			if (differenzbetrag>9) //vertikale Anordnung
 			{
-				array[i]=start +i;
+				if (differenz>0) //nach unten
+				{
+	    			for(int i=0; i<=differenzbetrag; i+=numOfRowsCols)
+	    			{
+	    				array.add(StartPosition+i);
+	    			}
+				}
+				else{ //nach oben
+					for(int i=0; i<=differenzbetrag; i+=numOfRowsCols)
+	    			{
+						array.add(StartPosition+i);
+	    			}
+				}
 			}
-			
-			counter += 1;
+			else { //horizontale Anordnung
+				
+				if(differenz>0)//nach rechts
+				{
+					for(int i=0; i<=differenzbetrag; i++)
+	    			{
+						array.add(StartPosition+i);
+	    			}
+				}
+				else{ //nach links
+					for(int i=0; i<=differenzbetrag; i++)
+	    			{
+						array.add(StartPosition+i);
+	    			}
+				}
+				
+				
+			}
 
 		 Positions = array;
-		 
+		 return array;
 		 
 	}
 	
-	public int[] getSchiffspositions()
+	public ArrayList<Integer> getSchiffspositions()
 	{
 		
 		return Positions;
@@ -68,6 +88,27 @@ public abstract class Schiff {
 	
 	protected int Image;
 	public abstract int getImage();
+	
+	private int Startposition;
+	private int Endposition;
+
+	public int getStartposition() {
+		return Startposition;
+	}
+
+	public void setStartposition(int startposition) {
+		Startposition = startposition;
+	}
+
+	public int getEndposition() {
+		return Endposition;
+	}
+
+	public void setEndposition(int endposition) {
+		Endposition = endposition;
+	}
+	
+	
 	
 	
 }

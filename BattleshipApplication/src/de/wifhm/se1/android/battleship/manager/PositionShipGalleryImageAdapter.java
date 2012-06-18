@@ -15,9 +15,8 @@ import android.widget.TextView;
 
 
 public class PositionShipGalleryImageAdapter extends BaseAdapter {
-    int mGalleryItemBackground;
-    private Context mContext;
     
+    private Context mContext;
     private Spielvorlage mGameLayout;
       
     Hashtable<Integer, Integer> Schiffliste = new Hashtable<Integer, Integer>();
@@ -57,17 +56,11 @@ public class PositionShipGalleryImageAdapter extends BaseAdapter {
 
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView imageView = new ImageView(mContext);
-       // if(Schiffliste.get(position)!=null)
-        //{
-	        imageView.setImageResource(Schiffliste.get(position));
-        //}
-        //else{
-        	//imageView.setImageResource(R.drawable.keintreffer);
-        //}
-	        imageView.setLayoutParams(new Gallery.LayoutParams(100, 100));
-	        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-	        imageView.setBackgroundResource(mGalleryItemBackground);
-	        imageView.setPadding(10, 5, 0, 5);
+        imageView.setImageResource(Schiffliste.get(position));
+        imageView.setLayoutParams(new Gallery.LayoutParams(100, 100));
+        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        imageView.setBackgroundResource(GlobalHolder.getInstance().getGridViewBackground());
+        imageView.setPadding(10, 5, 0, 5);
         
         return imageView;
     }

@@ -1,9 +1,11 @@
 package de.wifhm.se1.android.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.MarginLayoutParams;
@@ -15,6 +17,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import de.wifhm.se1.android.battleship.manager.GlobalHolder;
 import de.wifhm.se1.android.battleship.manager.PositionShipBattleFieldImageAdapter;
 import de.wifhm.se1.android.battleship.manager.PositionShipGalleryImageAdapter;
 import de.wifhm.se1.android.battleship.manager.Schiff;
@@ -31,7 +34,6 @@ public class PositionShipActivity extends Activity {
 	private ImageView shipimg;
 	private TextView txtShipLength;
 	private TextView txtShipName;
-	private Spielvorlage v1; 
 	private Button btnOK;
 	private Button btnCancel;
 	private PositionShipBattleFieldImageAdapter gvPositionView;
@@ -137,9 +139,6 @@ public class PositionShipActivity extends Activity {
 	    setContentView(R.layout.positionships);
 
 	    // ------------- SPIELVORLAGE -------
-	    v1 = new Spielvorlage1();
-	    v1.initializeSchiffsliste();
-	    
 	    
 	  
 	    // --------------- GET ELEMENTS FROM VIEW
@@ -170,7 +169,7 @@ public class PositionShipActivity extends Activity {
 	        public void onItemClick(AdapterView parent, View v, int position, long id) {
 	           // Toast.makeText(PositionShipActivity.this, "" + position, Toast.LENGTH_SHORT).show();
 	            
-	            Schiff item = v1.getSchiffsliste().get(position);
+	            Schiff item = GlobalHolder.getInstance().getUserShips().getSchiffsliste().get(position);
 	            currShip = item;
 	            currShipIndex = position;	            
 	            shipimg.setImageResource(item.getImage());
@@ -189,9 +188,10 @@ public class PositionShipActivity extends Activity {
 	    TypedArray a = obtainStyledAttributes(R.styleable.galleryBorder);
         int mGalleryItemBackground = a.getResourceId(R.styleable.galleryBorder_android_galleryItemBackground, 0);
         a.recycle();
+        GlobalHolder.getInstance().setGridViewBackground(mGalleryItemBackground);
 	    
 	    GridView gridView = (GridView) findViewById(R.id.gvPosShips);
-	    gvPositionView = new PositionShipBattleFieldImageAdapter(this,mGalleryItemBackground);
+	    gvPositionView = new PositionShipBattleFieldImageAdapter(this);
         gridView.setAdapter(gvPositionView);
         
         
@@ -323,17 +323,21 @@ public class PositionShipActivity extends Activity {
 				RemovePossibleEndPositions(false);
 				gvPositionView.notifyDataSetChanged();
 				
+				currShip.setSchiffspositions(StartPosition, EndPosition);
+				
 				Reset();
 			    HideAllButtonStuff();
 				HideAllShipStuff();
 				
 				ShipPositionedCounter+=1;
-				Toast.makeText(PositionShipActivity.this, "Schiffe positioniert: "+String.valueOf(ShipPositionedCounter) + " von: " + String.valueOf(v1.getSchiffsliste().size()), Toast.LENGTH_LONG).show();
+				Toast.makeText(PositionShipActivity.this, "Schiffe positioniert: "+String.valueOf(ShipPositionedCounter) + " von: " + String.valueOf(GlobalHolder.getInstance().getUserShips().getSchiffsliste().size()), Toast.LENGTH_LONG).show();
 				
-				if (ShipPositionedCounter==v1.getSchiffsliste().size())
+				if (ShipPositionedCounter==GlobalHolder.getInstance().getUserShips().getSchiffsliste().size())
 				{
 					 Toast.makeText(PositionShipActivity.this, "Spielfeld fertigestellt", Toast.LENGTH_LONG).show();
+					 startActivity(new Intent(PositionShipActivity.this, GridViewActivity.class));
 				}
+				
 			}
 		});
         

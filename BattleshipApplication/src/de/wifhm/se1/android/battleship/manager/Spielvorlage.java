@@ -33,22 +33,15 @@ public abstract class Spielvorlage {
 		
 		
 		
-		for(SchiffstypAmount element : SchiffstypenAnzahlListe) {
+		for(SchiffstypAmount element : SchiffstypenAnzahlListe)
+		{
 			
 			for (int i=0; i<element.getAmount();i++)
 			{
 				    try {
 				    	
 				    	//Soviele Instanzen zum Spiel hinzuf�gen wie im Plan vorgesehen
-				    	//String name = element.getSchiffstyp().getClass().getName();
 				    	Object obj = element.getSchiffstyp().newInstance();
-				    	
-				    	//System.out.print(name);
-				    	//mona.Schiffstypen.Flugzeugtraeger flugzeugtraeger = (mona.Schiffstypen.Flugzeugtraeger) obj;
-				    	//mona.Schiffstypen.Flugzeugtraeger newflugzeugtraeger = flugzeugtraeger.getClass().newInstance();
-				    	
-				    	//Class clazz = obj.getClass();
-				    	//Constructor c = clazz.getConstructor();
 						Schiffsliste.add((Schiff) obj);
 						
 					//Falls der Plan kaputt war	
@@ -58,11 +51,8 @@ public abstract class Spielvorlage {
 					} catch (IllegalAccessException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-//					} catch (NoSuchMethodException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-					}
-			}
+					}		
+			}		
 			
 		}
 		
@@ -73,4 +63,4 @@ public abstract class Spielvorlage {
 	
 	
 	
-}
+	}
