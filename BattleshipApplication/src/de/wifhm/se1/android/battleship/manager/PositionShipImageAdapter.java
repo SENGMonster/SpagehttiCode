@@ -19,15 +19,6 @@ public class PositionShipImageAdapter extends BaseAdapter {
     private Spielvorlage mGameLayout;
     private ArrayList<Schiff> Schiffliste;
     
-    private Integer[] mImageIds = {
-            R.drawable.sample_1,
-            R.drawable.sample_2,
-            R.drawable.sample_3,
-            R.drawable.sample_4,
-            R.drawable.sample_5,
-            R.drawable.sample_6,
-            R.drawable.sample_7
-    };
 
     public PositionShipImageAdapter(Context c) {
         mContext = c;
@@ -38,7 +29,7 @@ public class PositionShipImageAdapter extends BaseAdapter {
     }
 
     public int getCount() {
-        return mImageIds.length;
+        return 0;
     }
 
     public Object getItem(int position) {
