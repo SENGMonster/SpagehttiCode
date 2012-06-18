@@ -35,9 +35,11 @@ public class PositionShipActivity extends Activity {
 	private Button btnOK;
 	private Button btnCancel;
 	private PositionShipBattleFieldImageAdapter gvPositionView;
-	private ImageView currSelectedShip;
+	private PositionShipGalleryImageAdapter galleryimgadp;
+	
 	
 	private Schiff currShip;
+	private int currShipIndex;
 	private int ShipPositionedCounter=0;
 	
     private int StartPosition=-1;
@@ -161,7 +163,8 @@ public class PositionShipActivity extends Activity {
 	                   mlp.bottomMargin
 	    );
 
-	    gallery.setAdapter(new PositionShipGalleryImageAdapter(this));
+	    galleryimgadp=new PositionShipGalleryImageAdapter(this);
+	    gallery.setAdapter(galleryimgadp);
 
 	    gallery.setOnItemClickListener(new OnItemClickListener() {
 	        public void onItemClick(AdapterView parent, View v, int position, long id) {
@@ -169,7 +172,7 @@ public class PositionShipActivity extends Activity {
 	            
 	            Schiff item = v1.getSchiffsliste().get(position);
 	            currShip = item;
-	            currSelectedShip =(ImageView) v;
+	            currShipIndex = position;	            
 	            shipimg.setImageResource(item.getImage());
 	            shipimg.setVisibility(View.VISIBLE);
 	            txtShipName.setText(item.getSchiffsname());
@@ -240,8 +243,9 @@ public class PositionShipActivity extends Activity {
 			            	    		break;
 			            	    	case 1:
 			            	    		//es Darf keinen Zeilenumbruch geben
-			            	    		value=StartPosition - currShip.getShipLength()-1;
-			            	    		if(value<gerundet-numOfRowsCols) correct=false;
+			            	    		value=StartPosition - (currShip.getShipLength()-1);
+			            	    		if(value<gerundet) correct=false;
+			            	    		break;
 			            	    	case 2: 
 			            	    		//ES DARF BEI VERTIKAL NICHT NACH OBEN HINAUS LAUFEN
 			            	    		 value = StartPosition - ((currShip.getShipLength()-1)*numOfRowsCols);
@@ -343,7 +347,7 @@ public class PositionShipActivity extends Activity {
 	}
 	
 	private void HideAllShipStuff(){
-		currSelectedShip.setVisibility(View.GONE);
+		galleryimgadp.RemoveItem(currShipIndex);
 		shipimg.setVisibility(View.INVISIBLE);
         txtShipName.setText("");
         txtShipLength.setText("");

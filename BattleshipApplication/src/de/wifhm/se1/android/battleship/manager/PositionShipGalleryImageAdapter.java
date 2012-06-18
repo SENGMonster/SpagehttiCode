@@ -1,6 +1,8 @@
 package de.wifhm.se1.android.battleship.manager;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
+
 import de.wifhm.se1.android.activity.R;
 import de.wifhm.se1.android.battleship.shiptypes.Spielvorlage1;
 import android.content.Context;
@@ -17,14 +19,28 @@ public class PositionShipGalleryImageAdapter extends BaseAdapter {
     private Context mContext;
     
     private Spielvorlage mGameLayout;
-    private ArrayList<Schiff> Schiffliste;
+      
+    Hashtable<Integer, Integer> Schiffliste = new Hashtable<Integer, Integer>();
     
     public PositionShipGalleryImageAdapter(Context c) {
         mContext = c;
         
         mGameLayout = new Spielvorlage1();
         mGameLayout.initializeSchiffsliste();
-        Schiffliste = mGameLayout.getSchiffsliste();
+        ArrayList<Schiff> Ships =mGameLayout.getSchiffsliste();
+        
+        for(int i=0; i< Ships.size(); i++)
+        {
+        	Schiff item = Ships.get(i);
+        	Schiffliste.put(i, item.getImage());
+        }
+    }
+    
+    public void RemoveItem(int position)
+    {
+    	Schiffliste.remove(position);
+    	Schiffliste.put(position, R.drawable.keintreffer);
+    	notifyDataSetChanged();
     }
 
     public int getCount() {
@@ -41,13 +57,17 @@ public class PositionShipGalleryImageAdapter extends BaseAdapter {
 
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView imageView = new ImageView(mContext);
-
-        imageView.setImageResource(Schiffliste.get(position).getImage());
-        imageView.setLayoutParams(new Gallery.LayoutParams(100, 100));
-        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        imageView.setBackgroundResource(mGalleryItemBackground);
-        imageView.setPadding(10, 5, 0, 5);
-
+       // if(Schiffliste.get(position)!=null)
+        //{
+	        imageView.setImageResource(Schiffliste.get(position));
+        //}
+        //else{
+        	//imageView.setImageResource(R.drawable.keintreffer);
+        //}
+	        imageView.setLayoutParams(new Gallery.LayoutParams(100, 100));
+	        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+	        imageView.setBackgroundResource(mGalleryItemBackground);
+	        imageView.setPadding(10, 5, 0, 5);
         
         return imageView;
     }
