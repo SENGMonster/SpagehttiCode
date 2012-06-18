@@ -42,4 +42,13 @@
         android:paddingRight="10dp"
         android:text="@string/registerNew" />
 
+    <TextView
+        android:id="@+id/failuremessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:visibility="invisible"
+        android:background="@color/failurebackground"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
 </LinearLayout>

@@ -7,5 +7,6 @@
     <string name="passwordretype">Retype your password</string>
     <string name="login">Login</string>
     <string name="registerNew">Register as new user</string>
+    <color name="failurebackground">#FF0000</color>
 
 </resources>

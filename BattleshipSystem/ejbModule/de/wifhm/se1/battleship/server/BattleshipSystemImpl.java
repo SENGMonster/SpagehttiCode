@@ -102,7 +102,7 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void register(String username, String password) throws InvalidUsernameException {
-    	if(this.loggedUser != null){
+    	if(this.loggedUser == null){
     		if(entitymanager.find(User.class, username) == null){
     			User user = new User(username, password);
     			entitymanager.persist(user);
