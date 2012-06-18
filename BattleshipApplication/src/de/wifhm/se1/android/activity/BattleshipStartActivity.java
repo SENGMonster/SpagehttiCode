@@ -35,7 +35,7 @@ public class BattleshipStartActivity extends Activity
 		Button register = (Button)findViewById(R.id.reg);
 		Button spielfeld = (Button)findViewById(R.id.btnspielfeld);
 		Button schiffePo = (Button) findViewById(R.id.btnpositionship);
-		
+		Button high = (Button)findViewById(R.id.gotothighscore);
 		
 		login.setOnClickListener(new OnClickListener(){
 
@@ -68,6 +68,16 @@ public class BattleshipStartActivity extends Activity
 				startActivity(new Intent(BattleshipStartActivity.this, PositionShipActivity.class));
 				Log.i(TAG, "schiffepoonsiti-click");
 			}
+		});
+		
+		high.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(BattleshipStartActivity.this, HighscoreActivity.class));
+				
+			}
+			
 		});
 	}
 	

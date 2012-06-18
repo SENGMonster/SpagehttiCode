@@ -31,13 +31,12 @@ public class BattleshipSystemStub implements BattleshipSystem {
 	 * @see battleship.common.BattleshipSystem#login(java.lang.String, java.lang.String)
 	 */
 	public User login(String username, String password) throws SoapFault {
-		Log.i(TAG, username + " " + password);
+	
 		User result = null;
 		String METHOD_NAME = "login";
-		Log.i(TAG, "executeSoap");
+		
 		Object response = executeSoapAction(METHOD_NAME, username, password);
-		Log.d(TAG, response.getClass().getName());
-		Log.d(TAG, response.toString());
+		
 		
 		if(response instanceof SoapObject){
 			SoapObject soapUser = (SoapObject)response;
@@ -117,6 +116,16 @@ public class BattleshipSystemStub implements BattleshipSystem {
 		String METHOD_NAME = "getHighscore";
 		return (Highscore)executeSoapAction(METHOD_NAME);
 	}
+	/*
+	 * (non-Javadoc)
+	 * @see de.wifhm.se1.android.common.BattleshipSystem#getHighscoreList()
+	 */
+	@Override
+	public List<Highscore> getHighscoreList() throws SoapFault {
+		String METHOD_NAME = "getHighscoreList";
+		return (List<Highscore>)executeSoapAction(METHOD_NAME);
+	}
+	
 	
 	/**
 	 * 
@@ -152,11 +161,7 @@ public class BattleshipSystemStub implements BattleshipSystem {
 			@SuppressWarnings("unchecked")
 			List<HeaderProperty> respHeaders = androidHttpTransport.call(NAMESPACE + methodName, envelope, reqHeaders);
 			Log.i(TAG, ""+respHeaders.size());
-			for(HeaderProperty p : respHeaders){
-				Log.i(TAG, ""+p.toString());
-				Log.i(TAG, ""+p.getKey());
-				Log.i(TAG, ""+p.getValue());
-			}
+			
 			String httpSession = HttpHelper.readJSessionId(respHeaders);
 			
 			if(httpSession != null){
@@ -175,4 +180,6 @@ public class BattleshipSystemStub implements BattleshipSystem {
 		return result;
 		
 	}
+
+	
 }

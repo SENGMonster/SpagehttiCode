@@ -32,6 +32,7 @@
         <item >12</item>
         <item >13</item>
     </integer-array>
+    <string name="startgame">Play Game</string>
     
 
 </resources>

@@ -1,5 +1,6 @@
 package de.wifhm.se1.battleship.server;
 
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -176,6 +177,11 @@ public class BattleshipSystemWebservice implements BattleshipSystem {
 	@WebMethod
 	public Highscore getHighscore() throws NotLoggedInException {
 		return this.getSession().getHighscore();
+	}
+
+	@Override
+	public List<Highscore> getHighscoreList() {
+		return this.getSession().getHighscoreList();
 	}
 
 }

@@ -1,5 +1,7 @@
 package de.wifhm.se1.battleship.common;
 
+import java.util.List;
+
 import javax.ejb.Remote;
 
 import de.wifhm.se1.battleship.server.exceptions.InvalidPasswordException;
@@ -59,4 +61,7 @@ public interface BattleshipSystem {
 	 * @throws NotLoggedInException
 	 */
 	public Highscore getHighscore() throws NotLoggedInException;
+	
+	public List<Highscore> getHighscoreList();
+	
 }

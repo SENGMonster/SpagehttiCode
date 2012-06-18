@@ -1,5 +1,7 @@
 package de.wifhm.se1.android.common;
 
+import java.util.List;
+
 import org.ksoap2.SoapFault;
 
 public interface BattleshipSystem {
@@ -54,4 +56,6 @@ public interface BattleshipSystem {
 	 * @throws SoapFault
 	 */
 	public Highscore getHighscore() throws SoapFault;
+	
+	public List<Highscore> getHighscoreList() throws SoapFault;
 }
