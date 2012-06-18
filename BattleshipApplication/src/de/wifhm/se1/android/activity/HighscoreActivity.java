@@ -11,10 +11,13 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 
 public class HighscoreActivity extends Activity {
+	BattleshipApplication bsstub;
 	
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.highscorelist);
+		
+		bsstub = (BattleshipApplication)getApplication();
 		
 		ListView highscorelist = (ListView)findViewById(R.id.highscorelist);
 		
@@ -23,6 +26,7 @@ public class HighscoreActivity extends Activity {
 		LinearLayout header = (LinearLayout)inflater.inflate(R.layout.highscorelist_header, null);
 		
 		highscorelist.addHeaderView(header);
+		//TODO HighscoreListe vom Server beziehen
 		String [] test = {"Test", "Test", "Test"};
 		
 		highscorelist.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, test));

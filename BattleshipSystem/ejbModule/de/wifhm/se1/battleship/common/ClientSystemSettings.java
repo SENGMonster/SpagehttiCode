@@ -21,7 +21,6 @@ public class ClientSystemSettings implements Serializable{
 	public ClientSystemSettings(){
 		super();
 	}
-	
 	public ClientSystemSettings(boolean savePasswordUsername, int boardlength){
 		this.savePasswordUsername = savePasswordUsername;
 		this.boardlength = boardlength;
