@@ -1,5 +1,6 @@
 package de.wifhm.se1.battleship.server;
 
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -199,6 +200,13 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 		else{
 			throw new NotLoggedInException("Not logged in");
 		}
+	}
+
+
+	@Override
+	public List<Highscore> getHighscoreList() {
+		//TODO
+		return null;
 	}
 
 
