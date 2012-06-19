@@ -30,6 +30,18 @@ public interface BattleshipSystem {
 	 */
 	public void register(String username, String password) throws InvalidUsernameException;
 	
+	/**
+	 * 
+	 * @param gamestate
+	 * @throws NotLoggedInException
+	 */
+	public void setGameState(String gamestate) throws NotLoggedInException;	
+	/**
+	 * 
+	 * @return
+	 * @throws NotLoggedInException
+	 */
+	public String getGameState() throws NotLoggedInException;
 	
 	/**
 	 * 
@@ -43,7 +55,11 @@ public interface BattleshipSystem {
 	 * @throws NotLoggedInException
 	 */
 	public Highscore getHighscore() throws NotLoggedInException;
-	
+	/**
+	 * 
+	 * @param points
+	 * @throws NotLoggedInException
+	 */
 	public void addPoints(int points) throws NotLoggedInException;
 	
 	public List<Highscore> getHighscoreList();

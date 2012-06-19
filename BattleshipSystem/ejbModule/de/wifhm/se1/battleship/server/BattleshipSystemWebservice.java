@@ -23,7 +23,6 @@ import javax.xml.ws.WebServiceException;
 import javax.xml.ws.handler.MessageContext;
 
 import de.wifhm.se1.battleship.common.BattleshipSystem;
-import de.wifhm.se1.battleship.common.ClientSystemSettings;
 import de.wifhm.se1.battleship.common.Highscore;
 import de.wifhm.se1.battleship.common.User;
 import de.wifhm.se1.battleship.server.exceptions.InvalidPasswordException;
@@ -124,42 +123,6 @@ public class BattleshipSystemWebservice implements BattleshipSystem {
     public void register(String username, String password) throws InvalidUsernameException {
 		this.getSession().register(username, password);
     }
-
-    
-
-	/**
-     * @throws NotLoggedInException 
-	 * @see BattleshipSystem#getClientSystemSettings()
-     */
-	@Override
-	@WebMethod
-    public ClientSystemSettings getClientSystemSettings() throws NotLoggedInException {
-        return this.getSession().getClientSystemSettings();
-    }
-
-	/**
-     * @throws NotLoggedInException 
-     * @param savePasswordUsername
-     * @param boardlength
-	 * @see BattleshipSystem#setClientSystemSettings(boolean, int)
-     */
-	@Override
-	@WebMethod
-    public void setClientSystemSettings(boolean savePasswordUsername, int boardlength) throws NotLoggedInException {
-		this.getSession().setClientSystemSettings(savePasswordUsername, boardlength);
-    }
-
-	/**
-     * @throws NotLoggedInException 
-     * @param settings
-	 * @see BattleshipSystem#setClientSystemSetting(ClientSystemSettings)
-     */
-	@Override
-	@WebMethod
-    public void setClientSystemSetting(ClientSystemSettings settings) throws NotLoggedInException {
-		this.getSession().setClientSystemSetting(settings);
-    }
-	
 	/**
 	 * @throws NotLoggedInException
 	 * @param points
@@ -182,6 +145,24 @@ public class BattleshipSystemWebservice implements BattleshipSystem {
 	@Override
 	public List<Highscore> getHighscoreList() {
 		return this.getSession().getHighscoreList();
+	}
+
+	@Override
+	public void setGameState(String gamestate) throws NotLoggedInException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getGameState() throws NotLoggedInException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addPoints(int points) throws NotLoggedInException {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

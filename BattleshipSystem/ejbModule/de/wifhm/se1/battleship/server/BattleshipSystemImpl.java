@@ -114,7 +114,7 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
     	}
     }
 
-
+	//TODO
 	@Override
 	public void setHighscore(int points) throws NotLoggedInException {
 		if(loggedUser != null){
@@ -162,6 +162,31 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 			throw new NotLoggedInException("Not logged in");
 		}
 		
+	}
+
+
+	@Override
+	public void setGameState(String gamestate) throws NotLoggedInException {
+		if(this.loggedUser != null){
+			User user = entitymanager.find(User.class, this.loggedUser);
+			user.getGamestate().setState(gamestate);
+		}
+		else{
+			throw new NotLoggedInException("Not logged in");
+		}
+		
+	}
+
+
+	@Override
+	public String getGameState() throws NotLoggedInException {
+		if(this.loggedUser != null){
+			User user = entitymanager.find(User.class, this.loggedUser);
+			return user.getGamestate().getState();
+		}
+		else{
+			throw new NotLoggedInException("Not logged in");
+		}
 	}
 
 
