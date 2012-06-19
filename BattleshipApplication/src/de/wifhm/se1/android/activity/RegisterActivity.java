@@ -50,6 +50,7 @@ public class RegisterActivity extends Activity {
 
 				        editor.putString("username", username.getText().toString());
 				        editor.putString("password", password.getText().toString());
+				        editor.putString("boardsize", "10");
 				        editor.commit();
 						RegisterActivity.this.setContentView(R.layout.succregister);
 					} catch (SoapFault e) {
