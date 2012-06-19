@@ -45,6 +45,10 @@ public class Highscore implements Serializable {
 	public void setHighscore(int highscore) {
 		this.highscore = highscore;
 	}
+	
+	public void addPoints(int points){
+		this.highscore = this.highscore + points;
+	}
 
 	/**
 	 * @return the id

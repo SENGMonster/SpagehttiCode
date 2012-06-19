@@ -23,6 +23,9 @@ public class User implements Serializable{
 	
 	@OneToOne(mappedBy="owner", fetch=FetchType.EAGER, optional=false)
 	private GameState gamestate;
+	
+	@OneToOne(mappedBy="owner", fetch=FetchType.EAGER, optional=false)
+	private Highscore highscore;
 			
 	public User(){
 		super();
@@ -63,33 +66,17 @@ public class User implements Serializable{
 	}
 
 	/**
-	 * @return the settings
-	 */
-	public ClientSystemSettings getSettings() {
-		//return settings;
-		return null;
-	}
-
-	/**
-	 * @param settings the settings to set
-	 */
-	public void setSettings(ClientSystemSettings settings) {
-		//this.settings = settings;
-	}
-
-	/**
 	 * @return the highscore
 	 */
 	public Highscore getHighscore() {
-		//return highscore;
-		return null;
+		return highscore;
 	}
 
 	/**
 	 * @param highscore the highscore to set
 	 */
 	public void setHighscore(Highscore highscore) {
-		//this.highscore = highscore;
+		this.highscore = highscore;
 	}
 
 	public GameState getGamestate() {
