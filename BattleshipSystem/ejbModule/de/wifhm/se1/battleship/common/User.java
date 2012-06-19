@@ -21,11 +21,9 @@ public class User implements Serializable{
 	
 	private String password;
 	
-	@OneToOne(fetch=FetchType.EAGER, optional=true)
-	private ClientSystemSettings settings;
-	
-	//private Highscore highscore;
-		
+	@OneToOne(mappedBy="owner", fetch=FetchType.EAGER, optional=false)
+	private GameState gamestate;
+			
 	public User(){
 		super();
 	}
@@ -92,5 +90,13 @@ public class User implements Serializable{
 	 */
 	public void setHighscore(Highscore highscore) {
 		//this.highscore = highscore;
+	}
+
+	public GameState getGamestate() {
+		return gamestate;
+	}
+
+	public void setGamestate(GameState gamestate) {
+		this.gamestate = gamestate;
 	}
 }
