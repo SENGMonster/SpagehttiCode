@@ -4,7 +4,9 @@ package de.wifhm.se1.battleship.common;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlID;
 
 @Entity
@@ -19,7 +21,8 @@ public class User implements Serializable{
 	
 	private String password;
 	
-	//private ClientSystemSettings settings;
+	@OneToOne(fetch=FetchType.EAGER, optional=true)
+	private ClientSystemSettings settings;
 	
 	//private Highscore highscore;
 		
