@@ -55,7 +55,7 @@ public class LoginActivity extends Activity {
 					try {
 						Log.i(TAG, "username: "+username.getText().toString());
 						Log.i(TAG, "password: "+password.getText().toString());
-						bsStub.getBsStub().login(username.getText().toString(), password.getText().toString());
+						bsStub.setAngemeldeterUser(bsStub.getBsStub().login(username.getText().toString(), password.getText().toString()));
 						LoginActivity.this.setContentView(R.layout.succlogin);
 					} catch (SoapFault e) {
 						failuretext.setVisibility(View.VISIBLE);
