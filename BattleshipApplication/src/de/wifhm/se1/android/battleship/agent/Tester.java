@@ -30,7 +30,8 @@ public class Tester {
 	
 	public int getNextChoice()
 	{
-		return a.nextTurn().getCoordinateNr();
+		int result =  a.nextTurn().getCoordinateNr();
+		return result;
 	}
 	
 	

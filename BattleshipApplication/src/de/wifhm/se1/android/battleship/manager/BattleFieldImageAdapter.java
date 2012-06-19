@@ -1,5 +1,7 @@
 package de.wifhm.se1.android.battleship.manager;
 
+import java.util.Hashtable;
+
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,10 +18,47 @@ public class BattleFieldImageAdapter extends BaseAdapter {
 	
 	private Context mContext;
     private Spielvorlage mSpielvorlage;
+    private Hashtable<Integer, Integer> dict;
     
     public BattleFieldImageAdapter(Context c, Spielvorlage spielv) {
         mContext = c;
         mSpielvorlage=spielv;
+        
+        
+        dict = new Hashtable<Integer, Integer>();
+      
+        for (Schiff s:spielv.getSchiffsliste()) {
+        	if(s.Positions != null)
+        	{
+        		String temp = s.getSchiffsname() +": ";
+        		for (int i = 0; i < s.Positions.size(); i++) {
+        			dict.put(s.Positions.get(i), s.getImage());	
+        			temp+=String.valueOf(s.Positions.get(i)) + ";";
+        		}
+        		System.out.println(temp);
+        	}
+        }
+        
+        int counter = GlobalHolder.getInstance().getNumOfRowsCols() *GlobalHolder.getInstance().getNumOfRowsCols() ;
+        for (int i = 0; i < counter; i++) {
+        	if (dict.get(i)==null) dict.put(i, R.drawable.wasser);
+		}
+      }
+    
+    public void setWasser(int position){
+    	
+    	dict.remove(position);
+    	dict.put(position, R.drawable.wasser);
+    	notifyDataSetChanged();
+    	
+    }
+    
+    public void setTreffer(int position){
+    	
+    	dict.remove(position);
+    	dict.put(position, R.drawable.rot);
+    	notifyDataSetChanged();
+    	
     }
 
     public int getCount() {
@@ -42,31 +81,13 @@ public class BattleFieldImageAdapter extends BaseAdapter {
             imageView.setLayoutParams(new GridView.LayoutParams(45, 45));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(1, 1, 1, 1);
-            //imageView.setBackgroundResource(GlobalHolder.getInstance().getGridViewBackground());  
+            imageView.setImageResource(dict.get(position));
         } else {
             imageView = (ImageView) convertView;
         }
 
         
-        boolean imageSourceSet =false;
-        
-        //Falls das Ding eine Position von einem Schiff ist das Schiffsbild setzen
-               
-    	for(Schiff element : mSpielvorlage.getSchiffsliste()) {
-    		for(int i: element.getSchiffspositions())
-    		{
-    			if (i==position)
-    			{
-    				imageView.setImageResource(element.getImage());
-    				imageSourceSet =true;
-    			}
-    		}
-    	}
-    	
-    	if (!imageSourceSet) imageView.setImageResource(R.drawable.wasser);
-    	
-       
-        return imageView;
+       return imageView;
     }
 
 

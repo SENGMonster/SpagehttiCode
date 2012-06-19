@@ -1,5 +1,6 @@
 package de.wifhm.se1.android.activity;
 
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -45,7 +46,7 @@ public class GridViewActivity extends Activity {
 				
 				int nextTurn = AgentTester.getNextChoice();
 				ImageView iv = (ImageView) imgadp.getView(nextTurn, null, null);
-				GlobalHolder.getInstance().getUserField().hasHitAShip(nextTurn,  iv, GridViewActivity.this);
+				GlobalHolder.getInstance().getUserField().hasHitAShip(nextTurn,  imgadp, GridViewActivity.this);
 				
 			}
 		});
@@ -58,7 +59,7 @@ public class GridViewActivity extends Activity {
             public void onItemClick(AdapterView<?> arg0, View v, int position,
   					long id) {
             	
-            	mBattlefieldmanager.hasHitAShip(position,v, GridViewActivity.this); 			
+            	mBattlefieldmanager.hasHitAShip(position, imgadp, GridViewActivity.this); 			
   				
   			}
           	

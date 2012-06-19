@@ -32,6 +32,10 @@ public class AgentManager {
 		Koordinatenliste = koordinatenliste;
 	}
 	
+	public void setFieldStateForCoordinate(int nr, FieldState fs)
+	{
+		Koordinatenliste.get(nr).setStateField(fs);
+	}
 	
 	//returns the Coordinate at the given Index
 	public Coordinate getCoordinateForNr(int nr)

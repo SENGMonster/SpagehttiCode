@@ -39,7 +39,7 @@ public abstract class Schiff {
 				else{ //nach oben
 					for(int i=0; i<=differenzbetrag; i+=numOfRowsCols)
 	    			{
-						array.add(StartPosition+i);
+						array.add(StartPosition-i);
 	    			}
 				}
 			}
@@ -55,7 +55,7 @@ public abstract class Schiff {
 				else{ //nach links
 					for(int i=0; i<=differenzbetrag; i++)
 	    			{
-						array.add(StartPosition+i);
+						array.add(StartPosition-i);
 	    			}
 				}
 				

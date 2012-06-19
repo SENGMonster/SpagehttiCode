@@ -11,7 +11,7 @@ import de.wifhm.se1.android.activity.R;
 
 public class Battlefieldmanager {
 
-	//private BattleFieldImageAdapter mImageAdapter;
+
 	private Spielvorlage mSpielvorlage;
 	
 	public Battlefieldmanager(Spielvorlage spiel){
@@ -19,15 +19,15 @@ public class Battlefieldmanager {
 		mSpielvorlage= spiel;
 	}
 	
-	public boolean hasHitAShip(int position, View v, Activity a)
+	public boolean hasHitAShip(int position, BattleFieldImageAdapter mImageAdapter,  Activity a)
 	{
 		
 		for(Schiff s:mSpielvorlage.getSchiffsliste()){
 			for (int pos:s.Positions){
 				if (pos==position){
 					
-					ImageView imageview = (ImageView) v;
-					imageview.setImageResource(R.drawable.rot);
+					
+					mImageAdapter.setTreffer(position);
 					
 					MakeToast("Treffer: " + s.getName()+ " auf " + String.valueOf(position), a);
 					
@@ -37,9 +37,8 @@ public class Battlefieldmanager {
 		}
 		
 		
-		ImageView imageview = (ImageView) v;
-		imageview.setImageResource(R.drawable.keintreffer);
 		
+		mImageAdapter.setWasser(position);
 		MakeToast("Wasser: " + String.valueOf(position), a);
 		return false;
 	}
