@@ -18,7 +18,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import de.wifhm.se1.battleship.common.BattleshipSystem;
-import de.wifhm.se1.battleship.common.ClientSystemSettings;
 import de.wifhm.se1.battleship.common.Highscore;
 import de.wifhm.se1.battleship.common.User;
 import de.wifhm.se1.battleship.server.exceptions.InvalidPasswordException;
@@ -115,64 +114,6 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
     	}
     }
 
-	
-
-	/**
-     * @throws NotLoggedInException 
-	 * @see BattleshipSystem#getClientSystemSettings()
-     */
-	@Override
-	@TransactionAttribute(TransactionAttributeType.SUPPORTS)
-    public ClientSystemSettings getClientSystemSettings() throws NotLoggedInException {
-    	if(this.loggedUser != null ){
-    		User user = entitymanager.find(User.class, this.loggedUser);
-    		return user.getSettings();
-    	}
-    	else{
-    		throw new NotLoggedInException("Not logged in");
-    	}
-        
-    }
-
-	/**
-     * @throws NotLoggedInException 
-     * @param savePasswordUsername
-     * @param boardlength
-	 * @see BattleshipSystem#setClientSystemSettings(boolean, int)
-     */
-	@Override
-	@TransactionAttribute(TransactionAttributeType.SUPPORTS)
-    public void setClientSystemSettings(boolean savePasswordUsername, int boardlength) throws NotLoggedInException {
-    	if(loggedUser != null){
-    		User user = entitymanager.find(User.class, loggedUser);
-        	user.setSettings(new ClientSystemSettings(savePasswordUsername, boardlength));
-        	entitymanager.persist(user);
-        	logger.log(Level.INFO, "ClientSystemSettings have been changed savemode is "+ savePasswordUsername + " and boardlength "+boardlength);	
-    	}
-    	else{
-    		throw new NotLoggedInException("Not logged in");
-    	}
-    }
-
-	/**
-     * @throws NotLoggedInException 
-     * @param settings
-	 * @see BattleshipSystem#setClientSystemSetting(ClientSystemSettings)
-     */
-	@Override
-	@TransactionAttribute(TransactionAttributeType.SUPPORTS)
-    public void setClientSystemSetting(ClientSystemSettings settings) throws NotLoggedInException {
-    	if(loggedUser != null){
-        	User user = entitymanager.find(User.class, loggedUser);
-        	user.setSettings(settings);
-        	entitymanager.persist(user);
-        	logger.log(Level.INFO, "ClientSystemSettings have been changed savemode is "+ settings.isSavePasswordUsername() + " and boardlength "+settings.getBoardlength());
-    	}
-    	else{
-    		throw new NotLoggedInException("Not logged in");
-    	}
-    }
-
 
 	@Override
 	public void setHighscore(int points) throws NotLoggedInException {
@@ -207,6 +148,20 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 	public List<Highscore> getHighscoreList() {
 		//TODO
 		return null;
+	}
+
+
+	@Override
+	public void addPoints(int points) throws NotLoggedInException {
+		if(this.loggedUser != null){
+			User user = entitymanager.find(User.class, loggedUser);
+			user.getHighscore().addPoints(points);
+			entitymanager.persist(user);
+		}
+		else{
+			throw new NotLoggedInException("Not logged in");
+		}
+		
 	}
 
 

@@ -30,25 +30,7 @@ public interface BattleshipSystem {
 	 */
 	public void register(String username, String password) throws InvalidUsernameException;
 	
-	/**
-	 * 
-	 * @param settings
-	 * @throws NotLoggedInException
-	 */
-	public void setClientSystemSetting(ClientSystemSettings settings) throws NotLoggedInException;
-	/**
-	 * 
-	 * @param savePasswordUsername
-	 * @param boardlength
-	 * @throws NotLoggedInException
-	 */
-	public void setClientSystemSettings(boolean savePasswordUsername, int boardlength) throws NotLoggedInException;
-	/**
-	 * 
-	 * @return
-	 * @throws NotLoggedInException
-	 */
-	public ClientSystemSettings getClientSystemSettings() throws NotLoggedInException;
+	
 	/**
 	 * 
 	 * @param points
@@ -61,6 +43,8 @@ public interface BattleshipSystem {
 	 * @throws NotLoggedInException
 	 */
 	public Highscore getHighscore() throws NotLoggedInException;
+	
+	public void addPoints(int points) throws NotLoggedInException;
 	
 	public List<Highscore> getHighscoreList();
 	
