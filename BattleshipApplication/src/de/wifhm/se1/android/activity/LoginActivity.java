@@ -6,21 +6,22 @@ package de.wifhm.se1.android.activity;
 import org.ksoap2.SoapFault;
 
 import android.app.Activity;
-import android.opengl.Visibility;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 public class LoginActivity extends Activity {
 	
 	private static final String TAG = "LoginActivity";
 	private BattleshipApplication bsStub;
+	private SharedPreferences prefs;
 	
 	public void onCreate(Bundle savedInstanceState){
 		
@@ -28,6 +29,7 @@ public class LoginActivity extends Activity {
 		setContentView(R.layout.login);
 		
 		bsStub = (BattleshipApplication)getApplication();
+		prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		
 		final EditText username = (EditText)findViewById(R.id.loginUsername);
 		final EditText password = (EditText)findViewById(R.id.loginPassword);
@@ -36,6 +38,15 @@ public class LoginActivity extends Activity {
 		Button registerNew = (Button)findViewById(R.id.registerNew);
 		
 		final TextView failuretext = (TextView)findViewById(R.id.failuremessage);
+		
+		String prefusername = prefs.getString("username", null);
+		String prefpassword = prefs.getString("password", null);
+		if(prefusername != null){
+			username.setText(prefusername);
+		}
+		if(prefpassword != null){
+			password.setText(prefpassword);
+		}
 		
 		login.setOnClickListener(new OnClickListener(){
 			

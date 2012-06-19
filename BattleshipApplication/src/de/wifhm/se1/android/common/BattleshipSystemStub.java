@@ -120,6 +120,7 @@ public class BattleshipSystemStub implements BattleshipSystem {
 	 * (non-Javadoc)
 	 * @see de.wifhm.se1.android.common.BattleshipSystem#getHighscoreList()
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Highscore> getHighscoreList() throws SoapFault {
 		String METHOD_NAME = "getHighscoreList";

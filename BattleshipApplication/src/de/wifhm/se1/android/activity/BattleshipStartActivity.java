@@ -98,7 +98,7 @@ public class BattleshipStartActivity extends Activity
 				}
 				break;
 			case R.id.preferences:
-				startActivity(new Intent(BattleshipStartActivity.this, PreferencesActivity.class));
+				startActivity(new Intent(BattleshipStartActivity.this, BattleshipPreferenceActivity.class));
 				break;
 			case R.id.exit:
 				break;

@@ -97,6 +97,12 @@ public final class R {
         public static final int save=0x7f06000c;
         public static final int savepu=0x7f06000a;
         public static final int startgame=0x7f06000e;
+        public static final int summaryBoardsize=0x7f060013;
+        public static final int summaryPassword=0x7f060011;
+        public static final int summaryUsername=0x7f06000f;
+        public static final int titleBoardsize=0x7f060014;
+        public static final int titlePassword=0x7f060012;
+        public static final int titleUsername=0x7f060010;
         public static final int username=0x7f060001;
     }
     public static final class xml {
