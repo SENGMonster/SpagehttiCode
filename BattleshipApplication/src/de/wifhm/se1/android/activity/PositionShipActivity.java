@@ -211,6 +211,7 @@ public class PositionShipActivity extends Activity {
 		            		if(currShip.getShipLength()==1){
 		            			EndPosition=StartPosition;
 		            			btnOK.setVisibility(View.VISIBLE);
+		            			btnCancel.setVisibility(View.VISIBLE);
 		            			 gvPositionView.notifyDataSetChanged();
 		            			 return;
 		            		}
@@ -238,11 +239,11 @@ public class PositionShipActivity extends Activity {
 		            	    	{
 			            	    	case 0:
 			            	    		value= StartPosition + currShip.getShipLength()-1;
-			            	    		//Es Darf nicht über mehrere Zeilen gehen (keine Umbrüche)
-			            	    		if(value > gerundet+numOfRowsCols) correct=false;
+			            	    		//Es Darf nicht über mehrere Zeilen gehen (keine Umbrüche) nach oben -->
+			            	    		if(value >= gerundet+numOfRowsCols) correct=false;
 			            	    		break;
 			            	    	case 1:
-			            	    		//es Darf keinen Zeilenumbruch geben
+			            	    		//es Darf keinen Zeilenumbruch nach unten hin geben <--
 			            	    		value=StartPosition - (currShip.getShipLength()-1);
 			            	    		if(value<gerundet) correct=false;
 			            	    		break;
