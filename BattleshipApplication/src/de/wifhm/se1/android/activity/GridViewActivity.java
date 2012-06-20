@@ -44,9 +44,15 @@ public class GridViewActivity extends Activity {
        testAgent.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
 				
-				int nextTurn = AgentTester.getNextChoice();
-				ImageView iv = (ImageView) imgadp.getView(nextTurn, null, null);
-				GlobalHolder.getInstance().getUserField().hasHitAShip(nextTurn,  imgadp, GridViewActivity.this);
+				int nextTurn = AgentTester.getNextChoice();				
+				boolean result =  GlobalHolder.getInstance().getUserField().hasHitAShip(nextTurn,  imgadp, GridViewActivity.this);			
+				AgentTester.setFieldState(result, nextTurn);
+							
+            	if (result){
+            		imgadp.setTreffer(nextTurn);
+            	}else{
+            		imgadp.setWasser(nextTurn);
+            	}
 				
 			}
 		});
@@ -59,7 +65,12 @@ public class GridViewActivity extends Activity {
             public void onItemClick(AdapterView<?> arg0, View v, int position,
   					long id) {
             	
-            	mBattlefieldmanager.hasHitAShip(position, imgadp, GridViewActivity.this); 			
+            	boolean result = mBattlefieldmanager.hasHitAShip(position, imgadp, GridViewActivity.this); 
+            	if (result){
+            		imgadp.setTreffer(position);
+            	}else{
+            		imgadp.setWasser(position);
+            	}
   				
   			}
           	

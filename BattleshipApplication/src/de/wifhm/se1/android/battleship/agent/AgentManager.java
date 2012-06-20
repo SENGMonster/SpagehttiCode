@@ -7,6 +7,7 @@ import de.wifhm.se1.android.battleship.manager.FieldState;
 public class AgentManager {
 	
 	private static AgentManager myInstance;
+	private static int maxlength=5;
 	
 	private AgentManager(){
 	}	
@@ -116,18 +117,38 @@ public class AgentManager {
 		
 		//Calculate possible fields in all directions
 		while(getRightNeighbour(c)!=null && getRightNeighbour(c).getStateField() == FieldState.UNKNOWN){
+			//nicht mehr Felder in Betracht zeiehen als das Größte Schiff lang sein kann + Abstandshalter
+			if (rightcounter>maxlength+2)
+			{
+				break;
+			}
 			rightcounter += 1;			
 		}
 		
 		while(getLeftNeighbour(c) != null && getLeftNeighbour(c).getStateField() == FieldState.UNKNOWN){
+			//nicht mehr Felder in Betracht zeiehen als das Größte Schiff lang sein kann + Abstandshalter
+			if (leftcounter>maxlength+2)
+			{
+				break;
+			}
 			leftcounter += 1;			
 		}
 		
 		while(getBottomNeighbour(c) != null && getBottomNeighbour(c).getStateField() == FieldState.UNKNOWN){
+			//nicht mehr Felder in Betracht zeiehen als das Größte Schiff lang sein kann + Abstandshalter
+			if (bottomcounter>maxlength+2)
+			{
+				break;
+			}
 			bottomcounter += 1;			
 		}
 		
 		while(getTopNeighbour(c) !=null && getTopNeighbour(c).getStateField() == FieldState.UNKNOWN){
+			//nicht mehr Felder in Betracht zeiehen als das Größte Schiff lang sein kann + Abstandshalter
+			if (topcounter>maxlength+2)
+			{
+				break;
+			}
 			topcounter += 1;			
 		}
 		

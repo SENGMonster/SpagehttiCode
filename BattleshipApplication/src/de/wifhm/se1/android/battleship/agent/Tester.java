@@ -34,5 +34,11 @@ public class Tester {
 		return result;
 	}
 	
-	
+	public void setFieldState(boolean result, int pos){
+		if (result){
+			AgentManager.getInstance().setFieldStateForCoordinate(pos, FieldState.HIT);
+		}else{
+			AgentManager.getInstance().setFieldStateForCoordinate(pos, FieldState.WATER);
+		}
+	}
 }

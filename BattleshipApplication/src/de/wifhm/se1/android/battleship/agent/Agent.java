@@ -29,6 +29,7 @@ public class Agent {
 	public Coordinate nextTurn(){
 		
 		//how often the agent has shot already
+
 		turnCounter +=1;
 		
 		Coordinate bestCoordinate = null;
