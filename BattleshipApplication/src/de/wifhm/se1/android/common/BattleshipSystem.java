@@ -4,58 +4,60 @@ import java.util.List;
 
 import org.ksoap2.SoapFault;
 
+
 public interface BattleshipSystem {
 	/**
 	 * Login, logout register functions
 	 * @param username
 	 * @param password
-	 * @throws SoapFault
+	 * @throws InvalidUsernameException
+	 * @throws InvalidPasswordException
 	 */
 	public User login(String username, String password) throws SoapFault;
 	/**
 	 * 
-	 * @throws SoapFault
 	 */
 	public void logout() throws SoapFault;
 	/**
 	 * 
 	 * @param username
 	 * @param password
-	 * @throws SoapFault
+	 * @throws InvalidUsernameException
 	 */
 	public void register(String username, String password) throws SoapFault;
 	
 	/**
 	 * 
-	 * @param settings
-	 * @throws SoapFault
+	 * @param gamestate
+	 * @throws NotLoggedInException
 	 */
-	public void setClientSystemSetting(ClientSystemSettings settings) throws SoapFault;
-	/**
-	 * 
-	 * @param savePasswordUsername
-	 * @param boardlength
-	 * @throws SoapFault
-	 */
-	public void setClientSystemSettings(boolean savePasswordUsername, int boardlength) throws SoapFault;
+	public void setGameState(String gamestate) throws SoapFault;	
 	/**
 	 * 
 	 * @return
-	 * @throws SoapFault
+	 * @throws NotLoggedInException
 	 */
-	public ClientSystemSettings getClientSystemSettings() throws SoapFault;
+	public String getGameState() throws SoapFault;
+	
 	/**
 	 * 
 	 * @param points
-	 * @throws SoapFault
+	 * @throws NotLoggedInException
 	 */
 	public void setHighscore(int points) throws SoapFault;
 	/**
 	 * 
 	 * @return
-	 * @throws SoapFault
+	 * @throws NotLoggedInException
 	 */
 	public Highscore getHighscore() throws SoapFault;
+	/**
+	 * 
+	 * @param points
+	 * @throws NotLoggedInException
+	 */
+	public void addPoints(int points) throws SoapFault;
 	
 	public List<Highscore> getHighscoreList() throws SoapFault;
+	
 }

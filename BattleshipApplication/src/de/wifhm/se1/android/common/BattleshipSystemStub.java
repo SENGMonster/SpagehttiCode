@@ -127,7 +127,25 @@ public class BattleshipSystemStub implements BattleshipSystem {
 		return (List<Highscore>)executeSoapAction(METHOD_NAME);
 	}
 	
-	
+
+	@Override
+	public void setGameState(String gamestate) throws SoapFault {
+		String METHOD_NAME = "setGameState";
+		executeSoapAction(METHOD_NAME, gamestate);		
+	}
+
+	@Override
+	public String getGameState() throws SoapFault {
+		String METHOD_NAME = "getGameState";
+		return (String) executeSoapAction(METHOD_NAME);
+	}
+
+	@Override
+	public void addPoints(int points) throws SoapFault {
+		String METHOD_NAME = "addPoints";
+		executeSoapAction(METHOD_NAME, points);
+	}
+
 	/**
 	 * 
 	 * @param methodName
