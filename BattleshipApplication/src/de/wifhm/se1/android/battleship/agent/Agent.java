@@ -40,7 +40,7 @@ public class Agent {
 		for(int i=0; i< s.getSchiffspositions().size(); i++)
 		{
 			Coordinate currentCoordinate = AgentManager.getInstance().getCoordinateForNr(s.getSchiffspositions().get(i));
-			int gerundet = Helper.getGerundetFromInteger(currentCoordinate.getCoordinateNr(),  GlobalHolder.getInstance().getNumOfRowsCols())
+			int gerundet = Helper.getGerundetFromInteger(currentCoordinate.getCoordinateNr(),  GlobalHolder.getInstance().getNumOfRowsCols());
 			if (Ship2Destroy.isHorizontal()){
 				
 				int unten = currentCoordinate.getCoordinateNr() - GlobalHolder.getInstance().getNumOfRowsCols();
