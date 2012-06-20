@@ -15,7 +15,7 @@ public class Highscore implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	private static final int DEFAULTVALUE = 0;
 	@Id @GeneratedValue int id;
 	
 	private int highscore;
@@ -29,7 +29,7 @@ public class Highscore implements Serializable {
 	
 	public Highscore(User user){
 		this.owner = user;
-		this.highscore = 0;
+		this.highscore = DEFAULTVALUE;
 	}
 	/**
 	 * @return the highscore
