@@ -15,6 +15,7 @@ import de.wifhm.se1.android.battleship.agent.Tester;
 import de.wifhm.se1.android.battleship.manager.Battlefieldmanager;
 import de.wifhm.se1.android.battleship.manager.BattleFieldImageAdapter;
 import de.wifhm.se1.android.battleship.manager.GlobalHolder;
+import de.wifhm.se1.android.battleship.manager.HitStates;
 
 import de.wifhm.se1.android.battleship.manager.Spielvorlage;
 
@@ -45,14 +46,25 @@ public class GridViewActivity extends Activity {
 			public void onClick(View v) {
 				
 				int nextTurn = AgentTester.getNextChoice();				
-				boolean result =  GlobalHolder.getInstance().getUserField().hasHitAShip(nextTurn,  imgadp, GridViewActivity.this);			
+				HitStates result =  GlobalHolder.getInstance().getUserField().hasHitAShip(nextTurn,  imgadp, GridViewActivity.this);			
 				AgentTester.setFieldState(result, nextTurn);
-							
-            	if (result){
-            		imgadp.setTreffer(nextTurn);
-            	}else{
-            		imgadp.setWasser(nextTurn);
-            	}
+				
+				switch(result)
+				{
+					case HIT:
+						imgadp.setTreffer(nextTurn);
+	            		AgentTester.setShip2Destroy(nextTurn);
+						break;
+					case DESTROYED:
+						imgadp.setTreffer(nextTurn);
+	            		AgentTester.DestroyedShip(GlobalHolder.getInstance().getUserField().lastDestroyedShip);
+						break;
+					case WATER:
+						imgadp.setWasser(nextTurn);
+						break;
+						
+					
+				}      
 				
 			}
 		});
@@ -65,12 +77,21 @@ public class GridViewActivity extends Activity {
             public void onItemClick(AdapterView<?> arg0, View v, int position,
   					long id) {
             	
-            	boolean result = mBattlefieldmanager.hasHitAShip(position, imgadp, GridViewActivity.this); 
-            	if (result){
-            		imgadp.setTreffer(position);
-            	}else{
-            		imgadp.setWasser(position);
-            	}
+            	HitStates result = mBattlefieldmanager.hasHitAShip(position, imgadp, GridViewActivity.this); 
+
+				switch(result)
+				{
+					case HIT:
+						imgadp.setTreffer(position);
+						break;
+					case DESTROYED:
+						imgadp.setTreffer(position);
+						break;
+					case WATER:
+						imgadp.setWasser(position);
+						break;
+					
+				}      
   				
   			}
           	

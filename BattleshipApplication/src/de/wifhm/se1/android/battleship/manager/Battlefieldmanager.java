@@ -19,7 +19,9 @@ public class Battlefieldmanager {
 		mSpielvorlage= spiel;
 	}
 	
-	public boolean hasHitAShip(int position, BattleFieldImageAdapter mImageAdapter,  Activity a)
+	public Schiff lastDestroyedShip;
+	
+	public HitStates hasHitAShip(int position, BattleFieldImageAdapter mImageAdapter,  Activity a)
 	{
 		
 		for(Schiff s:mSpielvorlage.getSchiffsliste()){
@@ -28,10 +30,18 @@ public class Battlefieldmanager {
 					
 					
 					mImageAdapter.setTreffer(position);
+					boolean versenkt =  s.setHitPosition(position);
+					if (versenkt){
+						MakeToast("Treffer versenkt: " + s.getName()+ " auf " + String.valueOf(position), a);
+						lastDestroyedShip = s;
+						return HitStates.DESTROYED;
+					}
+					else{
+						MakeToast("Treffer: " + s.getName()+ " auf " + String.valueOf(position), a);
+						return HitStates.HIT;
+					}
 					
-					MakeToast("Treffer: " + s.getName()+ " auf " + String.valueOf(position), a);
 					
-					return true;
 				}
 			}
 		}
@@ -40,7 +50,7 @@ public class Battlefieldmanager {
 		
 		mImageAdapter.setWasser(position);
 		MakeToast("Wasser: " + String.valueOf(position), a);
-		return false;
+		return HitStates.WATER;
 	}
 	
 	

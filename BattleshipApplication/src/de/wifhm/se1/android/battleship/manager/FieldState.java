@@ -4,6 +4,5 @@ public enum FieldState {
 	IMPOSSIBLE,
 	WATER,
 	HIT,
-	DESTROYED,
 	UNKNOWN
 }

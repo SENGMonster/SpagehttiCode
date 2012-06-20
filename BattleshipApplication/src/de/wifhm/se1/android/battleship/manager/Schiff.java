@@ -80,7 +80,24 @@ public abstract class Schiff {
 	}
 	
 	
+	private ArrayList<Integer> HitPositions = new ArrayList<Integer>();
 
+	public boolean setHitPosition(int pos){	
+		HitPositions.add(pos);
+		if (HitPositions.size() == getShipLength()){
+			isSunk=true;
+			return true;
+		}
+		else{
+			return false;	
+		}
+	}
+	
+	private boolean isSunk;
+	public boolean getIsSunk()
+	{
+		return isSunk;
+	}
 	
 	public abstract int getShipLength();
 	protected abstract String getName();

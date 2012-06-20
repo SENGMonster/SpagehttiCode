@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import de.wifhm.se1.android.battleship.manager.GlobalHolder;
+import de.wifhm.se1.android.battleship.manager.Helper;
 import de.wifhm.se1.android.battleship.manager.PositionShipBattleFieldImageAdapter;
 import de.wifhm.se1.android.battleship.manager.PositionShipGalleryImageAdapter;
 import de.wifhm.se1.android.battleship.manager.Schiff;
@@ -221,15 +222,8 @@ public class PositionShipActivity extends Activity {
 		            	    int value=-1;
 		            	    boolean correct=true;
 		            	    
-		            	    String number = String.valueOf(StartPosition);
-		            	    String subStrNumber=number;
-		            	    if (number.length()>1)
-		            	    {
-		            	    	 subStrNumber = number.substring(0,number.length()-1);
-		            		}
-
-		            	    int gerundet=Integer.valueOf(subStrNumber)*numOfRowsCols;
-		            	    
+		            	  
+		            	    int gerundet = Helper.getGerundetFromInteger(StartPosition, numOfRowsCols);
 		            	    
 		            	    
 		            	    //Alle 4 Richtungen überprüfen und mögliche Felder setzen
@@ -240,22 +234,22 @@ public class PositionShipActivity extends Activity {
 			            	    	case 0:
 			            	    		value= StartPosition + currShip.getShipLength()-1;
 			            	    		//Es Darf nicht über mehrere Zeilen gehen (keine Umbrüche) nach oben -->
-			            	    		if(value >= gerundet+numOfRowsCols) correct=false;
+			            	    		correct= Helper.validateRightToBottom(value, gerundet, numOfRowsCols);
 			            	    		break;
 			            	    	case 1:
 			            	    		//es Darf keinen Zeilenumbruch nach unten hin geben <--
 			            	    		value=StartPosition - (currShip.getShipLength()-1);
-			            	    		if(value<gerundet) correct=false;
+			            	    		correct= Helper.validateLeftToTop(value, gerundet);
 			            	    		break;
 			            	    	case 2: 
 			            	    		//ES DARF BEI VERTIKAL NICHT NACH OBEN HINAUS LAUFEN
 			            	    		 value = StartPosition - ((currShip.getShipLength()-1)*numOfRowsCols);
-			            	    		 if (value<0) correct=false;
+			            	    		 correct=Helper.validateTop(value);
 			            	    		break;
 			            	    	case 3:
 			            	    		//ES DARF BEI VERTIKAL NICHT NACH UNTEN HINAUS LAUFEN
 			            	    		value = StartPosition + ((currShip.getShipLength()-1)*numOfRowsCols);
-			            	    		if(value>FieldCount) correct=false;
+			            	    		correct=Helper.validateBottom(value, numOfRowsCols);
 			            	    		break;
 		            	    	}
 		            	    	

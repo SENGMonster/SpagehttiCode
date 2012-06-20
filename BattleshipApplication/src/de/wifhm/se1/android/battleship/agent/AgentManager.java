@@ -3,11 +3,14 @@ package de.wifhm.se1.android.battleship.agent;
 import java.util.ArrayList;
 
 import de.wifhm.se1.android.battleship.manager.FieldState;
+import de.wifhm.se1.android.battleship.manager.GlobalHolder;
 
 public class AgentManager {
 	
 	private static AgentManager myInstance;
-	private static int maxlength=5;
+	private int maxlength=5;
+	private int numOfRowsCols =10;
+	private int numOfRowsColsT2 =100;
 	
 	private AgentManager(){
 	}	
@@ -41,13 +44,17 @@ public class AgentManager {
 	//returns the Coordinate at the given Index
 	public Coordinate getCoordinateForNr(int nr)
 	{
-		return Koordinatenliste.get(nr);
+		if(nr >0 && nr < (numOfRowsColsT2-1))
+		{
+			return Koordinatenliste.get(nr);
+		}
+		return null;
 	}
 
 	//return the Coordinate which is the right neighbour
 	public Coordinate getRightNeighbour(Coordinate c)
 	{
-		if (c.getCoordinateNr()== 100)
+		if (c.getCoordinateNr()>= numOfRowsColsT2-1)
 		{
 			return null;
 		}
@@ -58,7 +65,7 @@ public class AgentManager {
 	public Coordinate getLeftNeighbour(Coordinate c)
 	{
 		
-		if (c.getCoordinateNr() == 1)
+		if (c.getCoordinateNr() <= 0)
 		{
 			return null;
 		}
@@ -68,20 +75,20 @@ public class AgentManager {
 	
 	public Coordinate getTopNeighbour(Coordinate c)
 	{
-		if(c.getCoordinateNr() < 10){
+		if(c.getCoordinateNr() < numOfRowsCols){
 			return null;
 		}
-		return Koordinatenliste.get(c.getCoordinateNr()-10);
+		return Koordinatenliste.get(c.getCoordinateNr()-numOfRowsCols);
 	}
 	
 	public Coordinate getBottomNeighbour(Coordinate c)
 	{
-		if (c.getCoordinateNr() > 90)
+		if (c.getCoordinateNr() >= (numOfRowsCols* (numOfRowsCols -1)))
 		{
 			return null;
 		}
 		
-		return Koordinatenliste.get(c.getCoordinateNr()+10);
+		return Koordinatenliste.get(c.getCoordinateNr()+numOfRowsCols);
 	}
 	
 	
@@ -103,9 +110,12 @@ public class AgentManager {
 	
 	
 	//STEP 1 OF FINDING THE BEST NEW SHOT
-	public int getPossibilityValue(Coordinate c, int shiplength)
+	public int getPossibilityValue(Coordinate ic, int shiplength)
 	{
 	
+		Coordinate initialC = ic;
+		Coordinate tempC = initialC;
+		
 		int[] counters = new int[4];
 		
 		//Counter for possible fields in all directions
@@ -116,40 +126,47 @@ public class AgentManager {
 
 		
 		//Calculate possible fields in all directions
-		while(getRightNeighbour(c)!=null && getRightNeighbour(c).getStateField() == FieldState.UNKNOWN){
+		while(getRightNeighbour(tempC)!=null && getRightNeighbour(tempC).getStateField() == FieldState.UNKNOWN){
 			//nicht mehr Felder in Betracht zeiehen als das Größte Schiff lang sein kann + Abstandshalter
 			if (rightcounter>maxlength+2)
 			{
 				break;
 			}
-			rightcounter += 1;			
+			rightcounter += 1;
+			tempC = getRightNeighbour(tempC);
 		}
 		
-		while(getLeftNeighbour(c) != null && getLeftNeighbour(c).getStateField() == FieldState.UNKNOWN){
+		tempC = initialC;
+		while(getLeftNeighbour(tempC) != null && getLeftNeighbour(tempC).getStateField() == FieldState.UNKNOWN){
 			//nicht mehr Felder in Betracht zeiehen als das Größte Schiff lang sein kann + Abstandshalter
 			if (leftcounter>maxlength+2)
 			{
 				break;
 			}
-			leftcounter += 1;			
+			leftcounter += 1;
+			tempC = getLeftNeighbour(tempC);
 		}
 		
-		while(getBottomNeighbour(c) != null && getBottomNeighbour(c).getStateField() == FieldState.UNKNOWN){
+		tempC = initialC;
+		while(getBottomNeighbour(tempC) != null && getBottomNeighbour(tempC).getStateField() == FieldState.UNKNOWN){
 			//nicht mehr Felder in Betracht zeiehen als das Größte Schiff lang sein kann + Abstandshalter
 			if (bottomcounter>maxlength+2)
 			{
 				break;
 			}
-			bottomcounter += 1;			
+			bottomcounter += 1;	
+			tempC = getBottomNeighbour(tempC);
 		}
 		
-		while(getTopNeighbour(c) !=null && getTopNeighbour(c).getStateField() == FieldState.UNKNOWN){
+		tempC = initialC;
+		while(getTopNeighbour(tempC) !=null && getTopNeighbour(tempC).getStateField() == FieldState.UNKNOWN){
 			//nicht mehr Felder in Betracht zeiehen als das Größte Schiff lang sein kann + Abstandshalter
 			if (topcounter>maxlength+2)
 			{
 				break;
 			}
-			topcounter += 1;			
+			topcounter += 1;
+			tempC = getTopNeighbour(tempC);
 		}
 		
 		
@@ -249,7 +266,7 @@ public class AgentManager {
 	}
 	
 	
-	public int getValueForSinkShot(Coordinate c, int shiplength, Directions dir)
+	public int getValueForSinkShot(Coordinate c, int shiplength, Directions d)
 	{
 				
 		// 25% Chance for each of the 4 sides
@@ -259,22 +276,172 @@ public class AgentManager {
 		}
 		else
 		{
-			switch (dir)
-			{
-				case LEFT:
-				case RIGHT:
-				case TOP:
-				case BOTTOM:
+			int value=0;
+			Coordinate initialC = c;
+			Coordinate tempC = initialC;
+
+			
+			if (d==Directions.LEFT || d == Directions.RIGHT)
+			{			
+				int rightcounter = 0;
+				int leftcounter =0;
+				
+				
+				// Schauen ob das Schiff Rechts lang liegen kann
+				while(getRightNeighbour(tempC)!=null && getRightNeighbour(tempC).getStateField() == FieldState.UNKNOWN){
+					rightcounter += 1;
+					tempC = getRightNeighbour(tempC);
+					
+					//falls soviele Plätze frei sind wie das Schiff maximal brauchen würde abbrechen
+					if (rightcounter>=shiplength-1)
+					{
+						//wenn wir gerade rechts scannen den Wert erhöhen
+						if(d == Directions.RIGHT){
+							
+							//Wenns der Rand ist okay
+							if(getRightNeighbour(tempC) ==null){
+								value+=1;
+							}
+							else{
+								//der nächste Nachbar darf kein Schiff sein!
+								if(getRightNeighbour(tempC).getStateField()!=FieldState.HIT)
+								{
+									value +=1;	
+								}	
+							}
+							
+						}
+						//ansonsten abbrechen
+						break;
+					}
+					
+				}
+				
+				
+				tempC = initialC;
+				while(getLeftNeighbour(tempC) != null && getLeftNeighbour(tempC).getStateField() == FieldState.UNKNOWN){
+
+					leftcounter += 1;
+					tempC = getLeftNeighbour(tempC);
+					
+					//falls soviele Plätze frei sind wie das Schiff maximal brauchen würde abbrechen
+					if (leftcounter>=shiplength-1)
+					{
+						if(d == Directions.LEFT){
+							
+							if(getLeftNeighbour(tempC)==null){
+							 value+=1;	
+							}
+							else{
+								//der nächste Nachbar darf kein Schiff sein!
+								if(getLeftNeighbour(tempC).getStateField()!=FieldState.HIT)
+								{
+									value +=1;	
+								}
+							}
+							
+						}
+						//ansonsten abbrechen
+						break;
+					}
+
+				}
+				
+			
+				
+				//Looking for possibilities for placing the ship with the coordinate being a point "in the middle"
+				int rightleftsum = rightcounter + leftcounter;
+				
+				if(rightleftsum >=shiplength)
+				{
+					int overflow = rightleftsum - shiplength;
+					if (overflow > 0)
+					{
+						value += overflow;
+					}
+					else{
+						value +=1;
+					}
+				}
+			}
+			else{
+				
+				int topcounter =0;
+				int bottomcounter =0;
+				
+				tempC = initialC;
+				while(getBottomNeighbour(tempC) != null && getBottomNeighbour(tempC).getStateField() == FieldState.UNKNOWN){
+					
+					bottomcounter += 1;	
+					tempC = getBottomNeighbour(tempC);
+					
+					//nicht mehr Felder in Betracht zeiehen als das Größte Schiff lang sein kann + Abstandshalter
+					if (bottomcounter>=shiplength-1)
+					{
+						if(d == Directions.BOTTOM){
+							//der nächste Nachbar darf kein Schiff sein, wenn es der Rand ist dann okay.
+							if(getBottomNeighbour(tempC)==null)
+							{
+								value +=1;	
+							}
+							else{
+								if(getBottomNeighbour(tempC).getStateField()!=FieldState.HIT) value+=1;
+							}
+						}
+						//ansonsten abbrechen
+						break;
+					}
+		
+				}
+				
+				tempC = initialC;
+				while(getTopNeighbour(tempC) !=null && getTopNeighbour(tempC).getStateField() == FieldState.UNKNOWN){
+					
+					topcounter += 1;
+					tempC = getTopNeighbour(tempC);
+					
+					//nicht mehr Felder in Betracht zeiehen als das Größte Schiff lang sein kann + Abstandshalter
+					if (topcounter>=shiplength+1)
+					{
+						if(d == Directions.TOP){
+							//der nächste Nachbar darf kein Schiff sein!
+							if(getTopNeighbour(tempC)==null)
+							{
+								value +=1;	
+							}else{
+								if(getTopNeighbour(tempC).getStateField()!=FieldState.HIT){
+									value+=1;
+								}
+							}
+						}
+						//ansonsten abbrechen
+						break;
+					}
+			
+				}
+				
+				
+				int topbottomsum = topcounter + bottomcounter;
+				if(topbottomsum >= shiplength)
+				{
+					int overflow = topbottomsum -shiplength;
+					if (overflow -shiplength>0)
+					{
+						value += overflow;
+						
+					}
+					else{
+						value +=1;
+					}
+				}
 				
 			}
 			
-		}
-		
-		//should never come here...
-		return 0;
+			return value;
+			
+		}//end if shiplength=1;
 	
 		
-	
 	}
 	
 	public Coordinate getNeighbourHelper(int i, Coordinate c)
