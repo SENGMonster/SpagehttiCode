@@ -56,7 +56,7 @@ public interface BattleshipSystem {
 	 * @param points
 	 * @throws NotLoggedInException
 	 */
-	public void addPoints(int points) throws SoapFault;
+	public void addPoints(int points, String password) throws SoapFault;
 	
 	public List<Highscore> getHighscoreList() throws SoapFault;
 	

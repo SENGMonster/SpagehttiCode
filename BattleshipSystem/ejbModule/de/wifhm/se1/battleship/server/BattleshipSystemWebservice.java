@@ -159,8 +159,8 @@ public class BattleshipSystemWebservice implements BattleshipSystem {
 	}
 
 	@Override
-	public void addPoints(int points) throws NotLoggedInException {
-		this.getSession().addPoints(points);
+	public void addPoints(int points, String password) throws NotLoggedInException {
+		this.getSession().addPoints(points, password);
 	}
 
 }

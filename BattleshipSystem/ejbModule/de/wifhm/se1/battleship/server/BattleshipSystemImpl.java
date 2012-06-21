@@ -7,13 +7,20 @@ import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
+import javax.ejb.EJBException;
 import javax.ejb.Remove;
 import javax.ejb.Stateful;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
+import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
+import javax.jms.JMSException;
+import javax.jms.MessageProducer;
+import javax.jms.Queue;
+import javax.jms.Session;
+import javax.jms.TextMessage;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -34,6 +41,9 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 	
 	@Resource(mappedName = "java:JmsXA")
 	private ConnectionFactory jmsFactory;
+	
+	@Resource(mappedName="queue/HighscoreQueue")
+	private Queue highscoreSystemQueue;
 	
 	@PersistenceContext
 	EntityManager entitymanager;
@@ -152,11 +162,37 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 
 
 	@Override
-	public void addPoints(int points) throws NotLoggedInException {
+	public void addPoints(int points, String password) throws NotLoggedInException {
 		if(this.loggedUser != null){
 			User user = entitymanager.find(User.class, loggedUser);
-			user.getHighscore().addPoints(points);
-			entitymanager.persist(user);
+			if(user.getPassword().equals(password)){
+				user.getHighscore().addPoints(points);
+				Connection jmsConnection = null;
+				Session session = null;
+				try{
+					jmsConnection = jmsFactory.createConnection();
+					jmsConnection.start();
+					session = jmsConnection.createSession(true, Session.SESSION_TRANSACTED);
+					TextMessage message = session.createTextMessage();
+					message.setText(loggedUser+";"+password+";"+points);
+				
+					MessageProducer producer = session.createProducer(highscoreSystemQueue);
+					producer.send(message);
+					producer.close();
+				}
+				catch(JMSException e){
+					throw new EJBException(e);
+				}
+				finally{
+					try {
+						if (session!=null) session.close();
+						if (jmsConnection!=null) jmsConnection.close();
+					}
+					catch (JMSException e) {
+						throw new EJBException(e);
+					}
+				}
+			}
 		}
 		else{
 			throw new NotLoggedInException("Not logged in");

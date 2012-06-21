@@ -141,7 +141,7 @@ public class BattleshipSystemStub implements BattleshipSystem {
 	}
 
 	@Override
-	public void addPoints(int points) throws SoapFault {
+	public void addPoints(int points, String password) throws SoapFault {
 		String METHOD_NAME = "addPoints";
 		executeSoapAction(METHOD_NAME, points);
 	}
