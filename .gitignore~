@@ -1,5 +1,5 @@
 !.gitignore
 .metadata
 BattleshipApplication/bin
-BattleshipSystem/bin
+BattleshipSystem/build
 BattleshipSystemEAR/bin
