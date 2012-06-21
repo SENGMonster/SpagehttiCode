@@ -9,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.ViewSwitcher;
 import de.wifhm.se1.android.activity.R;
 import de.wifhm.se1.android.battleship.agent.Communicator;

@@ -25,10 +25,10 @@ public class User implements Serializable{
 	
 	private String password;
 	
-	@OneToOne(mappedBy="owner", cascade = {CascadeType.ALL},fetch=FetchType.EAGER, optional=false)
+	@OneToOne(mappedBy="owner", fetch=FetchType.EAGER, optional=false)
 	private GameState gamestate;
 	
-	@OneToOne(mappedBy="owner", cascade = {CascadeType.ALL}, fetch=FetchType.EAGER, optional=false)
+	@OneToOne(mappedBy="owner", fetch=FetchType.EAGER, optional=false)
 	private Highscore highscore;
 			
 	public User(){
@@ -38,8 +38,8 @@ public class User implements Serializable{
 	public User(String username, String password) {
 		this.username = username;
 		this.password = password;
-		this.highscore = new Highscore(this);
-		this.gamestate = new GameState(this);
+		//this.highscore = new Highscore(this);
+		//this.gamestate = new GameState(this);
 	}
 
 	/**

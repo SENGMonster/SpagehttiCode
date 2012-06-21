@@ -167,6 +167,7 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 		if(loggedUser != null){
 			User user = entitymanager.find(User.class, loggedUser);
 			user.getHighscore().addPoints(points);
+			entitymanager.persist(user);
 		}
 		
 	}
