@@ -1,5 +1,6 @@
 package de.wifhm.se1.battleship.server;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,6 +24,7 @@ import javax.jms.Session;
 import javax.jms.TextMessage;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import de.wifhm.se1.battleship.common.BattleshipSystem;
 import de.wifhm.se1.battleship.common.Highscore;
@@ -156,8 +158,16 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 
 	@Override
 	public List<Highscore> getHighscoreList() {
-		//TODO
-		return null;
+		Query query = entitymanager.createQuery("SELECT * FROM USER");
+		List<?> userlist = query.getResultList();
+		List<Highscore> highscorelist = new ArrayList<Highscore>();
+		for(Object object : userlist){
+			if(object instanceof User){
+				User user = (User)object; 
+				highscorelist.add(user.getHighscore());
+			}
+		}
+		return highscorelist;
 	}
 
 

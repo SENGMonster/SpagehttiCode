@@ -7,9 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlID;
 
 @Entity
+@Table(name = "USER")
 public class User implements Serializable{
 	/**
 	 * 
