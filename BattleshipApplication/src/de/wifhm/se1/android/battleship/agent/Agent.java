@@ -3,7 +3,6 @@ package de.wifhm.se1.android.battleship.agent;
 
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Random;
 import de.wifhm.se1.android.battleship.manager.*;;
 
