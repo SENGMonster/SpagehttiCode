@@ -32,40 +32,45 @@ public final class R {
         public static final int wasser=0x7f02000b;
     }
     public static final class id {
-        public static final int boardsize=0x7f090016;
-        public static final int btnPosShipsCancel=0x7f090013;
-        public static final int btnPosShipsOK=0x7f090012;
-        public static final int btnTestAgent=0x7f090001;
-        public static final int btnpositionship=0x7f09000c;
-        public static final int btnspielfeld=0x7f09000b;
-        public static final int exit=0x7f090021;
-        public static final int failuremessage=0x7f090008;
-        public static final int gallery=0x7f09000e;
-        public static final int gotothighscore=0x7f09000d;
-        public static final int gridview=0x7f090000;
-        public static final int gvPosShips=0x7f090014;
-        public static final int highscorelist=0x7f090002;
-        public static final int log=0x7f090009;
-        public static final int login=0x7f090006;
-        public static final int loginPassword=0x7f090005;
-        public static final int loginUsername=0x7f090004;
-        public static final int logout=0x7f090020;
-        public static final int playgamebtn=0x7f090003;
-        public static final int preferences=0x7f09001f;
-        public static final int reg=0x7f09000a;
-        public static final int registerNew=0x7f090007;
-        public static final int registerPassword=0x7f09001a;
-        public static final int registerPasswordRetype=0x7f09001b;
-        public static final int registerUsername=0x7f090019;
-        public static final int registerlogin=0x7f09001d;
-        public static final int savesettings=0x7f090018;
-        public static final int saveup=0x7f090015;
-        public static final int send=0x7f09001c;
-        public static final int ship_image=0x7f09000f;
-        public static final int shiplength=0x7f090010;
-        public static final int shipname=0x7f090011;
-        public static final int spinner=0x7f090017;
-        public static final int textView1=0x7f09001e;
+        public static final int boardsize=0x7f09001b;
+        public static final int btnAgentOK=0x7f090006;
+        public static final int btnPosShipsCancel=0x7f090018;
+        public static final int btnPosShipsOK=0x7f090017;
+        public static final int btnTestAgent=0x7f090005;
+        public static final int btnUserOK=0x7f090003;
+        public static final int btnpositionship=0x7f090011;
+        public static final int btnspielfeld=0x7f090010;
+        public static final int exit=0x7f090026;
+        public static final int failuremessage=0x7f09000d;
+        public static final int gallery=0x7f090013;
+        public static final int gotothighscore=0x7f090012;
+        public static final int gridview=0x7f090004;
+        public static final int gridviewAgent=0x7f090002;
+        public static final int gvPosShips=0x7f090019;
+        public static final int highscorelist=0x7f090007;
+        public static final int log=0x7f09000e;
+        public static final int login=0x7f09000b;
+        public static final int loginPassword=0x7f09000a;
+        public static final int loginUsername=0x7f090009;
+        public static final int logout=0x7f090025;
+        public static final int playgamebtn=0x7f090008;
+        public static final int preferences=0x7f090024;
+        public static final int profileSwitcher=0x7f090000;
+        public static final int reg=0x7f09000f;
+        public static final int registerNew=0x7f09000c;
+        public static final int registerPassword=0x7f09001f;
+        public static final int registerPasswordRetype=0x7f090020;
+        public static final int registerUsername=0x7f09001e;
+        public static final int registerlogin=0x7f090022;
+        public static final int savesettings=0x7f09001d;
+        public static final int saveup=0x7f09001a;
+        public static final int send=0x7f090021;
+        public static final int ship_image=0x7f090014;
+        public static final int shiplength=0x7f090015;
+        public static final int shipname=0x7f090016;
+        public static final int spinner=0x7f09001c;
+        public static final int textView1=0x7f090023;
+        public static final int textview=0x7f090001;
     }
     public static final class layout {
         public static final int gridview=0x7f030000;
@@ -79,6 +84,7 @@ public final class R {
         public static final int register=0x7f030008;
         public static final int succlogin=0x7f030009;
         public static final int succregister=0x7f03000a;
+        public static final int tzrztz=0x7f03000b;
     }
     public static final class menu {
         public static final int menu=0x7f080000;

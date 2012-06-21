@@ -39,7 +39,7 @@ public class Agent {
 			for(int i=0; i< s.getSchiffspositions().size(); i++)
 			{
 		
-				ArrayList<Integer> impossibleList = Helper.setImpossibleFieldsaroundShip(s, Ship2Destroy.isHorizontal());
+				ArrayList<Integer> impossibleList = Helper.setImpossibleFieldsaroundShip(s.getSchiffspositions(), Ship2Destroy.isHorizontal());
 				for(int el:impossibleList){
 					AgentManager.getInstance().setFieldStateForCoordinate(el, FieldState.IMPOSSIBLE);
 				}
@@ -276,4 +276,99 @@ public class Agent {
 		return bestCoordinate;
 	}
 	
+	
+	public void positionShips(){
+		
+		Random r = new Random();
+		final int max = GlobalHolder.getInstance().getNumOfRowsCols()*GlobalHolder.getInstance().getNumOfRowsCols(); 
+		ArrayList<Integer> impossibleFields = new ArrayList<Integer>();
+		
+		//Jedes Schiff positionieren
+		for(Schiff currShip:GlobalHolder.getInstance().getComputerShips().getSchiffsliste())
+		{
+			boolean hasPositionedShipAlready=false;
+		
+			while(!hasPositionedShipAlready)
+			{
+				int StartPosition = r.nextInt(max);
+				int value;
+				
+				Helper helper = new Helper(StartPosition, currShip.getShipLength()-1);	            	    
+		 	     
+		 	    //Alle 4 Richtungen überprüfen und mögliche Felder setzen
+		 	    for(int i=0; i<4; i++){		            	    	
+		 	    	if(!hasPositionedShipAlready)
+		 	    	{
+			 	    	switch(i)
+			 	    	{
+			     	    	case 0:
+			     	    		//Es Darf nicht über mehrere Zeilen gehen (keine Umbrüche) nach oben -->
+			     	    		value= helper.validateRightToBottom();
+			     	    		
+			     	    		//überprüfen ob ein Schiff im weg ist
+			     	    		if (value!=-1){
+			     	    			ArrayList<Integer> positions = Helper.buildPositionArray(StartPosition, value, 1);
+			     	    			if (!Helper.hasHorizontalColidations(impossibleFields, positions))
+			     	    			{
+			     	    				currShip.setSchiffspositions(positions.get(0), positions.get(positions.size()-1));
+			     	    				impossibleFields.addAll(currShip.getSchiffspositions());
+			     	    				hasPositionedShipAlready=true;
+			     	    			}
+			     	    		}
+			     	    		break;
+			     	    	case 1:
+			     	    		//es Darf keinen Zeilenumbruch nach unten hin geben <--
+			     	    		value=helper.validateLeftToTop();
+			     	    		
+			     	    		//überprüfen ob ein Schiff im weg ist
+			     	    		if (value!=-1){
+			     	    			ArrayList<Integer> positions = Helper.buildPositionArray(StartPosition, value, 1);
+			     	    			if (!Helper.hasHorizontalColidations(impossibleFields, positions))
+			     	    			{
+			     	    				currShip.setSchiffspositions(positions.get(0), positions.get(positions.size()-1));
+			     	    				impossibleFields.addAll(currShip.getSchiffspositions());
+			     	    				hasPositionedShipAlready=true;
+			     	    			}
+			     	    		}
+			     	    		break;
+			     	    	case 2: 
+			     	    		//ES DARF BEI VERTIKAL NICHT NACH OBEN HINAUS LAUFEN
+			     	    		 value = helper.validateTop();
+			     	    		 
+			     	    		//überprüfen ob ein Schiff im weg ist
+			         	    		if (value!=-1){
+			         	    			ArrayList<Integer> positions = Helper.buildPositionArray(StartPosition, value, 10);
+			         	    			if (!Helper.hasVerticalColidations(impossibleFields, positions))
+			         	    			{
+			         	    				currShip.setSchiffspositions(positions.get(0), positions.get(positions.size()-1));
+				     	    				impossibleFields.addAll(currShip.getSchiffspositions());
+				     	    				hasPositionedShipAlready=true;
+			         	    			}
+			         	    		}
+			     	    		break;
+			     	    	case 3:
+			     	    		//ES DARF BEI VERTIKAL NICHT NACH UNTEN HINAUS LAUFEN
+			     	    		value=helper.validateBottom();
+			     	    		
+			     	    		//überprüfen ob ein Schiff im weg ist
+			     	    		if (value!=-1){
+			     	    			ArrayList<Integer> positions = Helper.buildPositionArray(StartPosition, value, 10);
+			     	    			if (!Helper.hasVerticalColidations(impossibleFields, positions))
+			     	    			{
+			     	    				currShip.setSchiffspositions(positions.get(0), positions.get(positions.size()-1));
+			     	    				impossibleFields.addAll(currShip.getSchiffspositions());
+			     	    				hasPositionedShipAlready=true;
+			     	    			}
+			     	    		}
+			     	    		break;
+			 	    	}//end switch
+		 	    	}//end if HasPositionedShipAlready
+		 	    }//end for
+	 	    			    		
+	 	    }//end HasPositionedShipAlready
+		}//end for ship
+	}//end void
+	
+
+
 }

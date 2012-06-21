@@ -78,17 +78,17 @@ public class Helper {
 	}
 	
 	
-	public static ArrayList<Integer> setImpossibleFieldsaroundShip(Schiff s, boolean isHorizontal){
+	public static ArrayList<Integer> setImpossibleFieldsaroundShip(ArrayList<Integer> Pos, boolean isHorizontal){
 		
 		
 		ArrayList<Integer> resultList= new ArrayList<Integer>();
 		
-		for(int i=0; i< s.getSchiffspositions().size(); i++)
+		for(int i=0; i< Pos.size(); i++)
 		{
-			Coordinate currentCoordinate = AgentManager.getInstance().getCoordinateForNr(s.getSchiffspositions().get(i));
+			Integer currentCoordinate = Pos.get(i);
 			if(currentCoordinate!=null)
 			{
-				Helper valHelper = new Helper(currentCoordinate.getCoordinateNr(), 1);
+				Helper valHelper = new Helper(currentCoordinate, 1);
 				if (isHorizontal){
 					
 					int unten = valHelper.validateBottom();
@@ -113,7 +113,7 @@ public class Helper {
 						}
 						
 					}
-					if(i==s.getSchiffspositions().size()-1)
+					if(i==Pos.size()-1)
 					{
 						int rechts = valHelper.validateRightToBottom();
 						if(rechts!=-1){
@@ -149,7 +149,7 @@ public class Helper {
 							if (obenrechts!=-1) resultList.add(obenrechts);
 						}
 					}
-					if(i==s.getSchiffspositions().size()-1)
+					if(i==Pos.size()-1)
 					{
 						int unten = valHelper.validateBottom();
 						if(unten!=-1){
@@ -170,5 +170,155 @@ public class Helper {
 		
 		
 		return resultList;
+	}
+	
+	
+	public static ArrayList<Integer> buildPositionArray(int Start, int Ende, int incrementor){
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		if (Start > Ende) {
+			for (int s=Ende; s<=Start; s+=incrementor ){
+				list.add(s);
+			}	
+		}
+		else{
+			for (int s =Start; s<=Ende; s+=incrementor ){
+				list.add(s);
+			}
+		}
+
+		return list;
+	}
+	
+	public static boolean hasHorizontalColidations(ArrayList<Integer>besetzteFelder, ArrayList<Integer> Positions){
+		boolean result=false;
+	
+		if (besetzteFelder!=null && Positions!=null){
+			for(int i=0; i<Positions.size(); i++)
+			{
+				int pos = Positions.get(i);
+				Helper h = new Helper(pos,1);
+				int unten = h.validateBottom();
+				int oben = h.validateTop();
+				
+				if (unten!=-1){
+					if (besetzteFelder.contains(unten)) return true;
+				}
+				if (oben!=-1){
+					if(besetzteFelder.contains(oben)) return true;
+				}
+			
+				if (besetzteFelder.contains(pos)) return true;
+				
+				
+				//RECHTES ENDE abprüfen + die schrägen Ecken
+				if(i==0){
+					int linkesEnde = h.validateLeftToTop();
+					if (linkesEnde!=-1){
+						if (besetzteFelder.contains(linkesEnde)){
+							return true;
+						}
+						Helper hRE = new Helper(linkesEnde, 1);
+						int hREunten= hRE.validateBottom();
+						int hREoben = hRE.validateTop();
+						
+						if (hREunten!=-1){
+							if(besetzteFelder.contains(hREunten)) return true;
+						}
+						if (hREoben!=-1){
+							if(besetzteFelder.contains(hREoben)) return true;
+						}
+					}
+				}
+				
+				//LINKES ENDE abprüfen + die schrägen Ecken
+				if(i==Positions.size()-1){
+					
+					int rechtesEnde = h.validateRightToBottom();
+					if (rechtesEnde!=-1){
+						if (besetzteFelder.contains(rechtesEnde)){
+							return true;
+						}
+						Helper hRE = new Helper(rechtesEnde, 1);
+						int hREunten= hRE.validateBottom();
+						int hREoben = hRE.validateTop();
+						
+						if (hREunten!=-1){
+							if(besetzteFelder.contains(hREunten)) return true;
+						}
+						if (hREoben!=-1){
+							if(besetzteFelder.contains(hREoben)) return true;
+						}
+					}
+					
+				}
+			}
+		
+		}
+		return result;
+	}
+	
+	public static boolean hasVerticalColidations(ArrayList<Integer> besetzteFelder, ArrayList<Integer> Positions){
+		boolean result=false;
+		
+		if (besetzteFelder !=null && !besetzteFelder.isEmpty() && Positions!=null){
+			for(int i =0; i<Positions.size();i++){
+				
+				int pos = Positions.get(i);
+				Helper h = new Helper(pos,1);
+				int links = h.validateLeftToTop();
+				int rechts = h.validateRightToBottom();
+				
+				if (links!=-1){
+					if (besetzteFelder.contains(links)) return true;
+				}
+				if (rechts!=-1){
+					if(besetzteFelder.contains(rechts)) return true;
+				}
+			
+				if (besetzteFelder.contains(pos)) return true;
+				
+				//die obere Ecke abprüfen + die schrägen Ecken
+				if(i==0){
+					int oberesEnde = h.validateTop();
+					if (oberesEnde!=-1){
+						if (besetzteFelder.contains(oberesEnde)){
+							return true;
+						}
+						Helper hRE = new Helper(oberesEnde, 1);
+						int hOEleft= hRE.validateLeftToTop();
+						int hREright = hRE.validateRightToBottom();
+						
+						if (hOEleft!=-1){
+							if(besetzteFelder.contains(hOEleft)) return true;
+						}
+						if (hREright!=-1){
+							if(besetzteFelder.contains(hREright)) return true;
+						}
+					}
+				}
+				
+				//die untere Ecke abprüfen + die schrägen Ecken
+				if(i==Positions.size()-1){
+					int unteresEnde = h.validateBottom();
+					if (unteresEnde!=-1){
+						if (besetzteFelder.contains(unteresEnde)){
+							return true;
+						}
+						Helper hRE = new Helper(unteresEnde, 1);
+						int hOEleft= hRE.validateLeftToTop();
+						int hREright = hRE.validateRightToBottom();
+						
+						if (hOEleft!=-1){
+							if(besetzteFelder.contains(hOEleft)) return true;
+						}
+						if (hREright!=-1){
+							if(besetzteFelder.contains(hREright)) return true;
+						}
+					}
+				}
+				
+			}
+		}	
+		return result;
 	}
 }

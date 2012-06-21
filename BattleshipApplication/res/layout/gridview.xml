@@ -1,25 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ViewSwitcher xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/profileSwitcher"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"> 
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+	
+    <!--  COMPUTER  -->
+  
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical" >
+		
+		      <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+			  android:id="@+id/textview"
+			  android:layout_width="wrap_content"
+			  android:layout_height="wrap_content"
+			  android:text="COMPUTER SPIELFELD"/>
+	
+		<GridView xmlns:android="http://schemas.android.com/apk/res/android" 
+		    android:id="@+id/gridviewAgent"
+				    android:layout_width="fill_parent" 
+					android:layout_height="wrap_content"
+					android:columnWidth="35dp"
+					android:numColumns="10"
+					android:verticalSpacing="-1px"
+					android:horizontalSpacing="-1px"
+					android:gravity="center" />
+		<Button
+		        android:id="@+id/btnUserOK"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="OK" />
+		</LinearLayout>
+		
+<!--  SPIELER  -->
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical" >
+	    
+	    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+			  android:id="@+id/textview"
+			  android:layout_width="wrap_content"
+			  android:layout_height="wrap_content"
+			  android:text="DEIN SPIELFELD"/>
+		
+		<GridView xmlns:android="http://schemas.android.com/apk/res/android" 
+		    android:id="@+id/gridview"
+				    android:layout_width="fill_parent" 
+					android:layout_height="wrap_content"
+					android:columnWidth="35dp"
+					android:numColumns="10"
+					android:verticalSpacing="-1px"
+					android:horizontalSpacing="-1px"
+					android:gravity="center" />		
+		<Button
+		        android:id="@+id/btnTestAgent"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Test Agent" />
+			<Button
+		        android:id="@+id/btnAgentOK"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="OK" />
+  </LinearLayout>
 
-<GridView xmlns:android="http://schemas.android.com/apk/res/android" 
-    android:id="@+id/gridview"
-		    android:layout_width="fill_parent" 
-			android:layout_height="wrap_content"
-			android:columnWidth="35dp"
-			android:numColumns="10"
-			android:verticalSpacing="-1px"
-			android:horizontalSpacing="-1px"
-			android:gravity="center"
-			/>
-
- <Button
-        android:id="@+id/btnTestAgent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Test Agent" />
-
-</LinearLayout>
+</ViewSwitcher>

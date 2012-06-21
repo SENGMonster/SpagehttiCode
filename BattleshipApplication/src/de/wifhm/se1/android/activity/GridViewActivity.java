@@ -10,10 +10,12 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ViewSwitcher;
 import de.wifhm.se1.android.activity.R;
-import de.wifhm.se1.android.battleship.agent.Tester;
+import de.wifhm.se1.android.battleship.agent.Communicator;
 import de.wifhm.se1.android.battleship.manager.Battlefieldmanager;
 import de.wifhm.se1.android.battleship.manager.BattleFieldImageAdapter;
+import de.wifhm.se1.android.battleship.manager.CopyOfBattleFieldImageAdapter;
 import de.wifhm.se1.android.battleship.manager.GlobalHolder;
 import de.wifhm.se1.android.battleship.manager.HitStates;
 
@@ -25,71 +27,97 @@ public class GridViewActivity extends Activity {
 	
 	private Battlefieldmanager mBattlefieldmanager;
 	BattleFieldImageAdapter imgadp;
-	Tester AgentTester;
+	BattleFieldImageAdapter agent_imgadp;
+	Communicator AgentCommunicator;
+	ViewSwitcher profilSwitcher;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gridview);
         
+        profilSwitcher = (ViewSwitcher) findViewById(R.id.profileSwitcher);        
     
         Spielvorlage spiel = GlobalHolder.getInstance().getUserShips();
         imgadp = new BattleFieldImageAdapter(this,spiel);
         GridView gridview = (GridView) findViewById (R.id.gridview);
         gridview.setAdapter(imgadp);
-        
-        
-       /* TEST AGENT */
-       AgentTester = new Tester();
+            
+       /* AGENT COMMUNICATOR */
+       AgentCommunicator = new Communicator();
+       AgentCommunicator.setComputerShips();
+       
+       Spielvorlage AgentSpiel = GlobalHolder.getInstance().getComputerShips();
+       agent_imgadp = new CopyOfBattleFieldImageAdapter(this, AgentSpiel);
+       GridView gridviewAgent = (GridView) findViewById(R.id.gridviewAgent);
+       gridviewAgent.setAdapter(agent_imgadp);
+       
+       
+       Button AgentOK = (Button) findViewById(R.id.btnAgentOK);
+       Button UserOK = (Button) findViewById(R.id.btnUserOK);
+       
+       AgentOK.setOnClickListener(new OnClickListener(){
+			public void onClick(View v) {
+				profilSwitcher.showNext();
+			}
+		});
+       
+       UserOK.setOnClickListener(new OnClickListener(){
+			public void onClick(View v) {
+				profilSwitcher.showPrevious();
+			}
+		});
+       
+       
        Button testAgent = (Button) findViewById(R.id.btnTestAgent);
        testAgent.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
 				
-				int nextTurn = AgentTester.getNextChoice();				
+				int nextTurn = AgentCommunicator.getNextChoice();				
 				HitStates result =  GlobalHolder.getInstance().getUserField().hasHitAShip(nextTurn,  imgadp, GridViewActivity.this);			
-				AgentTester.setFieldState(result, nextTurn);
+				AgentCommunicator.setFieldState(result, nextTurn);
 				
 				switch(result)
 				{
 					case HIT:
 						imgadp.setTreffer(nextTurn);
-	            		AgentTester.setShip2Destroy(nextTurn);
+	            		AgentCommunicator.setShip2Destroy(nextTurn);
 						break;
 					case DESTROYED:
 						imgadp.setTreffer(nextTurn);
-	            		AgentTester.DestroyedShip(GlobalHolder.getInstance().getUserField().lastDestroyedShip);
+	            		AgentCommunicator.DestroyedShip(GlobalHolder.getInstance().getUserField().lastDestroyedShip);
 						break;
 					case WATER:
 						imgadp.setWasser(nextTurn);
 						break;
 						
 					
-				}      
+				}   
 				
 			}
 		});
         
         
-        mBattlefieldmanager = GlobalHolder.getInstance().getUserField();
+        mBattlefieldmanager = GlobalHolder.getInstance().getComputerField();
        
 
-        gridview.setOnItemClickListener(new OnItemClickListener(){ 
+        //WENN DER USER AUF DAS SPIELFELD DES AGENTS KLICKT!
+        gridviewAgent.setOnItemClickListener(new OnItemClickListener(){ 
             public void onItemClick(AdapterView<?> arg0, View v, int position,long id) {
             	
-            	HitStates result = mBattlefieldmanager.hasHitAShip(position, imgadp, GridViewActivity.this); 
+            	HitStates result = mBattlefieldmanager.hasHitAShip(position, agent_imgadp, GridViewActivity.this); 
 
 				switch(result)
 				{
 					case HIT:
-						imgadp.setTreffer(position);
+						agent_imgadp.setTreffer(position);
 						break;
 					case DESTROYED:
-						imgadp.setTreffer(position);
+						agent_imgadp.setTreffer(position);
 						break;
 					case WATER:
-						imgadp.setWasser(position);
+						agent_imgadp.setWasser(position);
 						break;
-					
 				}      
   				
   			}

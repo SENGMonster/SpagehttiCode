@@ -1,5 +1,7 @@
 package de.wifhm.se1.android.activity;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.TypedArray;
@@ -49,6 +51,7 @@ public class PositionShipActivity extends Activity {
     private int EndPosition=-1;
     private int ClickCounter=0; 
     private int[] possibleEndPositions;
+    private ArrayList<Integer> impossibleFields = new ArrayList<Integer>();
     
     public void Reset()
     {
@@ -219,32 +222,65 @@ public class PositionShipActivity extends Activity {
 		            		
 		            		possibleEndPositions =  new int[4];
 		            		
-		            	    int value=-1;
-		            	    boolean correct=true;
-		            	    
+		            	    int value=-1;		            	    
 		            	  
 		            	    Helper helper = new Helper(StartPosition, currShip.getShipLength()-1);	            	    
 		            	    
 		            	    //Alle 4 Richtungen überprüfen und mögliche Felder setzen
-		            	    for(int i=0; i<4; i++){
-		            	    	correct=true;
+		            	    for(int i=0; i<4; i++){		            	    	
 		            	    	switch(i)
 		            	    	{
 			            	    	case 0:
 			            	    		//Es Darf nicht über mehrere Zeilen gehen (keine Umbrüche) nach oben -->
 			            	    		value= helper.validateRightToBottom();
+			            	    		
+			            	    		//überprüfen ob ein Schiff im weg ist
+			            	    		if (value!=-1){
+			            	    			ArrayList<Integer> positions = Helper.buildPositionArray(StartPosition, value, 1);
+			            	    			if (Helper.hasHorizontalColidations(impossibleFields, positions))
+			            	    			{
+			            	    				value = -1;
+			            	    			}
+			            	    		}
 			            	    		break;
 			            	    	case 1:
 			            	    		//es Darf keinen Zeilenumbruch nach unten hin geben <--
-			            	    		value=helper.validateLeftToTop();			            	    		
+			            	    		value=helper.validateLeftToTop();
+			            	    		
+			            	    		//überprüfen ob ein Schiff im weg ist
+			            	    		if (value!=-1){
+			            	    			ArrayList<Integer> positions = Helper.buildPositionArray(StartPosition, value, 1);
+			            	    			if (Helper.hasHorizontalColidations(impossibleFields, positions))
+			            	    			{
+			            	    				value = -1;
+			            	    			}
+			            	    		}
 			            	    		break;
 			            	    	case 2: 
 			            	    		//ES DARF BEI VERTIKAL NICHT NACH OBEN HINAUS LAUFEN
 			            	    		 value = helper.validateTop();
+			            	    		 
+			            	    		//überprüfen ob ein Schiff im weg ist
+				            	    		if (value!=-1){
+				            	    			ArrayList<Integer> positions = Helper.buildPositionArray(StartPosition, value, 10);
+				            	    			if (Helper.hasVerticalColidations(impossibleFields, positions))
+				            	    			{
+				            	    				value = -1;
+				            	    			}
+				            	    		}
 			            	    		break;
 			            	    	case 3:
 			            	    		//ES DARF BEI VERTIKAL NICHT NACH UNTEN HINAUS LAUFEN
-			            	    		value=helper.validateBottom();			            	    		
+			            	    		value=helper.validateBottom();
+			            	    		
+			            	    		//überprüfen ob ein Schiff im weg ist
+			            	    		if (value!=-1){
+			            	    			ArrayList<Integer> positions = Helper.buildPositionArray(StartPosition, value, 10);
+			            	    			if (Helper.hasVerticalColidations(impossibleFields, positions))
+			            	    			{
+			            	    				value = -1;
+			            	    			}
+			            	    		}
 			            	    		break;
 		            	    	}
 		            	    	
@@ -253,7 +289,7 @@ public class PositionShipActivity extends Activity {
 		            	    }
 		            		
 		            		
-		            		
+		            	    //TODO: Wenn alles -1 ist ne Anzeige fahren
 		            		 for(int i=0; i<4; i++){
 		            			 gvPositionView.addNewImgToPosition(possibleEndPositions[i], R.drawable.rot);
 		            		 }
@@ -309,6 +345,12 @@ public class PositionShipActivity extends Activity {
 				gvPositionView.notifyDataSetChanged();
 				
 				currShip.setSchiffspositions(StartPosition, EndPosition);
+				for(Integer i:currShip.getSchiffspositions())
+				{
+					impossibleFields.add(i);	
+				}
+		
+				
 				
 				Reset();
 			    HideAllButtonStuff();

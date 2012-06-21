@@ -42,6 +42,9 @@ public abstract class Schiff {
 						array.add(StartPosition-i);
 	    			}
 				}
+
+				 //die drumherumReihen setzen
+				 ImpossibleRowsAround = Helper.setImpossibleFieldsaroundShip(array, false);
 			}
 			else { //horizontale Anordnung
 				
@@ -59,12 +62,19 @@ public abstract class Schiff {
 	    			}
 				}
 				
-				
+				 //die drumherumReihen setzen
+				 //ImpossibleRowsAround = Helper.setImpossibleFieldsaroundShip(array, true);
 			}
 
 		 Positions = array;
+
 		 return array;
 		 
+	}
+	
+	private ArrayList<Integer> ImpossibleRowsAround;
+	public ArrayList<Integer> getImpossibleRowsAround(){
+		return ImpossibleRowsAround;
 	}
 	
 	public ArrayList<Integer> getSchiffspositions()
