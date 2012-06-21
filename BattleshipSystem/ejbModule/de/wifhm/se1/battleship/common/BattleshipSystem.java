@@ -60,7 +60,7 @@ public interface BattleshipSystem {
 	 * @param points
 	 * @throws NotLoggedInException
 	 */
-	public void addPoints(int points) throws NotLoggedInException;
+	public void addPoints(int points, String password) throws NotLoggedInException;
 	
 	public List<Highscore> getHighscoreList();
 	

@@ -149,20 +149,18 @@ public class BattleshipSystemWebservice implements BattleshipSystem {
 
 	@Override
 	public void setGameState(String gamestate) throws NotLoggedInException {
-		// TODO Auto-generated method stub
+		this.getSession().setGameState(gamestate);
 		
 	}
 
 	@Override
 	public String getGameState() throws NotLoggedInException {
-		// TODO Auto-generated method stub
-		return null;
+		return this.getSession().getGameState();
 	}
 
 	@Override
-	public void addPoints(int points) throws NotLoggedInException {
-		// TODO Auto-generated method stub
-		
+	public void addPoints(int points, String password) throws NotLoggedInException {
+		this.getSession().addPoints(points, password);
 	}
 
 }

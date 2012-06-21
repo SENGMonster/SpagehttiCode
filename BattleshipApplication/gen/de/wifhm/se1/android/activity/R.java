@@ -38,7 +38,7 @@ public final class R {
         public static final int btnTestAgent=0x7f090001;
         public static final int btnpositionship=0x7f09000c;
         public static final int btnspielfeld=0x7f09000b;
-        public static final int exit=0x7f090020;
+        public static final int exit=0x7f090021;
         public static final int failuremessage=0x7f090008;
         public static final int gallery=0x7f09000e;
         public static final int gotothighscore=0x7f09000d;
@@ -49,14 +49,15 @@ public final class R {
         public static final int login=0x7f090006;
         public static final int loginPassword=0x7f090005;
         public static final int loginUsername=0x7f090004;
-        public static final int logout=0x7f09001f;
+        public static final int logout=0x7f090020;
         public static final int playgamebtn=0x7f090003;
-        public static final int preferences=0x7f09001e;
+        public static final int preferences=0x7f09001f;
         public static final int reg=0x7f09000a;
         public static final int registerNew=0x7f090007;
         public static final int registerPassword=0x7f09001a;
         public static final int registerPasswordRetype=0x7f09001b;
         public static final int registerUsername=0x7f090019;
+        public static final int registerlogin=0x7f09001d;
         public static final int savesettings=0x7f090018;
         public static final int saveup=0x7f090015;
         public static final int send=0x7f09001c;
@@ -64,7 +65,7 @@ public final class R {
         public static final int shiplength=0x7f090010;
         public static final int shipname=0x7f090011;
         public static final int spinner=0x7f090017;
-        public static final int textView1=0x7f09001d;
+        public static final int textView1=0x7f09001e;
     }
     public static final class layout {
         public static final int gridview=0x7f030000;
@@ -88,6 +89,7 @@ public final class R {
         public static final int choose=0x7f06000d;
         public static final int exit=0x7f060009;
         public static final int login=0x7f060005;
+        public static final int loginexcist=0x7f060015;
         public static final int logout=0x7f060007;
         public static final int password=0x7f060003;
         public static final int passwordretype=0x7f060004;
