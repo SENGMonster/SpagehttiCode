@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.MapKey;
 import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlIDREF;
 
@@ -13,23 +14,28 @@ public class GameState implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	@Id @GeneratedValue
-	int id;
+	@Id @GeneratedValue Integer id;
 	
 	@OneToOne(optional = false)
+	@MapKey
 	private User owner;
 	
 	private String state;
 
+
+	public GameState(){
+		super();
+	}
+
+	public GameState(User user){
+		this.state = null;
+		this.owner = user;
+	}
+	
 	public String getState() {
 		return state;
 	}
-
-	public void setState(User user) {
-		this.state = null;
-		this.owner = user;
-		this.owner.setGamestate(this);
-	}
+	
 
 	/**
 	 * @return the id

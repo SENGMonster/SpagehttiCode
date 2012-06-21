@@ -55,7 +55,7 @@ public class RegisterLoginActivity extends Activity {
 							if(passwordtext.getText().toString().equals(repasswordtext.getText().toString())){
 								try {
 									systemStub.getBsStub().register(usernametext.getText().toString(), passwordtext.getText().toString());
-									
+									systemStub.getBsStub().login(usernametext.getText().toString(), passwordtext.getText().toString());
 									editor.putString("username", usernametext.getText().toString());
 							        editor.putString("password", passwordtext.getText().toString());
 							        editor.putString("boardsize", "10");

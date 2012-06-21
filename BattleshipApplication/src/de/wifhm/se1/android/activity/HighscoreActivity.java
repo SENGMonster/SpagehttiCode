@@ -6,6 +6,7 @@ import org.ksoap2.SoapFault;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,6 +19,7 @@ import de.wifhm.se1.android.util.HighscoreListAdapter;
 
 public class HighscoreActivity extends Activity {
 	BattleshipApplication bsstub;
+	private final String TAG = "BLA";
 	
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -37,7 +39,20 @@ public class HighscoreActivity extends Activity {
 		
 		try {
 			List<Highscore>highscores = bsstub.getBsStub().getHighscoreList();
-			highscorelist.setAdapter(new HighscoreListAdapter(this, highscores));
+			for(Highscore h : highscores){
+				Log.e(TAG, ""+h.getHighscore());
+				Log.e(TAG, h.getOwner().getUsername());
+			}
+			if(highscores.size() != 0 ){
+				highscorelist.setAdapter(new HighscoreListAdapter(this, highscores));
+			}
+			else{
+				String[] value = {"HighscoreList is empty"};
+				ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+						android.R.layout.simple_list_item_1, value);
+				highscorelist.setAdapter(adapter);
+			}
+			
 		} catch (SoapFault e) {
 			String[] value = {"No connection"};
 			ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
