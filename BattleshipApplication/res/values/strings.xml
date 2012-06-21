@@ -40,6 +40,7 @@
         <item >12</item>
         <item >13</item>
     </string-array>
+    <string name="loginexcist">Login with excisting Username</string>
     
     
 

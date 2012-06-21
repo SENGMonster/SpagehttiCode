@@ -41,9 +41,8 @@ public class HighscoreSystemBean implements MessageListener {
         	String[] args = textmessage.getText().split(";");
         	User user = entitymanager.find(User.class, args[0]);
         	if(user.getPassword().equals(args[1])){
-        		user.getHighscore().addPoints(Integer.parseInt(args[2]));
+        		user.getHighscore().addPoints(new Integer(args[2]));
         		entitymanager.persist(user);
-        		
         	}
         	logger.log(Level.INFO, "Added" +args[2] + "points to User: "+args[0]);
         }
