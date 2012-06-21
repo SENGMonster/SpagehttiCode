@@ -67,36 +67,7 @@ public class BattleshipSystemStub implements BattleshipSystem {
 		executeSoapAction(METHOD_NAME, username, password);
 	}
 	
-	/*
-	 * (non-Javadoc)
-	 * @see battleship.common.BattleshipSystem#setClientSystemSetting(battleship.common.ClientSystemSettings)
-	 */
-	public void setClientSystemSetting(ClientSystemSettings settings)
-			throws SoapFault {
-		String METHOD_NAME = "setClientSystemSettings";
-		executeSoapAction(METHOD_NAME, settings);
-
-	}
 	
-	/*
-	 * (non-Javadoc)
-	 * @see battleship.common.BattleshipSystem#setClientSystemSettings(boolean, int)
-	 */
-	public void setClientSystemSettings(boolean savePasswordUsername,
-			int boardlength) throws SoapFault {
-		String METHOD_NAME = "setClientSystemSettings";
-		executeSoapAction(METHOD_NAME, savePasswordUsername, boardlength);
-	}
-	
-	/*
-	 * (non-Javadoc)
-	 * @see battleship.common.BattleshipSystem#getClientSystemSettings()
-	 */
-	public ClientSystemSettings getClientSystemSettings() throws SoapFault {
-		String METHOD_NAME = "getClientSystemSettings";
-		Object result = executeSoapAction(METHOD_NAME);
-		return (ClientSystemSettings) result;
-	}
 	
 	/*
 	 * (non-Javadoc)
