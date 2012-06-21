@@ -17,7 +17,7 @@ import de.wifhm.se1.android.common.BattleshipSystemStub;
 
 public class RegisterLoginActivity extends Activity {
 	
-	private static final String TAG = "LoginRegisterActivity";
+	//private static final String TAG = "LoginRegisterActivity";
 	
 	private BattleshipApplication systemStub;
 	private SharedPreferences prefs;
