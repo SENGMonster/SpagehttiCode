@@ -48,9 +48,18 @@ public class HighscoreListAdapter extends BaseAdapter {
 		if(v == null){
 			holder = new ViewHolder();
 			
-			v = inflater.inflate()
+			v = inflater.inflate(R.layout.highscorelist_item, null);
+			
+			holder.username = (TextView)v.findViewById(R.id.highscoreuser);
+			holder.highscorepoints = (TextView)v.findViewById(R.id.highscorepoints);
+			
 		}
-		return null;
+		else{
+			holder = (ViewHolder) v.getTag();
+		}
+		holder.username.setText(highscore.getOwner().getUsername());
+		holder.highscorepoints.setText(highscore.getHighscore());
+		return v;
 	}
 	
 	static class ViewHolder{
