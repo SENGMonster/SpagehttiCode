@@ -73,9 +73,8 @@ public class GridViewActivity extends Activity {
         mBattlefieldmanager = GlobalHolder.getInstance().getUserField();
        
 
-        gridview.setOnItemClickListener(new OnItemClickListener(){
-            public void onItemClick(AdapterView<?> arg0, View v, int position,
-  					long id) {
+        gridview.setOnItemClickListener(new OnItemClickListener(){ 
+            public void onItemClick(AdapterView<?> arg0, View v, int position,long id) {
             	
             	HitStates result = mBattlefieldmanager.hasHitAShip(position, imgadp, GridViewActivity.this); 
 

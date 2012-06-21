@@ -1,7 +1,5 @@
 package de.wifhm.se1.android.battleship.agent;
 
-
-
 import java.util.ArrayList;
 import java.util.Random;
 import de.wifhm.se1.android.battleship.manager.*;;
@@ -35,56 +33,22 @@ public class Agent {
 	
 	public void setDestroyedShip(Schiff s){
 		
-		
-		//ImpossibleStates setzen
-		for(int i=0; i< s.getSchiffspositions().size(); i++)
-		{
-			Coordinate currentCoordinate = AgentManager.getInstance().getCoordinateForNr(s.getSchiffspositions().get(i));
-			if(currentCoordinate!=null)
+		if(s!=null & Ship2Destroy!=null){
+
+			//ImpossibleStates setzen um jedes Schiff drumherum
+			for(int i=0; i< s.getSchiffspositions().size(); i++)
 			{
-				Helper valHelper = new Helper(currentCoordinate.getCoordinateNr(), 1);
-				if (Ship2Destroy.isHorizontal()){
-					
-					int unten = valHelper.validateBottom();
-					int oben = valHelper.validateTop();
-					
-					if (unten!=-1) AgentManager.getInstance().setFieldStateForCoordinate(unten, FieldState.IMPOSSIBLE);
-					if(oben!=-1) AgentManager.getInstance().setFieldStateForCoordinate(oben, FieldState.IMPOSSIBLE);
-					
-					//Beim ersten und letzten auch noch links und rechts setzen
-					if(i==0){
-						int links = valHelper.validateLeftToTop();
-						if (links!=-1) AgentManager.getInstance().setFieldStateForCoordinate(links, FieldState.IMPOSSIBLE);
-					}
-					if(i==s.getSchiffspositions().size()-1)
-					{
-						int rechts = valHelper.validateRightToBottom();
-						if(rechts!=-1) AgentManager.getInstance().setFieldStateForCoordinate(rechts, FieldState.IMPOSSIBLE);
-					}
-				}
-				else{
-					
-					int links = valHelper.validateLeftToTop();
-					int rechts = valHelper.validateRightToBottom();
-					
-					if(links!=-1) AgentManager.getInstance().setFieldStateForCoordinate(links, FieldState.IMPOSSIBLE);
-					if(rechts!=-1) AgentManager.getInstance().setFieldStateForCoordinate(rechts, FieldState.IMPOSSIBLE);
-					
-					if(i==0){
-						int oben = valHelper.validateTop();
-						if(oben!=-1) AgentManager.getInstance().setFieldStateForCoordinate(oben, FieldState.IMPOSSIBLE);
-					}
-					if(i==s.getSchiffspositions().size()-1)
-					{
-						int unten = valHelper.validateBottom();
-						if(unten!=-1) AgentManager.getInstance().setFieldStateForCoordinate(unten, FieldState.IMPOSSIBLE);
-					}
-					
-				}
-			}
-		}
 		
-		setShip2Destroy(null);
+				ArrayList<Integer> impossibleList = Helper.setImpossibleFieldsaroundShip(s, Ship2Destroy.isHorizontal());
+				for(int el:impossibleList){
+					AgentManager.getInstance().setFieldStateForCoordinate(el, FieldState.IMPOSSIBLE);
+				}
+			
+				
+			}
+			
+			setShip2Destroy(null);
+		}
 		
 	}
 
