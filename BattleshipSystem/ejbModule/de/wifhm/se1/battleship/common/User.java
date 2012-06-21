@@ -13,7 +13,6 @@ import javax.xml.bind.annotation.XmlID;
 
 
 @Entity
-@Table(name = "USER")
 public class User implements Serializable{
 	/**
 	 * 
@@ -38,8 +37,6 @@ public class User implements Serializable{
 	public User(String username, String password) {
 		this.username = username;
 		this.password = password;
-		//this.highscore = new Highscore(this);
-		//this.gamestate = new GameState(this);
 	}
 
 	/**

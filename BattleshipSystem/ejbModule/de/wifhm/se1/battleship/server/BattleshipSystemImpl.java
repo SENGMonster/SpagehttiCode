@@ -80,8 +80,8 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
     	   }
        }
        else{
-    	   logger.log(Level.INFO, "Login failed, User doesn't exsist");
-    	   throw new InvalidUsernameException("Login failed, User doesn't exsist");
+    	   logger.log(Level.INFO, "Login failed, User doesn't exsist"+ username + " " + password );
+    	   throw new InvalidUsernameException("Login failed, User doesn't exsist"+ username + " " + password );
        }
        return user;
     }
