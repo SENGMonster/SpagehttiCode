@@ -7,18 +7,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
+import de.wifhm.se1.android.activity.R;
 import de.wifhm.se1.android.common.Highscore;
 
 public class HighscoreListAdapter extends BaseAdapter {
 	
+	private LayoutInflater inflater;
 	private List<Highscore> highscorelist;
-	private LayoutInflater infalter;
 	
 	public HighscoreListAdapter(Context context, List<Highscore> highscorelist){
+		this.inflater = LayoutInflater.from(context);
 		this.highscorelist = highscorelist;
-		this.infalter = LayoutInflater.from(context);
 	}
-	
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
@@ -38,12 +39,22 @@ public class HighscoreListAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public View getView(int arg0, View arg1, ViewGroup arg2) {
+	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
+		ViewHolder holder;
+		View v = convertView;
+		
+		Highscore highscore = this.highscorelist.get(position);
+		if(v == null){
+			holder = new ViewHolder();
+			
+			v = inflater.inflate()
+		}
 		return null;
 	}
 	
 	static class ViewHolder{
-		TextView username, points;
+		TextView username, highscorepoints;
 	}
+
 }
