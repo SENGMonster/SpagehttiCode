@@ -40,14 +40,14 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="@string/register" />
-    <Button
+    <Button 
         android:id="@+id/registerlogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="@string/loginexcist" />
+        android:text="@string/loginexcist"/>
     
     <TextView
         android:id="@+id/failuremessage"
