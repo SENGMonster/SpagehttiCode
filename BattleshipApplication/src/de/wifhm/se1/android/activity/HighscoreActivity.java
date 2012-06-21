@@ -1,13 +1,20 @@
 package de.wifhm.se1.android.activity;
 
+import java.util.List;
+
+import org.ksoap2.SoapFault;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import de.wifhm.se1.android.common.Highscore;
+import de.wifhm.se1.android.util.HighscoreListAdapter;
 
 public class HighscoreActivity extends Activity {
 	BattleshipApplication bsstub;
@@ -26,6 +33,17 @@ public class HighscoreActivity extends Activity {
 		
 		highscorelist.addHeaderView(header);
 		//TODO HighscoreListe vom Server beziehen
+		
+		
+		try {
+			List<Highscore>highscores = bsstub.getBsStub().getHighscoreList();
+			highscorelist.setAdapter(new HighscoreListAdapter(this, highscores));
+		} catch (SoapFault e) {
+			String[] value = {"No connection"};
+			ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+					android.R.layout.simple_list_item_1, value);
+			highscorelist.setAdapter(adapter);
+		}
 		
 		Button playgame = (Button)findViewById(R.id.playgamebtn);
 		

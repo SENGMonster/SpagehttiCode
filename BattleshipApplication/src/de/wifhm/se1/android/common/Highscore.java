@@ -2,48 +2,64 @@ package de.wifhm.se1.android.common;
 
 import java.io.Serializable;
 
+
+
 public class Highscore implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-
-	private int id;
+	
+	int id;
 	
 	private int highscore;
-	private String gamename;
-	/**
-	 * @return the id
-	 */
-	public int getId() {
-		return id;
-	}
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
+	
+	private User owner;
+	
+	
 	/**
 	 * @return the highscore
 	 */
 	public int getHighscore() {
 		return highscore;
 	}
+
+
 	/**
 	 * @param highscore the highscore to set
 	 */
 	public void setHighscore(int highscore) {
 		this.highscore = highscore;
 	}
-	/**
-	 * @return the gamename
-	 */
-	public String getGamename() {
-		return gamename;
+	
+	public void addPoints(int points){
+		this.highscore = this.highscore + points;
 	}
+
 	/**
-	 * @param gamename the gamename to set
+	 * @return the id
 	 */
-	public void setGamename(String gamename) {
-		this.gamename = gamename;
+	public int getId() {
+		return id;
 	}
+
+	/**
+	 * @return the owner
+	 */
+	public User getOwner() {
+		return owner;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	/**
+	 * @param owner the owner to set
+	 */
+	public void setOwner(User owner) {
+		this.owner = owner;
+	}
+
 }
