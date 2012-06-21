@@ -1,9 +1,10 @@
 package de.wifhm.se1.android.battleship.agent;
 
+
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
-
 import de.wifhm.se1.android.battleship.manager.*;;
 
 
@@ -40,20 +41,47 @@ public class Agent {
 		for(int i=0; i< s.getSchiffspositions().size(); i++)
 		{
 			Coordinate currentCoordinate = AgentManager.getInstance().getCoordinateForNr(s.getSchiffspositions().get(i));
-			int gerundet = Helper.getGerundetFromInteger(currentCoordinate.getCoordinateNr(),  GlobalHolder.getInstance().getNumOfRowsCols())
-			if (Ship2Destroy.isHorizontal()){
-				
-				int unten = currentCoordinate.getCoordinateNr() - GlobalHolder.getInstance().getNumOfRowsCols();
-				Coordinate nachbar2=AgentManager.getInstance().getCoordinateForNr(s.getSchiffspositions().get(i));
-				
-				
-				
-				if(i==0){
+			if(currentCoordinate!=null)
+			{
+				Helper valHelper = new Helper(currentCoordinate.getCoordinateNr(), 1);
+				if (Ship2Destroy.isHorizontal()){
+					
+					int unten = valHelper.validateBottom();
+					int oben = valHelper.validateTop();
+					
+					if (unten!=-1) AgentManager.getInstance().setFieldStateForCoordinate(unten, FieldState.IMPOSSIBLE);
+					if(oben!=-1) AgentManager.getInstance().setFieldStateForCoordinate(oben, FieldState.IMPOSSIBLE);
+					
+					//Beim ersten und letzten auch noch links und rechts setzen
+					if(i==0){
+						int links = valHelper.validateLeftToTop();
+						if (links!=-1) AgentManager.getInstance().setFieldStateForCoordinate(links, FieldState.IMPOSSIBLE);
+					}
+					if(i==s.getSchiffspositions().size()-1)
+					{
+						int rechts = valHelper.validateRightToBottom();
+						if(rechts!=-1) AgentManager.getInstance().setFieldStateForCoordinate(rechts, FieldState.IMPOSSIBLE);
+					}
+				}
+				else{
+					
+					int links = valHelper.validateLeftToTop();
+					int rechts = valHelper.validateRightToBottom();
+					
+					if(links!=-1) AgentManager.getInstance().setFieldStateForCoordinate(links, FieldState.IMPOSSIBLE);
+					if(rechts!=-1) AgentManager.getInstance().setFieldStateForCoordinate(rechts, FieldState.IMPOSSIBLE);
+					
+					if(i==0){
+						int oben = valHelper.validateTop();
+						if(oben!=-1) AgentManager.getInstance().setFieldStateForCoordinate(oben, FieldState.IMPOSSIBLE);
+					}
+					if(i==s.getSchiffspositions().size()-1)
+					{
+						int unten = valHelper.validateBottom();
+						if(unten!=-1) AgentManager.getInstance().setFieldStateForCoordinate(unten, FieldState.IMPOSSIBLE);
+					}
 					
 				}
-			}
-			else{
-				
 			}
 		}
 		

@@ -223,8 +223,7 @@ public class PositionShipActivity extends Activity {
 		            	    boolean correct=true;
 		            	    
 		            	  
-		            	    int gerundet = Helper.getGerundetFromInteger(StartPosition, numOfRowsCols);
-		            	    
+		            	    Helper helper = new Helper(StartPosition, currShip.getShipLength()-1);	            	    
 		            	    
 		            	    //Alle 4 Richtungen überprüfen und mögliche Felder setzen
 		            	    for(int i=0; i<4; i++){
@@ -232,34 +231,25 @@ public class PositionShipActivity extends Activity {
 		            	    	switch(i)
 		            	    	{
 			            	    	case 0:
-			            	    		value= StartPosition + currShip.getShipLength()-1;
 			            	    		//Es Darf nicht über mehrere Zeilen gehen (keine Umbrüche) nach oben -->
-			            	    		correct= Helper.validateRightToBottom(value, gerundet, numOfRowsCols);
+			            	    		value= helper.validateRightToBottom();
 			            	    		break;
 			            	    	case 1:
 			            	    		//es Darf keinen Zeilenumbruch nach unten hin geben <--
-			            	    		value=StartPosition - (currShip.getShipLength()-1);
-			            	    		correct= Helper.validateLeftToTop(value, gerundet);
+			            	    		value=helper.validateLeftToTop();			            	    		
 			            	    		break;
 			            	    	case 2: 
 			            	    		//ES DARF BEI VERTIKAL NICHT NACH OBEN HINAUS LAUFEN
-			            	    		 value = StartPosition - ((currShip.getShipLength()-1)*numOfRowsCols);
-			            	    		 correct=Helper.validateTop(value);
+			            	    		 value = helper.validateTop();
 			            	    		break;
 			            	    	case 3:
 			            	    		//ES DARF BEI VERTIKAL NICHT NACH UNTEN HINAUS LAUFEN
-			            	    		value = StartPosition + ((currShip.getShipLength()-1)*numOfRowsCols);
-			            	    		correct=Helper.validateBottom(value, numOfRowsCols);
+			            	    		value=helper.validateBottom();			            	    		
 			            	    		break;
 		            	    	}
 		            	    	
-		            	    	
-		            	    	if(!correct){
-	            	    			possibleEndPositions[i] = -1;
-	            	    		}
-	            	    		else{
 	            	    			possibleEndPositions[i] = value;
-	            	    		}
+	            	    		
 		            	    }
 		            		
 		            		

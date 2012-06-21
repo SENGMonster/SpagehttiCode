@@ -1,8 +1,23 @@
 package de.wifhm.se1.android.battleship.manager;
 
 public class Helper {
+	
+	private int Ausgangspunkt;
+	private int gerundet;
+	private int AnzahlSchritte;
+	private int numOfRowsCols;
+	
+	
+	public Helper(int Auspunkt, int AnzSchritte){
+		 Ausgangspunkt = Auspunkt;
+		 AnzahlSchritte = AnzSchritte;
+		 
+		 numOfRowsCols =  GlobalHolder.getInstance().getNumOfRowsCols();
+		 gerundet = getGerundetFromInteger(Ausgangspunkt,numOfRowsCols);
+		
+	}
 
-	public static int getGerundetFromInteger(int Zahl, int numOfRowsCols){
+	public int getGerundetFromInteger(int Zahl, int numOfRowsCols){
 		  String number = String.valueOf(Zahl);
 		String subStrNumber=number;
 	    if (number.length()>1)
@@ -14,36 +29,44 @@ public class Helper {
 	    return gerundet;
 	}
 	
-	
-	public static boolean validateLeftToTop(int value, int gerundet){
+	//000000xx
+	//<--x0000 VERBOTEN
+	public int validateLeftToTop(){
+		int value=Ausgangspunkt - AnzahlSchritte;
 		if(value<gerundet) {
-			return false;
+			return -1;
 		}else{
-			return true;
+			return value;
 		}
 	}
 	
-	public static boolean validateRightToBottom(int value, int gerundet, int numOfRowsCols){
+	//00000xx -->
+	//x0000
+	public int validateRightToBottom(){
+		int value =Ausgangspunkt + AnzahlSchritte;
+		//Es Darf nicht über mehrere Zeilen gehen (keine Umbrüche) nach oben -->
 		if(value >= gerundet+numOfRowsCols){
-			return false;	
+			return -1;	
 		}
 		else{
-			return true;
+			return value;
 		}
 	}
 	
-	public static boolean validateBottom(int value, int numOfRowsCols){
+	public int validateBottom(){
+		int value = Ausgangspunkt + (AnzahlSchritte*numOfRowsCols);
 		if (value>(numOfRowsCols*numOfRowsCols)-1){
-			return false;
+			return  -1;
 		}
-		return true;	
+		return value;	
 	}
 	
-	public static boolean validateTop(int value){
+	public int validateTop(){
+		int value = Ausgangspunkt - (AnzahlSchritte*numOfRowsCols);
 		if (value<0) {
-			return false;
+			return -1;
 		}else{
-			return true;
+			return value;
 		}
 	}
 }
