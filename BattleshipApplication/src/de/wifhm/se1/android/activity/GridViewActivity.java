@@ -43,7 +43,7 @@ public class GridViewActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gridview);
         
-        bsstub = (BattleshipApplication) getApplication();
+       // bsstub = (BattleshipApplication) getApplication();
         
         profilSwitcher = (ViewSwitcher) findViewById(R.id.profileSwitcher);        
     
@@ -177,12 +177,12 @@ public class GridViewActivity extends Activity {
     		{
     			UserOK.setVisibility(View.VISIBLE);
     			String UserString = GlobalHolder.getInstance().getUserField().serializeInfoToString();
-    			try {
-					bsstub.getBsStub().setPlayerGameState(UserString);
-				} catch (SoapFault e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+//    			try {
+//					bsstub.getBsStub().setPlayerGameState(UserString);
+//				} catch (SoapFault e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
     			System.out.println(UserString);
     			
     		}else{

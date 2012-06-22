@@ -141,4 +141,8 @@ public class Battlefieldmanager {
 	}
 	
 	
+	public void deserializeMeFromString(String BattlefieldString){
+		
+	}
+	
 }
