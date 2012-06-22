@@ -45,6 +45,9 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 	@SuppressWarnings("unused")
 	@PostConstruct
 	@TransactionAttribute(TransactionAttributeType.SUPPORTS)
+	/**
+	 * Methode wird beim erstellen eines neuen SessionBeans ausgeführt
+	 */
 	private void create(){
 		logger.log(Level.INFO, this + ": is created!");
 	}
@@ -52,6 +55,9 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 	
 	@PreDestroy
 	@TransactionAttribute(TransactionAttributeType.SUPPORTS)
+	/**
+	 * Methode wird beim zerstören einer SessionBean gestartet
+	 */
 	public void destroyed(){
 		logger.log(Level.INFO, this + ": will be destroyed!");
 	}
@@ -123,6 +129,7 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 
 
 	@Override
+	@TransactionAttribute(TransactionAttributeType.SUPPORTS)
 	public void setPlayerGameState(String playergamestate)
 			throws NotLoggedInException {
 		// TODO Auto-generated method stub
@@ -137,7 +144,9 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 	}
 
 
+	
 	@Override
+	@TransactionAttribute(TransactionAttributeType.SUPPORTS)
 	public String getPlayerGameState() throws NotLoggedInException {
 		// TODO Auto-generated method stub
 		if(loggedUser != null){
@@ -151,6 +160,7 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 
 
 	@Override
+	@TransactionAttribute(TransactionAttributeType.SUPPORTS)
 	public void setAgentGameState(String agentgamestate)
 			throws NotLoggedInException {
 		// TODO Auto-generated method stub
@@ -167,6 +177,7 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 
 
 	@Override
+	@TransactionAttribute(TransactionAttributeType.SUPPORTS)
 	public String getAgentGameState() throws NotLoggedInException {
 		// TODO Auto-generated method stub
 		if(loggedUser != null){
@@ -180,6 +191,7 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 
 
 	@Override
+	@TransactionAttribute(TransactionAttributeType.SUPPORTS)
 	public void addPoints(int points) throws NotLoggedInException {
 		if(loggedUser != null){
 			User user = entitymanager.find(User.class, loggedUser);
@@ -194,6 +206,7 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 
 
 	@Override
+	@TransactionAttribute(TransactionAttributeType.SUPPORTS)
 	public List<User> getHighscoreList() throws NotLoggedInException {
 		if(loggedUser != null){
 			String query = "SElECT e FROM User e ORDER BY highscore DESC ";

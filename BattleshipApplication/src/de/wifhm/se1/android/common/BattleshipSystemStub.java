@@ -15,7 +15,12 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import android.util.Log;
 import de.wifhm.se1.android.util.HttpHelper;
-
+/**
+ * 
+ * @author Holger Tenbeitel
+ *
+ *BattleShipSystem implementiert das BattleshipSyst CLientseitig
+ */
 public class BattleshipSystemStub implements BattleshipSystem {
 
 	private static final String NAMESPACE = "http://server.battleship.se1.wifhm.de/";
@@ -118,7 +123,6 @@ public class BattleshipSystemStub implements BattleshipSystem {
                     tempObj.setHighscore(new Integer(responseChild.getPropertyAsString("highscore")));
                 }
 
-                /** Adding temp PhongTro object to list */
                 list.add(tempObj);	
         	}
         	
@@ -166,12 +170,16 @@ public class BattleshipSystemStub implements BattleshipSystem {
 
 	
 
+
 	/**
 	 * 
 	 * @param methodName
 	 * @param args
 	 * @return
 	 * @throws SoapFault
+	 * 
+	 * Methode spricht den Webservice des BattleshipSystems an und sendet den Methoden-Name plus die zugehörigen Parameter. Die Methode erhält von dem Server
+	 * ein Objekt zurück welches den Rückgabe-Wert der entsprechenden Anfrage beinhalten
 	 */
 	private Object executeSoapAction(String methodName, Object... args) throws SoapFault {
 		Object result = null;
@@ -220,6 +228,16 @@ public class BattleshipSystemStub implements BattleshipSystem {
 		
 	}
 	
+	/**
+	 * 
+	 * @param methodName
+	 * @param args
+	 * @return
+	 * @throws SoapFault
+	 * 
+	 * Methode spricht den Webservice des BattleshipSystems an und sendet den Methoden-Name plus die zugehörigen Parameter. Die Methode erhält von dem Server
+	 * ein Objekt zurück welches die Rückgabe-Werte, als Liste, der entsprechenden Anfrage beinhalten
+	 */
 	private Object executeSoapActionList(String methodName, Object... args) throws SoapFault {
 		Object result = null;
 		
