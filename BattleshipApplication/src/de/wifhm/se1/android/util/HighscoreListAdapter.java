@@ -62,8 +62,15 @@ public class HighscoreListAdapter extends BaseAdapter {
 		}
 		Log.d("Test", "Username: " + highscore.getUsername());
 		Log.d("Test", "Points: " + highscore.getHighscore());
-		holder.username.setText(highscore.getUsername());
-		holder.highscorepoints.setText("Punkte: " + highscore.getHighscore().toString());
+		/*holder.username.setText(highscore.getUsername());
+		if(highscore.getHighscore() != null){
+			holder.highscorepoints.setText("Punkte: " + highscore.getHighscore().toString());
+		}*/
+		holder.username.setText("Test");
+		holder.highscorepoints.setText("Test");
+		
+		
+		
 		return v;
 	}
 	

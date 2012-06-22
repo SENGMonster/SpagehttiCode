@@ -1,12 +1,12 @@
 package de.wifhm.se1.android.activity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.ksoap2.SoapFault;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -40,9 +40,9 @@ public class HighscoreActivity extends Activity {
 		try {
 			//TODO
 			List<User>highscores = bsstub.getBsStub().getHighscoreList();
-			/*List<User> highscores = new ArrayList<User>();
-			highscores.add(new User("test", "test"));
-			highscores.add(new User("Test2", "Test3"));*/
+			Log.d("Highscore", highscores.toString());
+			
+			
 			if(highscores.size() > 0 ){
 				highscorelist.setAdapter(new HighscoreListAdapter(this, highscores));
 			}
