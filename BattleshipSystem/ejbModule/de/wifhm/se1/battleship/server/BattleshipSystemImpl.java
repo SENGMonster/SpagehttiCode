@@ -145,6 +145,7 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 	//TODO
 	@Override
 	public List<Highscore> getHighscoreList() {
+		String query = "SELECT c FROM User c";
 		return null;
 	}
 

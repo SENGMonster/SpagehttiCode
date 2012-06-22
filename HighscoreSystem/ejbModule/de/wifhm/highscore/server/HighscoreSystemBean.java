@@ -1,5 +1,6 @@
 package de.wifhm.highscore.server;
 
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -12,7 +13,7 @@ import javax.jms.MessageListener;
 import javax.jms.TextMessage;
 import javax.persistence.EntityManager;
 
-import de.wifhm.se1.battleship.common.User;
+import de.wifh.se1.highscore.common.Highscore;
 
 
 
@@ -44,6 +45,12 @@ public class HighscoreSystemBean implements MessageListener {
         	logger.log(Level.INFO, "Exception occured: " + e.toString());
         }
         
+    }
+    
+    public List<Highscore> getHighscoreList(){
+		String query = "SELECT c FROM Highscore c";
+		return entitymanager.createQuery(query, Highscore.class).getResultList();
+    	
     }
 
 }
