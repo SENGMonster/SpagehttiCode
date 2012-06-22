@@ -120,7 +120,7 @@ public class RegisterLoginActivity extends Activity {
 							}
 						}
 						else{
-							failure.setText("Password couldn't be emty");
+							failure.setText("Password couldn't be empty");
 						}
 					}
 					else{

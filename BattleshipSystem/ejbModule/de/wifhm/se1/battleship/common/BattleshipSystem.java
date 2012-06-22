@@ -59,6 +59,6 @@ public interface BattleshipSystem {
 	
 	public void addPoints(int points) throws NotLoggedInException;
 	
-	public List<User> getHighscoreList();
+	public List<User> getHighscoreList() throws NotLoggedInException;
 	
 }
