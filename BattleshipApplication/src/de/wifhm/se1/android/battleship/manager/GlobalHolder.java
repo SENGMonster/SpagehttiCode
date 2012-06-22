@@ -33,6 +33,25 @@ public class GlobalHolder {
         return instance;
     }
 
+    private void initializeNew(){
+    	
+    	  instance = new GlobalHolder();
+          
+          //Spielvorlage holen und die Schiffe initialisieren
+          instance.UserShips = new Spielvorlage1();
+          instance.UserShips.initializeSchiffsliste();
+          
+          instance.ComputerShips = new Spielvorlage1();
+          instance.ComputerShips.initializeSchiffsliste();
+         
+          
+          //Manager für das Userspielfeld 
+          instance.UserField = new Battlefieldmanager(instance.UserShips );
+          
+          //Manager für das Computerspielfeld
+          instance.ComputerField = new Battlefieldmanager(instance.ComputerShips);
+          
+    }
 
 	
 	private Battlefieldmanager UserField;

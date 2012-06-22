@@ -1,8 +1,5 @@
 package de.wifhm.se1.android.activity;
 
-
-import org.ksoap2.SoapFault;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +17,7 @@ import de.wifhm.se1.android.battleship.manager.BattleFieldImageAdapter;
 import de.wifhm.se1.android.battleship.manager.CopyOfBattleFieldImageAdapter;
 import de.wifhm.se1.android.battleship.manager.GlobalHolder;
 import de.wifhm.se1.android.battleship.manager.HitStates;
+import de.wifhm.se1.android.battleship.manager.WebServiceCommunicator;
 
 import de.wifhm.se1.android.battleship.manager.Spielvorlage;
 
@@ -27,7 +25,7 @@ import de.wifhm.se1.android.battleship.manager.Spielvorlage;
 public class GridViewActivity extends Activity {
     /** Called when the activity is first created. */
 	
-	BattleshipApplication bsstub;
+	
 	private Battlefieldmanager mBattlefieldmanager;
 	BattleFieldImageAdapter imgadp;
 	BattleFieldImageAdapter agent_imgadp;
@@ -35,6 +33,7 @@ public class GridViewActivity extends Activity {
 	ViewSwitcher profilSwitcher;
 	Button UserOK;
 	Button AgentOK;
+	WebServiceCommunicator Serializer;
 	
 	private boolean isAllowedToSwitch=false;
 	
@@ -43,7 +42,7 @@ public class GridViewActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gridview);
         
-       // bsstub = (BattleshipApplication) getApplication();
+        Serializer = new WebServiceCommunicator((BattleshipApplication) getApplication());
         
         profilSwitcher = (ViewSwitcher) findViewById(R.id.profileSwitcher);        
     
@@ -177,13 +176,7 @@ public class GridViewActivity extends Activity {
     		{
     			UserOK.setVisibility(View.VISIBLE);
     			String UserString = GlobalHolder.getInstance().getUserField().serializeInfoToString();
-//    			try {
-//					bsstub.getBsStub().setPlayerGameState(UserString);
-//				} catch (SoapFault e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-    			System.out.println(UserString);
+    			boolean hasSerialized = Serializer.sendPlayerGame(UserString);
     			
     		}else{
     			AgentOK.setVisibility(View.VISIBLE);
@@ -201,7 +194,6 @@ public class GridViewActivity extends Activity {
     			AgentOK.setVisibility(View.INVISIBLE);
     		}
     	}
-    	
 
     }
     

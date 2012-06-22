@@ -14,7 +14,8 @@ public class Highscore implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private static final int DEFAULTVALUE = 0;
-	@Id String username;
+	@Id
+	String username;
 	
 	String password;
 	

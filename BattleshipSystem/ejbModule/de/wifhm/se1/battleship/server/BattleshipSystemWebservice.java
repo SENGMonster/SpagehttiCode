@@ -76,7 +76,7 @@ public class BattleshipSystemWebservice implements BattleshipSystem {
 		    	result = (BattleshipSystem) new InitialContext().lookup("BattleshipSystemEAR/BattleshipSystemImpl/local");
 	    	}
 	    	catch (NamingException e) {
-	    		throw new WebServiceException("Anlegen einer neuen Session gescheitert.");
+	    		throw new WebServiceException("Anlegen einer neuen Session gescheitert." + e.getMessage());
 	    	}
 	    	session.setAttribute(KEY_SESSION, result);
 	    }
