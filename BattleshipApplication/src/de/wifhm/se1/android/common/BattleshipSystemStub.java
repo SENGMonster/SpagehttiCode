@@ -193,8 +193,7 @@ public class BattleshipSystemStub implements BattleshipSystem {
 		
 		SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
 		
-		envelope.setOutputSoapObject(request);
-		
+		envelope.setOutputSoapObject(request);		
 		HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
 		
 		List<HeaderProperty> reqHeaders = null;
