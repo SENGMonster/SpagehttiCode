@@ -208,9 +208,15 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public List<User> getHighscoreList() throws NotLoggedInException {
+		logger.log(Level.INFO, "TEST");
 		if(loggedUser != null){
+			logger.log(Level.INFO, "Sending HighscoreList with:");
 			String query = "SElECT e FROM User e ORDER BY highscore DESC ";
-			return entitymanager.createQuery(query, User.class).getResultList();	
+			List<User> list =  entitymanager.createQuery(query, User.class).getResultList();	
+			for(User s : list){
+				logger.log(Level.INFO, s.getUsername() +" - " + s.getHighscore());
+			}
+			return list;
 		}
 		else{
 			throw new NotLoggedInException("Not logged in");
