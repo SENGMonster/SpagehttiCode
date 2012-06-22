@@ -30,6 +30,8 @@ public class GridViewActivity extends Activity {
 	Communicator AgentCommunicator;
 	ViewSwitcher profilSwitcher;
 	
+	private boolean isAllowedToSwitch=false;
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,12 +59,18 @@ public class GridViewActivity extends Activity {
        
        AgentOK.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
+				isAllowedToSwitch = false;
 				profilSwitcher.showNext();
+				while(!isAllowedToSwitch)
+				{
+					AgentTurn();
+				}
 			}
 		});
        
        UserOK.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
+				isAllowedToSwitch = false;
 				profilSwitcher.showPrevious();
 			}
 		});
@@ -72,29 +80,12 @@ public class GridViewActivity extends Activity {
        testAgent.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
 				
-				int nextTurn = AgentCommunicator.getNextChoice();				
-				HitStates result =  GlobalHolder.getInstance().getUserField().hasHitAShip(nextTurn,  imgadp, GridViewActivity.this);			
-				AgentCommunicator.setFieldState(result, nextTurn);
 				
-				switch(result)
-				{
-					case HIT:
-						imgadp.setTreffer(nextTurn);
-	            		AgentCommunicator.setShip2Destroy(nextTurn);
-						break;
-					case DESTROYED:
-						imgadp.setTreffer(nextTurn);
-	            		AgentCommunicator.DestroyedShip(GlobalHolder.getInstance().getUserField().lastDestroyedShip);
-						break;
-					case WATER:
-						imgadp.setWasser(nextTurn);
-						break;
-						
-					
-				}   
 				
 			}
 		});
+       
+   
         
         
         mBattlefieldmanager = GlobalHolder.getInstance().getComputerField();
@@ -116,6 +107,7 @@ public class GridViewActivity extends Activity {
 						break;
 					case WATER:
 						agent_imgadp.setWasser(position);
+						isAllowedToSwitch = true;
 						break;
 				}      
   				
@@ -123,5 +115,29 @@ public class GridViewActivity extends Activity {
           	
           });
 		
+    }
+    
+    private void AgentTurn(){
+ 	   int nextTurn = AgentCommunicator.getNextChoice();				
+			HitStates result =  GlobalHolder.getInstance().getUserField().hasHitAShip(nextTurn,  imgadp, GridViewActivity.this);			
+			AgentCommunicator.setFieldState(result, nextTurn);
+			
+			switch(result)
+			{
+				case HIT:
+					imgadp.setTreffer(nextTurn);
+        		AgentCommunicator.setShip2Destroy(nextTurn);
+					break;
+				case DESTROYED:
+					imgadp.setTreffer(nextTurn);
+        		AgentCommunicator.DestroyedShip(GlobalHolder.getInstance().getUserField().lastDestroyedShip);
+					break;
+				case WATER:
+					imgadp.setWasser(nextTurn);
+					isAllowedToSwitch = true;
+					break;
+					
+				
+			}   
     }
 }
