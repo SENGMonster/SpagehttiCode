@@ -79,43 +79,54 @@ public class BattleshipSystemStub implements BattleshipSystem {
 
 	}
 	
-	/*
-	 * (non-Javadoc)
-	 * @see battleship.common.BattleshipSystem#getHighscore()
-	 */
-	public Highscore getHighscore() throws SoapFault {
-		String METHOD_NAME = "getHighscore";
-		return (Highscore)executeSoapAction(METHOD_NAME);
-	}
+	
 	/*
 	 * (non-Javadoc)
 	 * @see de.wifhm.se1.android.common.BattleshipSystem#getHighscoreList()
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Highscore> getHighscoreList() throws SoapFault {
+	public List<User> getHighscoreList() throws SoapFault {
 		String METHOD_NAME = "getHighscoreList";
-		return (List<Highscore>)executeSoapAction(METHOD_NAME);
+		return (List<User>)executeSoapAction(METHOD_NAME);
 	}
 	
-
 	@Override
-	public void setGameState(String gamestate) throws SoapFault {
-		String METHOD_NAME = "setGameState";
-		executeSoapAction(METHOD_NAME, gamestate);		
+	public void addPoints(int points) throws SoapFault {
+		// TODO Auto-generated method stub
+		String METHOD_NAME = "addPoints";
+		executeSoapAction(METHOD_NAME, points);
 	}
 
 	@Override
-	public String getGameState() throws SoapFault {
-		String METHOD_NAME = "getGameState";
+	public void setPlayerGameState(String playergamestate) throws SoapFault {
+		// TODO Auto-generated method stub
+		String METHOD_NAME = "setPlayerGameState";
+		executeSoapAction(METHOD_NAME, playergamestate);
+	}
+
+	@Override
+	public String getPlayerGameState() throws SoapFault {
+		// TODO Auto-generated method stub
+		String METHOD_NAME = "getPlayerGameState";
 		return (String) executeSoapAction(METHOD_NAME);
 	}
 
 	@Override
-	public void addPoints(int points, String password) throws SoapFault {
-		String METHOD_NAME = "addPoints";
-		executeSoapAction(METHOD_NAME, points);
+	public void setAgentGameState(String agentgamestate) throws SoapFault {
+		// TODO Auto-generated method stub
+		String METHOD_NAME = "setAgentGameState";
+		executeSoapAction(METHOD_NAME, agentgamestate);
 	}
+
+	@Override
+	public String getAgentGameState() throws SoapFault {
+		// TODO Auto-generated method stub
+		String METHOD_NAME = "getAgentGameState";
+		return (String) executeSoapAction(METHOD_NAME);
+	}
+
+	
 
 	/**
 	 * 
@@ -170,6 +181,8 @@ public class BattleshipSystemStub implements BattleshipSystem {
 		return result;
 		
 	}
+
+	
 
 	
 }

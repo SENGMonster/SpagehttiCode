@@ -23,7 +23,6 @@ import javax.xml.ws.WebServiceException;
 import javax.xml.ws.handler.MessageContext;
 
 import de.wifhm.se1.battleship.common.BattleshipSystem;
-import de.wifhm.se1.battleship.common.Highscore;
 import de.wifhm.se1.battleship.common.User;
 import de.wifhm.se1.battleship.server.exceptions.InvalidPasswordException;
 import de.wifhm.se1.battleship.server.exceptions.InvalidUsernameException;
@@ -127,40 +126,49 @@ public class BattleshipSystemWebservice implements BattleshipSystem {
 	 * @throws NotLoggedInException
 	 * @param points
 	 */
-	@Override
-	@WebMethod
-	public void setHighscore(int points) throws NotLoggedInException {
-		this.getSession().setHighscore(points);		
-	}
 	
-	/**
-	 * @throws NotLoggedInException
-	 */
+
 	@Override
 	@WebMethod
-	public Highscore getHighscore() throws NotLoggedInException {
-		return this.getSession().getHighscore();
-	}
-
-	@Override
-	public List<Highscore> getHighscoreList() {
-		return this.getSession().getHighscoreList();
-	}
-
-	@Override
-	public void setGameState(String gamestate) throws NotLoggedInException {
-		this.getSession().setGameState(gamestate);
+	public void setPlayerGameState(String playergamestate)
+			throws NotLoggedInException {
+		this.getSession().setPlayerGameState(playergamestate);
 		
 	}
 
 	@Override
-	public String getGameState() throws NotLoggedInException {
-		return this.getSession().getGameState();
+	@WebMethod
+	public String getPlayerGameState() throws NotLoggedInException {
+		// TODO Auto-generated method stub
+		return this.getSession().getPlayerGameState();
 	}
 
 	@Override
-	public void addPoints(int points, String password) throws NotLoggedInException {
-		this.getSession().addPoints(points, password);
+	@WebMethod
+	public void setAgentGameState(String agentgamestate)
+			throws NotLoggedInException {
+		this.getSession().setAgentGameState(agentgamestate);
+	}
+
+	@Override
+	@WebMethod
+	public String getAgentGameState() throws NotLoggedInException {
+		// TODO Auto-generated method stub
+		return this.getSession().getAgentGameState();
+	}
+
+	@Override
+	@WebMethod
+	public void addPoints(int points) throws NotLoggedInException {
+		// TODO Auto-generated method stub
+		this.getSession().addPoints(points);
+	}
+
+	@Override
+	@WebMethod
+	public List<User> getHighscoreList() {
+		// TODO Auto-generated method stub
+		return this.getSession().getHighscoreList();
 	}
 
 }

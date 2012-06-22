@@ -9,14 +9,14 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import de.wifhm.se1.android.activity.R;
-import de.wifhm.se1.android.common.Highscore;
+import de.wifhm.se1.android.common.User;
 
 public class HighscoreListAdapter extends BaseAdapter {
 	
 	private LayoutInflater inflater;
-	private List<Highscore> highscorelist;
+	private List<User> highscorelist;
 	
-	public HighscoreListAdapter(Context context, List<Highscore> highscorelist){
+	public HighscoreListAdapter(Context context, List<User> highscorelist){
 		this.inflater = LayoutInflater.from(context);
 		this.highscorelist = highscorelist;
 	}
@@ -44,7 +44,7 @@ public class HighscoreListAdapter extends BaseAdapter {
 		ViewHolder holder;
 		View v = convertView;
 		
-		Highscore highscore = this.highscorelist.get(position);
+		User highscore = this.highscorelist.get(position);
 		if(v == null){
 			holder = new ViewHolder();
 			
@@ -57,7 +57,7 @@ public class HighscoreListAdapter extends BaseAdapter {
 		else{
 			holder = (ViewHolder) v.getTag();
 		}
-		holder.username.setText(highscore.getOwner().getUsername());
+		holder.username.setText(highscore.getUsername());
 		holder.highscorepoints.setText(highscore.getHighscore());
 		return v;
 	}
