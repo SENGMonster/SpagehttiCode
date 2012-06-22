@@ -6,10 +6,12 @@
    <persistence-unit name="battleship">
       <jta-data-source>java:/DefaultDS</jta-data-source>
       <properties>
+         <property name="jboss.entity.manager.jndi.name" value="java:/jdbcService"></property>
+         <property name="jboss.entity.manager.factory.jndi.name" value="java:/jdbcServiceFactory" />
          <!-- Nutze update, wenn Daten gespeichert sind und weiterbenutzt werden sollen -->      
          <!-- Nutze create, wenn Datentabellen beim Hochfahren neu angelegt werden sollen -->
          <!-- Nutze create-drop, wenn Datentabellen neu angelegt und am Ende auch wieder gelöscht werden sollen -->
-         <property name="hibernate.hbm2ddl.auto" value="update"/>
+         <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
       </properties>
    </persistence-unit>
 </persistence>

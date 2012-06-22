@@ -1,6 +1,5 @@
 package de.wifhm.se1.battleship.server;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,7 +16,6 @@ import javax.ejb.TransactionManagementType;
 import javax.jms.ConnectionFactory;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
 import de.wifhm.se1.battleship.common.BattleshipSystem;
 import de.wifhm.se1.battleship.common.Highscore;
@@ -121,11 +119,9 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 	@Override
 	public void setHighscore(int points) throws NotLoggedInException {
 		if(loggedUser != null){
-			User user = entitymanager.find(User.class, loggedUser);
-			Highscore highscore = user.getHighscore();
+			Highscore highscore = entitymanager.find(Highscore.class, loggedUser);
 			highscore.setHighscore(points);
-			user.setHighscore(highscore);
-			entitymanager.persist(user);
+			entitymanager.persist(highscore);
 			logger.log(Level.INFO, "Highscore have been increaqsed by "+points+" ");
 		}
 		else{
@@ -138,36 +134,27 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 	@Override
 	public Highscore getHighscore() throws NotLoggedInException {
 		if(this.loggedUser != null){
-			User user = entitymanager.find(User.class, loggedUser);
-			return user.getHighscore();
+			Highscore highscore = entitymanager.find(Highscore.class, loggedUser);
+			return highscore;
 		}
 		else{
 			throw new NotLoggedInException("Not logged in");
 		}
 	}
 
-
+	//TODO
 	@Override
 	public List<Highscore> getHighscoreList() {
-		Query query = entitymanager.createQuery("SELECT * FROM USER");
-		List<?> userlist = query.getResultList();
-		List<Highscore> highscorelist = new ArrayList<Highscore>();
-		for(Object object : userlist){
-			if(object instanceof User){
-				User user = (User)object; 
-				highscorelist.add(user.getHighscore());
-			}
-		}
-		return highscorelist;
+		return null;
 	}
 
 
 	@Override
 	public void addPoints(int points, String password) throws NotLoggedInException {
 		if(loggedUser != null){
-			User user = entitymanager.find(User.class, loggedUser);
-			user.getHighscore().addPoints(points);
-			entitymanager.persist(user);
+			Highscore highscore = entitymanager.find(Highscore.class, loggedUser);
+			highscore.addPoints(points);
+			entitymanager.persist(highscore);
 		}
 		
 	}
@@ -177,7 +164,8 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 	public void setGameState(String gamestate) throws NotLoggedInException {
 		if(this.loggedUser != null){
 			User user = entitymanager.find(User.class, this.loggedUser);
-			user.getGamestate().setState(gamestate);
+			user.setGameState(gamestate);
+			entitymanager.persist(user);
 		}
 		else{
 			throw new NotLoggedInException("Not logged in");
@@ -190,7 +178,7 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 	public String getGameState() throws NotLoggedInException {
 		if(this.loggedUser != null){
 			User user = entitymanager.find(User.class, this.loggedUser);
-			return user.getGamestate().getState();
+			return user.getGameState();
 		}
 		else{
 			throw new NotLoggedInException("Not logged in");

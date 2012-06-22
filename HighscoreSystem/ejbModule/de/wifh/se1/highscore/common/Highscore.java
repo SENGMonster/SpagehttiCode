@@ -1,4 +1,4 @@
-package de.wifhm.se1.battleship.common;
+package de.wifh.se1.highscore.common;
 
 import java.io.Serializable;
 

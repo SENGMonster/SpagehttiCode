@@ -3,12 +3,8 @@ package de.wifhm.se1.battleship.common;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlID;
 
 
@@ -24,11 +20,9 @@ public class User implements Serializable{
 	
 	private String password;
 	
-	@OneToOne(mappedBy="owner", fetch=FetchType.EAGER, optional=false)
-	private GameState gamestate;
 	
-	@OneToOne(mappedBy="owner", fetch=FetchType.EAGER, optional=false)
-	private Highscore highscore;
+	private String gamestate;
+	
 			
 	public User(){
 		super();
@@ -37,6 +31,7 @@ public class User implements Serializable{
 	public User(String username, String password) {
 		this.username = username;
 		this.password = password;
+		this.gamestate = "";
 	}
 
 	/**
@@ -71,22 +66,18 @@ public class User implements Serializable{
 	/**
 	 * @return the highscore
 	 */
-	public Highscore getHighscore() {
-		return highscore;
-	}
+	
 
 	/**
 	 * @param highscore the highscore to set
 	 */
-	public void setHighscore(Highscore highscore) {
-		this.highscore = highscore;
-	}
+	
 
-	public GameState getGamestate() {
-		return gamestate;
+	public void setGameState(String s){
+		this.gamestate = s;
 	}
-
-	public void setGamestate(GameState gamestate) {
-		this.gamestate = gamestate;
+	
+	public String getGameState(){
+		return this.gamestate;
 	}
 }
