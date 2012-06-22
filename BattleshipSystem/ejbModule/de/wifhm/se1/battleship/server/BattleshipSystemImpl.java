@@ -45,6 +45,9 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 	@SuppressWarnings("unused")
 	@PostConstruct
 	@TransactionAttribute(TransactionAttributeType.SUPPORTS)
+	/**
+	 * Methode wird beim erstellen eines neuen SessionBeans ausgeführt
+	 */
 	private void create(){
 		logger.log(Level.INFO, this + ": is created!");
 	}
@@ -52,6 +55,9 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 	
 	@PreDestroy
 	@TransactionAttribute(TransactionAttributeType.SUPPORTS)
+	/**
+	 * Methode wird beim zerstören einer SessionBean gestartet
+	 */
 	public void destroyed(){
 		logger.log(Level.INFO, this + ": will be destroyed!");
 	}

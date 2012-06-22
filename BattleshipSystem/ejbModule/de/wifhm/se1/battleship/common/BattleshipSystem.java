@@ -57,8 +57,18 @@ public interface BattleshipSystem {
 	 */
 	public String getAgentGameState() throws NotLoggedInException;
 	
+	/**
+	 * 
+	 * @param points
+	 * @throws NotLoggedInException
+	 */
 	public void addPoints(int points) throws NotLoggedInException;
 	
+	/**
+	 * 
+	 * @return
+	 * @throws NotLoggedInException
+	 */
 	public List<User> getHighscoreList() throws NotLoggedInException;
 	
 }
