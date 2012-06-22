@@ -1,5 +1,6 @@
 package de.wifhm.se1.android.activity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.ksoap2.SoapFault;
@@ -39,7 +40,9 @@ public class HighscoreActivity extends Activity {
 		try {
 			//TODO
 			List<User>highscores = bsstub.getBsStub().getHighscoreList();
-			
+			/*List<User> highscores = new ArrayList<User>();
+			highscores.add(new User("test", "test"));
+			highscores.add(new User("Test2", "Test3"));*/
 			if(highscores.size() > 0 ){
 				highscorelist.setAdapter(new HighscoreListAdapter(this, highscores));
 			}

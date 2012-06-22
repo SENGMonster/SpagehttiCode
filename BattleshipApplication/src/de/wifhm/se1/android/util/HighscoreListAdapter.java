@@ -3,6 +3,7 @@ package de.wifhm.se1.android.util;
 import java.util.List;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,7 +44,7 @@ public class HighscoreListAdapter extends BaseAdapter {
 		// TODO Auto-generated method stub
 		ViewHolder holder;
 		View v = convertView;
-		
+		Log.d("Test", " " + highscorelist.size());
 		User highscore = this.highscorelist.get(position);
 		if(v == null){
 			holder = new ViewHolder();
@@ -53,12 +54,16 @@ public class HighscoreListAdapter extends BaseAdapter {
 			holder.username = (TextView)v.findViewById(R.id.highscoreuser);
 			holder.highscorepoints = (TextView)v.findViewById(R.id.highscorepoints);
 			
+			v.setTag(holder);
+			
 		}
 		else{
 			holder = (ViewHolder) v.getTag();
 		}
+		Log.d("Test", "Username: " + highscore.getUsername());
+		Log.d("Test", "Points: " + highscore.getHighscore());
 		holder.username.setText(highscore.getUsername());
-		holder.highscorepoints.setText(highscore.getHighscore());
+		holder.highscorepoints.setText("Punkte: " + highscore.getHighscore().toString());
 		return v;
 	}
 	

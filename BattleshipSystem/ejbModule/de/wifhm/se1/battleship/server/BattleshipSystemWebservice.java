@@ -166,7 +166,7 @@ public class BattleshipSystemWebservice implements BattleshipSystem {
 
 	@Override
 	@WebMethod
-	public List<User> getHighscoreList() {
+	public List<User> getHighscoreList() throws NotLoggedInException{
 		// TODO Auto-generated method stub
 		return this.getSession().getHighscoreList();
 	}

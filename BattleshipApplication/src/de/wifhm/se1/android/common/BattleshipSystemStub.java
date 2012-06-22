@@ -42,8 +42,14 @@ public class BattleshipSystemStub implements BattleshipSystem {
 			SoapObject soapUser = (SoapObject)response;
 			String soapUsername = soapUser.getPropertyAsString("username");
 			String soapPassword = soapUser.getPropertyAsString("password");
+			String soapPlayerGameState = soapUser.getPropertyAsString("playerGameState");
+			String soapAgentGameState = soapUser.getPropertyAsString("agentGameState");
+			int soapHighscore = new Integer(soapUser.getPropertyAsString("highscore"));
 			
 			result = new User(soapUsername, soapPassword);
+			result.setPlayerGameState(soapPlayerGameState);
+			result.setAgentGameState(soapAgentGameState);
+			result.setHighscore(soapHighscore);
 		}
 		
 		return result;
@@ -84,11 +90,43 @@ public class BattleshipSystemStub implements BattleshipSystem {
 	 * (non-Javadoc)
 	 * @see de.wifhm.se1.android.common.BattleshipSystem#getHighscoreList()
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> getHighscoreList() throws SoapFault {
 		String METHOD_NAME = "getHighscoreList";
-		return (List<User>)executeSoapAction(METHOD_NAME);
+		List<User> list = new ArrayList<User>();
+		
+		SoapObject response = (SoapObject) executeSoapAction(METHOD_NAME);
+
+        final int intPropertyCount = response.getPropertyCount();
+
+        for (int i = 0; i < intPropertyCount; i++) {
+        	Object object = response.getProperty(i);
+        	if(object instanceof SoapObject){
+        		SoapObject responseChild = (SoapObject) object;
+                
+                User tempObj = new User();
+
+                if (responseChild.hasProperty("username")) {
+                    tempObj.setUsername(responseChild.getPropertyAsString("username"));
+                }
+                if (responseChild.hasProperty("password")) {
+                    tempObj.setPassword(responseChild.getPropertyAsString("password"));
+                }
+
+               
+                if (responseChild.hasProperty("highscore")) {
+                    tempObj.setHighscore(new Integer(responseChild.getPropertyAsString("highscore")));
+                }
+
+                /** Adding temp PhongTro object to list */
+                list.add(tempObj);	
+        	}
+        	
+        }
+
+   
+		
+		return list;
 	}
 	
 	@Override
@@ -170,6 +208,53 @@ public class BattleshipSystemStub implements BattleshipSystem {
 			}
 			
 			result = envelope.getResponse();
+		}
+		catch(SoapFault e){
+			throw e;
+		} catch (IOException e) {
+			Log.e(TAG,"IOException: "+ e.toString());
+		} catch (XmlPullParserException e) {
+			Log.e(TAG,"XmlPullParserException: "+ e.toString());
+		}
+		return result;
+		
+	}
+	
+	private Object executeSoapActionList(String methodName, Object... args) throws SoapFault {
+		Object result = null;
+		
+		SoapObject request = new SoapObject(NAMESPACE, methodName);
+		
+		for(int i = 0; i < args.length; i++){
+			Log.i(TAG, ""+args[i].toString());
+			request.addPropertyIfValue("arg" + i, args[i]);
+		}
+		
+		SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+		
+		envelope.setOutputSoapObject(request);
+		
+		HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
+		
+		List<HeaderProperty> reqHeaders = null;
+		if(this.sessionId != null){
+			
+			reqHeaders = new ArrayList<HeaderProperty>();
+			reqHeaders.add(HttpHelper.getSessionIdHeader(this.sessionId));			
+		}
+		
+		try{
+			@SuppressWarnings("unchecked")
+			List<HeaderProperty> respHeaders = androidHttpTransport.call(NAMESPACE + methodName, envelope, reqHeaders);
+			Log.i(TAG, ""+respHeaders.size());
+			
+			String httpSession = HttpHelper.readJSessionId(respHeaders);
+			
+			if(httpSession != null){
+				this.sessionId = httpSession;
+			}
+			
+			result = envelope.bodyIn;
 		}
 		catch(SoapFault e){
 			throw e;

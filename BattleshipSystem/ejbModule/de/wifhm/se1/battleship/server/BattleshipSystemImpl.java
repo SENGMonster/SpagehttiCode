@@ -194,9 +194,14 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 
 
 	@Override
-	public List<User> getHighscoreList() {
-		String query = "SElECT e FROM User e ORDER BY highscore DESC ";
-		return entitymanager.createQuery(query, User.class).getResultList();
+	public List<User> getHighscoreList() throws NotLoggedInException {
+		if(loggedUser != null){
+			String query = "SElECT e FROM User e ORDER BY highscore DESC ";
+			return entitymanager.createQuery(query, User.class).getResultList();	
+		}
+		else{
+			throw new NotLoggedInException("Not logged in");
+		}
 		
 	}
 
