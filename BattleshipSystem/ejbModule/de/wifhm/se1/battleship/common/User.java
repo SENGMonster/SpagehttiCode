@@ -62,7 +62,7 @@ public class User implements Serializable{
 	public User(String username, String password) {
 		this.username = username;
 		this.password = password;
-		this.highscore = 0;
+		this.highscore = new Integer(0);
 		this.playergamestate = "";
 		this.agentgamestate = "";
 	}
