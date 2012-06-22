@@ -17,33 +17,39 @@ public class BattleFieldImageAdapter extends BaseAdapter {
 	private static final int count = 100;
 	
 	private Context mContext;
-    private Spielvorlage mSpielvorlage;
-    private Hashtable<Integer, Integer> dict;
+    protected Spielvorlage mSpielvorlage;
+    protected Hashtable<Integer, Integer> dict;
     
     public BattleFieldImageAdapter(Context c, Spielvorlage spielv) {
         mContext = c;
         mSpielvorlage=spielv;
         
-        
-        dict = new Hashtable<Integer, Integer>();
-      
-        for (Schiff s:spielv.getSchiffsliste()) {
-        	if(s.Positions != null)
-        	{
-        		String temp = s.getSchiffsname() +": ";
-        		for (int i = 0; i < s.Positions.size(); i++) {
-        			dict.put(s.Positions.get(i), s.getImage());	
-        			temp+=String.valueOf(s.Positions.get(i)) + ";";
-        		}
-        		System.out.println(temp);
-        	}
-        }
-        
-        int counter = GlobalHolder.getInstance().getNumOfRowsCols() *GlobalHolder.getInstance().getNumOfRowsCols() ;
-        for (int i = 0; i < counter; i++) {
-        	if (dict.get(i)==null) dict.put(i, R.drawable.wasser);
-		}
+        setSchiffe();
+       
       }
+    
+    protected void setSchiffe()
+    {
+    	 dict = new Hashtable<Integer, Integer>();
+         
+         for (Schiff s:mSpielvorlage.getSchiffsliste()) {
+         	if(s.Positions != null)
+         	{
+         		String temp = s.getSchiffsname() +": ";
+         		for (int i = 0; i < s.Positions.size(); i++) {
+         			dict.put(s.Positions.get(i), s.getImage());	
+         			temp+=String.valueOf(s.Positions.get(i)) + ";";
+         		}
+         		System.out.println(temp);
+         	}
+         }
+         
+         int counter = GlobalHolder.getInstance().getNumOfRowsCols() *GlobalHolder.getInstance().getNumOfRowsCols() ;
+         for (int i = 0; i < counter; i++) {
+         	if (dict.get(i)==null) dict.put(i, R.drawable.wasser);
+ 		}
+    	
+    }
     
     public void setWasser(int position){
     	

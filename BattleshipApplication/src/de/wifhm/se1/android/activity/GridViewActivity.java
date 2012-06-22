@@ -1,6 +1,8 @@
 package de.wifhm.se1.android.activity;
 
 
+import org.ksoap2.SoapFault;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.Toast;
 import android.widget.ViewSwitcher;
 import de.wifhm.se1.android.activity.R;
 import de.wifhm.se1.android.battleship.agent.Communicator;
@@ -24,11 +27,14 @@ import de.wifhm.se1.android.battleship.manager.Spielvorlage;
 public class GridViewActivity extends Activity {
     /** Called when the activity is first created. */
 	
+	BattleshipApplication bsstub;
 	private Battlefieldmanager mBattlefieldmanager;
 	BattleFieldImageAdapter imgadp;
 	BattleFieldImageAdapter agent_imgadp;
 	Communicator AgentCommunicator;
 	ViewSwitcher profilSwitcher;
+	Button UserOK;
+	Button AgentOK;
 	
 	private boolean isAllowedToSwitch=false;
 	
@@ -36,6 +42,8 @@ public class GridViewActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gridview);
+        
+        bsstub = (BattleshipApplication) getApplication();
         
         profilSwitcher = (ViewSwitcher) findViewById(R.id.profileSwitcher);        
     
@@ -54,36 +62,43 @@ public class GridViewActivity extends Activity {
        gridviewAgent.setAdapter(agent_imgadp);
        
        
-       Button AgentOK = (Button) findViewById(R.id.btnAgentOK);
-       Button UserOK = (Button) findViewById(R.id.btnUserOK);
+       AgentOK = (Button) findViewById(R.id.btnAgentOK);
+       UserOK = (Button) findViewById(R.id.btnUserOK);
+       UserOK.setVisibility(View.INVISIBLE);
        
        AgentOK.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
-				isAllowedToSwitch = false;
-				profilSwitcher.showNext();
-				while(!isAllowedToSwitch)
-				{
-					AgentTurn();
-				}
+				 if (isAllowedToSwitch)
+				 {
+					 setIsAllowedToSwitch(false, false);
+					 profilSwitcher.showNext();
+				 }
 			}
 		});
        
        UserOK.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
-				isAllowedToSwitch = false;
+			 if (isAllowedToSwitch)
+			 {
+				setIsAllowedToSwitch(false, true);
 				profilSwitcher.showPrevious();
+				while(!isAllowedToSwitch)
+				{
+					AgentTurn();
+				}
+			 }
 			}
 		});
        
        
-       Button testAgent = (Button) findViewById(R.id.btnTestAgent);
-       testAgent.setOnClickListener(new OnClickListener(){
-			public void onClick(View v) {
-				
-				
-				
-			}
-		});
+//       Button testAgent = (Button) findViewById(R.id.btnTestAgent);
+//       testAgent.setOnClickListener(new OnClickListener(){
+//			public void onClick(View v) {
+//				
+//				
+//				
+//			}
+//		});
        
    
         
@@ -95,21 +110,30 @@ public class GridViewActivity extends Activity {
         gridviewAgent.setOnItemClickListener(new OnItemClickListener(){ 
             public void onItemClick(AdapterView<?> arg0, View v, int position,long id) {
             	
-            	HitStates result = mBattlefieldmanager.hasHitAShip(position, agent_imgadp, GridViewActivity.this); 
-
-				switch(result)
-				{
-					case HIT:
-						agent_imgadp.setTreffer(position);
-						break;
-					case DESTROYED:
-						agent_imgadp.setTreffer(position);
-						break;
-					case WATER:
-						agent_imgadp.setWasser(position);
-						isAllowedToSwitch = true;
-						break;
-				}      
+            
+            	//falls er noch nicht geschossen hat
+            	if(!isAllowedToSwitch)
+            	{
+            	
+	            	HitStates result = mBattlefieldmanager.hasHitAShip(position, agent_imgadp, GridViewActivity.this); 
+	
+					switch(result)
+					{
+						case HIT:
+							agent_imgadp.setTreffer(position);
+							break;
+						case DESTROYED:
+							agent_imgadp.setTreffer(position);
+							break;
+						case WATER:
+							agent_imgadp.setWasser(position);
+							setIsAllowedToSwitch(true, true);
+							break;
+						case END:
+							MakeEndToast(true, mBattlefieldmanager);
+							break;
+					} 
+            	}
   				
   			}
           	
@@ -134,10 +158,63 @@ public class GridViewActivity extends Activity {
 					break;
 				case WATER:
 					imgadp.setWasser(nextTurn);
-					isAllowedToSwitch = true;
+					setIsAllowedToSwitch(true, false);
+					break;
+				case END:
+					MakeEndToast(false, GlobalHolder.getInstance().getUserField());
 					break;
 					
 				
 			}   
+    }
+    
+    private void setIsAllowedToSwitch(boolean value, boolean User)
+    {
+    	isAllowedToSwitch = value;
+    	if (isAllowedToSwitch)
+    	{
+    		if(User)
+    		{
+    			UserOK.setVisibility(View.VISIBLE);
+    			String UserString = GlobalHolder.getInstance().getUserField().serializeInfoToString();
+    			try {
+					bsstub.getBsStub().setPlayerGameState(UserString);
+				} catch (SoapFault e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+    			System.out.println(UserString);
+    			
+    		}else{
+    			AgentOK.setVisibility(View.VISIBLE);
+    			String AgentString = GlobalHolder.getInstance().getUserField().serializeInfoToString();
+    			
+    			System.out.println(AgentString);
+    		}
+    	}
+    	else{
+    		if(User)
+    		{
+    			UserOK.setVisibility(View.INVISIBLE);
+    			
+    		}else{
+    			AgentOK.setVisibility(View.INVISIBLE);
+    		}
+    	}
+    	
+
+    }
+    
+    private void MakeEndToast(boolean user, Battlefieldmanager bm)
+    {
+    	String text="";
+    	if(user){
+    		text+="YEAH! Sie haben gewonnen mit " + String.valueOf(bm.getHighScore()) + " Punkten und " + String.valueOf(bm.getTurnCounter()) + "Zügen.";
+    	}
+    	else{ 
+    		text+="Schade! Sie haben verloren. \n Das Handymonster gewinnt mit " + String.valueOf(bm.getHighScore()) + " Punkten und " + String.valueOf(bm.getTurnCounter()) + "Zügen.";
+    	}
+    	
+    	Toast.makeText(GridViewActivity.this, text, Toast.LENGTH_LONG).show();
     }
 }

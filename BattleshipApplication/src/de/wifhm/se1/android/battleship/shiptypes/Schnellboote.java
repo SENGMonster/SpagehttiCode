@@ -24,6 +24,11 @@ public class Schnellboote extends Schiff{
 	public int getImage() {
 		return R.drawable.sample_5;
 	}
+
+	@Override
+	public char getShipChiffre() {
+		return 'b';
+	}
 	
 
 }

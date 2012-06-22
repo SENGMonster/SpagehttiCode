@@ -26,4 +26,9 @@ public class Minensuchboot extends Schiff{
 		return R.drawable.sample_3;
 	}
 
+	@Override
+	public char getShipChiffre() {
+		return 'm';
+	}
+
 }

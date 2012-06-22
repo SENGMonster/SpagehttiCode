@@ -44,7 +44,8 @@ public class PositionShipActivity extends Activity {
 	
 	
 	private Schiff currShip;
-	private int currShipIndex;
+	private ArrayList<Integer> alreadyPositionedShips = new ArrayList<Integer>();
+	private int currShipIndex;	
 	private int ShipPositionedCounter=0;
 	
     private int StartPosition=-1;
@@ -172,16 +173,19 @@ public class PositionShipActivity extends Activity {
 	    gallery.setOnItemClickListener(new OnItemClickListener() {
 	        public void onItemClick(AdapterView parent, View v, int position, long id) {
 	           // Toast.makeText(PositionShipActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+	        	
+	         if (!alreadyPositionedShips.contains(position))
+	         {
 	            
 	            Schiff item = GlobalHolder.getInstance().getUserShips().getSchiffsliste().get(position);
 	            currShip = item;
-	            currShipIndex = position;	            
+	            currShipIndex = position;
 	            shipimg.setImageResource(item.getImage());
 	            shipimg.setVisibility(View.VISIBLE);
 	            txtShipName.setText(item.getSchiffsname());
 	            txtShipLength.setText(String.valueOf(item.getShipLength()));
 	            
-	           
+	         } 
 	        }
 	    });
 	    
@@ -304,9 +308,22 @@ public class PositionShipActivity extends Activity {
 		            		}
 		            		if(position!=StartPosition)
 		            		{
-			            		EndPosition = position;
-			            		FulfillShip(currShip.getImage());
-			            		btnOK.setVisibility(View.VISIBLE);
+		            			//überprüfen ob die geklickte Stelle richtig war
+		            			boolean correctPosition=false;
+		            			for(int i=0; i<possibleEndPositions.length; i++)
+		            			{
+		            				if(possibleEndPositions[i]==position)
+		            				{
+		            					correctPosition=true;
+		            					break;
+		            				}
+		            			}
+		            			if(correctPosition)
+		            			{
+				            		EndPosition = position;
+				            		FulfillShip(currShip.getImage());
+				            		btnOK.setVisibility(View.VISIBLE);
+		            			}
 		            		}
 		            		
 		            	}//end if ClickCounter==0
@@ -350,7 +367,8 @@ public class PositionShipActivity extends Activity {
 					impossibleFields.add(i);	
 				}
 		
-				
+				//Das Item darf nicht mehr benutzt werden;
+				alreadyPositionedShips.add(currShipIndex);
 				
 				Reset();
 			    HideAllButtonStuff();

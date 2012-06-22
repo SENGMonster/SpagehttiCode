@@ -55,11 +55,12 @@
 					android:verticalSpacing="-1px"
 					android:horizontalSpacing="-1px"
 					android:gravity="center" />		
-		<Button
+		 <Button
 		        android:id="@+id/btnTestAgent"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
-		        android:text="Test Agent" />
+		        android:text="Test Agent"
+		        android:visibility="gone" />
 			<Button
 		        android:id="@+id/btnAgentOK"
 		        android:layout_width="match_parent"
