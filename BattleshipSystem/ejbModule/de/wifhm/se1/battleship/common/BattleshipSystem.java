@@ -35,33 +35,30 @@ public interface BattleshipSystem {
 	 * @param gamestate
 	 * @throws NotLoggedInException
 	 */
-	public void setGameState(String gamestate) throws NotLoggedInException;	
+	public void setPlayerGameState(String playergamestate) throws NotLoggedInException;	
 	/**
 	 * 
 	 * @return
 	 * @throws NotLoggedInException
 	 */
-	public String getGameState() throws NotLoggedInException;
+	public String getPlayerGameState() throws NotLoggedInException;
 	
 	/**
 	 * 
-	 * @param points
+	 * @param agentgamestate
 	 * @throws NotLoggedInException
 	 */
-	public void setHighscore(int points) throws NotLoggedInException;
+	public void setAgentGameState(String agentgamestate) throws NotLoggedInException;
+	
 	/**
 	 * 
 	 * @return
 	 * @throws NotLoggedInException
 	 */
-	public Highscore getHighscore() throws NotLoggedInException;
-	/**
-	 * 
-	 * @param points
-	 * @throws NotLoggedInException
-	 */
-	public void addPoints(int points, String password) throws NotLoggedInException;
+	public String getAgentGameState() throws NotLoggedInException;
 	
-	public List<Highscore> getHighscoreList();
+	public void addPoints(int points) throws NotLoggedInException;
+	
+	public List<User> getHighscoreList();
 	
 }

@@ -6,7 +6,6 @@ import org.ksoap2.SoapFault;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,7 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import de.wifhm.se1.android.common.Highscore;
+import de.wifhm.se1.android.common.User;
 import de.wifhm.se1.android.util.HighscoreListAdapter;
 
 public class HighscoreActivity extends Activity {
@@ -38,12 +37,10 @@ public class HighscoreActivity extends Activity {
 		
 		
 		try {
-			List<Highscore>highscores = bsstub.getBsStub().getHighscoreList();
-			for(Highscore h : highscores){
-				Log.e(TAG, ""+h.getHighscore());
-				Log.e(TAG, h.getOwner().getUsername());
-			}
-			if(highscores.size() != 0 ){
+			//TODO
+			List<User>highscores = bsstub.getBsStub().getHighscoreList();
+			
+			if(highscores.size() > 0 ){
 				highscorelist.setAdapter(new HighscoreListAdapter(this, highscores));
 			}
 			else{

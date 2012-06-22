@@ -28,36 +28,44 @@ public interface BattleshipSystem {
 	
 	/**
 	 * 
-	 * @param gamestate
-	 * @throws NotLoggedInException
-	 */
-	public void setGameState(String gamestate) throws SoapFault;	
-	/**
-	 * 
-	 * @return
-	 * @throws NotLoggedInException
-	 */
-	public String getGameState() throws SoapFault;
-	
-	/**
-	 * 
 	 * @param points
 	 * @throws NotLoggedInException
 	 */
-	public void setHighscore(int points) throws SoapFault;
+	public void addPoints(int points) throws SoapFault;
+
+	/**
+	 * 
+	 * @param playergamestate
+	 * @throws SoapFault
+	 */
+	public void setPlayerGameState(String playergamestate) throws SoapFault;	
+	
 	/**
 	 * 
 	 * @return
-	 * @throws NotLoggedInException
+	 * @throws SoapFault
 	 */
-	public Highscore getHighscore() throws SoapFault;
+	public String getPlayerGameState() throws SoapFault;
+	
 	/**
 	 * 
-	 * @param points
-	 * @throws NotLoggedInException
+	 * @param agentgamestate
+	 * @throws SoapFault
 	 */
-	public void addPoints(int points, String password) throws SoapFault;
+	public void setAgentGameState(String agentgamestate) throws SoapFault;
 	
-	public List<Highscore> getHighscoreList() throws SoapFault;
+	/**
+	 * 
+	 * @return
+	 * @throws SoapFault
+	 */
+	public String getAgentGameState() throws SoapFault;
+	
+	/**
+	 * 
+	 * @return
+	 * @throws SoapFault
+	 */
+	public List<User> getHighscoreList() throws SoapFault;
 	
 }

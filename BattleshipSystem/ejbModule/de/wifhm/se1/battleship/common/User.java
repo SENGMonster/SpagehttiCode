@@ -21,9 +21,40 @@ public class User implements Serializable{
 	private String password;
 	
 	
-	private String gamestate;
+	private String playergamestate;
+	private String agentgamestate;
+	
+	private Integer highscore;
 	
 			
+	public String getPlayerGameState() {
+		return playergamestate;
+	}
+
+	public void setPlayerGameState(String playergamestate) {
+		this.playergamestate = playergamestate;
+	}
+
+	public String getAgentGameState() {
+		return agentgamestate;
+	}
+
+	public void setAgentGameState(String agentgamestate) {
+		this.agentgamestate = agentgamestate;
+	}
+
+	public Integer getHighscore() {
+		return highscore;
+	}
+
+	public void setHighscore(Integer highscore) {
+		this.highscore = highscore;
+	}
+	
+	public void addPoints(int points){
+		this.highscore = this.highscore + points;
+	}
+
 	public User(){
 		super();
 	}
@@ -31,7 +62,9 @@ public class User implements Serializable{
 	public User(String username, String password) {
 		this.username = username;
 		this.password = password;
-		this.gamestate = "";
+		this.highscore = 0;
+		this.playergamestate = "";
+		this.agentgamestate = "";
 	}
 
 	/**
@@ -62,22 +95,6 @@ public class User implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	/**
-	 * @return the highscore
-	 */
 	
-
-	/**
-	 * @param highscore the highscore to set
-	 */
 	
-
-	public void setGameState(String s){
-		this.gamestate = s;
-	}
-	
-	public String getGameState(){
-		return this.gamestate;
-	}
 }
