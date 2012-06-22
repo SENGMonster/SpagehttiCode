@@ -99,32 +99,37 @@ public class BattleshipSystemStub implements BattleshipSystem {
 	public List<User> getHighscoreList() throws SoapFault {
 		String METHOD_NAME = "getHighscoreList";
 		List<User> list = new ArrayList<User>();
+		Object o = executeSoapAction(METHOD_NAME);
+		if(o instanceof SoapObject){
+			SoapObject response = (SoapObject) executeSoapAction(METHOD_NAME);
+			
+			 final int intPropertyCount = response.getPropertyCount();
+
+		        for (int i = 0; i < intPropertyCount; i++) {
+		        	Object object = response.getProperty(i);
+		        	if(object instanceof SoapObject){
+		        		SoapObject responseChild = (SoapObject) object;
+		                
+		                User tempObj = new User();
+
+		                if (responseChild.hasProperty("username")) {
+		                    tempObj.setUsername(responseChild.getPropertyAsString("username"));
+		                }
+		                if (responseChild.hasProperty("password")) {
+		                    tempObj.setPassword(responseChild.getPropertyAsString("password"));
+		                }
+
+		               
+		                if (responseChild.hasProperty("highscore")) {
+		                    tempObj.setHighscore(new Integer(responseChild.getPropertyAsString("highscore")));
+		                }
+
+		                list.add(tempObj);	
+		        	}
+		        }
 		
-		SoapObject response = (SoapObject) executeSoapAction(METHOD_NAME);
 
-        final int intPropertyCount = response.getPropertyCount();
-
-        for (int i = 0; i < intPropertyCount; i++) {
-        	Object object = response.getProperty(i);
-        	if(object instanceof SoapObject){
-        		SoapObject responseChild = (SoapObject) object;
-                
-                User tempObj = new User();
-
-                if (responseChild.hasProperty("username")) {
-                    tempObj.setUsername(responseChild.getPropertyAsString("username"));
-                }
-                if (responseChild.hasProperty("password")) {
-                    tempObj.setPassword(responseChild.getPropertyAsString("password"));
-                }
-
-               
-                if (responseChild.hasProperty("highscore")) {
-                    tempObj.setHighscore(new Integer(responseChild.getPropertyAsString("highscore")));
-                }
-
-                list.add(tempObj);	
-        	}
+       
         	
         }
 
