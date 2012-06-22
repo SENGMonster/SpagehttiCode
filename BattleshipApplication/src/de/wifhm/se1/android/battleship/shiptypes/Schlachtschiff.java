@@ -26,4 +26,10 @@ public class Schlachtschiff  extends Schiff{
 		return R.drawable.sample_4;
 	}
 
+
+	@Override
+	public char getShipChiffre() {
+		return 's';
+	}
+
 }

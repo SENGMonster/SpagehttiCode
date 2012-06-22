@@ -27,4 +27,10 @@ public class Flugzeugtraeger extends Schiff {
 		return R.drawable.sample_1;
 	}
 
+
+	@Override
+	public char getShipChiffre() {
+		return 'f';
+	}
+
 }

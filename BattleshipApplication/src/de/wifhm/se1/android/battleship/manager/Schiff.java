@@ -7,7 +7,7 @@ public abstract class Schiff {
 
 	private static int numOfRowsCols = GlobalHolder.getInstance().getNumOfRowsCols();
 	protected ArrayList<Integer> Positions;
-	
+	private boolean isHorizontal;
 	
 	public Schiff(){
 		initialize();
@@ -17,6 +17,10 @@ public abstract class Schiff {
 	{
 		Image = getImage();
 			
+	}
+	
+	public boolean isHorizontal(){
+		return isHorizontal;
 	}
 	
 	public ArrayList<Integer> setSchiffspositions(int StartPosition, int EndPosition)
@@ -47,6 +51,8 @@ public abstract class Schiff {
 				 ImpossibleRowsAround = Helper.setImpossibleFieldsaroundShip(array, false);
 			}
 			else { //horizontale Anordnung
+				
+				isHorizontal=true;
 				
 				if(differenz>0)//nach rechts
 				{
@@ -79,9 +85,7 @@ public abstract class Schiff {
 	
 	public ArrayList<Integer> getSchiffspositions()
 	{
-		
 		return Positions;
-		
 	}
 	
 	public String getSchiffsname()
@@ -103,15 +107,20 @@ public abstract class Schiff {
 		}
 	}
 	
+	public ArrayList<Integer> getHitPositions(){
+		return HitPositions;
+	}
+	
 	private boolean isSunk;
 	public boolean getIsSunk()
 	{
 		return isSunk;
 	}
 	
+	//von den Schiffen zu setzen 
 	public abstract int getShipLength();
+	public abstract char getShipChiffre();
 	protected abstract String getName();
-	
 	
 	protected int Image;
 	public abstract int getImage();

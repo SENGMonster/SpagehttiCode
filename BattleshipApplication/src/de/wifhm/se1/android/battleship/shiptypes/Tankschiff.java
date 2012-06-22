@@ -25,4 +25,10 @@ public class Tankschiff  extends Schiff{
 		return 3;
 	}
 
+	@Override
+	public char getShipChiffre() {
+		// TODO Auto-generated method stub
+		return 't';
+	}
+
 }
