@@ -30,6 +30,8 @@ import de.wifhm.se1.battleship.server.exceptions.NotLoggedInException;
 
 /**
  * Session Bean implementation class BattleshipSystemWebservice
+ * Statless Session Bean implementiert einen Webservice, der als Schnittstelle zwischen dem Client und dem Server
+ * fungiert. 
  */
 @Stateless
 @WebService
@@ -46,6 +48,9 @@ public class BattleshipSystemWebservice implements BattleshipSystem {
 	
 	@SuppressWarnings("unused")
 	@PostConstruct
+	/**
+	 * 
+	 */
 	private void create(){
 		logger.log(Level.INFO, this + " was created");
 	}
@@ -130,12 +135,16 @@ public class BattleshipSystemWebservice implements BattleshipSystem {
 
 	@Override
 	@WebMethod
+	/*
+	 * (non-Javadoc)
+	 * @see de.wifhm.se1.battleship.common.BattleshipSystem#setPlayerGameState(java.lang.String)
+	 */
 	public void setPlayerGameState(String playergamestate)
 			throws NotLoggedInException {
 		this.getSession().setPlayerGameState(playergamestate);
 		
 	}
-
+	
 	@Override
 	@WebMethod
 	public String getPlayerGameState() throws NotLoggedInException {
@@ -145,6 +154,10 @@ public class BattleshipSystemWebservice implements BattleshipSystem {
 
 	@Override
 	@WebMethod
+	/*
+	 * (non-Javadoc)
+	 * @see de.wifhm.se1.battleship.common.BattleshipSystem#setAgentGameState(java.lang.String)
+	 */
 	public void setAgentGameState(String agentgamestate)
 			throws NotLoggedInException {
 		this.getSession().setAgentGameState(agentgamestate);
@@ -152,6 +165,10 @@ public class BattleshipSystemWebservice implements BattleshipSystem {
 
 	@Override
 	@WebMethod
+	/**
+	 * (non-Javadoc)
+	 * @see de.wifhm.se1.battleship.common.BattleshipSystem#getAgentGameState()
+	 */
 	public String getAgentGameState() throws NotLoggedInException {
 		// TODO Auto-generated method stub
 		return this.getSession().getAgentGameState();
@@ -159,6 +176,11 @@ public class BattleshipSystemWebservice implements BattleshipSystem {
 
 	@Override
 	@WebMethod
+	/**
+	 * 
+	 * 
+	 * @see de.wifhm.se1.battleship.common.BattleshipSystem#addPoints(int)
+	 */
 	public void addPoints(int points) throws NotLoggedInException {
 		// TODO Auto-generated method stub
 		this.getSession().addPoints(points);
@@ -166,6 +188,10 @@ public class BattleshipSystemWebservice implements BattleshipSystem {
 
 	@Override
 	@WebMethod
+	/**
+	 * 
+	 * @see de.wifhm.se1.battleship.common.BattleshipSystem#getHighscoreList()
+	 */
 	public List<User> getHighscoreList() throws NotLoggedInException{
 		// TODO Auto-generated method stub
 		return this.getSession().getHighscoreList();

@@ -11,15 +11,18 @@ import de.wifhm.se1.battleship.server.exceptions.NotLoggedInException;
 @Remote
 public interface BattleshipSystem {
 	/**
-	 * Login, logout register functions
+	 * 
 	 * @param username
 	 * @param password
+	 * @return User
 	 * @throws InvalidUsernameException
 	 * @throws InvalidPasswordException
+	 * 
+	 * Methode die den Login eines Nutzers durchführt und den User zurück gibt
 	 */
 	public User login(String username, String password) throws InvalidUsernameException, InvalidPasswordException;
 	/**
-	 * 
+	 * Methode für den Logout
 	 */
 	public void logout();
 	/**
@@ -27,6 +30,8 @@ public interface BattleshipSystem {
 	 * @param username
 	 * @param password
 	 * @throws InvalidUsernameException
+	 * 
+	 * Registriert einen neuen Nutzer und persitiert ihn auf der Datenbank
 	 */
 	public void register(String username, String password) throws InvalidUsernameException;
 	
@@ -34,12 +39,16 @@ public interface BattleshipSystem {
 	 * 
 	 * @param gamestate
 	 * @throws NotLoggedInException
+	 * 
+	 * Methode um den Spielstand des CLients zu speichern(persitierern)
 	 */
 	public void setPlayerGameState(String playergamestate) throws NotLoggedInException;	
 	/**
 	 * 
 	 * @return
 	 * @throws NotLoggedInException
+	 * 
+	 * Methode die den letzten vom Client gespeicherten Spielstand zurück gibt
 	 */
 	public String getPlayerGameState() throws NotLoggedInException;
 	
@@ -47,6 +56,8 @@ public interface BattleshipSystem {
 	 * 
 	 * @param agentgamestate
 	 * @throws NotLoggedInException
+	 * 
+	 * Methode um den Spielstand des Agent zu speichern(persitierern)
 	 */
 	public void setAgentGameState(String agentgamestate) throws NotLoggedInException;
 	
@@ -54,6 +65,8 @@ public interface BattleshipSystem {
 	 * 
 	 * @return
 	 * @throws NotLoggedInException
+	 * 
+	 * Methode die den letzten vom Agent gespeicherten Spielstand zurück gibt
 	 */
 	public String getAgentGameState() throws NotLoggedInException;
 	
@@ -61,6 +74,8 @@ public interface BattleshipSystem {
 	 * 
 	 * @param points
 	 * @throws NotLoggedInException
+	 * 
+	 * Methode addiert auf den Highscorestand des angemeldeten Users die Punkte
 	 */
 	public void addPoints(int points) throws NotLoggedInException;
 	
@@ -68,6 +83,8 @@ public interface BattleshipSystem {
 	 * 
 	 * @return
 	 * @throws NotLoggedInException
+	 * 
+	 * Gibt eine Liste aller registrierten Nutzer zurück
 	 */
 	public List<User> getHighscoreList() throws NotLoggedInException;
 	
