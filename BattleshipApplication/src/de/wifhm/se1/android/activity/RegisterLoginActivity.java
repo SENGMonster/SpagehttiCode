@@ -63,18 +63,22 @@ public class RegisterLoginActivity extends Activity {
 							        
 							        startActivity(new Intent(RegisterLoginActivity.this, HighscoreActivity.class));
 								} catch (SoapFault e) {
+									failure.setVisibility(View.VISIBLE);
 									failure.setText("Service isn't reachable");
 								}
 							}
 							else{
+								failure.setVisibility(View.VISIBLE);
 								failure.setText("Password fields aren't equal");
 							}
 						}
 						else{
+							failure.setVisibility(View.VISIBLE);
 							failure.setText("Password fields couldn't be empty");
 						}
 					}
 					else{
+						failure.setVisibility(View.VISIBLE);
 						failure.setText("Please enter a username");
 					}
 					
@@ -104,7 +108,7 @@ public class RegisterLoginActivity extends Activity {
         	Button send = (Button)findViewById(R.id.login);
         	Button register = (Button)findViewById(R.id.registerNew);
         	
-        	final TextView failure = (TextView)findViewById(R.id.failuremessage);
+        	final TextView failure = (TextView)findViewById(R.id.failuremessage2);
         	
         	send.setOnClickListener(new OnClickListener(){
 
@@ -116,14 +120,17 @@ public class RegisterLoginActivity extends Activity {
 								systemStub.getBsStub().login(usernametext.getText().toString(), passwordtext.getText().toString());
 								startActivity(new Intent(RegisterLoginActivity.this, HighscoreActivity.class));
 							} catch (SoapFault e) {
+								failure.setVisibility(View.VISIBLE);
 								failure.setText("Service isn't reachable");
 							}
 						}
 						else{
+							failure.setVisibility(View.VISIBLE);
 							failure.setText("Password couldn't be empty");
 						}
 					}
 					else{
+						failure.setVisibility(View.VISIBLE);
 						failure.setText("Username couldn't be empty");
 					}
 				}

@@ -40,8 +40,9 @@ public final class R {
         public static final int btnUserOK=0x7f090002;
         public static final int btnpositionship=0x7f090012;
         public static final int btnspielfeld=0x7f090011;
-        public static final int exit=0x7f090027;
+        public static final int exit=0x7f090028;
         public static final int failuremessage=0x7f09000e;
+        public static final int failuremessage2=0x7f090024;
         public static final int gallery=0x7f090014;
         public static final int gotothighscore=0x7f090013;
         public static final int gridview=0x7f090003;
@@ -54,9 +55,9 @@ public final class R {
         public static final int login=0x7f09000c;
         public static final int loginPassword=0x7f09000b;
         public static final int loginUsername=0x7f09000a;
-        public static final int logout=0x7f090026;
+        public static final int logout=0x7f090027;
         public static final int playgamebtn=0x7f090007;
-        public static final int preferences=0x7f090025;
+        public static final int preferences=0x7f090026;
         public static final int profileSwitcher=0x7f090000;
         public static final int reg=0x7f090010;
         public static final int registerNew=0x7f09000d;
@@ -71,7 +72,7 @@ public final class R {
         public static final int shiplength=0x7f090016;
         public static final int shipname=0x7f090017;
         public static final int spinner=0x7f09001d;
-        public static final int textView1=0x7f090024;
+        public static final int textView1=0x7f090025;
     }
     public static final class layout {
         public static final int gridview=0x7f030000;

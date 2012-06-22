@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import de.wifhm.se1.android.common.BattleshipSystemStub;
 
@@ -37,6 +38,8 @@ public class RegisterActivity extends Activity {
         final EditText password = (EditText)findViewById(R.id.registerPassword);
         final EditText repassword = (EditText)findViewById(R.id.registerPasswordRetype);
         
+        final TextView failure = (TextView)findViewById(R.id.failuremessage2);
+        
         Button register = (Button)findViewById(R.id.send);
         
         register.setOnClickListener(new OnClickListener(){
@@ -54,8 +57,11 @@ public class RegisterActivity extends Activity {
 				        editor.commit();
 						RegisterActivity.this.setContentView(R.layout.succregister);
 					} catch (SoapFault e) {
+						failure.setVisibility(View.VISIBLE);
+						failure.setText(e.getMessage());
 						Toast.makeText(RegisterActivity.this, "Registration failed, username already exsits", Toast.LENGTH_LONG);
 						Log.e(TAG, "Login failed");
+						
 					}
 				}
 				else{
