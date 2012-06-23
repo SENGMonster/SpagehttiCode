@@ -97,7 +97,12 @@ public abstract class Schiff {
 	private ArrayList<Integer> HitPositions = new ArrayList<Integer>();
 
 	public boolean setHitPosition(int pos){	
-		HitPositions.add(pos);
+		
+		if(!HitPositions.contains(pos))
+		{
+			HitPositions.add(pos);
+		}
+		
 		if (HitPositions.size() == getShipLength()){
 			isSunk=true;
 			return true;

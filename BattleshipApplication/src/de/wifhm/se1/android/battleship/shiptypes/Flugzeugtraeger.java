@@ -24,7 +24,7 @@ public class Flugzeugtraeger extends Schiff {
 
 	@Override
 	public int getImage() {
-		return R.drawable.sample_1;
+		return R.drawable.sample1;
 	}
 
 

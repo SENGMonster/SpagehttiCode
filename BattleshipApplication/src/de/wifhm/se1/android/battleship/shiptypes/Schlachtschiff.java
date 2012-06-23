@@ -23,7 +23,7 @@ public class Schlachtschiff  extends Schiff{
 
 	@Override
 	public int getImage() {
-		return R.drawable.sample_4;
+		return R.drawable.sample3;
 	}
 
 

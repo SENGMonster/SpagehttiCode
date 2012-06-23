@@ -17,7 +17,7 @@ public class Tankschiff  extends Schiff{
 
 	@Override
 	public int getImage() {
-		return R.drawable.sample_2;
+		return R.drawable.sample5;
 	}
 
 	@Override

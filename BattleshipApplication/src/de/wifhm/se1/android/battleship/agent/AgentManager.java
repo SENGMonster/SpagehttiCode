@@ -6,25 +6,14 @@ import de.wifhm.se1.android.battleship.manager.FieldState;
 import de.wifhm.se1.android.battleship.manager.GlobalHolder;
 
 public class AgentManager {
-	
-	private static AgentManager myInstance;
+		
 	private int maxlength=5;
 	private int numOfRowsCols =10;
 	private int numOfRowsColsT2 =100;
 	
-	private AgentManager(){
+	public AgentManager(){
 	}	
 	
-	public static AgentManager getInstance()
-	{
-		if (myInstance==null)
-		{
-			myInstance = new AgentManager();		}
-
-		return myInstance; 
-	}
-	
-
 	private ArrayList<Coordinate> Koordinatenliste;
 	
 	
@@ -34,7 +23,7 @@ public class AgentManager {
 
 	public void setKoordinatenliste(ArrayList<Coordinate> koordinatenliste) {
 		Koordinatenliste = koordinatenliste;
-	}
+	}	
 	
 	public void setFieldStateForCoordinate(int nr, FieldState fs)
 	{

@@ -2,6 +2,7 @@ package de.wifhm.se1.android.battleship.manager;
 
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 import android.app.Activity;
 import android.view.View;
@@ -16,14 +17,18 @@ public class Battlefieldmanager {
 
 	private Spielvorlage mSpielvorlage;
 	private ArrayList<Integer> WaterHits = new ArrayList<Integer>();
+	private int turnCounter;
+	
+	public Schiff lastDestroyedShip;
 	
 	public Battlefieldmanager(Spielvorlage spiel){
 		
 		mSpielvorlage= spiel;
 	}
 	
-	public Schiff lastDestroyedShip;
-	private int turnCounter;
+	public ArrayList<Integer> getWaterHits(){
+		return WaterHits;
+	}
 	
 	public HitStates hasHitAShip(int position, BattleFieldImageAdapter mImageAdapter,  Activity a)
 	{
@@ -143,6 +148,76 @@ public class Battlefieldmanager {
 	
 	public void deserializeMeFromString(String BattlefieldString){
 		
+		if (BattlefieldString!=null)
+		{
+		
+			Hashtable<String, Schiff> ht = new Hashtable<String, Schiff>();
+			for(Schiff s:mSpielvorlage.getSchiffsliste())
+			{
+				ht.put(String.valueOf(s.getShipChiffre()), s);
+			}
+			
+			
+			String[] Felder = BattlefieldString.split(";");
+			for(int i=0;i<Felder.length; i++){
+				
+				String gesamt= Felder[i];
+				
+				//Spielfeld Status : wasser (w), getroffen (h), noch nicht beschossen (u)
+				char spielstatus = gesamt.charAt(0);
+				//Schiff (falls eins da steht) sonst x
+				char schiffChiffre = gesamt.charAt(1);
+				//Ausrichtung des Schiffes (horizontal (t), vertikal (f), falls kein Schiff(x)
+				char isHorizontal = gesamt.charAt(2);
+				
+				//alle Wasser felder ins Array aufnehmen.
+				if(spielstatus=='w'){
+					WaterHits.add(i);
+				}
+				
+				if(schiffChiffre!='x'){
+					Schiff ship = ht.get(schiffChiffre);
+					if (ship!=null)
+					{
+						
+							int counter = 1;
+							
+							//alle Positionen auffüllen
+							//horizontales Schiff:
+							if(isHorizontal=='t'){
+								counter =1;
+							}
+							//vertikales Schiff:
+							if(isHorizontal=='f')
+							{
+								counter =GlobalHolder.getInstance().getNumOfRowsCols();
+							}
+						
+						
+							for(int y=0; y<ship.getShipLength(); y+=counter){
+								
+								int pos = i + y;
+								
+								ship.Positions.add(pos);
+								
+								//alle abgeschossenen Felder für dieses Schiff auffüllen
+								if(Felder[pos].charAt(0)=='h'){
+									ship.setHitPosition(pos);
+								}
+								
+							}//end for
+					}//end if ship!=null
+						
+						
+				}
+			}
+		}
+			
 	}
 	
 }
+		
+	
+
+	
+

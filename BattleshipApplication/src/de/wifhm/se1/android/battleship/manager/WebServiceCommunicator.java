@@ -3,20 +3,55 @@ package de.wifhm.se1.android.battleship.manager;
 import org.ksoap2.SoapFault;
 
 import de.wifhm.se1.android.activity.BattleshipApplication;
+import de.wifhm.se1.android.common.BattleshipSystemStub;
 
 public class WebServiceCommunicator {
 	
-	BattleshipApplication bsstub;
+	BattleshipApplication battleshipapp;
+	BattleshipSystemStub bsstub;
 
 	public WebServiceCommunicator(BattleshipApplication ab)
 	{
-		  bsstub = ab;
+		  battleshipapp = ab;
+		  bsstub = battleshipapp.getBsStub();
+	}
+	
+	
+	public String getUserGame(){	
+		
+		try {
+			String result=bsstub.getPlayerGameState();
+			return result;
+		} catch (SoapFault e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+			// so tun als hätte der User kein Spiel?
+			return "\"\"";
+		}
+		
+	}
+	
+	public String getComputerGame(){
+		
+		try {
+			String result=bsstub.getAgentGameState();
+			return result;
+		} catch (SoapFault e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+			// so tun als hätte der Computer kein Spiel?
+			return "\"\"";
+		}
+		
+		
 	}
 	
 	public boolean sendPlayerGame(String UserString){
 		
 			try {
-				bsstub.getBsStub().setPlayerGameState(UserString);
+				bsstub.setPlayerGameState(UserString);
 			
 			} catch (SoapFault e) {
 				
@@ -30,7 +65,7 @@ public class WebServiceCommunicator {
 	public boolean sendAgentGame(String AgentString){
 		
 		try {
-			bsstub.getBsStub().setPlayerGameState(AgentString);
+			bsstub.setPlayerGameState(AgentString);
 		
 		} catch (SoapFault e) {
 			

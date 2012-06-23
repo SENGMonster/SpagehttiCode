@@ -23,7 +23,7 @@ public class Minensuchboot extends Schiff{
 
 	@Override
 	public int getImage() { 
-		return R.drawable.sample_3;
+		return R.drawable.sample2;
 	}
 
 	@Override

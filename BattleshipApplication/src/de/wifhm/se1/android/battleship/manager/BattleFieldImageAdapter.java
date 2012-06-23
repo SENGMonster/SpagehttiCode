@@ -1,5 +1,6 @@
 package de.wifhm.se1.android.battleship.manager;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 
 import android.content.Context;
@@ -15,29 +16,57 @@ public class BattleFieldImageAdapter extends BaseAdapter {
     
 	
 	private static final int count = 100;
-	
+		
 	private Context mContext;
     protected Spielvorlage mSpielvorlage;
     protected Hashtable<Integer, Integer> dict;
+    protected ArrayList<Integer> Waterfields;
     
-    public BattleFieldImageAdapter(Context c, Spielvorlage spielv) {
+    public BattleFieldImageAdapter(Context c, Spielvorlage spielv, ArrayList<Integer> tempWaterfields) {
         mContext = c;
         mSpielvorlage=spielv;
         
         setSchiffe();
-       
+        Waterfields = tempWaterfields;
       }
     
     protected void setSchiffe()
     {
     	 dict = new Hashtable<Integer, Integer>();
+    	 
+    	 if (Waterfields!=null)
+    	{	 
+	         //alle Wasser und abgeschossenen Positionen setzen
+	    	 for(int el:Waterfields)
+	    	 {
+	    		 dict.put(el, R.drawable.keintreffer);
+	    	 }
+    	}
          
-         for (Schiff s:mSpielvorlage.getSchiffsliste()) {
+    	 
+    	 for (Schiff s:mSpielvorlage.getSchiffsliste()) {
+    	
+    		 
+    		 //alle Treffer setzen
+    		 if(s.getHitPositions().size()>0)
+    		 {
+    			 for(int i=0; i<s.getHitPositions().size(); i++)
+    			 {
+    				 dict.put(i, R.drawable.rot);
+    			 }
+    		 }
+    		 
+    		 
          	if(s.Positions != null)
          	{
          		String temp = s.getSchiffsname() +": ";
          		for (int i = 0; i < s.Positions.size(); i++) {
-         			dict.put(s.Positions.get(i), s.getImage());	
+         			
+         			//falls an der Stelle noch kein Wasser oder Treffer ist das Bild hinzufügen
+         			if(dict.get(s.Positions.get(i))==null)
+         			{
+         				dict.put(s.Positions.get(i), s.getImage());
+         			}
          			temp+=String.valueOf(s.Positions.get(i)) + ";";
          		}
          		System.out.println(temp);
@@ -47,7 +76,7 @@ public class BattleFieldImageAdapter extends BaseAdapter {
          int counter = GlobalHolder.getInstance().getNumOfRowsCols() *GlobalHolder.getInstance().getNumOfRowsCols() ;
          for (int i = 0; i < counter; i++) {
          	if (dict.get(i)==null) dict.put(i, R.drawable.wasser);
- 		}
+         }         
     	
     }
     

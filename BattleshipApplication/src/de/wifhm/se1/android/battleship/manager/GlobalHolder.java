@@ -1,6 +1,6 @@
 package de.wifhm.se1.android.battleship.manager;
 
-import de.wifhm.se1.android.activity.GridViewActivity;
+import de.wifhm.se1.android.battleship.agent.Communicator;
 import de.wifhm.se1.android.battleship.shiptypes.Spielvorlage1;
 
 public class GlobalHolder { 
@@ -15,41 +15,43 @@ public class GlobalHolder {
         if (instance == null) {
             instance = new GlobalHolder();
             
-            //Spielvorlage holen und die Schiffe initialisieren
-            instance.UserShips = new Spielvorlage1();
-            instance.UserShips.initializeSchiffsliste();
-            
-            instance.ComputerShips = new Spielvorlage1();
-            instance.ComputerShips.initializeSchiffsliste();
-           
-            
-            //Manager für das Userspielfeld 
-            instance.UserField = new Battlefieldmanager(instance.UserShips );
-            
-            //Manager für das Computerspielfeld
-            instance.ComputerField = new Battlefieldmanager(instance.ComputerShips);
-            
         }
         return instance;
     }
 
-    private void initializeNew(){
+    public void initializeNew(String oldUserGame, String oldComputerGame){
     	
-    	  instance = new GlobalHolder();
-          
+   
           //Spielvorlage holen und die Schiffe initialisieren
           instance.UserShips = new Spielvorlage1();
           instance.UserShips.initializeSchiffsliste();
           
           instance.ComputerShips = new Spielvorlage1();
           instance.ComputerShips.initializeSchiffsliste();
-         
+          
           
           //Manager für das Userspielfeld 
           instance.UserField = new Battlefieldmanager(instance.UserShips );
           
           //Manager für das Computerspielfeld
           instance.ComputerField = new Battlefieldmanager(instance.ComputerShips);
+          
+          if(oldUserGame!="\"\""){
+        	  instance.UserField.deserializeMeFromString(oldUserGame);
+
+          }
+          
+          if(oldComputerGame!="\"\""){
+        	  instance.ComputerField.deserializeMeFromString(oldComputerGame);
+          }
+          
+          instance.AgentCommunicator = new Communicator();
+          
+        //hier noch den Agent alle KoordinatenDaten FieldStates setzen lassen damit der Algorithmus ordentlich rechnen kann
+          if(oldUserGame!="\"\""){
+        	  instance.AgentCommunicator.setFieldStatesAfterReloadingGame(UserField, UserShips);
+          }
+         
           
     }
 
@@ -58,6 +60,7 @@ public class GlobalHolder {
 	private Battlefieldmanager ComputerField;
 	private Spielvorlage UserShips;
 	private Spielvorlage ComputerShips;
+	private Communicator AgentCommunicator;
 	private int NumOfRowsCols =10;
 
 	private int GridViewBackground;

@@ -2,6 +2,7 @@ package de.wifhm.se1.android.battleship.agent;
 
 import java.util.ArrayList;
 
+import de.wifhm.se1.android.battleship.manager.Battlefieldmanager;
 import de.wifhm.se1.android.battleship.manager.FieldState;
 import de.wifhm.se1.android.battleship.manager.GlobalHolder;
 import de.wifhm.se1.android.battleship.manager.HitStates;
@@ -12,6 +13,7 @@ import de.wifhm.se1.android.battleship.shiptypes.Spielvorlage1;
 public class Communicator {
 
 	Agent a;
+	AgentManager AgentManager;
 		
 	public Communicator(){
 		
@@ -25,8 +27,9 @@ public class Communicator {
 			coordinates.add(new Coordinate(FieldState.UNKNOWN, i));
 		}
 		
-		
-		 a = new Agent(S1, coordinates);
+		AgentManager = new AgentManager();
+		a = new Agent(S1, coordinates,AgentManager);
+		 
 		
 	}
 	
@@ -40,7 +43,7 @@ public class Communicator {
 	{
 		if (a.getShip2Destroy()==null){
 			Destroy d = new Destroy();
-			d.setShot(AgentManager.getInstance().getCoordinateForNr(position));
+			d.setShot(AgentManager.getCoordinateForNr(position));
 			a.setShip2Destroy(d);	
 		}		
 	}
@@ -52,12 +55,12 @@ public class Communicator {
 	
 	public void setFieldState(HitStates result, int pos){
 		if (result == HitStates.HIT || result == HitStates.DESTROYED){
-			AgentManager.getInstance().setFieldStateForCoordinate(pos, FieldState.HIT);
+			AgentManager.setFieldStateForCoordinate(pos, FieldState.HIT);
 			if (a.getShip2Destroy()!=null){
-				a.getShip2Destroy().setShot(AgentManager.getInstance().getCoordinateForNr(pos));
+				a.getShip2Destroy().setShot(AgentManager.getCoordinateForNr(pos));
 			}
 		}else{
-			AgentManager.getInstance().setFieldStateForCoordinate(pos, FieldState.WATER);
+			AgentManager.setFieldStateForCoordinate(pos, FieldState.WATER);
 			
 			if (a.getShip2Destroy()!=null){
 				a.getShip2Destroy().getFalseDirections().add(a.getShip2Destroy().getLastDirection());
@@ -68,5 +71,10 @@ public class Communicator {
 	
 	public void setComputerShips(){
 		a.positionShips();
+	}
+	
+	public void setFieldStatesAfterReloadingGame(Battlefieldmanager bm, Spielvorlage sv)
+	{
+		a.setFieldStatesAfterLoadingGame(bm, sv);
 	}
 }

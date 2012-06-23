@@ -7,11 +7,13 @@ import de.wifhm.se1.android.battleship.manager.*;;
 
 public class Agent {
 	private ArrayList<Schiff>shiplist;
+	AgentManager AgentManager;
 	
-	public Agent(Spielvorlage s, ArrayList<Coordinate> coordinates)
+	public Agent(Spielvorlage s, ArrayList<Coordinate> coordinates, AgentManager am)
 	{
 		shiplist = s.getSchiffsliste();
-		AgentManager.getInstance().setKoordinatenliste(coordinates);
+		AgentManager = am;
+		AgentManager.setKoordinatenliste(coordinates);
 	}
 
 	private boolean isThereAShipToDestroy =false;
@@ -35,21 +37,63 @@ public class Agent {
 		
 		if(s!=null & Ship2Destroy!=null){
 
-			//ImpossibleStates setzen um jedes Schiff drumherum
-			for(int i=0; i< s.getSchiffspositions().size(); i++)
-			{
-		
-				ArrayList<Integer> impossibleList = Helper.setImpossibleFieldsaroundShip(s.getSchiffspositions(), Ship2Destroy.isHorizontal());
-				for(int el:impossibleList){
-					AgentManager.getInstance().setFieldStateForCoordinate(el, FieldState.IMPOSSIBLE);
-				}
-			
-				
-			}
+			setImpossibleFieldsAroundShip(s);
 			
 			setShip2Destroy(null);
 		}
 		
+	}
+	
+	
+	
+	public void setFieldStatesAfterLoadingGame(Battlefieldmanager bm, Spielvorlage sv){
+		
+		//wasser eintragen
+		for(int el:bm.getWaterHits()){
+			AgentManager.setFieldStateForCoordinate(el, FieldState.WATER);
+		}
+		
+		for(Schiff s:sv.getSchiffsliste()){
+			
+			//falls das Schiff schon gesunken ist alle Impossibles drumherum setzen
+			if(s.getIsSunk()){
+				setImpossibleFieldsAroundShip(s);
+			}
+			else{
+				
+				//wenn der Agent gerade ein Schiff am Abballern war dieses Restoren
+				if(s.getHitPositions()!=null && s.getHitPositions().size()>0)
+				{
+					Destroy d = new Destroy();
+					//alle bereits getätigten Schüsse eiinfüllen
+					for(int el:s.getHitPositions())
+					{
+						d.setShot(AgentManager.getCoordinateForNr(el));
+					}
+					
+					//alle getroffenen Feldern den FieldState Hit geben
+					for(int el:s.getHitPositions())
+					{
+						AgentManager.setFieldStateForCoordinate(el, FieldState.HIT);
+					}
+				}
+				
+			}
+			
+		
+		}
+		
+	}
+	
+	private void setImpossibleFieldsAroundShip(Schiff s){
+		//ImpossibleStates setzen um jedes Schiff drumherum
+		for(int i=0; i< s.getSchiffspositions().size(); i++)
+		{
+			ArrayList<Integer> impossibleList = Helper.setImpossibleFieldsaroundShip(s.getSchiffspositions(), Ship2Destroy.isHorizontal());
+			for(int el:impossibleList){
+				AgentManager.setFieldStateForCoordinate(el, FieldState.IMPOSSIBLE);
+			}
+		}
 	}
 
 	private int turnCounter = 0;
@@ -84,13 +128,13 @@ public class Agent {
 								{
 									Directions d;
 									try {
-										d = AgentManager.getInstance().getDirectionForInteger(i);
+										d = AgentManager.getDirectionForInteger(i);
 										if (!Ship2Destroy.getFalseDirections().contains(d)){
-											Coordinate c = AgentManager.getInstance().getNeighbourHelper(i, Ship2Destroy.getLastShot());
+											Coordinate c = AgentManager.getNeighbourHelper(i, Ship2Destroy.getLastShot());
 											if (c!=null){
 												
 													try {
-														int DirectionValue = AgentManager.getInstance().getValueForSinkShot(c,s.getShipLength(), d);
+														int DirectionValue = AgentManager.getValueForSinkShot(c,s.getShipLength(), d);
 														valuesForSinkShot[i-1] = valuesForSinkShot[i-1] + DirectionValue;
 													} catch (Exception e) {
 														// TODO Auto-generated catch block
@@ -119,14 +163,14 @@ public class Agent {
 						
 						Directions bestdirect;
 						try {
-							bestdirect = AgentManager.getInstance().getDirectionForInteger(direction+1);
+							bestdirect = AgentManager.getDirectionForInteger(direction+1);
 							Ship2Destroy.setLastDirection(bestdirect);
 						} catch (Exception e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 
-						bestCoordinate=AgentManager.getInstance().getNeighbourHelper(direction+1, Ship2Destroy.getLastShot());
+						bestCoordinate=AgentManager.getNeighbourHelper(direction+1, Ship2Destroy.getLastShot());
 						
 					}
 						//else{
@@ -136,26 +180,26 @@ public class Agent {
 //						if (Ship2Destroy.isHorizontal())
 //						{
 //							//links scannen
-//							int leftValue= AgentManager.getInstance().getValueForSinkShot(AgentManager.getInstance().getLeftNeighbour(Ship2Destroy.getInitialShot()),s.getShipLength());
+//							int leftValue= AgentManager.getValueForSinkShot(AgentManager.getLeftNeighbour(Ship2Destroy.getInitialShot()),s.getShipLength());
 //							//rechts scannen
-//							int rightValue= AgentManager.getInstance().getValueForSinkShot(AgentManager.getInstance().getRightNeighbour(Ship2Destroy.getInitialShot()),s.getShipLength());
+//							int rightValue= AgentManager.getValueForSinkShot(AgentManager.getRightNeighbour(Ship2Destroy.getInitialShot()),s.getShipLength());
 //							if(leftValue>rightValue){
-//								bestCoordinate =  AgentManager.getInstance().getLeftNeighbour(Ship2Destroy.getInitialShot());
+//								bestCoordinate =  AgentManager.getLeftNeighbour(Ship2Destroy.getInitialShot());
 //							}else
 //							{
-//								bestCoordinate =  AgentManager.getInstance().getRightNeighbour(Ship2Destroy.getInitialShot());
+//								bestCoordinate =  AgentManager.getRightNeighbour(Ship2Destroy.getInitialShot());
 //							}
 //						}
 //						else{
 //								//oben scannen
-//								int topValue= AgentManager.getInstance().getValueForSinkShot(AgentManager.getInstance().getTopNeighbour(Ship2Destroy.getInitialShot()),s.getShipLength());
+//								int topValue= AgentManager.getValueForSinkShot(AgentManager.getTopNeighbour(Ship2Destroy.getInitialShot()),s.getShipLength());
 //								//unten scannen
-//								int bottomValue= AgentManager.getInstance().getValueForSinkShot(AgentManager.getInstance().getBottomNeighbour(Ship2Destroy.getInitialShot()),s.getShipLength());
+//								int bottomValue= AgentManager.getValueForSinkShot(AgentManager.getBottomNeighbour(Ship2Destroy.getInitialShot()),s.getShipLength());
 //								if(topValue>bottomValue){
-//									bestCoordinate =  AgentManager.getInstance().getTopNeighbour(Ship2Destroy.getInitialShot());
+//									bestCoordinate =  AgentManager.getTopNeighbour(Ship2Destroy.getInitialShot());
 //								}else
 //								{
-//									bestCoordinate =  AgentManager.getInstance().getBottomNeighbour(Ship2Destroy.getInitialShot());
+//									bestCoordinate =  AgentManager.getBottomNeighbour(Ship2Destroy.getInitialShot());
 //								}
 //						}
 //					}//end Ship2Destroy
@@ -204,11 +248,11 @@ public class Agent {
 				
 				initialTurnCounter +=1;
 				
-				bestCoordinate = AgentManager.getInstance().getCoordinateForNr(field);
+				bestCoordinate = AgentManager.getCoordinateForNr(field);
 				return bestCoordinate;
 			}
 			
-			ArrayList<Coordinate> UnknownList = AgentManager.getInstance().getAllUnknown();
+			ArrayList<Coordinate> UnknownList = AgentManager.getAllUnknown();
 			//ArrayList<Coordinate> bestPossibilityValueList = new ArrayList<Coordinate>();
 			
 			int bestValue = 0;
@@ -218,7 +262,7 @@ public class Agent {
 				int overallPossiblityValue =0;
 				for(Schiff s:shiplist)
 				{					
-					overallPossiblityValue+=AgentManager.getInstance().getPossibilityValue(c, s.getShipLength());	
+					overallPossiblityValue+=AgentManager.getPossibilityValue(c, s.getShipLength());	
 				}
 				
 				if (overallPossiblityValue>bestValue)
@@ -239,7 +283,7 @@ public class Agent {
 				if (c.getPossiblityValue() == bestValue)
 				{
 					// für die guten auch noch die NachbachschaftsWerte ausrechnen 
-					 int currCoordinatevalue = AgentManager.getInstance().getNeighbourhoodValue(c);
+					 int currCoordinatevalue = AgentManager.getNeighbourhoodValue(c);
 					 c.setNeigbourhoodValue(currCoordinatevalue);
 					
 					 //beim ersten mal initialisieren

@@ -45,18 +45,16 @@ public class GridViewActivity extends Activity {
         Serializer = new WebServiceCommunicator((BattleshipApplication) getApplication());
         
         profilSwitcher = (ViewSwitcher) findViewById(R.id.profileSwitcher);        
-    
-        Spielvorlage spiel = GlobalHolder.getInstance().getUserShips();
-        imgadp = new BattleFieldImageAdapter(this,spiel);
+            
+        imgadp = new BattleFieldImageAdapter(this,GlobalHolder.getInstance().getUserShips(), GlobalHolder.getInstance().getUserField().getWaterHits());
         GridView gridview = (GridView) findViewById (R.id.gridview);
         gridview.setAdapter(imgadp);
             
        /* AGENT COMMUNICATOR */
        AgentCommunicator = new Communicator();
        AgentCommunicator.setComputerShips();
-       
-       Spielvorlage AgentSpiel = GlobalHolder.getInstance().getComputerShips();
-       agent_imgadp = new CopyOfBattleFieldImageAdapter(this, AgentSpiel);
+              
+       agent_imgadp = new CopyOfBattleFieldImageAdapter(this, GlobalHolder.getInstance().getComputerShips(), GlobalHolder.getInstance().getComputerField().getWaterHits());
        GridView gridviewAgent = (GridView) findViewById(R.id.gridviewAgent);
        gridviewAgent.setAdapter(agent_imgadp);
        

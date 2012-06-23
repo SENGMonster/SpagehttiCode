@@ -3,6 +3,8 @@ package de.wifhm.se1.android.activity;
 
 import org.ksoap2.SoapFault;
 
+import de.wifhm.se1.android.battleship.manager.GlobalHolder;
+import de.wifhm.se1.android.battleship.manager.WebServiceCommunicator;
 import de.wifhm.se1.android.common.BattleshipSystemStub;
 import android.app.Activity;
 import android.content.Intent;
@@ -65,8 +67,19 @@ public class BattleshipStartActivity extends Activity
 		schiffePo.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
+				
+				
+				//Beim Spielstart laden
+	            WebServiceCommunicator communicator = new WebServiceCommunicator((BattleshipApplication) getApplication());	
+	            String UserGame= communicator.getUserGame();
+	            String AgentGame = communicator.getComputerGame();
+	            GlobalHolder.getInstance().initializeNew(UserGame, AgentGame);
+				
 				startActivity(new Intent(BattleshipStartActivity.this, PositionShipActivity.class));
 				Log.i(TAG, "schiffepoonsiti-click");
+				
+				
+			    
 			}
 		});
 		
