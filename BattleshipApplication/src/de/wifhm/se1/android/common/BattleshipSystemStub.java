@@ -9,6 +9,7 @@ import org.ksoap2.HeaderProperty;
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.SoapFault;
 import org.ksoap2.serialization.SoapObject;
+import org.ksoap2.serialization.SoapPrimitive;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 import org.xmlpull.v1.XmlPullParserException;
@@ -109,23 +110,16 @@ public class BattleshipSystemStub implements BattleshipSystem {
 		        	Object object = response.getProperty(i);
 		        	if(object instanceof SoapObject){
 		        		SoapObject responseChild = (SoapObject) object;
-		                
-		                User tempObj = new User();
-
-		                if (responseChild.hasProperty("username")) {
-		                    tempObj.setUsername(responseChild.getPropertyAsString("username"));
-		                }
-		                if (responseChild.hasProperty("password")) {
-		                    tempObj.setPassword(responseChild.getPropertyAsString("password"));
-		                }
-
-		               
-		                if (responseChild.hasProperty("highscore")) {
-		                    tempObj.setHighscore(new Integer(responseChild.getPropertyAsString("highscore")));
-		                }
-
-		                list.add(tempObj);	
+		        		
+		        		SoapObject soapUsername = (SoapObject) responseChild.getProperty("username");
+		        		SoapObject soapPassword = (SoapObject) responseChild.getProperty("password");
+		        		SoapPrimitive soapHighscore = (SoapPrimitive) responseChild.getProperty("highscore");
+		        		
+		        		User user = new User(soapUsername.toString(), soapPassword.toString());
+		        		user.setHighscore(new Integer(soapHighscore.toString()));
+		        		list.add(user);
 		        	}
+		        	
 		        }
 		
 
@@ -156,7 +150,16 @@ public class BattleshipSystemStub implements BattleshipSystem {
 	public String getPlayerGameState() throws SoapFault {
 		// TODO Auto-generated method stub
 		String METHOD_NAME = "getPlayerGameState";
-		return (String) executeSoapAction(METHOD_NAME);
+		
+		Object response = executeSoapAction(METHOD_NAME);
+		String result = null;
+		if(response instanceof SoapObject){
+			result = new String(((SoapObject)response).toString());
+		}
+		if(response instanceof SoapPrimitive){
+			result = new String(((SoapPrimitive)response).toString());
+		}
+		return result;
 	}
 
 	@Override
@@ -170,7 +173,16 @@ public class BattleshipSystemStub implements BattleshipSystem {
 	public String getAgentGameState() throws SoapFault {
 		// TODO Auto-generated method stub
 		String METHOD_NAME = "getAgentGameState";
-		return (String) executeSoapAction(METHOD_NAME);
+		Object response = executeSoapAction(METHOD_NAME);
+		String result = null;
+		if(response instanceof SoapObject){
+			result = new String(((SoapObject)response).toString());
+		}
+		if(response instanceof SoapPrimitive){
+			result = new String(((SoapPrimitive)response).toString());
+		}
+		return result;
+		
 	}
 
 	

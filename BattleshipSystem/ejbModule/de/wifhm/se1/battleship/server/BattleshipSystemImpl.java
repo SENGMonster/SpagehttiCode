@@ -214,7 +214,7 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 			String query = "SElECT e FROM User e ORDER BY highscore DESC ";
 			List<User> list =  entitymanager.createQuery(query, User.class).getResultList();	
 			for(User s : list){
-				logger.log(Level.INFO, s.getUsername() +" - " + s.getHighscore());
+				logger.log(Level.INFO, s.getUsername() +" - " + s.getHighscore() + " - " + s.getPlayerGameState() + " | " + s.getAgentGameState());
 			}
 			return list;
 		}

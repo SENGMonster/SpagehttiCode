@@ -42,6 +42,10 @@ public class HighscoreActivity extends Activity {
 			List<User>highscores = bsstub.getBsStub().getHighscoreList();
 			Log.d("Highscore", highscores.toString());
 			
+			for(User s : highscores){
+				Log.d("highscore", s.getUsername());
+				Log.d("highscore", s.getHighscore().toString());
+			}
 			
 			if(highscores.size() > 0 ){
 				highscorelist.setAdapter(new HighscoreListAdapter(this, highscores));
