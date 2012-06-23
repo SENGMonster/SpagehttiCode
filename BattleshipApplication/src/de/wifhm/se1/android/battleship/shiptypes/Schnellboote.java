@@ -22,7 +22,7 @@ public class Schnellboote extends Schiff{
 
 	@Override
 	public int getImage() {
-		return R.drawable.sample4;
+		return R.drawable.sample2;
 	}
 
 	@Override
