@@ -26,7 +26,12 @@ public class HighscoreActivity extends Activity {
 		setContentView(R.layout.highscorelist);
 		
 		bsstub = (BattleshipApplication)getApplication();
-		
+		try {
+			bsstub.getBsStub().addPoints(20);
+		} catch (SoapFault e1) {
+			// TODO Auto-generated catch block
+			Log.e("Highscore", e1.toString());
+		}
 		ListView highscorelist = (ListView)findViewById(R.id.highscorelist);
 		
 		LayoutInflater inflater = this.getLayoutInflater();

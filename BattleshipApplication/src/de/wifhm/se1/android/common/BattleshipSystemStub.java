@@ -80,13 +80,8 @@ public class BattleshipSystemStub implements BattleshipSystem {
 	}
 	
 	
-	
-	/*
-	 * (non-Javadoc)
-	 * @see battleship.common.BattleshipSystem#setHighscore(int)
-	 */
-	public void setHighscore(int points) throws SoapFault {
-		String METHOD_NAME = "setHighscore";
+	public void addPoints(int points) throws SoapFault {
+		String METHOD_NAME = "addPoints";
 		executeSoapAction(METHOD_NAME, points);
 
 	}
@@ -132,12 +127,7 @@ public class BattleshipSystemStub implements BattleshipSystem {
 		return list;
 	}
 	
-	@Override
-	public void addPoints(int points) throws SoapFault {
-		// TODO Auto-generated method stub
-		String METHOD_NAME = "addPoints";
-		executeSoapAction(METHOD_NAME, points);
-	}
+	
 
 	@Override
 	public void setPlayerGameState(String playergamestate) throws SoapFault {

@@ -193,7 +193,9 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void addPoints(int points) throws NotLoggedInException {
+		logger.log(Level.INFO,"Adding Points");
 		if(loggedUser != null){
+			logger.log(Level.INFO, "To user "+loggedUser);
 			User user = entitymanager.find(User.class, loggedUser);
 			user.addPoints(points);
 			entitymanager.persist(user);
