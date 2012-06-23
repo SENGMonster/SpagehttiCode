@@ -37,42 +37,46 @@ public class Battlefieldmanager {
 		for(Schiff s:mSpielvorlage.getSchiffsliste()){
 			
 			//überprüfen ob alle Tod sind			
-			if (s.getIsSunk()) sunkCounter +=1;
-			
-			for (int pos:s.Positions){
-				if (pos==position){
-					
-					//einen Spielzug hochzählen
-					turnCounter+=1;
-					
-					//anzeigen
-					mImageAdapter.setTreffer(position);
-					
-					//überprüfen ob das Ding versenkt ist
-					boolean versenkt =  s.setHitPosition(position);
-					if (versenkt){
-						MakeToast("Treffer versenkt: " + s.getName()+ " auf " + String.valueOf(position), a);
-						lastDestroyedShip = s;
+			if (s.getIsSunk())
+			{
+				sunkCounter +=1;
+			}
+			else{
+				for (int pos:s.Positions){
+					if (pos==position){
 						
-						sunkCounter+=1;
-						if (sunkCounter==mSpielvorlage.getSchiffsliste().size())
-						{
+						//einen Spielzug hochzählen
+						turnCounter+=1;
+						
+						//anzeigen
+						mImageAdapter.setTreffer(position);
+						
+						//überprüfen ob das Ding versenkt ist
+						boolean versenkt =  s.setHitPosition(position);
+						if (versenkt){
+							MakeToast("Treffer versenkt: " + s.getName()+ " auf " + String.valueOf(position), a);
+							lastDestroyedShip = s;
 							
-							//falls alle weg sind ENDE
-							return HitStates.END;
-						
+							sunkCounter+=1;
+							if (sunkCounter==mSpielvorlage.getSchiffsliste().size())
+							{
+								
+								//falls alle weg sind ENDE
+								return HitStates.END;
+							
+							}
+							
+							//Destroyed zurückgeben
+							return HitStates.DESTROYED;
+							
+						}
+						else{
+							MakeToast("Treffer auf " + String.valueOf(position), a);
+							return HitStates.HIT;
 						}
 						
-						//Destroyed zurückgeben
-						return HitStates.DESTROYED;
 						
 					}
-					else{
-						MakeToast("Treffer auf " + String.valueOf(position), a);
-						return HitStates.HIT;
-					}
-					
-					
 				}
 			}
 		}

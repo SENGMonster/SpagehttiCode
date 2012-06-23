@@ -111,8 +111,8 @@ public class GridViewActivity extends Activity {
             	
             
             	//falls er noch nicht geschossen hat
-            	if(!isAllowedToSwitch)
-            	{
+//            	if(!isAllowedToSwitch)
+//            	{
             	
 	            	HitStates result = mBattlefieldmanager.hasHitAShip(position, agent_imgadp, GridViewActivity.this); 
 	
@@ -134,7 +134,7 @@ public class GridViewActivity extends Activity {
 					} 
             	}
   				
-  			}
+//  			}
           	
           });
 		
@@ -176,7 +176,7 @@ public class GridViewActivity extends Activity {
     		{
     			UserOK.setVisibility(View.VISIBLE);
     			String UserString = GlobalHolder.getInstance().getUserField().serializeInfoToString();
-    			boolean hasSerialized = Serializer.sendPlayerGame(UserString);
+    			//boolean hasSerialized = Serializer.sendPlayerGame(UserString);
     			
     		}else{
     			AgentOK.setVisibility(View.VISIBLE);
