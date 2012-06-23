@@ -1,7 +1,9 @@
 package de.wifhm.se1.android.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -127,7 +129,7 @@ public class GridViewActivity extends Activity {
 							setIsAllowedToSwitch(true, true);
 							break;
 						case END:
-							MakeEndToast(true, mBattlefieldmanager);
+							MakeEndToast();
 							break;
 					} 
             	}
@@ -158,7 +160,7 @@ public class GridViewActivity extends Activity {
 					setIsAllowedToSwitch(true, false);
 					break;
 				case END:
-					MakeEndToast(false, GlobalHolder.getInstance().getUserField());
+					MakeEndToast();
 					break;
 					
 				
@@ -195,16 +197,8 @@ public class GridViewActivity extends Activity {
 
     }
     
-    private void MakeEndToast(boolean user, Battlefieldmanager bm)
+    private void MakeEndToast()
     {
-    	String text="";
-    	if(user){
-    		text+="YEAH! Sie haben gewonnen mit " + String.valueOf(bm.getHighScore()) + " Punkten und " + String.valueOf(bm.getTurnCounter()) + "Zügen.";
-    	}
-    	else{ 
-    		text+="Schade! Sie haben verloren. \n Das Handymonster gewinnt mit " + String.valueOf(bm.getHighScore()) + " Punkten und " + String.valueOf(bm.getTurnCounter()) + "Zügen.";
-    	}
-    	
-    	Toast.makeText(GridViewActivity.this, text, Toast.LENGTH_LONG).show();
+    	startActivity(new Intent(GridViewActivity.this, FinalActivity.class));		
     }
 }

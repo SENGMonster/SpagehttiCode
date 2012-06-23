@@ -75,4 +75,16 @@ public class WebServiceCommunicator {
 		System.out.println(AgentString);
 		return true;
 }
+	
+	public boolean sendHighscorePoints(int points){
+		try {
+			
+			bsstub.setHighscore(points);
+			return true;	
+		} catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
+		
+	}
 }
