@@ -9,6 +9,14 @@ import javax.xml.bind.annotation.XmlID;
 
 
 @Entity
+/**
+ * 
+ * @author Marc Paaßen
+ * 
+ * Klasse User bildet die Datenbank-Tabelle User ab, sie besitz folgende Werte, username, password, playergamestate, agentgamestate
+ * und highscore.
+ *
+ */
 public class User implements Serializable{
 	/**
 	 * 

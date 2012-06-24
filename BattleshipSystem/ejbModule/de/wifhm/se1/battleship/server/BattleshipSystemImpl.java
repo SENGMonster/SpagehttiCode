@@ -24,9 +24,9 @@ import de.wifhm.se1.battleship.server.exceptions.InvalidPasswordException;
 import de.wifhm.se1.battleship.server.exceptions.InvalidUsernameException;
 import de.wifhm.se1.battleship.server.exceptions.NotLoggedInException;
 
-
 /**
  * Session Bean implementation class BattleshipSystemImpl
+ * @author Holger Tenbeitel
  */
 @Stateful
 @TransactionManagement(TransactionManagementType.CONTAINER)
@@ -68,6 +68,9 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 	 * @param username
 	 * @param password
 	 * @see BattleshipSystem#login(String, String)
+	 * 
+	 * Methode führt einen Login eines Users durch, dabei sucht er sich den User mit dem gegebenen Usernamen aus der Datenbank
+	 * und prüft ob das übergebe Passwort mit dem in der Datenbank abgespeicherten übereinstimmt
      */
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
@@ -93,6 +96,7 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
     
 	/**
      * @see BattleshipSystem#logout()
+     * Methode führt einen Logout durch
      */
 	@Override
 	@Remove
