@@ -9,6 +9,7 @@ import org.ksoap2.HeaderProperty;
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.SoapFault;
 import org.ksoap2.serialization.SoapObject;
+import org.ksoap2.serialization.SoapPrimitive;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 import org.xmlpull.v1.XmlPullParserException;
@@ -79,13 +80,8 @@ public class BattleshipSystemStub implements BattleshipSystem {
 	}
 	
 	
-	
-	/*
-	 * (non-Javadoc)
-	 * @see battleship.common.BattleshipSystem#setHighscore(int)
-	 */
-	public void setHighscore(int points) throws SoapFault {
-		String METHOD_NAME = "setHighscore";
+	public void addPoints(int points) throws SoapFault {
+		String METHOD_NAME = "addPoints";
 		executeSoapAction(METHOD_NAME, points);
 
 	}
@@ -96,36 +92,25 @@ public class BattleshipSystemStub implements BattleshipSystem {
 	 * @see de.wifhm.se1.android.common.BattleshipSystem#getHighscoreList()
 	 */
 	@Override
-	public List<User> getHighscoreList() throws SoapFault {
+	public List<String> getHighscoreList() throws SoapFault {
 		String METHOD_NAME = "getHighscoreList";
-		List<User> list = new ArrayList<User>();
+		List<String> list = new ArrayList<String>();
 		Object o = executeSoapAction(METHOD_NAME);
 		if(o instanceof SoapObject){
-			SoapObject response = (SoapObject) executeSoapAction(METHOD_NAME);
-			
+			SoapObject response = (SoapObject) o;
+			Log.d(TAG, response.toString());
 			 final int intPropertyCount = response.getPropertyCount();
 
 		        for (int i = 0; i < intPropertyCount; i++) {
 		        	Object object = response.getProperty(i);
+		        	Log.d(TAG, object.toString());
 		        	if(object instanceof SoapObject){
 		        		SoapObject responseChild = (SoapObject) object;
-		                
-		                User tempObj = new User();
-
-		                if (responseChild.hasProperty("username")) {
-		                    tempObj.setUsername(responseChild.getPropertyAsString("username"));
-		                }
-		                if (responseChild.hasProperty("password")) {
-		                    tempObj.setPassword(responseChild.getPropertyAsString("password"));
-		                }
-
-		               
-		                if (responseChild.hasProperty("highscore")) {
-		                    tempObj.setHighscore(new Integer(responseChild.getPropertyAsString("highscore")));
-		                }
-
-		                list.add(tempObj);	
+		        		Log.d(TAG, responseChild.toString());
+		        		String element = responseChild.toString();
+		        		list.add(element);
 		        	}
+		        	
 		        }
 		
 
@@ -133,17 +118,11 @@ public class BattleshipSystemStub implements BattleshipSystem {
         	
         }
 
-   
 		
 		return list;
 	}
 	
-	@Override
-	public void addPoints(int points) throws SoapFault {
-		// TODO Auto-generated method stub
-		String METHOD_NAME = "addPoints";
-		executeSoapAction(METHOD_NAME, points);
-	}
+	
 
 	@Override
 	public void setPlayerGameState(String playergamestate) throws SoapFault {
@@ -156,7 +135,16 @@ public class BattleshipSystemStub implements BattleshipSystem {
 	public String getPlayerGameState() throws SoapFault {
 		// TODO Auto-generated method stub
 		String METHOD_NAME = "getPlayerGameState";
-		return (String) executeSoapAction(METHOD_NAME);
+		
+		Object response = executeSoapAction(METHOD_NAME);
+		String result = null;
+		if(response instanceof SoapObject){
+			result = new String(((SoapObject)response).toString());
+		}
+		if(response instanceof SoapPrimitive){
+			result = new String(((SoapPrimitive)response).toString());
+		}
+		return result;
 	}
 
 	@Override
@@ -170,7 +158,16 @@ public class BattleshipSystemStub implements BattleshipSystem {
 	public String getAgentGameState() throws SoapFault {
 		// TODO Auto-generated method stub
 		String METHOD_NAME = "getAgentGameState";
-		return (String) executeSoapAction(METHOD_NAME);
+		Object response = executeSoapAction(METHOD_NAME);
+		String result = null;
+		if(response instanceof SoapObject){
+			result = new String(((SoapObject)response).toString());
+		}
+		if(response instanceof SoapPrimitive){
+			result = new String(((SoapPrimitive)response).toString());
+		}
+		return result;
+		
 	}
 
 	
@@ -232,62 +229,7 @@ public class BattleshipSystemStub implements BattleshipSystem {
 		
 	}
 	
-	/**
-	 * 
-	 * @param methodName
-	 * @param args
-	 * @return
-	 * @throws SoapFault
-	 * 
-	 * Methode spricht den Webservice des BattleshipSystems an und sendet den Methoden-Name plus die zugehörigen Parameter. Die Methode erhält von dem Server
-	 * ein Objekt zurück welches die Rückgabe-Werte, als Liste, der entsprechenden Anfrage beinhalten
-	 */
-	private Object executeSoapActionList(String methodName, Object... args) throws SoapFault {
-		Object result = null;
-		
-		SoapObject request = new SoapObject(NAMESPACE, methodName);
-		
-		for(int i = 0; i < args.length; i++){
-			Log.i(TAG, ""+args[i].toString());
-			request.addPropertyIfValue("arg" + i, args[i]);
-		}
-		
-		SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-		
-		envelope.setOutputSoapObject(request);
-		
-		HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
-		
-		List<HeaderProperty> reqHeaders = null;
-		if(this.sessionId != null){
-			
-			reqHeaders = new ArrayList<HeaderProperty>();
-			reqHeaders.add(HttpHelper.getSessionIdHeader(this.sessionId));			
-		}
-		
-		try{
-			@SuppressWarnings("unchecked")
-			List<HeaderProperty> respHeaders = androidHttpTransport.call(NAMESPACE + methodName, envelope, reqHeaders);
-			Log.i(TAG, ""+respHeaders.size());
-			
-			String httpSession = HttpHelper.readJSessionId(respHeaders);
-			
-			if(httpSession != null){
-				this.sessionId = httpSession;
-			}
-			
-			result = envelope.bodyIn;
-		}
-		catch(SoapFault e){
-			throw e;
-		} catch (IOException e) {
-			Log.e(TAG,"IOException: "+ e.toString());
-		} catch (XmlPullParserException e) {
-			Log.e(TAG,"XmlPullParserException: "+ e.toString());
-		}
-		return result;
-		
-	}
+	
 
 	
 

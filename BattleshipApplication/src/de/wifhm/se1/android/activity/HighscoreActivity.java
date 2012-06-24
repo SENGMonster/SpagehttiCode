@@ -5,9 +5,13 @@ import java.util.List;
 import org.ksoap2.SoapFault;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -19,14 +23,19 @@ import de.wifhm.se1.android.util.HighscoreListAdapter;
 
 public class HighscoreActivity extends Activity {
 	BattleshipApplication bsstub;
-	private final String TAG = "BLA";
+	private final String TAG = "HighscoreActivity";
 	
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.highscorelist);
 		
 		bsstub = (BattleshipApplication)getApplication();
-		
+		/*try {
+			bsstub.getBsStub().addPoints(20);
+		} catch (SoapFault e1) {
+			// TODO Auto-generated catch block
+			Log.e(TAG , e1.toString());
+		}*/
 		ListView highscorelist = (ListView)findViewById(R.id.highscorelist);
 		
 		LayoutInflater inflater = this.getLayoutInflater();
@@ -39,9 +48,12 @@ public class HighscoreActivity extends Activity {
 		
 		try {
 			//TODO
-			List<User>highscores = bsstub.getBsStub().getHighscoreList();
+			List<String>highscores = bsstub.getBsStub().getHighscoreList();
 			Log.d("Highscore", highscores.toString());
 			
+			for(String s : highscores){
+				Log.d(TAG, s);
+			}
 			
 			if(highscores.size() > 0 ){
 				highscorelist.setAdapter(new HighscoreListAdapter(this, highscores));
@@ -66,8 +78,34 @@ public class HighscoreActivity extends Activity {
 		
 			@Override
 			public void onClick(View view) {
-				//TODO startActivity(new Intent());
+				startActivity(new Intent(HighscoreActivity.this, PositionShipActivity.class));
 			}
 		});
+	}
+	
+	public boolean onCreateOptionsMenu(Menu menu){
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.menu, menu);
+		return true;
+	}
+	
+	public boolean onOptionsItemSelected(MenuItem item){
+		switch(item.getItemId()){
+			case R.id.logout:
+				if(bsstub.getBsStub() != null && bsstub.getAngemeldeterUser() != null){
+					try {
+						bsstub.getBsStub().logout();
+						startActivity(new Intent(HighscoreActivity.this, RegisterLoginActivity.class));
+					} catch (SoapFault e) {	}
+				}
+				break;
+			case R.id.preferences:
+				startActivity(new Intent(HighscoreActivity.this, BattleshipPreferenceActivity.class));
+				break;
+			case R.id.exit:
+				moveTaskToBack(true);
+				break;
+		}
+		return true;
 	}
 }

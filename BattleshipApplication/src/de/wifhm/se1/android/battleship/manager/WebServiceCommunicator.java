@@ -79,7 +79,7 @@ public class WebServiceCommunicator {
 	public boolean sendHighscorePoints(int points){
 		try {
 			
-			bsstub.setHighscore(points);
+			bsstub.addPoints(points);
 			return true;	
 		} catch (Exception e) {
 			// TODO: handle exception

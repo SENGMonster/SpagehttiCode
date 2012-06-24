@@ -16,6 +16,10 @@
         android:title="@string/titleBoardsize"
         android:summary="@string/summaryBoardsize"
         />
+    <CheckBoxPreference 
+        android:key="savedata"
+        android:title="@string/savedata"
+        android:defaultValue="true"/>
         
 
 </PreferenceScreen>

@@ -41,6 +41,7 @@
         <item >13</item>
     </string-array>
     <string name="loginexcist">Login with excisting Username</string>
+    <string name="savedata">Do you want to save your Username and Password?</string>
     
     
 

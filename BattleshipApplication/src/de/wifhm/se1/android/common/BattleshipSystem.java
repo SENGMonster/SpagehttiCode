@@ -79,6 +79,6 @@ public interface BattleshipSystem {
 	 * @throws SoapFault
 	 * Methode liefert eine absteigend sortierte Liste, nach dem Highscore Wert, der registrietrten User vom Server zurück
 	 */
-	public List<User> getHighscoreList() throws SoapFault;
+	public List<String> getHighscoreList() throws SoapFault;
 	
 }

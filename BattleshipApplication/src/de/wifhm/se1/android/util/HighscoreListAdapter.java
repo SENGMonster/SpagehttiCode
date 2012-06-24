@@ -15,9 +15,9 @@ import de.wifhm.se1.android.common.User;
 public class HighscoreListAdapter extends BaseAdapter {
 	
 	private LayoutInflater inflater;
-	private List<User> highscorelist;
+	private List<String> highscorelist;
 	
-	public HighscoreListAdapter(Context context, List<User> highscorelist){
+	public HighscoreListAdapter(Context context, List<String> highscorelist){
 		this.inflater = LayoutInflater.from(context);
 		this.highscorelist = highscorelist;
 	}
@@ -45,7 +45,8 @@ public class HighscoreListAdapter extends BaseAdapter {
 		ViewHolder holder;
 		View v = convertView;
 		Log.d("Test", " " + highscorelist.size());
-		User highscore = this.highscorelist.get(position);
+		String highscore = this.highscorelist.get(position);
+		String[] temp = highscore.split(";");
 		if(v == null){
 			holder = new ViewHolder();
 			
@@ -60,12 +61,11 @@ public class HighscoreListAdapter extends BaseAdapter {
 		else{
 			holder = (ViewHolder) v.getTag();
 		}
-		Log.d("Test", "Username: " + highscore.getUsername());
-		Log.d("Test", "Points: " + highscore.getHighscore());
-		holder.username.setText(highscore.getUsername());
-		if(highscore.getHighscore() != null){
-			holder.highscorepoints.setText("Punkte: " + 0);
-		}
+		Log.d("Test", "Username: " + temp[0]);
+		Log.d("Test", "Points: " + temp[1]);
+		holder.username.setText(temp[0]);
+		holder.highscorepoints.setText("Punkte: " + temp[1]);
+	
 		
 		
 		

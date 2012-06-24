@@ -3,11 +3,15 @@ package de.wifhm.se1.android.activity;
 import org.ksoap2.SoapFault;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -41,6 +45,7 @@ public class RegisterActivity extends Activity {
         final TextView failure = (TextView)findViewById(R.id.failuremessage2);
         
         Button register = (Button)findViewById(R.id.send);
+        Button login = (Button)findViewById(R.id.registerlogin);
         
         register.setOnClickListener(new OnClickListener(){
 
@@ -55,7 +60,7 @@ public class RegisterActivity extends Activity {
 				        editor.putString("password", password.getText().toString());
 				        editor.putString("boardsize", "10");
 				        editor.commit();
-						RegisterActivity.this.setContentView(R.layout.succregister);
+				        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
 					} catch (SoapFault e) {
 						failure.setVisibility(View.VISIBLE);
 						failure.setText(e.getMessage());
@@ -71,5 +76,30 @@ public class RegisterActivity extends Activity {
 			}
         	
         });
+        
+        login.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+				
+			}
+        	
+        });
     }
+	
+	public boolean onCreateOptionsMenu(Menu menu){
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.startmenu, menu);
+		return true;
+	}
+	
+	public boolean onOptionsItemSelected(MenuItem item){
+		switch(item.getItemId()){
+			case R.id.exit:
+				moveTaskToBack(true);
+				break;
+		}
+		return true;
+	}
 }

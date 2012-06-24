@@ -26,7 +26,7 @@ public class Tester {
 		}
 		
 		
-		 a = new Agent(S1, coordinates);
+		 //a = new Agent(S1, coordinates);
 		
 	}
 	
@@ -40,7 +40,7 @@ public class Tester {
 	{
 		if (a.getShip2Destroy()==null){
 			Destroy d = new Destroy();
-			d.setShot(AgentManager.getInstance().getCoordinateForNr(position));
+			//d.setShot(AgentManager.getInstance().getCoordinateForNr(position));
 			a.setShip2Destroy(d);	
 		}		
 	}
@@ -52,12 +52,12 @@ public class Tester {
 	
 	public void setFieldState(HitStates result, int pos){
 		if (result == HitStates.HIT || result == HitStates.DESTROYED){
-			AgentManager.getInstance().setFieldStateForCoordinate(pos, FieldState.HIT);
+			//AgentManager.getInstance().setFieldStateForCoordinate(pos, FieldState.HIT);
 			if (a.getShip2Destroy()!=null){
-				a.getShip2Destroy().setShot(AgentManager.getInstance().getCoordinateForNr(pos));
+				//a.getShip2Destroy().setShot(AgentManager.getInstance().getCoordinateForNr(pos));
 			}
 		}else{
-			AgentManager.getInstance().setFieldStateForCoordinate(pos, FieldState.WATER);
+			//AgentManager.getInstance().setFieldStateForCoordinate(pos, FieldState.WATER);
 			
 			if (a.getShip2Destroy()!=null){
 				a.getShip2Destroy().getFalseDirections().add(a.getShip2Destroy().getLastDirection());

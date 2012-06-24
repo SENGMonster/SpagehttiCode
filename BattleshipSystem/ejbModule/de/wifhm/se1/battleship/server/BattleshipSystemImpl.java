@@ -1,5 +1,6 @@
 package de.wifhm.se1.battleship.server;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -78,6 +79,7 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
     		   logger.log(Level.INFO, user + ": Logged in succesfull, EJB:" + this);
     	   }
     	   else{
+    		   logger.log(Level.INFO, username + " " + password);
     		   logger.log(Level.INFO, "Login failed due invalid password");
     		   throw new InvalidPasswordException("Login failed due invalid password");
     	   }
@@ -193,7 +195,9 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void addPoints(int points) throws NotLoggedInException {
+		logger.log(Level.INFO,"Adding Points");
 		if(loggedUser != null){
+			logger.log(Level.INFO, "To user "+loggedUser);
 			User user = entitymanager.find(User.class, loggedUser);
 			user.addPoints(points);
 			entitymanager.persist(user);
@@ -207,16 +211,18 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
 
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public List<User> getHighscoreList() throws NotLoggedInException {
+	public List<String> getHighscoreList() throws NotLoggedInException {
 		logger.log(Level.INFO, "TEST");
 		if(loggedUser != null){
 			logger.log(Level.INFO, "Sending HighscoreList with:");
 			String query = "SElECT e FROM User e ORDER BY highscore DESC ";
-			List<User> list =  entitymanager.createQuery(query, User.class).getResultList();	
+			List<User> list =  entitymanager.createQuery(query, User.class).getResultList();
+			List<String> stringlist = new ArrayList<String>();
 			for(User s : list){
-				logger.log(Level.INFO, s.getUsername() +" - " + s.getHighscore());
+				logger.log(Level.INFO, s.getUsername() +" - " + s.getHighscore() + " - " + s.getPlayerGameState() + " | " + s.getAgentGameState());
+				stringlist.add(s.getUsername() +";"+s.getHighscore());
 			}
-			return list;
+			return stringlist;
 		}
 		else{
 			throw new NotLoggedInException("Not logged in");

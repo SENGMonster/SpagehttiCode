@@ -26,7 +26,15 @@ public final class R {
         public static final int sample3=0x7f020005;
         public static final int sample4=0x7f020006;
         public static final int sample5=0x7f020007;
-        public static final int wasser=0x7f020008;
+        public static final int sample_0=0x7f020008;
+        public static final int sample_1=0x7f020009;
+        public static final int sample_2=0x7f02000a;
+        public static final int sample_3=0x7f02000b;
+        public static final int sample_4=0x7f02000c;
+        public static final int sample_5=0x7f02000d;
+        public static final int sample_6=0x7f02000e;
+        public static final int sample_7=0x7f02000f;
+        public static final int wasser=0x7f020010;
     }
     public static final class id {
         public static final int boardsize=0x7f09001e;
@@ -70,6 +78,7 @@ public final class R {
         public static final int shiplength=0x7f090018;
         public static final int shipname=0x7f090019;
         public static final int spinner=0x7f09001f;
+        public static final int startexit=0x7f09002b;
         public static final int textView1=0x7f090027;
         public static final int tvWinText=0x7f090000;
     }
@@ -91,6 +100,7 @@ public final class R {
     }
     public static final class menu {
         public static final int menu=0x7f080000;
+        public static final int startmenu=0x7f080001;
     }
     public static final class string {
         public static final int app_name=0x7f060000;
@@ -106,6 +116,7 @@ public final class R {
         public static final int register=0x7f060002;
         public static final int registerNew=0x7f060006;
         public static final int save=0x7f06000c;
+        public static final int savedata=0x7f060016;
         public static final int savepu=0x7f06000a;
         public static final int startgame=0x7f06000e;
         public static final int summaryBoardsize=0x7f060013;

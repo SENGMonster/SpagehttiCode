@@ -6,10 +6,14 @@ package de.wifhm.se1.android.activity;
 import org.ksoap2.SoapFault;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -41,10 +45,10 @@ public class LoginActivity extends Activity {
 		
 		String prefusername = prefs.getString("username", null);
 		String prefpassword = prefs.getString("password", null);
-		if(prefusername != null){
+		if(!prefusername.matches("")){
 			username.setText(prefusername);
 		}
-		if(prefpassword != null){
+		if(!prefpassword.matches("")){
 			password.setText(prefpassword);
 		}
 		
@@ -56,7 +60,7 @@ public class LoginActivity extends Activity {
 						Log.i(TAG, "username: "+username.getText().toString());
 						Log.i(TAG, "password: "+password.getText().toString());
 						bsStub.setAngemeldeterUser(bsStub.getBsStub().login(username.getText().toString(), password.getText().toString()));
-						LoginActivity.this.setContentView(R.layout.succlogin);
+						startActivity(new Intent(LoginActivity.this, HighscoreActivity.class));
 					} catch (SoapFault e) {
 						failuretext.setVisibility(View.VISIBLE);
 						failuretext.setText(e.getMessage());
@@ -77,6 +81,21 @@ public class LoginActivity extends Activity {
 				
 			}
 		});
+	}
+	
+	public boolean onCreateOptionsMenu(Menu menu){
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.startmenu, menu);
+		return true;
+	}
+	
+	public boolean onOptionsItemSelected(MenuItem item){
+		switch(item.getItemId()){
+			case R.id.exit:
+				moveTaskToBack(true);
+				break;
+		}
+		return true;
 	}
 
 }

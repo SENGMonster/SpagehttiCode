@@ -173,26 +173,26 @@ public class BattleshipSystemWebservice implements BattleshipSystem {
 		// TODO Auto-generated method stub
 		return this.getSession().getAgentGameState();
 	}
-
-	@Override
-	@WebMethod
+	
 	/**
 	 * 
 	 * 
 	 * @see de.wifhm.se1.battleship.common.BattleshipSystem#addPoints(int)
 	 */
+	@Override
+	@WebMethod
 	public void addPoints(int points) throws NotLoggedInException {
 		// TODO Auto-generated method stub
 		this.getSession().addPoints(points);
 	}
 
-	@Override
-	@WebMethod
 	/**
 	 * 
 	 * @see de.wifhm.se1.battleship.common.BattleshipSystem#getHighscoreList()
 	 */
-	public List<User> getHighscoreList() throws NotLoggedInException{
+	@Override
+	@WebMethod
+	public List<String> getHighscoreList() throws NotLoggedInException{
 		// TODO Auto-generated method stub
 		return this.getSession().getHighscoreList();
 	}
