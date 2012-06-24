@@ -5,6 +5,8 @@ package de.wifhm.se1.android.activity;
 
 import org.ksoap2.SoapFault;
 
+import de.wifhm.se1.android.common.BattleshipSystemStub;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -69,6 +71,7 @@ public class LoginActivity extends Activity {
 					}
 				}
 				else{
+					bsStub.setBsStub(new BattleshipSystemStub());
 					failuretext.setVisibility(View.VISIBLE);
 					failuretext.setText("Service isn't online");
 				}

@@ -38,6 +38,10 @@ public class RegisterActivity extends Activity {
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         final Editor editor = prefs.edit();
         
+        if(systemStub == null){
+        	systemStub.setBsStub(new BattleshipSystemStub());
+        }
+        
         final EditText username = (EditText)findViewById(R.id.registerUsername);
         final EditText password = (EditText)findViewById(R.id.registerPassword);
         final EditText repassword = (EditText)findViewById(R.id.registerPasswordRetype);
