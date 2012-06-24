@@ -55,7 +55,6 @@ public class PositionShipBattleFieldImageAdapter extends BaseAdapter {
             imageView.setLayoutParams(new GridView.LayoutParams(45, 45));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(1, 1, 1, 1);
-            //imageView.setBackgroundResource(GlobalHolder.getInstance().getGridViewBackground());  
             
         } else {
             imageView = (ImageView) convertView;

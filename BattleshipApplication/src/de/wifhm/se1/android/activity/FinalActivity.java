@@ -71,7 +71,7 @@ public class FinalActivity extends Activity
 				wc.sendHighscorePoints(GlobalHolder.getInstance().getUserField().getHighScore());
 				
 				//neues Spiel initalisieren
-				GlobalHolder.getInstance().initializeNew("\"\"", "\"\"");
+				GlobalHolder.getInstance().initializeNew("", "");
 				
 				startActivity(new Intent(FinalActivity.this, HighscoreActivity.class));
 				Log.i(TAG, "Ende-click");

@@ -36,19 +36,18 @@ public class GlobalHolder {
           //Manager für das Computerspielfeld
           instance.ComputerField = new Battlefieldmanager(instance.ComputerShips);
           
-          if(oldUserGame!="\"\""){
+          if(oldUserGame!=null && !oldUserGame.contentEquals("")){
         	  instance.UserField.deserializeMeFromString(oldUserGame);
-
           }
           
-          if(oldComputerGame!="\"\""){
+          if(oldComputerGame!=null && !oldComputerGame.contentEquals("")){
         	  instance.ComputerField.deserializeMeFromString(oldComputerGame);
           }
           
           instance.AgentCommunicator = new Communicator();
           
         //hier noch den Agent alle KoordinatenDaten FieldStates setzen lassen damit der Algorithmus ordentlich rechnen kann
-          if(oldUserGame!="\"\""){
+          if(oldComputerGame!=null && !oldComputerGame.contentEquals("")){
         	  instance.AgentCommunicator.setFieldStatesAfterReloadingGame(UserField, UserShips);
           }
          
