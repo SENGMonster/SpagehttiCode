@@ -11,7 +11,15 @@ import android.widget.Toast;
 import de.wifhm.se1.android.activity.R;
 
 
-
+/** 
+ * Stellt die Informationen für ein Spielfeld zusammen.
+ * Enthält die Informationen für die Wasserschüsse und den Algorithmus zum Errechnen des Ergebnis eines Angriffs.
+ * Kann den den Punktestand errchnen
+ * Kann das Spielfeld serialisieren bzw. deserialisieren
+ * Dieses geschieht nach einer selbst entwickelten Codierung anhand eines ; -separierten Strings. Jedes Element was durch ';' getrennt wird, stellt ein Feld dar. 
+ * @author Ramona
+ *
+ */
 public class Battlefieldmanager {
 
 
@@ -30,6 +38,16 @@ public class Battlefieldmanager {
 		return WaterHits;
 	}
 	
+	/**
+	 * Ermittelt für einen Angriff das Ergebnis 
+	 * @param position
+	 * die Angriffsposition
+	 * @param mImageAdapter
+	 * der ImageAdapter der in seiner ImageListe das Ergebnis aufnehmen soll damit es angezeigt wird
+	 * @param a
+	 * Das Fenster auf dem der Toast mit dem Ergebnis angezeigt werden soll
+	 * @return das Ergebnis eines Angriffs
+	 */
 	public HitStates hasHitAShip(int position, BattleFieldImageAdapter mImageAdapter,  Activity a)
 	{
 		
@@ -89,19 +107,43 @@ public class Battlefieldmanager {
 	}
 	
 	
+	/**
+	 * Blendet eine Anzeige für den Text ein
+	 * @param text
+	 * der anzuzeigende Text
+	 * @param a
+	 * das Fenster in das der Text eingeblendet werden soll
+	 */
 	public void MakeToast(String text, Activity a)
 	{
 		Toast.makeText(a, text, Toast.LENGTH_SHORT).show();
 	}
 	
+	/**
+	 * errechnet den Highscorewert anhand der getätigten Angriffe
+	 * @return Spielergebnis für den Highscore
+	 */
 	public int getHighScore(){
 		return (GlobalHolder.getInstance().getNumOfRowsCols() * GlobalHolder.getInstance().getNumOfRowsCols()) - turnCounter;
 	}
+	
+	/**
+	 * liefert die Anzahl der gemachten Angriffe zurück
+	 * @return
+	 */
 	public int getTurnCounter(){
 		return turnCounter;
 	}
 	
 	
+	/**
+	 * serialisiert das Spielfeld anhand des Codes im Stil einer Komma separierten Datei.
+	 * uxx;uxx;uxx;
+	 * die erste Stelle steht für den Zustand des Felsd [Water (w), Getroffen (h), Unbeschossen (u)]
+	 * die zweite Stelle steht für den Schiffsbuchstaben, falls dort kein Schiff steht wird x genommen. Jedes Schiff bestimmt seinen Buchstaben durch das es kodiert ist.
+	 * die dritte Stelle steht für die Ausrichtung des Schiffes, [Horizontal (t), Vertikal (f), kein Schiff (x)
+	 * @return das als String kodierte Spielfeld 
+	 */
 	public String serializeInfoToString()
 	{
 		ArrayList<StringBuilder> items = new ArrayList<StringBuilder>();
@@ -149,6 +191,11 @@ public class Battlefieldmanager {
 	}
 	
 	
+	/**
+	 * deserialisiert ein Spielfeld anhand eines kodierten String. Codieurung siehe @see {@link Battlefieldmanager#serializeInfoToString()}
+	 * @param BattlefieldString
+	 * der String der deserialisiert werden soll
+	 */
 	public void deserializeMeFromString(String BattlefieldString){
 		
 		if (BattlefieldString!=null && !BattlefieldString.contentEquals("") && !BattlefieldString.contentEquals("anyType{}"))

@@ -14,7 +14,7 @@ import de.wifhm.se1.android.battleship.manager.*;;
  * 
  * Der Agent konsumiert die Hilfsfunktionen aus der @see AgentManager Klasse. 
  * 
- * @author Ramona
+ * @author Ramona, Jens
  *
  */
 public class Agent {

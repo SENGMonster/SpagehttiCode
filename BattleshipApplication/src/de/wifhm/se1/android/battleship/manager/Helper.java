@@ -7,6 +7,12 @@ import android.app.backup.RestoreObserver;
 import de.wifhm.se1.android.battleship.agent.AgentManager;
 import de.wifhm.se1.android.battleship.agent.Coordinate;
 
+/**
+ * Kapselt Hilfsfunktionen die bei der Benutzung des Schiffeversenken Spielfelds immer wieder auftreten.
+ * Bspw. das Valdieren einer Position auf Herauslaufen aus dem Rand, das Ermitteln der Werte die das Schiff einschließen (Mindestabstand) etc.
+ * @author Ramona
+ *
+ */
 public class Helper {
 	
 	private int Ausgangspunkt;
@@ -24,6 +30,14 @@ public class Helper {
 		
 	}
 
+	/**
+	 * Rundet einen Wert auf den Anfangswert der im Spielfeld dargestellten Reihe
+	 * @param Zahl
+	 * die zu rundende Zahl
+	 * @param numOfRowsCols
+	 * wie breit das Spielfeld ist
+	 * @return
+	 */
 	public int getGerundetFromInteger(int Zahl, int numOfRowsCols){
 		  String number = String.valueOf(Zahl);
 		String subStrNumber=number;
@@ -36,6 +50,10 @@ public class Helper {
 	    return gerundet;
 	}
 	
+	/**
+	 * Validiert anhand des Ausgangswertes und Schrittlänge ob Ausgangswert + Schrittlänge einen Zeilenumbruch ergeben würden
+	 * @return falls Fehlerhaft -1; ansonsten Ausgangswert + Schrittlänge
+	 */
 	//000000xx
 	//<--x0000 VERBOTEN
 	public int validateLeftToTop(){
@@ -47,6 +65,10 @@ public class Helper {
 		}
 	}
 	
+	/**
+	 * Validiert anhand des Ausgangswertes und Schrittlänge ob Ausgangswert + Schrittlänge einen Zeilenumbruch ergeben würden
+	 * @return falls Fehlerhaft -1; ansonsten Ausgangswert + Schrittlänge
+	 */
 	//00000xx -->
 	//x0000
 	public int validateRightToBottom(){
@@ -60,6 +82,10 @@ public class Helper {
 		}
 	}
 	
+	/**
+	 * Validiert anhand des Ausgangswertes und Schrittlänge ob Ausgangswert + Schrittlänge unten aus dem Spielfeld laufen würden
+	 * @return falls Fehlerhaft -1; ansonsten Ausgangswert + Schrittlänge
+	 */
 	public int validateBottom(){
 		int value = Ausgangspunkt + (AnzahlSchritte*numOfRowsCols);
 		if (value>(numOfRowsCols*numOfRowsCols)-1){
@@ -68,6 +94,10 @@ public class Helper {
 		return value;	
 	}
 	
+	/**
+	 * Validiert anhand des Ausgangswertes und Schrittlänge ob Ausgangswert + Schrittlänge oben aus dem Spielfeld laufen würden
+	 * @return falls Fehlerhaft -1; ansonsten Ausgangswert + Schrittlänge
+	 */
 	public int validateTop(){
 		int value = Ausgangspunkt - (AnzahlSchritte*numOfRowsCols);
 		if (value<0) {
@@ -78,6 +108,14 @@ public class Helper {
 	}
 	
 	
+	/**
+	 * errechnet anhand einer Liste von Positionen die Werte die 1 Reihe um die Positionen + die Ecken ergeben
+	 * @param Pos
+	 * die besetzen Positionen
+	 * @param isHorizontal
+	 * Ausrichtung der positionen
+	 * @return Liste von Feldern die die Positionen einschließen
+	 */
 	public static ArrayList<Integer> setImpossibleFieldsaroundShip(ArrayList<Integer> Pos, boolean isHorizontal){
 		
 		

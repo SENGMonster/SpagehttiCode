@@ -53,7 +53,7 @@ public class PositionShipActivity extends Activity {
 	
 	private BattleshipApplication bsstub;
 	
-	private final int numOfRowsCols =10; 
+	private final int numOfRowsCols =GlobalHolder.getInstance().getNumOfRowsCols(); 
 	private final int FieldCount=numOfRowsCols*numOfRowsCols;
 	
 	private ImageView shipimg;
@@ -241,6 +241,7 @@ public class PositionShipActivity extends Activity {
         GlobalHolder.getInstance().setGridViewBackground(mGalleryItemBackground);
 	    
 	    GridView gridView = (GridView) findViewById(R.id.gvPosShips);
+	    gridView.setNumColumns(GlobalHolder.getInstance().getNumOfRowsCols());
 	    gvPositionView = new PositionShipBattleFieldImageAdapter(this);
         gridView.setAdapter(gvPositionView);
         

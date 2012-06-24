@@ -13,7 +13,13 @@ import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
+/**
+ * 
+ * Beliefert die Gallery mit den Bilder der Schiffe die positioniert werden können.
+ * 
+ * @author Kai
+ *
+ */
 public class PositionShipGalleryImageAdapter extends BaseAdapter {
     
     private Context mContext;
@@ -35,6 +41,11 @@ public class PositionShipGalleryImageAdapter extends BaseAdapter {
         }
     }
     
+    /**
+     * Falls ein Schiff positioniert ist, soll es nicht mehr durch sein Bild sondern durch ein dunkles Bild repräsentiert werden
+     * @param position
+     * die Position des Bildes in der Gallery
+     */
     public void RemoveItem(int position)
     {
     	Schiffliste.remove(position);

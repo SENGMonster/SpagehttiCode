@@ -8,7 +8,13 @@ import java.util.Hashtable;
 import de.wifhm.se1.android.activity.R;
 import android.content.Context;
 
-
+/**
+ * Stellt die Anzeige eines Spielfeldes für den Computer auf Basis von @see {@link BattleFieldImageAdapter}
+ * Die initial aufgerufene Methode setSchiffe wird überschrieben , denn für den Computer wird seine Positionierung der Schiffe nicht angezeigt.
+ * 
+ * @author Kai
+ *
+ */
 public class CopyOfBattleFieldImageAdapter extends BattleFieldImageAdapter {
 	
 	public CopyOfBattleFieldImageAdapter(Context c, Spielvorlage spielv, ArrayList<Integer> Water) {
@@ -16,6 +22,9 @@ public class CopyOfBattleFieldImageAdapter extends BattleFieldImageAdapter {
 		// TODO Auto-generated constructor stub
 	}
 	
+	/**
+	 * setzt die Bilder zur Anzeige für das Spielfeld für die bereits angegriffenen Spielfelder, ansonsten das Basisbild
+	 */
 	@Override
 	protected void setSchiffe(){
 		dict = new Hashtable<Integer, Integer>();

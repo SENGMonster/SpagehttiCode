@@ -11,7 +11,12 @@ import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
+/**
+ * 
+ * 
+ * @author Kai
+ *
+ */
 public class PositionShipImageAdapter extends BaseAdapter {
     int mGalleryItemBackground;
     private Context mContext;

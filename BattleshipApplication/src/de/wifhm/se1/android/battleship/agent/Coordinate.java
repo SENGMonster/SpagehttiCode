@@ -1,7 +1,12 @@
 package de.wifhm.se1.android.battleship.agent;
 
-import de.wifhm.se1.android.battleship.manager.FieldState;
 
+/**
+ * Speichert die Nummer eines Spielfeldes und verbindet diese mit Werten die der Algorithmus errechnet und mit dem Zustand dieser Koordinate [Water | Hit | Impossible ]
+ * 
+ * @author Conny
+ *
+ */
 public class Coordinate {
 
 	private int CoordinateNr;

@@ -2,9 +2,14 @@ package de.wifhm.se1.android.battleship.agent;
 
 import java.util.ArrayList;
 
-import de.wifhm.se1.android.battleship.manager.FieldState;
 
 
+/**
+ * Speichert die Werte die bei dem Beschuss eines Schiffes anfallen.
+ * Die Positionen die bereits beschossen wurden, die Richtungen die auszuschließen sind etc.
+ * @author Ramona, Conny, Jens
+ *
+ */
 public class Destroy {
 
 	//the first Hit of the ship
@@ -41,6 +46,10 @@ public class Destroy {
 		return initialShot;
 	}
 	
+	/**
+	 * 
+	 * @return gibt die Position zurück für die die Richtung errechnet werden soll an der weitergeschossen wird
+	 */
 	public Coordinate getLastShot(){
 		if (shots.size()!=0){
 			
@@ -82,12 +91,27 @@ public class Destroy {
 		}
 	}
 	
+	/**
+	 * die Richtung die als letztes beschossen wurde
+	 * @return
+	 */
 	public Directions getLastDirection() {
 		return lastDirection;
 	}
+	/**
+	 * setzt die Richtung die als letztes beschossen wurde
+	 * @param lastDirection
+	 */
 	public void setLastDirection(Directions lastDirection) {
 		this.lastDirection = lastDirection;
 	}
+	
+	/**
+	 * setzt einen Versuchsschuss, wenn es der erste ist wird dieser zusätzlich in in InitialShot gespeichert
+	 * Wenn bereits 2 Hit Schüsse getätigt wurden, wird ermittelt ob das Schiff vertikal oder horizontal liegt
+	 * Anhand der Richtung der Positionierung des Schiffes werden Richtungen ausgeschlossen auf die geschossen wird
+	 * @param Shot
+	 */
 	public void setShot(Coordinate Shot) {
 		if (this.initialShot ==null)
 		{ 

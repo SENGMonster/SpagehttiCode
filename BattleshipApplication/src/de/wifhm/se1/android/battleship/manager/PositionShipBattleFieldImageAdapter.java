@@ -10,6 +10,14 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import de.wifhm.se1.android.activity.R;
 
+/**
+ * 
+ * Beliefert das GridView zur Anzeige des Spielfeldes zur Positionierung der Schiffe mit Bildern
+ * Anfänglich wird das GridView mit neutralen Bildern besetzt.
+ * Kann anhand der Interaktionen des Benutzers für Positionen die Bilder aktualisieren und durch die Bilder des zu positionierenden Schiffes bzw. zur Anzeige der Positionierungsmöglichekiten ersetzen. 
+ * @author Kai
+ *
+ */
 public class PositionShipBattleFieldImageAdapter extends BaseAdapter {
     
 	Hashtable<Integer, Integer> numbers = new Hashtable<Integer, Integer>();
@@ -29,6 +37,13 @@ public class PositionShipBattleFieldImageAdapter extends BaseAdapter {
     }
 
     
+    /**
+     * setzt das mitgegebene Image an die Position in der GridView
+     * @param position
+     * die Position an der das Bild angezeigt werden soll
+     * @param img
+     * das anzuzeigende Bild 
+     */
    public void addNewImgToPosition(int position, int img)
    {
 	   numbers.remove(position);

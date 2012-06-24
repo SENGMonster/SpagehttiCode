@@ -5,6 +5,11 @@ import org.ksoap2.SoapFault;
 import de.wifhm.se1.android.activity.BattleshipApplication;
 import de.wifhm.se1.android.common.BattleshipSystemStub;
 
+/**
+ * übernimmt für die Clientaufrufe der Darstellung und des Spiels die Kommunikation mit dem Webservice
+ * @author Ramona, Jens
+ *
+ */
 public class WebServiceCommunicator {
 	
 	BattleshipApplication battleshipapp;
@@ -17,6 +22,10 @@ public class WebServiceCommunicator {
 	}
 	
 	
+	/**
+	 * holt das zuletzt gespeicherte Spielfeld des Benutzers ab
+	 * @return Erfolg der Kommunikation
+	 */
 	public String getUserGame(){	
 		
 		try {
@@ -32,6 +41,10 @@ public class WebServiceCommunicator {
 		
 	}
 	
+	/**
+	 * holt das zuletzt gespeicherte Spielfeld des Computers ab
+	 * @return Erfolg der Kommunikation
+	 */
 	public String getComputerGame(){
 		
 		try {
@@ -48,6 +61,12 @@ public class WebServiceCommunicator {
 		
 	}
 	
+	/**
+	 * sendet das kodierte Spielfeld des Benutzers
+	 * Bei Misserfolg soll dem Benutzer Verboten werden weiterzuspielen 
+	 * @param UserString
+	 * @return Erfolg der Übermittlung
+	 */
 	public boolean sendPlayerGame(String UserString){
 		
 			try {
@@ -62,6 +81,12 @@ public class WebServiceCommunicator {
 			return true;
 	}
 	
+	/**
+	 * sendet das kodierte Spielfeld des Computers
+	 * Bei Misserfolg soll dem Benutzer Verboten werden weiterzuspielen 
+	 * @param AgentString
+	 * @return Erfolg der Übermittlung
+	 */
 	public boolean sendAgentGame(String AgentString){
 		
 		try {
@@ -76,6 +101,12 @@ public class WebServiceCommunicator {
 		return true;
 }
 	
+	/**
+	 * sendet das Spielergebnis in Punkten an den Webservice
+	 * @param points
+	 * das Spielergebis
+	 * @return Erfolg der Übermittlung
+	 */
 	public boolean sendHighscorePoints(int points){
 		try {
 			

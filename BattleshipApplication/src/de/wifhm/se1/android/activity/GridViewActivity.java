@@ -75,6 +75,7 @@ public class GridViewActivity extends Activity {
             
         imgadp = new BattleFieldImageAdapter(this,GlobalHolder.getInstance().getUserShips(), GlobalHolder.getInstance().getUserField().getWaterHits());
         GridView gridview = (GridView) findViewById (R.id.gridview);
+        gridview.setNumColumns(GlobalHolder.getInstance().getNumOfRowsCols());
         gridview.setAdapter(imgadp);
             
        /* AGENT COMMUNICATOR */
@@ -83,6 +84,7 @@ public class GridViewActivity extends Activity {
               
        agent_imgadp = new CopyOfBattleFieldImageAdapter(this, GlobalHolder.getInstance().getComputerShips(), GlobalHolder.getInstance().getComputerField().getWaterHits());
        GridView gridviewAgent = (GridView) findViewById(R.id.gridviewAgent);
+       gridviewAgent.setNumColumns(GlobalHolder.getInstance().getNumOfRowsCols());
        gridviewAgent.setAdapter(agent_imgadp);
        
        

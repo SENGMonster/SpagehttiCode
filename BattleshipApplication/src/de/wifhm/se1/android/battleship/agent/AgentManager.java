@@ -2,7 +2,6 @@ package de.wifhm.se1.android.battleship.agent;
 
 import java.util.ArrayList;
 
-import de.wifhm.se1.android.battleship.manager.FieldState;
 import de.wifhm.se1.android.battleship.manager.GlobalHolder;
 
 /**

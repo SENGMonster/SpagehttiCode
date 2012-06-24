@@ -12,10 +12,19 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import de.wifhm.se1.android.activity.R;
 
+
+/**
+ * Die Logik die Images an ein GridView zurückliefert, sodass ein Spielfeld ensteht
+ * Kapselt die Logik zum Anzeigen der Schiffe, sowie der  Darstellung der Ergebnisse von Angriffen.
+ * 
+ * Diese Klasse ist für die Anzeige des Benutzerspielfeldes.
+ * @author Kai
+ *
+ */
 public class BattleFieldImageAdapter extends BaseAdapter {
     
 	
-	private static final int count = 100;
+	private static final int count = GlobalHolder.getInstance().getNumOfRowsCols() * GlobalHolder.getInstance().getNumOfRowsCols();
 		
 	private Context mContext;
     protected Spielvorlage mSpielvorlage;
@@ -30,6 +39,9 @@ public class BattleFieldImageAdapter extends BaseAdapter {
         Waterfields = tempWaterfields;
       }
     
+    /**
+     * setzt entsprechend des Benutzerspielfeldes Images für die Felder
+     */
     protected void setSchiffe()
     {
     	 dict = new Hashtable<Integer, Integer>();
@@ -80,6 +92,10 @@ public class BattleFieldImageAdapter extends BaseAdapter {
     	
     }
     
+    /**
+     * ändert für die Position das Bild der Anzeige in das Bild für Wasser
+     * @param position die Position die Wasser ist
+     */
     public void setWasser(int position){
     	
     	dict.remove(position);
@@ -88,6 +104,10 @@ public class BattleFieldImageAdapter extends BaseAdapter {
     	
     }
     
+    /**
+     * ändert für die Position das Bild der Anzeige in das Bild für Treffer
+     * @param position die Position die Treffer ist
+     */
     public void setTreffer(int position){
     	
     	dict.remove(position);
@@ -96,10 +116,14 @@ public class BattleFieldImageAdapter extends BaseAdapter {
     	
     }
 
+    /**
+     * gibt die Anzahl der Felder zurück die gemalt werden
+     */
     public int getCount() {
         return count;
     }
 
+    
     public Object getItem(int position) {
         return null;
     }

@@ -2,7 +2,19 @@ package de.wifhm.se1.android.battleship.manager;
 
 import java.util.ArrayList;
 import java.util.Random;
-
+/**
+ * Abstrakte Klasse
+ * 
+ * kapselt die Informationen über ein Schiff.
+ * - Enthält die Positionen des Schiffes, die abgeschossenen Werte
+ * - Speichert die Ausrichtung des Schiffes
+ * - Speichert ob das Schiff gesunken ist
+ * 
+ * Zwingt durch Definition von abstrakten Methoden die erbenden Klasse für das Schiff eine Länge, einen Namen, eine Ziffer zur Codierung und ein Bild zu definieren.
+ * 
+ * @author Ramona
+ *
+ */
 public abstract class Schiff {
 
 	private static int numOfRowsCols = GlobalHolder.getInstance().getNumOfRowsCols();
@@ -23,6 +35,13 @@ public abstract class Schiff {
 		return isHorizontal;
 	}
 	
+	
+	/**
+	 * die Felder die das Schiff besetzt
+	 * @param StartPosition
+	 * @param EndPosition
+	 * @return
+	 */
 	public ArrayList<Integer> setSchiffspositions(int StartPosition, int EndPosition)
 	{
 		setEndposition(EndPosition);

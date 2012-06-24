@@ -3,6 +3,14 @@ package de.wifhm.se1.android.battleship.manager;
 import java.util.ArrayList;
 import java.util.Collection;
 
+/**
+ * Abstrakte Klasse
+ * Stellt eine Flotte dar.
+ * Erstellt anhand einer Liste von @see SchiffstypAmount eine Liste von Instanzen die von Schiff abgeleitet sind.
+ * 
+ * @author joe
+ *
+ */
 public abstract class Spielvorlage {
 
 	
@@ -23,6 +31,10 @@ public abstract class Spielvorlage {
 		return Schiffsliste;
 	}
 	
+	/**
+	 * instanziert für die Zusammenstellung von Schiffstypen und ihrer Anzahl mit Hilfe von Reflection die angegebene Anzahl von Instanzen des Schifftyps
+	 * und speichert diese in einer Liste von Schiffen  
+	 */
 	public void initializeSchiffsliste()
 	{
 		

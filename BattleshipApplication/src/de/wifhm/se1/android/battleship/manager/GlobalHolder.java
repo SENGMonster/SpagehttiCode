@@ -1,8 +1,21 @@
 package de.wifhm.se1.android.battleship.manager;
 
+import android.preference.PreferenceManager;
 import de.wifhm.se1.android.battleship.agent.Communicator;
 import de.wifhm.se1.android.battleship.shiptypes.Spielvorlage1;
 
+/**
+ * SINGLETON
+ * Kapselt ein gesamtes Spiel:
+ * - Spielfeld und Schiffliste für den Benutzer
+ * - Spielfeld und Schiffliste für den Computer
+ * - den Communicator für die künstliche Spiellogik, der jeweils Agent und AgentManager instanziert hält
+ * - die Spielfeldgröße
+ * 
+ * Die Spielfeldgröße wird bei Starten eines neuen Spiels in die Instanz geladen 
+ * @author Ramona
+ *
+ */
 public class GlobalHolder { 
 
 	
@@ -14,8 +27,11 @@ public class GlobalHolder {
     public static GlobalHolder getInstance() {
         if (instance == null) {
             instance = new GlobalHolder();
-            
         }
+        
+        
+        
+        
         return instance;
     }
 

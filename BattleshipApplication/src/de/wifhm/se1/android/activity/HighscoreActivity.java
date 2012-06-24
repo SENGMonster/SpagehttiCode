@@ -7,9 +7,9 @@ import org.ksoap2.SoapFault;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.storage.OnObbStateChangeListener;
-import android.util.Log;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -98,6 +98,11 @@ public class HighscoreActivity extends Activity {
 			@Override
 			public void onClick(View view) {
 				
+				
+				SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(HighscoreActivity.this);
+				
+				Integer size = new Integer(prefs.getString("boardsize", null));
+				GlobalHolder.getInstance().setNumOfRowsCols(size);
 				
 				//Beim Spielstart laden
 	            WebServiceCommunicator communicator = new WebServiceCommunicator((BattleshipApplication) getApplication());	

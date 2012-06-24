@@ -1,5 +1,11 @@
 package de.wifhm.se1.android.battleship.manager;
 
+/**
+ * Generische Klasse
+ * Matcht ein Schiffstyp mit einer Anzahl
+ * @author Ramona
+ *
+ */
 public class SchiffstypAmount {
 
 	private int amount;
