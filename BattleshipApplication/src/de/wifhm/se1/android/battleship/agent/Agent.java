@@ -4,7 +4,19 @@ import java.util.ArrayList;
 import java.util.Random;
 import de.wifhm.se1.android.battleship.manager.*;;
 
-
+/** 
+ * Die künstliche Intelligenz zur Errechnung des optimalen Schusses.
+ * Wertet die Werte für die Wahrscheinlichkeit einer Schiffpositionierung aus und speichert die Felder mit den besten Wert.
+ * Für die besten Werte beim Wert der Schiffpositionierungswahrscheinlihckeit werden noch die Nachbarn ausgewertet.
+ * Der Gewinner dieser beiden Ermittlungen wird als bester nächster Versuchsschuss zurückgegeben.
+ * Wenn gerade ein Element abzuschießen ist, wird die Richtung bestimmt in die am besten geschossen werden soll.
+ * Dazu wird wiederum die Nachbarschaft jedes einzelnen Nachbars des letzten Schusses gescannt und der beste Wert als nächster Schuss zurückgeliefert.
+ * 
+ * Der Agent konsumiert die Hilfsfunktionen aus der @see AgentManager Klasse. 
+ * 
+ * @author Ramona
+ *
+ */
 public class Agent {
 	private ArrayList<Schiff>shiplist;
 	AgentManager AgentManager;
@@ -19,6 +31,14 @@ public class Agent {
 	private boolean isThereAShipToDestroy =false;
 	
 	private Destroy Ship2Destroy;	
+	
+	/**
+	 * Setzt die Hilfsklasse die die Werte für den letzten Hit Schuss speichert.
+	 * Setzt gleichzeitig die Boolean Variable isThereAShipToDestroy welche bestimmt in welchem Modus (nächster Schuss = Versuchsschuss oder FolgeTrefferSchuss) der beste Schuss errehcnet wird.
+	 * 
+	 * @param ship2Destroy
+	 * Das Hilfsklasse für den letzten erfolgreichen Schuss. @see Destroy
+	 */
 	public void setShip2Destroy(Destroy ship2Destroy) {
 		if(ship2Destroy==null){
 			isThereAShipToDestroy = false;	
@@ -33,6 +53,13 @@ public class Agent {
 		return Ship2Destroy;
 	}
 	
+	
+	/**
+	 * Logik zum Ziehen der Konsequenzen aus dem Abschuss eines Schiffes.
+	 * Regt die Platzierung von Impossible Zuständen rund um das Spiel an.
+	 * Resetet @see Ship2Destroy
+	 * @param s
+	 */
 	public void setDestroyedShip(Schiff s){
 		
 		if(s!=null & Ship2Destroy!=null){
@@ -45,7 +72,13 @@ public class Agent {
 	}
 	
 	
-	
+	/**
+	 * Nach dem Laden eines Spiels vom Server müssen die ZUstände der einzelnen Koordinaten wieder gesetzt werden @see FieldStates
+	 * @param bm
+	 * Der Battlefieldmanager der die Wasser geschossen Koordinaten enthält
+	 * @param sv
+	 * Die Schiffsliste anhand derer die Hit und Impossible Zustände rekonstruiert werden
+	 */
 	public void setFieldStatesAfterLoadingGame(Battlefieldmanager bm, Spielvorlage sv){
 		
 		//wasser eintragen
@@ -85,6 +118,11 @@ public class Agent {
 		
 	}
 	
+	/**
+	 * setzt die Impossible Zustände für eine Reihe und die Ecken um das Schiff
+	 * @param s
+	 * das Schiff welches umrundet werden soll.
+	 */
 	private void setImpossibleFieldsAroundShip(Schiff s){
 		//ImpossibleStates setzen um jedes Schiff drumherum
 		for(int i=0; i< s.getSchiffspositions().size(); i++)
@@ -99,6 +137,11 @@ public class Agent {
 	private int turnCounter = 0;
 	private int initialTurnCounter =1;
 	
+	/**
+	 * errechnet den nächsten besten Schuss.
+	 * Je nachdem ob gerade ein Schiff in Beschuss ist wird der nächstbeste Schuss errechnet. 
+	 * @return die Koordinate die der Algorithmus als den höchstwahrscheinlichsten nächsten Treffer errechnet hat.
+	 */
 	public Coordinate nextTurn(){
 		
 		//how often the agent has shot already
@@ -321,6 +364,12 @@ public class Agent {
 	}
 	
 	
+	/**
+	 * Logik zum Positionieren der Schiffe auf der Oberfläche.
+	 * Errechnet einen Zufallswert für den Anfang jedes Schiffes. Überprüft daraufhin jede Richtung ob diese möglich ist 
+	 * (kein Überlaufen am Rand, kein Austreten aus dem Spielfeld, Mindestabstand zu anderen Schiffen einhalten).
+	 * Solange die Positionierung unmöglich ist wird ein neuer Zufallswert errechnet und wieder die 4 Richtugnen auf Möglichkeit überprüft. 
+	 */
 	public void positionShips(){
 		
 		Random r = new Random();

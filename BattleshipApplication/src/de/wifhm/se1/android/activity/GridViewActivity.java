@@ -29,6 +29,19 @@ import de.wifhm.se1.android.battleship.manager.WebServiceCommunicator;
 import de.wifhm.se1.android.battleship.manager.Spielvorlage;
 
 
+/**
+ * 
+ * @author Ramona
+ *
+ * Stellt das eigentliche Spielverhalten dar.
+ * Enthält eine GridView zur Anzeige des Spielfelds des Users, und eine für die Anzeige des Computerspielfeldes.
+ * Bei einem Klick des Benutzers auf das GridView Computerspielfeld wird die Anfrage für das Feld an die Funktion @see {@link Battlefieldmanager#hasHitAShip(int, BattleFieldImageAdapter, Activity)} weitergeleitet.
+ * Solange das Ergebnis der Routine nicht Wasser ist, wird das Klicken des Benutzers auf das Spielfeld ausgewertet. 
+ * Andernfalls wird die Anzeige mit Hilfe des ViewSwitchers auf das Spielfeld des Benutzers geändert und der Agent wird aufgefordert so lange zu schießen bist auch er Wasser erhält.
+ * Der Benutzer bestätigt mit einem OK Button jeweils dass er das Ergebnis des Schusses gesehen hat und die Ansicht geändert werden kann.
+ * Sollte der Benutzer die Ansicht nict wechseln dürfen, wird der OK Button ausgeblendet.
+ * Nach Beendigung des Spiels wird der Benutzer auf die Final Activity umgeleitet.
+ */
 public class GridViewActivity extends Activity {
     /** Called when the activity is first created. */
 	
@@ -45,6 +58,10 @@ public class GridViewActivity extends Activity {
 	
 	private boolean isAllowedToSwitch=false;
 	
+	/**
+	 * Lädt die Steuerelemente in die Variablen,
+	 * initialisiert die Ansichten und deckt die in @see GridViewActivity beschriebene Funktionaltät ab.
+	 */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -148,7 +165,14 @@ public class GridViewActivity extends Activity {
 		
     }
     
-        
+     
+    /**
+     * Handelt die Anfrage an die künstliche Intellligenz aka Agent für das nächste gewählte Spielfeld ab und leitet das Ergebnis an den Battlefieldmananger
+     * des Benutzers weiter, welcher den Schuss auswertet. Die Auswertung des Schusses welche in Form eines Wertes von @see HitStates zurückgeliefert wird,
+     * wird gegebenenfalls an den Agent zurückgeliefert.
+     * Die Kommunikation mit dem Agent erfolgt über die Klasse @see Communicator
+     * 
+     */
     private void AgentTurn(){
  	   int nextTurn = AgentCommunicator.getNextChoice();				
 			HitStates result =  GlobalHolder.getInstance().getUserField().hasHitAShip(nextTurn,  imgadp, GridViewActivity.this);			
@@ -179,6 +203,18 @@ public class GridViewActivity extends Activity {
 			}   
     }
     
+    /**
+     * 
+     * @param value 
+     * der Wert auf den die Boolean Variable gesetzt werden soll:
+     * bei True darf der Benutzer die Ansicht wechseln und seine Schüsse werden ignoriert
+     * bei False wird er durch Ausblenden des Buttons am Wechseln der Ansicht gehindert und er muss Schießen.
+     * @param User
+     * gibt an ob der Benutzer sich gerade auf der Agent oder der User Ansicht befindet.
+     * true: Useransicht
+     * false: Agentansicht
+     * 
+     */    
     private void setIsAllowedToSwitch(boolean value, boolean User)
     {
     	isAllowedToSwitch = value;
@@ -235,6 +271,9 @@ public class GridViewActivity extends Activity {
 		return true;
 	}
     
+	/**
+	 * Hilfsfunktion zum Einblenden des Ergebnis des Schusses (Wasser, Treffer)
+	 */
     private void MakeEndToast()
     {
     	startActivity(new Intent(GridViewActivity.this, FinalActivity.class));		

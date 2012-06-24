@@ -17,14 +17,26 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-
+/**
+ * 
+ * @author Kai
+ * 
+ * Zeigt dem Benutzer das Spielergebnis an. 
+ * Der Benutzer kann durch bestätigen des Button Fertig zurück auf die Highscore Liste, von wo aus er ein neues Spiel starten kann. 
+ * Der Benutzer kann das Menü aufrufen und sich dort ausloggen, seine Einstellungen ändern oder beenden.
+ * 
+ */
 public class FinalActivity extends Activity
 {
 	
     private static final String TAG = "BattleshipStartActivity";
     
     BattleshipApplication bsstub;
-        
+    
+    /**
+     * Beim initialisieren des Layouts wird das Spielergebnis aus GlobalHolder geholt und zur Anzeige in die TextView geschrieben.
+     * Beim Drücken auf den Button Fertig wird der letzte Spielstand gelöscht.
+     */
 	public void onCreate(Bundle savedInstanceState)
 	{
 		

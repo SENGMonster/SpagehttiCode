@@ -33,6 +33,22 @@ import de.wifhm.se1.android.battleship.manager.Spielvorlage;
 import de.wifhm.se1.android.battleship.shiptypes.Spielvorlage1;
 
 
+
+/**
+ * 
+ * @author Ramona
+ *
+ * Handelt die Positionierung der Schiffe ab.
+ * Der Benutzer kann aus einer Gallery oben die Schiffe die noch zu positionieren sind auswählen.
+ * Die Informaitonen über das Schiff welches ausgewählt ist werden eine Zeile darunter angezeigt.
+ * Wenn der Benutzer ein Schiff aus der Gallery gewählt hat, kann er auf das GridView welches die Spielfläche darstellt klicken.
+ * Ist es der erste Klick, wird der Anfang des Schiffes gesetzt. Dabei werden die möglichen Endpositionen errechnet.
+ * Es wird darauf geachtet dass die Endpositionen keinem anderen Schiff in die Quere kommen und nicht über den Rand laufen.
+ * Ist es der zweite Klick wird die Positionierung auf dem GridView angezeigt.
+ * Der Benutzer kann nach dem zweiten Klick auf den dann eingeblendeten Button OK drücken, wodurch er die Positionierung in die Klasse überträgt und das Schiff als positioniert markiert.
+ * Er kann nach dem ersten Klick den eingeblendeten Button Cancel drücken, die Positionierung wird aufgehoben.
+ * Nach Beendigung der Positionierung wird er auf GridViewActivity weitergeleitet.
+ */
 public class PositionShipActivity extends Activity {
 	
 	private BattleshipApplication bsstub;
@@ -60,6 +76,10 @@ public class PositionShipActivity extends Activity {
     private int[] possibleEndPositions;
     private ArrayList<Integer> impossibleFields = new ArrayList<Integer>();
     
+    /**
+     * Setzt die temporären Variablen auf die Ausgangszustände zurück
+     * Beinhaltet das Zurücksetzen der Variablen für die gewählten Positionen,den Zähler für die Klickanzahl des Benutzers und die möglichen Endpositionen für ein Schiff..
+     */
     public void Reset()
     {
     	StartPosition=-1;
@@ -68,6 +88,9 @@ public class PositionShipActivity extends Activity {
     	possibleEndPositions=null;
     }
     
+    /**
+     * Entfernt alle Elemente des Positionierungsvorgangs wie das Entfernen der Anzeige der möglichen Endpunkte und nach Auswählen eines Endpunktes die Anzeige der Schiffsbilder auf den Positionen zwischen Start und Ende.
+     */
     public void RemoveAllGarbageItems()
     {
     	if(StartPosition!=-1)
@@ -84,6 +107,12 @@ public class PositionShipActivity extends Activity {
     	
     }
     
+    /**
+     * Entfernt die Anzeige aller möglichen Endelemente auf der Oberfläche.
+     * @param includingEndPo
+     * beschreibt ob die erste Position auch mit von der Oberfläche genommen werden soll.
+     * 
+    */
     private void RemovePossibleEndPositions(boolean includingEndPo)
     {
     	if(possibleEndPositions!=null)
@@ -104,6 +133,12 @@ public class PositionShipActivity extends Activity {
     }
 	
     
+    /**
+     * Platziert von Startposition bis Endposition das Bild des Schiffes auf dem GridView.
+     * @param img
+     * das zu setzende Schiffsbild
+     * 
+     */
     private void FulfillShip(int img){
     	int differenz= EndPosition-StartPosition;
 		int differenzbetrag= Math.abs(differenz);
@@ -397,11 +432,18 @@ public class PositionShipActivity extends Activity {
 
 	} //end onCreate
 	
+	
+	/**
+	 * Versteckt die Buttons OK und Cancel
+	 */
 	private void HideAllButtonStuff(){
 		btnOK.setVisibility(View.INVISIBLE);
 		btnCancel.setVisibility(View.INVISIBLE);
 	}
 	
+	/**
+	 * Versteckt die Informationsanzeigen für das aus der Gallery ausgewählte Schiff was platziert werden soll
+	 */
 	private void HideAllShipStuff(){
 		galleryimgadp.RemoveItem(currShipIndex);
 		shipimg.setVisibility(View.INVISIBLE);

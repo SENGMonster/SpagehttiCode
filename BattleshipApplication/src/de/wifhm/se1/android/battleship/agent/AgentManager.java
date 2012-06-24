@@ -5,11 +5,18 @@ import java.util.ArrayList;
 import de.wifhm.se1.android.battleship.manager.FieldState;
 import de.wifhm.se1.android.battleship.manager.GlobalHolder;
 
+/**
+ * 
+ * @author Ramona, Jens
+ *
+ * Bildet die Basis für den Algorithmus.
+ * Speichert die Koordinaten Instanzen und bietet Hilfsfunktionalitäten zum Errechnen des Feldes mit der höchsten Wahrscheinlichkeit zum nächsten Treffer.
+ */
 public class AgentManager {
 		
 	private int maxlength=5;
-	private int numOfRowsCols =10;
-	private int numOfRowsColsT2 =100;
+	private int numOfRowsCols =GlobalHolder.getInstance().getNumOfRowsCols();
+	private int numOfRowsColsT2 =numOfRowsCols*numOfRowsCols;
 	
 	public AgentManager(){
 	}	
@@ -25,6 +32,13 @@ public class AgentManager {
 		Koordinatenliste = koordinatenliste;
 	}	
 	
+	/**
+	 * setzt den Zustand [Water|Hit|Impossible]
+	 * @param nr
+	 * die Feldnummer für die der Zustand geändert werden soll
+	 * @param fs
+	 * der Zielzustand
+	 */
 	public void setFieldStateForCoordinate(int nr, FieldState fs)
 	{
 		Koordinatenliste.get(nr).setStateField(fs);
