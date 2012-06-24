@@ -34,7 +34,9 @@ public class RegisterLoginActivity extends Activity {
         
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String username = prefs.getString("username", "");
-        String password = prefs.getString("username", "");
+        String password = prefs.getString("password", "");
+        Log.d("REGISTERLOGIN", username);
+        Log.d("REGISTERLOGIN", password);
         
         if(username.matches("") && password.matches("")){
         	setContentView(R.layout.register);
@@ -68,7 +70,7 @@ public class RegisterLoginActivity extends Activity {
 							        startActivity(new Intent(RegisterLoginActivity.this, LoginActivity.class));
 								} catch (SoapFault e) {
 									failure.setVisibility(View.VISIBLE);
-									failure.setText("Service isn't reachable");
+									failure.setText(e.getMessage());
 								}
 							}
 							else{
@@ -128,7 +130,7 @@ public class RegisterLoginActivity extends Activity {
 							} catch (SoapFault e) {
 								failure.setVisibility(View.VISIBLE);
 								Log.e("RegisterLogin", e.getMessage());
-								failure.setText("Service isn't reachable");
+								failure.setText(e.getMessage());
 							}
 						}
 						else{

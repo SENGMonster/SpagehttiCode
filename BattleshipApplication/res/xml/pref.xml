@@ -8,7 +8,7 @@
         android:key="password" 
         android:summary="@string/summaryPassword" 
         android:title="@string/titlePassword" 
-        android:password="true"/>
+        />
     <ListPreference
         android:entries="@array/boardsizes"
         android:entryValues="@array/sizeint"

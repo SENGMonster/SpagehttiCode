@@ -62,6 +62,7 @@ public class RegisterActivity extends Activity {
 				        editor.putString("username", username.getText().toString());
 				        editor.putString("password", password.getText().toString());
 				        editor.putString("boardsize", "10");
+				        editor.putBoolean("savedata", true);
 				        editor.commit();
 				        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
 					} catch (SoapFault e) {
