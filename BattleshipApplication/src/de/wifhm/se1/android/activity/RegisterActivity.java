@@ -34,7 +34,6 @@ public class RegisterActivity extends Activity {
         setContentView(R.layout.register);
         
         systemStub = (BattleshipApplication) this.getApplication();
-        systemStub.setBsStub(new BattleshipSystemStub());
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         final Editor editor = prefs.edit();
         
@@ -69,7 +68,7 @@ public class RegisterActivity extends Activity {
 						failure.setVisibility(View.VISIBLE);
 						failure.setText(e.getMessage());
 						Toast.makeText(RegisterActivity.this, "Registration failed, username already exsits", Toast.LENGTH_LONG);
-						Log.e(TAG, "Login failed");
+						Log.e(TAG, "Registration failed: " +e.getMessage());
 						
 					}
 				}
