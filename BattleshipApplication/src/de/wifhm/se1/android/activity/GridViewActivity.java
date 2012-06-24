@@ -140,10 +140,14 @@ public class GridViewActivity extends Activity {
 		
     }
     
+        
     private void AgentTurn(){
  	   int nextTurn = AgentCommunicator.getNextChoice();				
 			HitStates result =  GlobalHolder.getInstance().getUserField().hasHitAShip(nextTurn,  imgadp, GridViewActivity.this);			
 			AgentCommunicator.setFieldState(result, nextTurn);
+			
+			
+			
 			
 			switch(result)
 			{
@@ -176,12 +180,12 @@ public class GridViewActivity extends Activity {
     		{
     			UserOK.setVisibility(View.VISIBLE);
     			String UserString = GlobalHolder.getInstance().getUserField().serializeInfoToString();
-    			boolean hasSerialized = Serializer.sendPlayerGame(UserString);
+    			//boolean hasSerialized = Serializer.sendPlayerGame(UserString);
     			
     		}else{
     			AgentOK.setVisibility(View.VISIBLE);
     			String AgentString = GlobalHolder.getInstance().getUserField().serializeInfoToString();
-    			boolean hasSerialized = Serializer.sendPlayerGame(AgentString);
+    			//boolean hasSerialized = Serializer.sendPlayerGame(AgentString);
     			System.out.println(AgentString);
     		}
     	}
