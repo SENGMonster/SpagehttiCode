@@ -1,5 +1,10 @@
 package de.wifhm.se1.battleship.server.exceptions;
 
+/**
+ * 
+ * @author Marc Paaßen
+ * Exception die geschmissen wird falls Funktionen aufgerufen werden die nur von einem eingeloggten User aufgerufen werden können
+ */
 public class NotLoggedInException extends Exception {
 
 	/**
