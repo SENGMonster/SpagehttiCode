@@ -35,8 +35,6 @@ public class RegisterLoginActivity extends Activity {
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String username = prefs.getString("username", "");
         String password = prefs.getString("password", "");
-        Log.d("REGISTERLOGIN", username);
-        Log.d("REGISTERLOGIN", password);
         
         if(username.matches("") && password.matches("")){
         	setContentView(R.layout.register);

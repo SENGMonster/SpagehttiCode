@@ -75,7 +75,9 @@ public class RegisterActivity extends Activity {
 				}
 				else{
 					Toast.makeText(RegisterActivity.this, "Retyped password isn't equal to password", Toast.LENGTH_LONG);
-					Log.e(TAG, "Registration failed");
+					Log.e(TAG, "Passwords aren't equal");
+					failure.setVisibility(View.VISIBLE);
+					failure.setText("Passwords aren't equal");
 				}
 			}
         	
