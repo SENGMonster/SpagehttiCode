@@ -87,8 +87,7 @@ public class HighscoreActivity extends Activity {
 	            String UserGame= communicator.getUserGame();
 	            String AgentGame = communicator.getComputerGame();
 	            
-	            //GlobalHolder.getInstance().initializeNew(UserGame, AgentGame);
-	            GlobalHolder.getInstance().initializeNew("", "");
+	            GlobalHolder.getInstance().initializeNew(UserGame, AgentGame);
 	            
 				startActivity(new Intent(HighscoreActivity.this, PositionShipActivity.class));
 			}

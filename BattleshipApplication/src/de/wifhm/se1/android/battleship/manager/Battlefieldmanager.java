@@ -58,7 +58,7 @@ public class Battlefieldmanager {
 							lastDestroyedShip = s;
 							
 							sunkCounter+=1;
-							System.out.println("Versenkt--> sunkCounter :" + String.valueOf(sunkCounter));
+							System.out.println("Versenkt--> sunkCounter :" + String.valueOf(sunkCounter)+ " |Anzahl: " + String.valueOf(mSpielvorlage.getSchiffsliste().size()));
 							if (sunkCounter==mSpielvorlage.getSchiffsliste().size())
 							{
 								
@@ -153,7 +153,7 @@ public class Battlefieldmanager {
 	
 	public void deserializeMeFromString(String BattlefieldString){
 		
-		if (BattlefieldString!=null)
+		if (BattlefieldString!=null && !BattlefieldString.contentEquals(""))
 		{
 		
 			Hashtable<String, Schiff> ht = new Hashtable<String, Schiff>();
