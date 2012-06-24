@@ -79,6 +79,7 @@ public class BattleshipSystemImpl implements BattleshipSystem, BattleshipSystemL
     		   logger.log(Level.INFO, user + ": Logged in succesfull, EJB:" + this);
     	   }
     	   else{
+    		   logger.log(Level.INFO, username + " " + password);
     		   logger.log(Level.INFO, "Login failed due invalid password");
     		   throw new InvalidPasswordException("Login failed due invalid password");
     	   }

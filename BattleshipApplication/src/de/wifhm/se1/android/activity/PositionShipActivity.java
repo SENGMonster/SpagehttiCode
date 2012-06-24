@@ -2,12 +2,17 @@ package de.wifhm.se1.android.activity;
 
 import java.util.ArrayList;
 
+import org.ksoap2.SoapFault;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.MarginLayoutParams;
@@ -30,6 +35,7 @@ import de.wifhm.se1.android.battleship.shiptypes.Spielvorlage1;
 
 public class PositionShipActivity extends Activity {
 	
+	private BattleshipApplication bsstub;
 	
 	private final int numOfRowsCols =10; 
 	private final int FieldCount=numOfRowsCols*numOfRowsCols;
@@ -142,7 +148,8 @@ public class PositionShipActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.positionships);
-
+	    
+	    this.bsstub = (BattleshipApplication)getApplication();
 	    // ------------- SPIELVORLAGE -------
 	    
 	  
@@ -400,6 +407,32 @@ public class PositionShipActivity extends Activity {
 		shipimg.setVisibility(View.INVISIBLE);
         txtShipName.setText("");
         txtShipLength.setText("");
+	}
+	
+	public boolean onCreateOptionsMenu(Menu menu){
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.menu, menu);
+		return true;
+	}
+	
+	public boolean onOptionsItemSelected(MenuItem item){
+		switch(item.getItemId()){
+			case R.id.logout:
+				if(bsstub.getBsStub() != null && bsstub.getAngemeldeterUser() != null){
+					try {
+						bsstub.getBsStub().logout();
+						startActivity(new Intent(PositionShipActivity.this, RegisterLoginActivity.class));
+					} catch (SoapFault e) {	}
+				}
+				break;
+			case R.id.preferences:
+				startActivity(new Intent(PositionShipActivity.this, BattleshipPreferenceActivity.class));
+				break;
+			case R.id.exit:
+				moveTaskToBack(true);
+				break;
+		}
+		return true;
 	}
 
 } //end Class

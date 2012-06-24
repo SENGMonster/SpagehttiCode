@@ -64,8 +64,8 @@ public class FinalActivity extends Activity
 				
 				//Gamestates leeren
 				WebServiceCommunicator wc = new WebServiceCommunicator(bsstub);
-				wc.sendAgentGame("\"\"");
-				wc.sendPlayerGame("\"\"");
+				wc.sendAgentGame("");
+				wc.sendPlayerGame("");
 				
 				//Punktestand senden
 				wc.sendHighscorePoints(GlobalHolder.getInstance().getUserField().getHighScore());
@@ -92,7 +92,7 @@ public class FinalActivity extends Activity
 				if(bsstub.getBsStub() != null && bsstub.getAngemeldeterUser() != null){
 					try {
 						bsstub.getBsStub().logout();
-						startActivity(new Intent(FinalActivity.this, FinalActivity.class));
+						startActivity(new Intent(FinalActivity.this, RegisterLoginActivity.class));
 					} catch (SoapFault e) {	}
 				}
 				break;
@@ -100,6 +100,7 @@ public class FinalActivity extends Activity
 				startActivity(new Intent(FinalActivity.this, BattleshipPreferenceActivity.class));
 				break;
 			case R.id.exit:
+				moveTaskToBack(true);
 				break;
 		}
 		return true;

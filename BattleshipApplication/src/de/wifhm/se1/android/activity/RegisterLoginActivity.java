@@ -9,6 +9,9 @@ import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -59,6 +62,7 @@ public class RegisterLoginActivity extends Activity {
 									editor.putString("username", usernametext.getText().toString());
 							        editor.putString("password", passwordtext.getText().toString());
 							        editor.putString("boardsize", "10");
+							        editor.putBoolean("savedata", true);
 							        editor.commit();
 							        
 							        startActivity(new Intent(RegisterLoginActivity.this, LoginActivity.class));
@@ -101,9 +105,11 @@ public class RegisterLoginActivity extends Activity {
         	
         	final EditText usernametext = (EditText) findViewById(R.id.loginUsername);
         	final EditText passwordtext = (EditText) findViewById(R.id.loginPassword);
+        	if(prefs.getBoolean("savedata", false)){
+        		usernametext.setText(username);
+            	passwordtext.setText(password);
+        	}
         	
-        	usernametext.setText(username);
-        	passwordtext.setText(password);
         	
         	Button send = (Button)findViewById(R.id.login);
         	Button register = (Button)findViewById(R.id.registerNew);
@@ -117,7 +123,7 @@ public class RegisterLoginActivity extends Activity {
 					if(!usernametext.getText().toString().matches("")){
 						if(!passwordtext.getText().toString().matches("")){
 							try {
-								systemStub.getBsStub().login(usernametext.getText().toString(), passwordtext.getText().toString());
+								systemStub.setAngemeldeterUser(systemStub.getBsStub().login(usernametext.getText().toString(), passwordtext.getText().toString()));
 								startActivity(new Intent(RegisterLoginActivity.this, HighscoreActivity.class));
 							} catch (SoapFault e) {
 								failure.setVisibility(View.VISIBLE);
@@ -150,5 +156,20 @@ public class RegisterLoginActivity extends Activity {
         	
         	
         }
+        
+	}
+	public boolean onCreateOptionsMenu(Menu menu){
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.startmenu, menu);
+		return true;
+	}
+	
+	public boolean onOptionsItemSelected(MenuItem item){
+		switch(item.getItemId()){
+			case R.id.exit:
+				moveTaskToBack(true);
+				break;
+		}
+		return true;
 	}
 }
