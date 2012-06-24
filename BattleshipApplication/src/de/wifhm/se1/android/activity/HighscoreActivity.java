@@ -18,6 +18,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import de.wifhm.se1.android.battleship.manager.GlobalHolder;
+import de.wifhm.se1.android.battleship.manager.WebServiceCommunicator;
 import de.wifhm.se1.android.common.User;
 import de.wifhm.se1.android.util.HighscoreListAdapter;
 
@@ -78,6 +80,14 @@ public class HighscoreActivity extends Activity {
 		
 			@Override
 			public void onClick(View view) {
+				
+				
+				//Beim Spielstart laden
+	            WebServiceCommunicator communicator = new WebServiceCommunicator((BattleshipApplication) getApplication());	
+	            String UserGame= communicator.getUserGame();
+	            String AgentGame = communicator.getComputerGame();
+	            GlobalHolder.getInstance().initializeNew(UserGame, AgentGame);
+				
 				startActivity(new Intent(HighscoreActivity.this, PositionShipActivity.class));
 			}
 		});

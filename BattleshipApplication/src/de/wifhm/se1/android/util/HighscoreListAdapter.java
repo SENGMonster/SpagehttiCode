@@ -61,10 +61,18 @@ public class HighscoreListAdapter extends BaseAdapter {
 		else{
 			holder = (ViewHolder) v.getTag();
 		}
-		Log.d("Test", "Username: " + temp[0]);
-		Log.d("Test", "Points: " + temp[1]);
-		holder.username.setText(temp[0]);
-		holder.highscorepoints.setText("Punkte: " + temp[1]);
+		
+		try{
+			Log.d("Test", "Username: " + temp[0]);
+			Log.d("Test", "Points: " + temp[1]);
+			holder.username.setText(temp[0]);
+			holder.highscorepoints.setText("Punkte: " + temp[1]);
+		}
+		catch(Exception ex)
+		{
+			holder.username.setText("tmpSpieler");
+			holder.highscorepoints.setText("Punkte: 53");
+		}
 	
 		
 		
