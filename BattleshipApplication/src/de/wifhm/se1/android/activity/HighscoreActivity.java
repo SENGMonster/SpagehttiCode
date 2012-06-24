@@ -5,6 +5,7 @@ import java.util.List;
 import org.ksoap2.SoapFault;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,7 +20,7 @@ import de.wifhm.se1.android.util.HighscoreListAdapter;
 
 public class HighscoreActivity extends Activity {
 	BattleshipApplication bsstub;
-	private final String TAG = "BLA";
+	private final String TAG = "HighscoreActivity";
 	
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -30,7 +31,7 @@ public class HighscoreActivity extends Activity {
 			bsstub.getBsStub().addPoints(20);
 		} catch (SoapFault e1) {
 			// TODO Auto-generated catch block
-			Log.e("Highscore", e1.toString());
+			Log.e(TAG , e1.toString());
 		}
 		ListView highscorelist = (ListView)findViewById(R.id.highscorelist);
 		
@@ -44,12 +45,11 @@ public class HighscoreActivity extends Activity {
 		
 		try {
 			//TODO
-			List<User>highscores = bsstub.getBsStub().getHighscoreList();
+			List<String>highscores = bsstub.getBsStub().getHighscoreList();
 			Log.d("Highscore", highscores.toString());
 			
-			for(User s : highscores){
-				Log.d("highscore", s.getUsername());
-				Log.d("highscore", s.getHighscore().toString());
+			for(String s : highscores){
+				Log.d(TAG, s);
 			}
 			
 			if(highscores.size() > 0 ){
@@ -75,7 +75,7 @@ public class HighscoreActivity extends Activity {
 		
 			@Override
 			public void onClick(View view) {
-				//TODO startActivity(new Intent());
+				startActivity(new Intent(HighscoreActivity.this, PositionShipActivity.class));
 			}
 		});
 	}

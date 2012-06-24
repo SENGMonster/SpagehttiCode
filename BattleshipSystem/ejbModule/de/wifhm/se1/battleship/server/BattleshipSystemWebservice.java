@@ -192,7 +192,7 @@ public class BattleshipSystemWebservice implements BattleshipSystem {
 	 * 
 	 * @see de.wifhm.se1.battleship.common.BattleshipSystem#getHighscoreList()
 	 */
-	public List<User> getHighscoreList() throws NotLoggedInException{
+	public List<String> getHighscoreList() throws NotLoggedInException{
 		// TODO Auto-generated method stub
 		return this.getSession().getHighscoreList();
 	}

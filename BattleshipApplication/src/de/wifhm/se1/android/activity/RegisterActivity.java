@@ -3,6 +3,7 @@ package de.wifhm.se1.android.activity;
 import org.ksoap2.SoapFault;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
@@ -41,6 +42,7 @@ public class RegisterActivity extends Activity {
         final TextView failure = (TextView)findViewById(R.id.failuremessage2);
         
         Button register = (Button)findViewById(R.id.send);
+        Button login = (Button)findViewById(R.id.registerlogin);
         
         register.setOnClickListener(new OnClickListener(){
 
@@ -55,7 +57,7 @@ public class RegisterActivity extends Activity {
 				        editor.putString("password", password.getText().toString());
 				        editor.putString("boardsize", "10");
 				        editor.commit();
-						RegisterActivity.this.setContentView(R.layout.succregister);
+				        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
 					} catch (SoapFault e) {
 						failure.setVisibility(View.VISIBLE);
 						failure.setText(e.getMessage());
@@ -68,6 +70,16 @@ public class RegisterActivity extends Activity {
 					Toast.makeText(RegisterActivity.this, "Retyped password isn't equal to password", Toast.LENGTH_LONG);
 					Log.e(TAG, "Registration failed");
 				}
+			}
+        	
+        });
+        
+        login.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+				
 			}
         	
         });

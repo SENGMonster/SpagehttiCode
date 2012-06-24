@@ -86,6 +86,6 @@ public interface BattleshipSystem {
 	 * 
 	 * Gibt eine Liste aller registrierten Nutzer zurück
 	 */
-	public List<User> getHighscoreList() throws NotLoggedInException;
+	public List<String> getHighscoreList() throws NotLoggedInException;
 	
 }

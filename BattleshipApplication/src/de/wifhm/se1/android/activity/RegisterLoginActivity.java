@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -29,10 +30,10 @@ public class RegisterLoginActivity extends Activity {
         systemStub.setBsStub(new BattleshipSystemStub());
         
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String username = prefs.getString("username", null);
-        String password = prefs.getString("username", null);
+        String username = prefs.getString("username", "");
+        String password = prefs.getString("username", "");
         
-        if(username != null && password != null){
+        if(username.matches("") && password.matches("")){
         	setContentView(R.layout.register);
         	
         	final Editor editor = prefs.edit();
@@ -44,7 +45,7 @@ public class RegisterLoginActivity extends Activity {
         	Button send = (Button)findViewById(R.id.send);
         	Button login = (Button)findViewById(R.id.registerlogin);
         	
-        	final TextView failure = (TextView)findViewById(R.id.failuremessage); 
+        	final TextView failure = (TextView)findViewById(R.id.failuremessage2); 
         	
         	send.setOnClickListener(new OnClickListener(){
 
@@ -55,13 +56,12 @@ public class RegisterLoginActivity extends Activity {
 							if(passwordtext.getText().toString().equals(repasswordtext.getText().toString())){
 								try {
 									systemStub.getBsStub().register(usernametext.getText().toString(), passwordtext.getText().toString());
-									systemStub.getBsStub().login(usernametext.getText().toString(), passwordtext.getText().toString());
 									editor.putString("username", usernametext.getText().toString());
 							        editor.putString("password", passwordtext.getText().toString());
 							        editor.putString("boardsize", "10");
 							        editor.commit();
 							        
-							        startActivity(new Intent(RegisterLoginActivity.this, HighscoreActivity.class));
+							        startActivity(new Intent(RegisterLoginActivity.this, LoginActivity.class));
 								} catch (SoapFault e) {
 									failure.setVisibility(View.VISIBLE);
 									failure.setText("Service isn't reachable");
@@ -108,7 +108,7 @@ public class RegisterLoginActivity extends Activity {
         	Button send = (Button)findViewById(R.id.login);
         	Button register = (Button)findViewById(R.id.registerNew);
         	
-        	final TextView failure = (TextView)findViewById(R.id.failuremessage2);
+        	final TextView failure = (TextView)findViewById(R.id.failuremessage);
         	
         	send.setOnClickListener(new OnClickListener(){
 
@@ -121,6 +121,7 @@ public class RegisterLoginActivity extends Activity {
 								startActivity(new Intent(RegisterLoginActivity.this, HighscoreActivity.class));
 							} catch (SoapFault e) {
 								failure.setVisibility(View.VISIBLE);
+								Log.e("RegisterLogin", e.getMessage());
 								failure.setText("Service isn't reachable");
 							}
 						}

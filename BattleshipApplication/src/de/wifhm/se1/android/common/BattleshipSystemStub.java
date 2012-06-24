@@ -92,27 +92,23 @@ public class BattleshipSystemStub implements BattleshipSystem {
 	 * @see de.wifhm.se1.android.common.BattleshipSystem#getHighscoreList()
 	 */
 	@Override
-	public List<User> getHighscoreList() throws SoapFault {
+	public List<String> getHighscoreList() throws SoapFault {
 		String METHOD_NAME = "getHighscoreList";
-		List<User> list = new ArrayList<User>();
+		List<String> list = new ArrayList<String>();
 		Object o = executeSoapAction(METHOD_NAME);
 		if(o instanceof SoapObject){
-			SoapObject response = (SoapObject) executeSoapAction(METHOD_NAME);
-			
+			SoapObject response = (SoapObject) o;
+			Log.d(TAG, response.toString());
 			 final int intPropertyCount = response.getPropertyCount();
 
 		        for (int i = 0; i < intPropertyCount; i++) {
 		        	Object object = response.getProperty(i);
+		        	Log.d(TAG, object.toString());
 		        	if(object instanceof SoapObject){
 		        		SoapObject responseChild = (SoapObject) object;
-		        		
-		        		SoapObject soapUsername = (SoapObject) responseChild.getProperty("username");
-		        		SoapObject soapPassword = (SoapObject) responseChild.getProperty("password");
-		        		SoapPrimitive soapHighscore = (SoapPrimitive) responseChild.getProperty("highscore");
-		        		
-		        		User user = new User(soapUsername.toString(), soapPassword.toString());
-		        		user.setHighscore(new Integer(soapHighscore.toString()));
-		        		list.add(user);
+		        		Log.d(TAG, responseChild.toString());
+		        		String element = responseChild.toString();
+		        		list.add(element);
 		        	}
 		        	
 		        }
@@ -122,7 +118,6 @@ public class BattleshipSystemStub implements BattleshipSystem {
         	
         }
 
-   
 		
 		return list;
 	}
@@ -234,62 +229,7 @@ public class BattleshipSystemStub implements BattleshipSystem {
 		
 	}
 	
-	/**
-	 * 
-	 * @param methodName
-	 * @param args
-	 * @return
-	 * @throws SoapFault
-	 * 
-	 * Methode spricht den Webservice des BattleshipSystems an und sendet den Methoden-Name plus die zugehörigen Parameter. Die Methode erhält von dem Server
-	 * ein Objekt zurück welches die Rückgabe-Werte, als Liste, der entsprechenden Anfrage beinhalten
-	 */
-	private Object executeSoapActionList(String methodName, Object... args) throws SoapFault {
-		Object result = null;
-		
-		SoapObject request = new SoapObject(NAMESPACE, methodName);
-		
-		for(int i = 0; i < args.length; i++){
-			Log.i(TAG, ""+args[i].toString());
-			request.addPropertyIfValue("arg" + i, args[i]);
-		}
-		
-		SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-		
-		envelope.setOutputSoapObject(request);
-		
-		HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
-		
-		List<HeaderProperty> reqHeaders = null;
-		if(this.sessionId != null){
-			
-			reqHeaders = new ArrayList<HeaderProperty>();
-			reqHeaders.add(HttpHelper.getSessionIdHeader(this.sessionId));			
-		}
-		
-		try{
-			@SuppressWarnings("unchecked")
-			List<HeaderProperty> respHeaders = androidHttpTransport.call(NAMESPACE + methodName, envelope, reqHeaders);
-			Log.i(TAG, ""+respHeaders.size());
-			
-			String httpSession = HttpHelper.readJSessionId(respHeaders);
-			
-			if(httpSession != null){
-				this.sessionId = httpSession;
-			}
-			
-			result = envelope.bodyIn;
-		}
-		catch(SoapFault e){
-			throw e;
-		} catch (IOException e) {
-			Log.e(TAG,"IOException: "+ e.toString());
-		} catch (XmlPullParserException e) {
-			Log.e(TAG,"XmlPullParserException: "+ e.toString());
-		}
-		return result;
-		
-	}
+	
 
 	
 
