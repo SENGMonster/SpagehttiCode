@@ -27,7 +27,7 @@ public class WebServiceCommunicator {
 			e.printStackTrace();
 			
 			// so tun als hätte der User kein Spiel?
-			return "\"\"";
+			return "";
 		}
 		
 	}
@@ -42,7 +42,7 @@ public class WebServiceCommunicator {
 			e.printStackTrace();
 			
 			// so tun als hätte der Computer kein Spiel?
-			return "\"\"";
+			return "";
 		}
 		
 		

@@ -8,6 +8,7 @@
 				  android:id="@+id/tvWinText"
 				  android:layout_width="wrap_content"
 				  android:layout_height="wrap_content"
+				  android:textSize="18pt"
 				  android:layout_margin="5dip"
 			 />
    	<Button
@@ -15,7 +16,6 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="Fertig" 
-	        android:visibility="invisible"
 	    />
     
 

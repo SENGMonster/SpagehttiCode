@@ -32,16 +32,14 @@ public class Battlefieldmanager {
 	
 	public HitStates hasHitAShip(int position, BattleFieldImageAdapter mImageAdapter,  Activity a)
 	{
-		int sunkCounter=0;
 		
 		for(Schiff s:mSpielvorlage.getSchiffsliste()){
 			
+			mSpielvorlage.alreadySunkCounter=8;
+			
 			//überprüfen ob alle Tod sind			
-			if (s.getIsSunk())
+			if (!s.getIsSunk())
 			{
-				sunkCounter +=1;
-			}
-			else{
 				for (int pos:s.Positions){
 					if (pos==position){
 						
@@ -57,9 +55,9 @@ public class Battlefieldmanager {
 							MakeToast("Treffer versenkt: " + s.getName()+ " auf " + String.valueOf(position), a);
 							lastDestroyedShip = s;
 							
-							sunkCounter+=1;
-							System.out.println("Versenkt--> sunkCounter :" + String.valueOf(sunkCounter)+ " |Anzahl: " + String.valueOf(mSpielvorlage.getSchiffsliste().size()));
-							if (sunkCounter==mSpielvorlage.getSchiffsliste().size())
+							mSpielvorlage.alreadySunkCounter+=1;
+							System.out.println("Versenkt--> sunkCounter :" + String.valueOf(mSpielvorlage.alreadySunkCounter)+ " |Anzahl: " + String.valueOf(mSpielvorlage.getSchiffsliste().size()));
+							if (mSpielvorlage.alreadySunkCounter==mSpielvorlage.getSchiffsliste().size())
 							{
 								
 								//falls alle weg sind ENDE
@@ -153,7 +151,7 @@ public class Battlefieldmanager {
 	
 	public void deserializeMeFromString(String BattlefieldString){
 		
-		if (BattlefieldString!=null && !BattlefieldString.contentEquals(""))
+		if (BattlefieldString!=null && !BattlefieldString.contentEquals("") && !BattlefieldString.contentEquals("anyType{}"))
 		{
 		
 			Hashtable<String, Schiff> ht = new Hashtable<String, Schiff>();

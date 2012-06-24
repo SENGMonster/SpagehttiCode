@@ -20,7 +20,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import de.wifhm.se1.android.battleship.manager.GlobalHolder;
 import de.wifhm.se1.android.battleship.manager.WebServiceCommunicator;
-import de.wifhm.se1.android.common.User;
 import de.wifhm.se1.android.util.HighscoreListAdapter;
 
 public class HighscoreActivity extends Activity {

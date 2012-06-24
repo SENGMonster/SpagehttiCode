@@ -46,13 +46,14 @@ public class FinalActivity extends Activity
 		String itemtext ="";
 		
 		if (UserScore>AgentScore){
-			itemtext += "GEWONNEN!\n";
+			itemtext += "GEWONNEN!\n\n";
 		}
 		else{
-			itemtext += "LEIDER VERLOREN!\n";
+			itemtext += "LEIDER VERLOREN!\n\n";
+			UserScore=-UserScore;
 		}
 		
-		itemtext+="Ihr Punktestand von diesem Spiel:" +String.valueOf(UserScore)+"in "+ String.valueOf(UserSteps) + " Schritten.";
+		itemtext+="Sie holten " +String.valueOf(UserScore)+" Punkte in "+ String.valueOf(UserSteps) + " Schritten.";
 		
 		tvEnde.setText(itemtext);
 		

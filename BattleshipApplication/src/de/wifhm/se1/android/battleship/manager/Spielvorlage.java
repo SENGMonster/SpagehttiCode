@@ -11,6 +11,7 @@ public abstract class Spielvorlage {
 	
 	private Collection<SchiffstypAmount> SchiffstypenAnzahlListe;
 	private ArrayList<Schiff> Schiffsliste = new ArrayList<Schiff>();
+	public int alreadySunkCounter =0;
 		
 	public Spielvorlage()
 	{
