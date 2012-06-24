@@ -58,6 +58,7 @@ public class Battlefieldmanager {
 							lastDestroyedShip = s;
 							
 							sunkCounter+=1;
+							System.out.println("Versenkt--> sunkCounter :" + String.valueOf(sunkCounter));
 							if (sunkCounter==mSpielvorlage.getSchiffsliste().size())
 							{
 								
