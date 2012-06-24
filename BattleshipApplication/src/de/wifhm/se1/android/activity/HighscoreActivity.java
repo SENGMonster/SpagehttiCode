@@ -86,8 +86,10 @@ public class HighscoreActivity extends Activity {
 	            WebServiceCommunicator communicator = new WebServiceCommunicator((BattleshipApplication) getApplication());	
 	            String UserGame= communicator.getUserGame();
 	            String AgentGame = communicator.getComputerGame();
-	            GlobalHolder.getInstance().initializeNew(UserGame, AgentGame);
-				
+	            
+	            //GlobalHolder.getInstance().initializeNew(UserGame, AgentGame);
+	            GlobalHolder.getInstance().initializeNew("", "");
+	            
 				startActivity(new Intent(HighscoreActivity.this, PositionShipActivity.class));
 			}
 		});

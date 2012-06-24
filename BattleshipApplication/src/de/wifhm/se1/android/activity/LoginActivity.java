@@ -78,7 +78,7 @@ public class LoginActivity extends Activity {
 		registerNew.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
-				
+				startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
 			}
 		});
 	}
