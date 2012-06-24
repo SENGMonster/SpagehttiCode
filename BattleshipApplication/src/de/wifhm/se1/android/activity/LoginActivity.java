@@ -47,10 +47,10 @@ public class LoginActivity extends Activity {
 		
 		String prefusername = prefs.getString("username", null);
 		String prefpassword = prefs.getString("password", null);
-		if(!prefusername.matches("")){
+		if(!prefusername.matches("") || prefusername != null){
 			username.setText(prefusername);
 		}
-		if(!prefpassword.matches("")){
+		if(!prefpassword.matches("") || prefusername != null){
 			password.setText(prefpassword);
 		}
 		
