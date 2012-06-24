@@ -1,5 +1,6 @@
 package de.wifhm.se1.android.activity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.ksoap2.SoapFault;
@@ -47,14 +48,22 @@ public class HighscoreActivity extends Activity {
 		//TODO HighscoreListe vom Server beziehen
 		
 		
-		try {
+		//try {
 			//TODO
-			List<String>highscores = bsstub.getBsStub().getHighscoreList();
-			Log.d("Highscore", highscores.toString());
+			//List<String>highscores = bsstub.getBsStub().getHighscoreList();
+			List<String>highscores = new ArrayList<String>();
 			
-			for(String s : highscores){
-				Log.d(TAG, s);
-			}
+			highscores.add("Ramona;200");
+			highscores.add("Failure;189");
+			highscores.add("Damn;162");
+			highscores.add("Brigde;122");
+			highscores.add("Test;104");
+			highscores.add("Dummy3;80");
+			highscores.add("Dummy2;40");
+			highscores.add("Haha;20");
+			highscores.add("Brain;10");
+			highscores.add("xD;-5");
+			
 			
 			if(highscores.size() > 0 ){
 				highscorelist.setAdapter(new HighscoreListAdapter(this, highscores));
@@ -66,12 +75,12 @@ public class HighscoreActivity extends Activity {
 				highscorelist.setAdapter(adapter);
 			}
 			
-		} catch (SoapFault e) {
+		/*} catch (SoapFault e) {
 			String[] value = {"No connection"};
 			ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 					android.R.layout.simple_list_item_1, value);
 			highscorelist.setAdapter(adapter);
-		}
+		}*/
 		
 		Button playgame = (Button)findViewById(R.id.playgamebtn);
 		
@@ -86,7 +95,7 @@ public class HighscoreActivity extends Activity {
 	            String UserGame= communicator.getUserGame();
 	            String AgentGame = communicator.getComputerGame();
 	            
-	            GlobalHolder.getInstance().initializeNew(UserGame, AgentGame);
+	            GlobalHolder.getInstance().initializeNew("", "");
 	            
 				startActivity(new Intent(HighscoreActivity.this, PositionShipActivity.class));
 			}

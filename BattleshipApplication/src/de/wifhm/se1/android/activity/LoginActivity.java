@@ -5,6 +5,8 @@ package de.wifhm.se1.android.activity;
 
 import org.ksoap2.SoapFault;
 
+import de.wifhm.se1.android.common.BattleshipSystemStub;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -45,10 +47,10 @@ public class LoginActivity extends Activity {
 		
 		String prefusername = prefs.getString("username", null);
 		String prefpassword = prefs.getString("password", null);
-		if(!prefusername.matches("")){
+		if(!prefusername.matches("") || prefusername != null){
 			username.setText(prefusername);
 		}
-		if(!prefpassword.matches("")){
+		if(!prefpassword.matches("") || prefusername != null){
 			password.setText(prefpassword);
 		}
 		
@@ -69,6 +71,7 @@ public class LoginActivity extends Activity {
 					}
 				}
 				else{
+					bsStub.setBsStub(new BattleshipSystemStub());
 					failuretext.setVisibility(View.VISIBLE);
 					failuretext.setText("Service isn't online");
 				}

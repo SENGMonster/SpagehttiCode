@@ -221,7 +221,7 @@ public class BattleshipSystemStub implements BattleshipSystem {
 		catch(SoapFault e){
 			throw e;
 		} catch (IOException e) {
-			Log.e(TAG,"IOException: "+ e.toString());
+			Log.e(TAG, "IOException: " + e.toString());
 		} catch (XmlPullParserException e) {
 			Log.e(TAG,"XmlPullParserException: "+ e.toString());
 		}
