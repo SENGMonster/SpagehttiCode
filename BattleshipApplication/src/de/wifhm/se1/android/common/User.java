@@ -3,7 +3,14 @@ package de.wifhm.se1.android.common;
 
 import java.io.Serializable;
 
-
+/**
+ * 
+ * @author Marc Paaßen
+ * 
+ * Klasse bildet die User-Klasse ab, die auf dem Server verwaltet wird. 
+ * Diese Klasse wird benötigt damit die SoapObjects die vom Server kommen, wieder in einen User 
+ * gecastet werden können.
+ */
 public class User implements Serializable{
 	/**
 	 * 

@@ -6,14 +6,22 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import de.wifhm.se1.android.common.BattleshipSystemStub;
 import de.wifhm.se1.android.common.User;
-
+/**
+ * 
+ * @author Jens Moelders
+ * Klasse repräsentiert den gemeinsamen Zustand der Gesamten BattleshipApllication
+ *
+ */
 public class BattleshipApplication extends Application {
 	
 	private User angemeldeterUser;
 	private BattleshipSystemStub bsStub;
 	
 	
-	
+	/**
+	 * Methode prüft ob das Endgerät in ein Netzwerk(Mobiles-Internet bzw. Wlan) eingewählt ist.
+	 * @return
+	 */
 	public boolean isOnline(){
 		ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE); 
 		NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
@@ -29,6 +37,7 @@ public class BattleshipApplication extends Application {
 	
 	/**
 	 * @return the angemeldeterUser
+	 * Methode gibt den angemeldenUser zurück
 	 */
 	public User getAngemeldeterUser() {
 		return angemeldeterUser;
@@ -36,6 +45,7 @@ public class BattleshipApplication extends Application {
 	
 	/**
 	 * @return the bsStub
+	 * Methode gibt die Instanz das BattleshipSystemStubs zurück
 	 */
 	public BattleshipSystemStub getBsStub() {
 		return bsStub;
@@ -43,6 +53,7 @@ public class BattleshipApplication extends Application {
 	
 	/**
 	 * @param angemeldeterUser the angemeldeterUser to set
+	 * Methode um den zustand des Angemeldeten Users zu ändern
 	 */
 	public void setAngemeldeterUser(User angemeldeterUser) {
 		this.angemeldeterUser = angemeldeterUser;
@@ -50,6 +61,7 @@ public class BattleshipApplication extends Application {
 	
 	/**
 	 * @param bsStub the bsStub to set
+	 * Methode um die Instanz des BattleshipSystemStubs zu ändern
 	 */
 	public void setBsStub(BattleshipSystemStub bsStub) {
 		this.bsStub = bsStub;

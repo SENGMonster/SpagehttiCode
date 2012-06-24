@@ -19,6 +19,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import de.wifhm.se1.android.common.BattleshipSystemStub;
 
+/**
+ * 
+ * @author Holger Tenbeitel
+ * 
+ * Klasse bildet die StartActivity der Applikation dar, auf dieser Seite der App kann der Nutzer sich entweder einloggen oder registrieren
+ * jenachdem ob der Nutzer sich im Vorfeld schon einmal registriert hat
+ *
+ */
 public class RegisterLoginActivity extends Activity {
 	
 	//private static final String TAG = "LoginRegisterActivity";
@@ -26,6 +34,11 @@ public class RegisterLoginActivity extends Activity {
 	private BattleshipApplication systemStub;
 	private SharedPreferences prefs;
 	
+	/**
+	 * Überschreibt die onCreate()-Methode von Android. In dieser Methode werden die Layouts und Grafischen Felder der Applikation initialisiert
+	 * Zusätzlich werden den Buttons OnClickListener zugeordent, damit der User mit der OBerfläche interagieren kann.
+	 * In dieser Methode werden zudem die in Android hinterlegten Einstelleung abruft.
+	 */
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		
@@ -158,12 +171,22 @@ public class RegisterLoginActivity extends Activity {
         }
         
 	}
+	
+	
+	/**
+	 * Options-Menü siehe 
+	 * @see LoginActivity#onCreateOptionsMenu(Menu)
+	 */
 	public boolean onCreateOptionsMenu(Menu menu){
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.startmenu, menu);
 		return true;
 	}
 	
+	/**
+	 * Clicklistener siehe 
+	 * @see LoginActivity#onOptionsItemSelected(MenuItem)
+	 */
 	public boolean onOptionsItemSelected(MenuItem item){
 		switch(item.getItemId()){
 			case R.id.exit:

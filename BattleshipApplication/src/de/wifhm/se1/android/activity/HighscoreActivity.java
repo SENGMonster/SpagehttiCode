@@ -8,6 +8,7 @@ import org.ksoap2.SoapFault;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.storage.OnObbStateChangeListener;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -22,11 +23,19 @@ import android.widget.ListView;
 import de.wifhm.se1.android.battleship.manager.GlobalHolder;
 import de.wifhm.se1.android.battleship.manager.WebServiceCommunicator;
 import de.wifhm.se1.android.util.HighscoreListAdapter;
-
+/**
+ * 
+ * @author Marc Paaßen
+ *
+ *Klasse bildet die Seite auf der die HighscoreListe angezeigt wird ab, von dieser Seite aus kann ein Spiel gestartet werden.
+ */
 public class HighscoreActivity extends Activity {
 	BattleshipApplication bsstub;
 	private final String TAG = "HighscoreActivity";
 	
+	/**
+	 * Initalisiert das Layout der Activity und einen OnCklicklistener für den "Play Game" Button, um ein Spiel zu starten
+	 */
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.highscorelist);
@@ -102,12 +111,18 @@ public class HighscoreActivity extends Activity {
 		});
 	}
 	
+	/**
+	 * @see LoginActivity#onCreateOptionsMenu(Menu)
+	 * Layout bildet zusätzlich in dem Menü den Logout und Prefernces Button ab
+	 */
 	public boolean onCreateOptionsMenu(Menu menu){
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu, menu);
 		return true;
 	}
-	
+	/**
+	 * @see LoginActivity#onOptionsItemSelected(MenuItem)
+	 */
 	public boolean onOptionsItemSelected(MenuItem item){
 		switch(item.getItemId()){
 			case R.id.logout:
