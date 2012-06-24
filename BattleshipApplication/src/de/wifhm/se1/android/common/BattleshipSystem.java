@@ -4,7 +4,13 @@ import java.util.List;
 
 import org.ksoap2.SoapFault;
 
-
+/**
+ * 
+ * @author Cornelia Hensen
+ * 
+ * Interface stellt die Methoden für die Interaktion zwischen Client und Server bereit
+ *
+ */
 public interface BattleshipSystem {
 	/**
 	 * Login, logout register functions
@@ -52,6 +58,7 @@ public interface BattleshipSystem {
 	 * 
 	 * @return
 	 * @throws SoapFault
+	 * Methode liefert den gespeicherten Wert für den GameState des Players zurück
 	 */
 	public String getPlayerGameState() throws SoapFault;
 	

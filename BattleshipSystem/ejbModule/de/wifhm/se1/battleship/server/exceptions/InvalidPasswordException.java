@@ -1,5 +1,11 @@
 package de.wifhm.se1.battleship.server.exceptions;
-
+/**
+ * 
+ * @author Marc Paaßen
+ * 
+ * Exception die auftritt wenn das Passwort falsch ist
+ *
+ */
 public class InvalidPasswordException extends Exception {
 
 	/**

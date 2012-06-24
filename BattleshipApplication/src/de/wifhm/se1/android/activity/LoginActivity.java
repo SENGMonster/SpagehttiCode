@@ -85,13 +85,17 @@ public class LoginActivity extends Activity {
 			}
 		});
 	}
-	
+	/**
+	 * Method stellt das Menü dar, wenn der Nutzer auf die Menü taste seines Handys drückt
+	 */
 	public boolean onCreateOptionsMenu(Menu menu){
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.startmenu, menu);
 		return true;
 	}
-	
+	/**
+	 * OnClickListener für die einzelnen Elemente in dem Optionsmenu
+	 */
 	public boolean onOptionsItemSelected(MenuItem item){
 		switch(item.getItemId()){
 			case R.id.exit:

@@ -27,7 +27,11 @@ public class RegisterActivity extends Activity {
 	private BattleshipApplication systemStub;
 	private SharedPreferences prefs;
 	
-	/** Called when the activity is first created. */
+	/** 
+	 * 
+	 * Called when the activity is first created.
+	 * Stellt das Reigster-Layout dar und implementiert die Register-Funktionen
+	 * Greift auf die Klasse BattleshipApplication zu, und darin auf die Instanz des BattleshipSystemSubs und deren Methoden */
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,13 +97,19 @@ public class RegisterActivity extends Activity {
         	
         });
     }
-	
+	/**
+	 * Options-Menü siehe 
+	 * @see RegisterLoginActivity#onCreateOptionsMenu(Menu)
+	 */
 	public boolean onCreateOptionsMenu(Menu menu){
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.startmenu, menu);
 		return true;
 	}
-	
+	/**
+	 * Clicklistener siehe 
+	 * @see RegisterLoginActivity#onOptionsItemSelected(MenuItem)
+	 */
 	public boolean onOptionsItemSelected(MenuItem item){
 		switch(item.getItemId()){
 			case R.id.exit:

@@ -11,7 +11,11 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import de.wifhm.se1.android.activity.R;
 import de.wifhm.se1.android.common.User;
-
+/**
+ * 
+ * @author Marc Paaßen
+ * Adapter um die List<String> mit den Highscore-Werten in dem ListView darstellen zu können
+ */
 public class HighscoreListAdapter extends BaseAdapter {
 	
 	private LayoutInflater inflater;
@@ -22,24 +26,36 @@ public class HighscoreListAdapter extends BaseAdapter {
 		this.highscorelist = highscorelist;
 	}
 	@Override
+	/**
+	 * gibt die größe der Liste zurück die dem Adapter übergeben wurde
+	 */
 	public int getCount() {
 		// TODO Auto-generated method stub
 		return this.highscorelist.size();
 	}
 
 	@Override
+	/**
+	 * Methode zieht sich das Item der spezifierten Position aus der Übergebenen Liste
+	 */
 	public Object getItem(int position) {
 		// TODO Auto-generated method stub
 		return this.highscorelist.get(position);
 	}
 
 	@Override
+	/**
+	 * Methode gibt die jetzige Position in der ListView zurück
+	 */
 	public long getItemId(int position) {
 		// TODO Auto-generated method stub
 		return position;
 	}
 
 	@Override
+	/**
+	 * Baut den View der einzelnen Listen einträge
+	 */
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		ViewHolder holder;
@@ -80,6 +96,11 @@ public class HighscoreListAdapter extends BaseAdapter {
 		return v;
 	}
 	
+	/**
+	 * 
+	 * Holder für die einzelnen erstellten Listeneinträge
+	 *
+	 */
 	static class ViewHolder{
 		TextView username, highscorepoints;
 	}

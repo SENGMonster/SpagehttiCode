@@ -29,6 +29,8 @@ import de.wifhm.se1.battleship.server.exceptions.InvalidUsernameException;
 import de.wifhm.se1.battleship.server.exceptions.NotLoggedInException;
 
 /**
+ * 
+ * @author Holger Tenbeitel
  * Session Bean implementation class BattleshipSystemWebservice
  * Statless Session Bean implementiert einen Webservice, der als Schnittstelle zwischen dem Client und dem Server
  * fungiert. 
