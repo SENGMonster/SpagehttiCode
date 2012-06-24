@@ -53,7 +53,7 @@ public class Battlefieldmanager {
 		
 		for(Schiff s:mSpielvorlage.getSchiffsliste()){
 			
-			mSpielvorlage.alreadySunkCounter=8;
+			//mSpielvorlage.alreadySunkCounter=8;
 			
 			//überprüfen ob alle Tod sind			
 			if (!s.getIsSunk())

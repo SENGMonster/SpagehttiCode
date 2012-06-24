@@ -53,8 +53,8 @@ public class PositionShipActivity extends Activity {
 	
 	private BattleshipApplication bsstub;
 	
-	private final int numOfRowsCols =GlobalHolder.getInstance().getNumOfRowsCols(); 
-	private final int FieldCount=numOfRowsCols*numOfRowsCols;
+	private int numOfRowsCols =GlobalHolder.getInstance().getNumOfRowsCols(); 
+	private int FieldCount=numOfRowsCols*numOfRowsCols;
 	
 	private ImageView shipimg;
 	private TextView txtShipLength;
@@ -185,6 +185,12 @@ public class PositionShipActivity extends Activity {
 	    setContentView(R.layout.positionships);
 	    
 	    this.bsstub = (BattleshipApplication)getApplication();
+	    
+	    
+	    
+	    numOfRowsCols=GlobalHolder.getInstance().getNumOfRowsCols();
+	    
+	    
 	    // ------------- SPIELVORLAGE -------
 	    
 	  
@@ -343,7 +349,7 @@ public class PositionShipActivity extends Activity {
 		            		
 		            		 btnCancel.setVisibility(View.VISIBLE);
 		            	}
-		            	else{
+		            	else if(ClickCounter==1){
 		            		if(EndPosition!=-1)
 		            		{
 		            			//gvPositionView.addNewImgToPosition(EndPosition, currShip.getImage());

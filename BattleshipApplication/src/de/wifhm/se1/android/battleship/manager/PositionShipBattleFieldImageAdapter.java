@@ -22,13 +22,14 @@ public class PositionShipBattleFieldImageAdapter extends BaseAdapter {
     
 	Hashtable<Integer, Integer> numbers = new Hashtable<Integer, Integer>();
   
-	private static final int count = 100;
+	private int count = GlobalHolder.getInstance().getNumOfRowsCols()*GlobalHolder.getInstance().getNumOfRowsCols();			; 
 	
 	private Context mContext;        
 	
     public PositionShipBattleFieldImageAdapter(Context c) { 
         mContext = c;
        
+        count =GlobalHolder.getInstance().getNumOfRowsCols()*GlobalHolder.getInstance().getNumOfRowsCols();
         
         for(int i=0; i<count; i++)
         {

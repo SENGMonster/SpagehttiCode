@@ -39,14 +39,17 @@ public class Helper {
 	 * @return
 	 */
 	public int getGerundetFromInteger(int Zahl, int numOfRowsCols){
-		  String number = String.valueOf(Zahl);
-		String subStrNumber=number;
-	    if (number.length()>1)
-	    {
-	    	 subStrNumber = number.substring(0,number.length()-1);
-		}
-
-	    int gerundet=Integer.valueOf(subStrNumber)*numOfRowsCols;
+//		  String number = String.valueOf(Zahl);
+//		String subStrNumber=number;
+//	    if (number.length()>1)
+//	    {
+//	    	 subStrNumber = number.substring(0,number.length()-1);
+//		}
+//
+//	    int gerundet=Integer.valueOf(subStrNumber)*numOfRowsCols;
+		int n = GlobalHolder.getInstance().getNumOfRowsCols();
+		int index = (int) Math.ceil(Zahl/n);
+		int gerundet = index *n; 
 	    return gerundet;
 	}
 	
